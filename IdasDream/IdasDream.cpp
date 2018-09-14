@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "IdasDream.h"
+#include <glm/glm.hpp>
 
-IdasDream::IdasDream()
-	: Application({})
+IdasDream::IdasDream(int width, int height, bool fullscreen)
+	: Application({ width, height, fullscreen, "Idas Dream", 4, 6 })
 {
 }
 

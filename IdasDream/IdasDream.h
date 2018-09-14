@@ -6,7 +6,7 @@ class IdasDream
 	: public Application
 {
 public:
-	IdasDream();
+	IdasDream(int width, int height, bool fullscreen);
 	virtual ~IdasDream();
 
 	void init() override;
