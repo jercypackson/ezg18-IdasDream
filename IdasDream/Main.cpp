@@ -19,6 +19,7 @@ int main(int argc, char** argv)
 		reader.GetInteger("WindowParams", "height", 800),
 		reader.GetBoolean("WindowParams", "fullscreen", false)
 	);
+
 	if (!app->start()) {
 		std::getchar();
 		return EXIT_FAILURE;
