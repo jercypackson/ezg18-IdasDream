@@ -12,7 +12,8 @@
 #include <limits>
 
 IdasDream::IdasDream(int width, int height, bool fullscreen)
-	: Application({ width, height, fullscreen, "Idas Dream", 4, 6 })
+	: Application({ width, height, fullscreen, "Idas Dream", 4, 6 }),
+	_arcballCamera({ 60.0f, (float)width / height, 0.1f, 10000.0f })
 {
 }
 
@@ -22,6 +23,8 @@ IdasDream::~IdasDream()
 
 void IdasDream::init()
 {
+	_arcballCamera.registerToWindow(_window);
+
 	// load and use default shader
 	_shader = std::make_unique<Shader>(Extensions::assets + "shader/simple", ShaderList{ ShaderType::VERTEX, ShaderType::FRAGMENT });
 	_shader->registerToWindow(_window);
@@ -34,7 +37,28 @@ void IdasDream::init()
 	std::string s = path + name;
 	const aiScene* scene = importer.ReadFile(s.c_str(), aiProcess_Triangulate);
 
-	auto corpusMesh = scene->mMeshes[scene->mRootNode->FindNode("Corpus")->mMeshes[0]];
+	auto nodeMesh = scene->mRootNode->FindNode("Corpus");
+	auto corpusMesh = scene->mMeshes[nodeMesh->mMeshes[0]];
+
+	auto mm = nodeMesh->mTransformation.Transpose();
+
+	_mm = glm::mat4();
+	_mm[0].x = mm.a1;
+	_mm[0].y = mm.a2;
+	_mm[0].z = mm.a3;
+	_mm[0].w = mm.a4;
+	_mm[1].x = mm.b1;
+	_mm[1].y = mm.b2;
+	_mm[1].z = mm.b3;
+	_mm[1].w = mm.b4;
+	_mm[2].x = mm.c1;
+	_mm[2].y = mm.c2;
+	_mm[2].z = mm.c3;
+	_mm[2].w = mm.c4;
+	_mm[3].x = mm.d1;
+	_mm[3].y = mm.d2;
+	_mm[3].z = mm.d3;
+	_mm[3].w = mm.d4;
 
 	std::vector<glm::vec3> positions;
 	std::vector<glm::vec3> normals;
@@ -90,17 +114,20 @@ void IdasDream::init()
 	glEnable(GL_DEPTH_TEST);
 }
 
-glm::mat4 m(1.0f);
-
 void IdasDream::render(float dt)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	_shader->setUniform("VP", m);
-	_shader->setUniform("M", m);
+	_shader->setUniform("VP", _arcballCamera.getViewProjectionMatrix());
+	_shader->setUniform("M", _mm);
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
+}
+
+void IdasDream::update(float dt)
+{
+	_arcballCamera.update(_window, dt);
 }
 
 void IdasDream::destroy()
