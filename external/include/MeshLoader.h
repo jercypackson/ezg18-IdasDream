@@ -9,11 +9,9 @@ private:
 	MeshLoader() { }
 	~MeshLoader() { }
 
-	static GeometryData createSphereGeometry(glm::vec3 center, unsigned int longitudeSegments, unsigned int latitudeSegments, float radius);
 
 public:
-	static bool loadOBJ(std::string file, std::vector<Geometry>& geometry, bool packMultiDraw = false);
-	static Geometry createSphere(glm::vec3 center, unsigned int longitudeSegments, unsigned int latitudeSegments, float radius);
-	static Geometry createPlane();
-	static Geometry createMultiIndirectTest();
+	static bool loadOBJ(std::string file, std::vector<GeometryData>& geometryData);
+	static GeometryData createSphereGeometry(glm::vec3 center, unsigned int longitudeSegments, unsigned int latitudeSegments, float radius);
+	static GeometryData createPlaneGeometry(glm::vec3 center, float width, float height);
 };

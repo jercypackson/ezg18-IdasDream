@@ -23,13 +23,15 @@ enum class ShaderType {
 	COMPUTE = GL_COMPUTE_SHADER
 };
 
+typedef std::unordered_set<ShaderType> ShaderList;
+
 class Shader
 {
 private:
 	GLuint _handle;
 
 	std::unordered_map<ShaderType, std::string> _sources;
-	std::unordered_set<ShaderType> _types;
+	ShaderList _types;
 
 	std::unordered_map<std::string, GLint> _locations;
 	std::unordered_map<std::string, GLint> _blockIndices;
@@ -43,7 +45,11 @@ private:
 
 public:
 
-	Shader(std::string name, std::initializer_list<ShaderType> types);
+	Shader(std::string name, ShaderList types);
+	Shader(const Shader&) = delete;
+	Shader& operator=(const Shader&) = delete;
+	Shader(Shader&& other);
+	Shader& operator=(Shader&& other);
 	~Shader();
 
 	void use() const;

@@ -9,6 +9,31 @@
 #include "Buffer.h"
 #include "IDManager.h"
 
+
+struct BoundingBox
+{
+	glm::vec4 minVertex;
+	glm::vec4 maxVertex;
+
+	glm::vec4 center() { return 0.5f * (minVertex + maxVertex); }
+	glm::vec4 sphere()
+	{
+		glm::vec4 c_ = center();
+		glm::vec3 c = glm::vec3(c_.x, c_.y, c_.z);
+		float r = glm::distance(c, glm::vec3(minVertex.x, minVertex.y, minVertex.z));
+		return glm::vec4(c, r);
+	}
+};
+
+struct GeometryData
+{
+	std::vector<glm::vec3> positions;
+	std::vector<glm::vec3> normals;
+	std::vector<glm::vec2> uvs;
+	std::vector<unsigned int> indices;
+	BoundingBox boundingBox;
+};
+
 struct VertexAttribFormat 
 {
 	unsigned int components;
@@ -35,6 +60,13 @@ struct VertexAttribFormat
 
 		return components * sizeDataType;
 	}
+};
+
+enum class VertexAttribDefaults : unsigned int
+{
+	POSITIONS = 0,
+	NORMALS = 1,
+	UVS = 2
 };
 
 struct DrawCallInfo
@@ -67,6 +99,8 @@ struct DrawCallInfo
 	std::vector<unsigned int> multiDrawRange = {};
 	std::vector<unsigned int> baseVertex = { 0 };
 	void* indirect = 0;
+
+	static DrawCallInfo fromGeometryData(const std::vector<GeometryData>& geometryData);
 };
 
 enum class ElementBufferDataType
@@ -74,30 +108,6 @@ enum class ElementBufferDataType
 	UNSIGNED_BYTE = GL_UNSIGNED_BYTE,
 	UNSIGNED_INT = GL_UNSIGNED_INT,
 	UNSIGNED_SHORT = GL_UNSIGNED_SHORT
-};
-
-struct BoundingBox
-{
-	glm::vec4 minVertex;
-	glm::vec4 maxVertex;
-
-	glm::vec4 center() { return 0.5f * (minVertex + maxVertex); }
-	glm::vec4 sphere() 
-	{ 
-		glm::vec4 c_ = center();
-		glm::vec3 c = glm::vec3(c_.x, c_.y, c_.z);
-		float r = glm::distance(c, glm::vec3(minVertex.x, minVertex.y, minVertex.z));
-		return glm::vec4(c, r); 
-	}
-};
-
-struct GeometryData 
-{
-	std::vector<glm::vec3> positions;
-	std::vector<glm::vec3> normals;
-	std::vector<glm::vec2> uvs;
-	std::vector<unsigned int> indices;
-	BoundingBox boundingBox;
 };
 
 
@@ -117,9 +127,7 @@ private:
 	DrawCallInfo _dcInfo;
 	struct DrawCallInfoIntern {
 		std::vector<unsigned int> mdRange;
-		std::vector<int> mdRangeFirst;
 		std::vector<int> mdRangeCount;
-		std::vector<void*> mdRangeIndices;
 	} _dcInfoIntern;
 	void (Geometry::*_draw)() const;
 
@@ -128,7 +136,7 @@ private:
 	void addVertexAttrib_(GLuint bufferHandle, const VertexAttribFormat& format, unsigned int location);
 
 public:
-	Geometry(DrawCallInfo drawCallInfo, std::vector<BoundingBox> boundingBox);
+	Geometry(DrawCallInfo drawCallInfo, const std::vector<GeometryData>& geometryData = {});
 	Geometry(const Geometry& other) = delete;
 	Geometry& operator=(const Geometry& other) = delete;
 	Geometry(Geometry&& other);
@@ -152,12 +160,10 @@ public:
 	void drawTriangleArrays() const;
 	void drawTriangleArraysInstanced() const;
 	void drawTriangleArraysIndirect() const;
-	void drawMultiTriangleArrays() const;
 	void drawMultiTriangleArraysIndirect() const;
 	void drawTriangleElements() const;
 	void drawTriangleElementsInstanced() const;
 	void drawTriangleElementsIndirect() const;
-	void drawMultiTriangleElements() const;
 	void drawMultiTriangleElementsIndirect() const;
 	void drawMultiTriangleElementsIndirectCount() const;
 	void drawPatchArrays() const;

@@ -11,6 +11,12 @@ public:
 
 	void init() override;
 	void render(float dt) override;
+	void update(float dt) override {};
 	void destroy() override;
+
+private:
+	std::unique_ptr<Shader> _shader;
+	std::vector<Geometry> _obj;
+
 };
 

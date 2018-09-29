@@ -46,9 +46,15 @@ struct KeyInput {
 		D = GLFW_KEY_D,
 		Q = GLFW_KEY_Q,
 		E = GLFW_KEY_E,
+		UP = GLFW_KEY_UP,
+		DOWN = GLFW_KEY_DOWN,
+		LEFT = GLFW_KEY_LEFT,
+		RIGHT = GLFW_KEY_RIGHT,
 		ESCAPE = GLFW_KEY_ESCAPE,
 		ENTER = GLFW_KEY_ENTER,
-		SPACE = GLFW_KEY_SPACE
+		TAB = GLFW_KEY_TAB,
+		SPACE = GLFW_KEY_SPACE,
+		LEFT_SHIFT = GLFW_KEY_LEFT_SHIFT
 	} key;
 };
 
@@ -82,16 +88,37 @@ public:
 	Window(WindowParams params);
 	~Window();
 
-	int getWidth() { return _params.width; }
-	int getHeight() { return  _params.height; }
-	std::string getTitle() { return _params.title; }
-	double getTime() { return glfwGetTime(); }
-	void getCursorPosition(int& x, int& y) { 
+	int getWidth() const { return _params.width; }
+	int getHeight() const { return  _params.height; }
+	std::string getTitle() const { return _params.title; }
+	double getTime() const { return glfwGetTime(); }
+	void getCursorPosition(int& x, int& y) const { 
 		double x_, y_;
 		glfwGetCursorPos(_window, &x_, &y_); 
 		x = static_cast<int>(x_);
 		y = static_cast<int>(y_);
 	};
+	void getCursorPositionOfCenter(int& x, int&y) const {
+		x = _params.width / 2;
+		y = _params.height / 2;
+	}
+	void setCursorPosition(int x, int y) const {
+		if (x < 0 || x >= _params.width || y < 0 || y >= _params.height) return;
+		glfwSetCursorPos(_window, static_cast<double>(x), static_cast<double>(y));
+	}
+	void setCursorPositionToCenter() const {
+		setCursorPosition(_params.width / 2, _params.height / 2);
+	}
+	void hideCursor() const {
+		glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	}
+	void showCursor() const {
+		glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	}
+	bool isKeyPressed(KeyInput::Key key) const {
+		int state = glfwGetKey(_window, static_cast<int>(key));
+		return state == GLFW_PRESS;
+	}
 
 	bool open();
 	void endFrame();
@@ -102,8 +129,12 @@ public:
 	void registerDebugCallback(DebugCallback cb);
 	ID registerMouseInputHandler(MouseInputCallback cb);
 	ID registerKeyInputHandler(KeyInputCallback cb);
+	void unregisterMouseInputHandler(ID id);
+	void unregisterKeyInputHandler(ID id);
 	
 	void mouseInputEvent(const MouseInput& inp);
 	void keyInputEvent(const KeyInput& inp);
+
+	void bindDefaultFramebuffer() const;
 };
 

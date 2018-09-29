@@ -9,18 +9,18 @@
 
 enum class BufferUsage {
 	STATIC = 0,
-	DYNAMIC = GL_DYNAMIC_STORAGE_BIT,
+	DYNAMIC = GL_DYNAMIC_STORAGE_BIT/*,
 	MAP_READ = GL_MAP_READ_BIT,
 	MAP_WRITE = GL_MAP_WRITE_BIT,
 	MAP_READ_WRITE = GL_MAP_READ_BIT | GL_MAP_WRITE_BIT,
-	PERSISTENT = GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT
+	MAP_PERSISTENT = GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT*/
 };
 
-enum class BufferMapUsage {
+/*enum class BufferMapUsage {
 	READ = GL_READ_ONLY,
 	WRITE = GL_WRITE_ONLY,
 	READ_WRITE = GL_READ_WRITE
-};
+};*/
 
 enum class BufferType {
 	SSBO = GL_SHADER_STORAGE_BUFFER,
@@ -54,14 +54,13 @@ public:
 		glGetNamedBufferSubData(_handle, offset, length, data);
 	}
 	
-	template <typename T>
+	/*template <typename T>
 	T* map(BufferMapUsage usage, size_t length = std::numeric_limits<size_t>::max(), size_t offset = 0)
 	{
 		length = glm::min(length, _size);
 		void* ptr = glMapNamedBufferRange(_handle, offset, length, (GLenum)usage);
-		//void* ptr = glMapNamedBuffer(_handle, (GLenum)usage);
 		return static_cast<T*>(ptr);
 	}
 
-	void unmap();
+	void unmap();*/
 };

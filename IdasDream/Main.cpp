@@ -9,10 +9,6 @@ int main(int argc, char** argv)
 {
 	// Read settings
 	INIReader reader("../assets/settings.ini");
-	if (reader.ParseError() < 0) {
-		std::cout << "Can't load 'test.ini'\n";
-		return EXIT_FAILURE;
-	}
 
 	std::unique_ptr<IdasDream> app = std::make_unique<IdasDream>(
 		reader.GetInteger("WindowParams", "width", 1600),
