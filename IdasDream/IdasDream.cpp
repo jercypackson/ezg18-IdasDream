@@ -23,9 +23,10 @@ IdasDream::~IdasDream()
 void IdasDream::init()
 {
 	// load and use default shader
-	_shader = std::make_unique<Shader>("assets/shader/simple", ShaderList{ ShaderType::VERTEX, ShaderType::FRAGMENT });
+	_shader = std::make_unique<Shader>(Extensions::assets + "shader/simple", ShaderList{ ShaderType::VERTEX, ShaderType::FRAGMENT });
 	_shader->registerToWindow(_window);
 	_shader->use();
+	_shader->setUniform("color", glm::vec4(0, 0, 1, 1));
 
 	Assimp::Importer importer;
 	std::string path = "C:/OneDrive/OneDrive - student.tuwien.ac.at/uni/Masterstudium Visual Computing/18WS/RTR/objects/";
@@ -100,7 +101,6 @@ void IdasDream::render(float dt)
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
-
 }
 
 void IdasDream::destroy()

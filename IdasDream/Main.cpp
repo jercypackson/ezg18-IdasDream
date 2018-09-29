@@ -4,11 +4,12 @@
 #include "Application.h"
 #include <memory>
 #include <INIReader.h>
+#include "Extensions.h"
 
 int main(int argc, char** argv)
 {
 	// Read settings
-	INIReader reader("../assets/settings.ini");
+	INIReader reader(Extensions::assets + "settings.ini");
 
 	std::unique_ptr<IdasDream> app = std::make_unique<IdasDream>(
 		reader.GetInteger("WindowParams", "width", 1600),
