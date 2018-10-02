@@ -6,7 +6,6 @@
 #include <GL\glew.h>
 
 #include "Window.h"
-#include "Shader.h"
 
 class Application
 {

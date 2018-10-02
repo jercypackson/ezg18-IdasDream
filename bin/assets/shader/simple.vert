@@ -25,6 +25,6 @@ void main() {
 	vert.position_ws = vec3(M * vec4(position, 1));
 	vert.normal_ws = vec3(M * vec4(normal, 0));
 	vert.uv = uv;
-	vert.diffuseColor = color.rgb;
+	vert.diffuseColor = diffuseColors[gl_DrawID].rgb;
 	gl_Position = VP * ((M * vec4(position, 1)) + vec4(offsetPosition, 0));
 }
