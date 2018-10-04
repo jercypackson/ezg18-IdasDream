@@ -28,8 +28,4 @@ public:
 	void update(const Window& window, float dt) override;
 	void registerToWindow(Window& window) override;
 	void unregisterFromWindow(Window& window) override;
-
-	glm::vec3 getWorld() {
-		return _strafe;
-	}
 };

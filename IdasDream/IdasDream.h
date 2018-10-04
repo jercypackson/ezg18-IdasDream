@@ -24,14 +24,11 @@ private:
 	std::shared_ptr<Shader> _shader;
 	std::vector<Geometry> _obj;
 	ArcballCamera _arcballCamera;
-	glm::mat4 _mm;
 
 	DirectionalLight _dirL;
-    PointLight _pointL;
 
 	SceneObject* _scene;
 
 	std::unique_ptr<Buffer> _dataBuffer;
-	std::unique_ptr<Buffer> _mmBuffer;
 
 };

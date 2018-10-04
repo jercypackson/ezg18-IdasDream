@@ -17,7 +17,7 @@
 
 IdasDream::IdasDream(int width, int height, bool fullscreen)
 	: Application({ width, height, fullscreen, "Idas Dream", 4, 6 }),
-	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 10000.0f })
+	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
 {
 	_arcballCamera.setZoom(50);
 }
@@ -76,18 +76,13 @@ void IdasDream::init()
 	_dataBuffer->bind(BufferType::SSBO, 0);
 
 	// Initialize lights
-	_dirL = DirectionalLight(glm::vec3(0.1f), glm::vec3(25.f, -25.f, -21.f));
-	_pointL = PointLight(glm::vec3(50.0f), glm::vec3(-25.f, 25.f, 21.f), glm::vec3(1.0f, 0.4f, 0.1f));
+	_dirL = DirectionalLight(glm::vec3(1.0f), glm::vec3(0.5,-1,-0.3));
 
 	_shader->setUniform("dirL.color", _dirL.color);
 	_shader->setUniform("dirL.direction", _dirL.direction);
-	_shader->setUniform("pointL.color", _pointL.color);
-	_shader->setUniform("pointL.position", _pointL.position);
-	_shader->setUniform("pointL.attenuation", _pointL.attenuation);
-
 
 	// some OpenGL defaults
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(0.3f,0.5f,0.8f, 1.0f);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 }
@@ -97,7 +92,7 @@ void IdasDream::render(float dt)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	_shader->setUniform("viewProjMatrix", _arcballCamera.getViewProjectionMatrix());
-	_shader->setUniform("camera_world", _arcballCamera.getWorld());
+	_shader->setUniform("camera_world", _arcballCamera.getPosition());
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
