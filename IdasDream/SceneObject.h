@@ -15,7 +15,7 @@ public:
 	void addData(GeometryData geometryData, std::shared_ptr<Material> material);
 
 	glm::mat4 getModelMatrix();
-	glm::mat3 getNormalMatrix();
+	glm::mat4 getNormalMatrix();
 	GeometryData getGeometryData();
 	std::shared_ptr<Material> getMaterial();
 
@@ -28,7 +28,7 @@ private:
 	glm::vec3 _position;
 	glm::vec3 _rotation;
 	glm::mat4 _modelMatrix;
-	glm::mat3 _normalMatrix;
+	glm::mat4 _normalMatrix;
 	SceneObject* _parent;
 
 	bool hasData = false;

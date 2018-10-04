@@ -57,15 +57,19 @@ void IdasDream::init()
 	std::vector<Data> data;
 
 	ForEach(_scene, [&gd = geometryData, &d = data](SceneObject* s) {
-		if (ColorMaterial* mat = dynamic_cast<ColorMaterial*>(s->getMaterial().get())) { //todo sort by different shaders
+		auto material = s->getMaterial().get();
+		if (ColorMaterial* mat = dynamic_cast<ColorMaterial*>(material)) { //todo sort by different shaders
 			if (s->getHasData()) {
 				gd.push_back(s->getGeometryData());
 				d.push_back({
 					s->getModelMatrix(),
-					glm::mat4(s->getNormalMatrix()),
-					glm::vec4(mat->getColor(),1)
+					s->getNormalMatrix(),
+					mat->getColor()
 				});
 			}
+		}
+		else if (TextureMaterial* mat = dynamic_cast<TextureMaterial*>(material)) {
+
 		}
 	});
 
@@ -101,8 +105,4 @@ void IdasDream::render(float dt)
 void IdasDream::update(float dt)
 {
 	_arcballCamera.update(_window, dt);
-}
-
-void IdasDream::destroy()
-{
 }

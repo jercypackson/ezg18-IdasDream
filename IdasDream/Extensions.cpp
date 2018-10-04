@@ -21,6 +21,12 @@ glm::vec3 Extensions::toGlmVec3(const aiColor4D & aiCol4)
 	return glm::vec3(aiCol4.r, aiCol4.g, aiCol4.b);
 }
 
+glm::vec4 Extensions::toGlmVec4(const aiColor4D & aiCol4)
+{
+	return glm::vec4(aiCol4.r, aiCol4.g, aiCol4.b, aiCol4.a);
+}
+
+
 glm::mat4 Extensions::toGlmMat4(const aiMatrix4x4 & aiMat4)
 {
 	glm::mat4 glmMat4(1.f);

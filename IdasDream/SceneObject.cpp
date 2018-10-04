@@ -17,7 +17,7 @@ SceneObject::SceneObject(glm::mat4 modelMatrix, SceneObject * parent)
 
 	if (_parent) _parent->addChild(this);
 
-	_normalMatrix = glm::mat3(glm::transpose(glm::inverse(getModelMatrix())));
+	_normalMatrix = glm::transpose(glm::inverse(getModelMatrix()));
 }
 
 SceneObject::~SceneObject()
@@ -40,7 +40,7 @@ glm::mat4 SceneObject::getModelMatrix() {
 	return _modelMatrix;
 }
 
-glm::mat3 SceneObject::getNormalMatrix() {
+glm::mat4 SceneObject::getNormalMatrix() {
 	return _normalMatrix;
 }
 

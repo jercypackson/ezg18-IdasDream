@@ -18,7 +18,6 @@ public:
 	void init() override;
 	void render(float dt) override;
 	void update(float dt) override;
-	void destroy() override;
 
 private:
 	std::shared_ptr<Shader> _shader;

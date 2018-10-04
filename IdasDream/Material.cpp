@@ -34,7 +34,7 @@ void Material::setUniforms()
 // Texture material
 /* --------------------------------------------- */
 
-TextureMaterial::TextureMaterial(std::shared_ptr<Shader> shader, glm::vec3 materialCoefficients, float alpha, std::shared_ptr<Texture> diffuseTexture)
+TextureMaterial::TextureMaterial(std::shared_ptr<Shader> shader, glm::vec3 materialCoefficients, float alpha, std::shared_ptr<Texture2DBL> diffuseTexture)
 	: Material(shader, materialCoefficients, alpha), _diffuseTexture(diffuseTexture)
 {
 }
@@ -45,17 +45,17 @@ TextureMaterial::~TextureMaterial()
 
 void TextureMaterial::setUniforms()
 {
-	Material::setUniforms();
+	//Material::setUniforms();
 
 	//_diffuseTexture->bind(0);
-	_shader->setUniform("diffuseTexture", 0);
+	//_shader->setUniform("diffuseTexture", 0);
 }
 
 /* --------------------------------------------- */
 // Texture material
 /* --------------------------------------------- */
 
-ColorMaterial::ColorMaterial(std::shared_ptr<Shader> shader, glm::vec3 color, glm::vec3 materialCoefficients, float alpha)
+ColorMaterial::ColorMaterial(std::shared_ptr<Shader> shader, glm::vec4 color, glm::vec3 materialCoefficients, float alpha)
 	: Material(shader, materialCoefficients, alpha),  _color(color)
 {
 }
@@ -71,7 +71,7 @@ void ColorMaterial::setUniforms()
 	_shader->setUniform("diffuseColor", _color);
 }
 
-glm::vec3 ColorMaterial::getColor()
+glm::vec4 ColorMaterial::getColor()
 {
 	return _color;
 }

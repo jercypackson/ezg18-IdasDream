@@ -5,6 +5,10 @@
 #include "Geometry.h"
 #include "ShaderManager.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb\stb_image.h>
+
+
 // todo create hierachy, sort after material/shader
 
 Importer::Importer(std::string path) 
@@ -78,23 +82,47 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 		std::shared_ptr<Material> mat;
 
-		aiMaterial *material = _scene->mMaterials[mesh->mMaterialIndex];
-		if (material->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
-			//has texture
-			//todo load
-		}
-		else {
-			aiColor4D* pOut = new aiColor4D(1,0,0,1); //default
-			aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, pOut);
+		aiMaterial *aiMat = _scene->mMaterials[mesh->mMaterialIndex];
+		auto diffMatCount = aiMat->GetTextureCount(aiTextureType_DIFFUSE);
 
-			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec3(*pOut), glm::vec3(1), 1);
+		if (diffMatCount == 0) {
+			aiColor4D* pOut = new aiColor4D(1,0,0,1); //default
+			aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_DIFFUSE, pOut);
+
+			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec4(*pOut), glm::vec3(1), 1);
 			
 			delete pOut;
+		}
+		else if (diffMatCount == 1) {
+			aiString str;
+			aiMat->GetTexture(aiTextureType_DIFFUSE, 0, &str);
+
+			auto tex = Extensions::assets + "textures/" + str.C_Str();
+
+			int width, height, nrComponents;
+			unsigned char *data = stbi_load(tex.c_str(), &width, &height, &nrComponents, 4);
+
+			TextureFormat f;
+
+			if (nrComponents == 1) {
+				f = TextureFormat::R8;
+			}
+			else if (nrComponents == 4) {
+				f = TextureFormat::RGBA8;
+			}
+			else {
+				std::cout << "ERROR: This texture is not supported." << std::endl;
+			}
+
+			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("tex"), glm::vec3(), 0, 
+				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo(), data));
+		}
+		else {
+			std::cout << "ERROR: Multiple Textures on one object not supported." << std::endl;
 		}
 
 		s->addData(gd, mat);
 	}
-
 	else if (node->mNumMeshes > 1) {
 		std::cout << "Error: More than one mesh in node!" << std::endl;
 	}

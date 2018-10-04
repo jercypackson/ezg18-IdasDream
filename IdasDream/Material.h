@@ -8,7 +8,7 @@
 #include <memory>
 #include <glm/glm.hpp>
 #include "Shader.h"
-#include "Texture.h"
+#include "Tex.h"
 
 /*!
  * Base material
@@ -62,7 +62,7 @@ protected:
 	/*!
 	 * The diffuse texture of this material
 	 */
-	std::shared_ptr<Texture> _diffuseTexture;
+	std::shared_ptr<Texture2DBL> _diffuseTexture;
 
 public:
 	/*!
@@ -72,7 +72,7 @@ public:
 	 * @param alpha: Alpha value, i.e. the shininess constant
 	 * @param diffuseTexture: The diffuse texture of this material
 	 */
-	TextureMaterial(std::shared_ptr<Shader> shader, glm::vec3 materialCoefficients, float alpha, std::shared_ptr<Texture> diffuseTexture);
+	TextureMaterial(std::shared_ptr<Shader> shader, glm::vec3 materialCoefficients, float alpha, std::shared_ptr<Texture2DBL> diffuseTexture);
 	
 	virtual ~TextureMaterial();
 
@@ -92,7 +92,7 @@ protected:
 	/*!
 	 * The material's color
 	 */
-	glm::vec3 _color;
+	glm::vec4 _color;
 
 public:
 	/*!
@@ -102,7 +102,7 @@ public:
 	 * @param materialCoefficients: The material's coefficients (x = ambient, y = diffuse, z = specular)
 	 * @param alpha: Alpha value, i.e. the shininess constant
 	 */
-	ColorMaterial(std::shared_ptr<Shader> shader, glm::vec3 color, glm::vec3 materialCoefficients, float alpha);
+	ColorMaterial(std::shared_ptr<Shader> shader, glm::vec4 color, glm::vec3 materialCoefficients, float alpha);
 
 	virtual ~ColorMaterial();
 
@@ -111,5 +111,5 @@ public:
 	 */
 	virtual void setUniforms();
 
-	glm::vec3 getColor();
+	glm::vec4 getColor();
 };

@@ -12,6 +12,7 @@
 
 #include "Window.h"
 #include "Buffer.h"
+#include "Texture2DBL.h"
 
 
 enum class ShaderType {
@@ -77,4 +78,5 @@ public:
 	void setUniformArr(std::string arr, unsigned int i, std::string prop, const float f);
 	void bindUniformBuffer(std::string uniform, const Buffer& ubo, unsigned int block);
 	void bindUniformBuffer(std::string uniform, const std::unique_ptr<Buffer>& ubo, unsigned int block);
+	void useTexture(std::string uniform, TextureHandle tex);
 };
