@@ -22,6 +22,9 @@ SceneObject::SceneObject(glm::mat4 modelMatrix, SceneObject * parent)
 
 SceneObject::~SceneObject()
 {
+	for (auto c : _children) {
+		delete c;
+	}
 }
 
 void SceneObject::addData(GeometryData geometryData, std::shared_ptr<Material> material)

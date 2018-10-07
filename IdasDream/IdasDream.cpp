@@ -15,6 +15,8 @@
 
 #include <limits>
 
+#include "Data.h"
+
 IdasDream::IdasDream(int width, int height, bool fullscreen)
 	: Application({ width, height, fullscreen, "Idas Dream", 4, 6 }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
@@ -24,8 +26,10 @@ IdasDream::IdasDream(int width, int height, bool fullscreen)
 
 IdasDream::~IdasDream()
 {
+	delete _scene;
 }
 
+//iterates the scene in a depth-first manner
 void ForEach(SceneObject* s, const std::function <void(SceneObject*)>& func)
 {
 	func(s);
@@ -35,12 +39,6 @@ void ForEach(SceneObject* s, const std::function <void(SceneObject*)>& func)
 		ForEach(so, func);
 	}
 }
-
-struct Data {
-	glm::mat4 modelMatix;
-	glm::mat4 normalMatrix;
-	glm::vec4 diffuseColor;
-};
 
 void IdasDream::init()
 {
@@ -54,41 +52,50 @@ void IdasDream::init()
 	_shader->use();
 
 	std::vector<GeometryData> geometryData;
-	std::vector<Data> data;
+	std::vector<VertData> vertData;
+	std::vector<FragData> fragData;
 
-	ForEach(_scene, [&gd = geometryData, &d = data](SceneObject* s) {
-		auto material = s->getMaterial().get();
-		if (ColorMaterial* mat = dynamic_cast<ColorMaterial*>(material)) { //todo sort by different shaders
-			if (s->getHasData()) {
-				gd.push_back(s->getGeometryData());
-				d.push_back({
-					s->getModelMatrix(),
-					s->getNormalMatrix(),
-					mat->getColor()
-				});
-			}
-		}
-		else if (TextureMaterial* mat = dynamic_cast<TextureMaterial*>(material)) {
+	ForEach(_scene, [&gd = geometryData, &vd = vertData, &fd = fragData](SceneObject* s) {
+		if (s->getHasData()) {
+			gd.push_back(s->getGeometryData());
 
+			vd.push_back({
+				s->getModelMatrix(),
+				s->getNormalMatrix()
+			});
+
+			s->getMaterial()->setFragmentData(fd);
 		}
 	});
 
 	DrawCallInfo dci = DrawCallInfo::fromGeometryData(geometryData);
 	_obj.push_back(Geometry(dci, geometryData));
 
-	_dataBuffer = std::make_unique<Buffer>(&data[0], sizeof(Data) * data.size(), BufferUsage::DYNAMIC);
-	_dataBuffer->bind(BufferType::SSBO, 0);
+	_vertDataBuffer = std::make_unique<Buffer>(&vertData[0], sizeof(VertData) * vertData.size(), BufferUsage::DYNAMIC);
+	_vertDataBuffer->bind(BufferType::SSBO, 0);
+
+	_fragDataBuffer = std::make_unique<Buffer>(&fragData[0], sizeof(FragData) * fragData.size(), BufferUsage::STATIC);
+	_fragDataBuffer->bind(BufferType::SSBO, 1);
+
 
 	// Initialize lights
-	_dirL = DirectionalLight(glm::vec3(1.0f), glm::vec3(0.5,-1,-0.3));
+	DirectionalLight dirL = DirectionalLight(glm::vec3(1.0f), glm::vec3(0.5,-1,-0.3));
 
-	_shader->setUniform("dirL.color", _dirL.color);
-	_shader->setUniform("dirL.direction", _dirL.direction);
+	_shader->setUniform("dirL.color", dirL.color);
+	_shader->setUniform("dirL.direction", dirL.direction);
+
 
 	// some OpenGL defaults
-	glClearColor(0.3f,0.5f,0.8f, 1.0f);
+	glClearColor(0.33f,0.4f,0.5f, 1.0f);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+}
+
+void IdasDream::update(float dt)
+{
+	_arcballCamera.update(_window, dt);
+
+	//todo: animations
 }
 
 void IdasDream::render(float dt)
@@ -102,7 +109,3 @@ void IdasDream::render(float dt)
 	_obj[0].draw();
 }	
 
-void IdasDream::update(float dt)
-{
-	_arcballCamera.update(_window, dt);
-}

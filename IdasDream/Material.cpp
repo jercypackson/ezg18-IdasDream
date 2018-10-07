@@ -30,6 +30,12 @@ void Material::setUniforms()
 	_shader->setUniform("specularAlpha", _alpha);
 }
 
+void Material::setFragmentData(std::vector<FragData>& data)
+{
+	std::cout << "Error: Cannot set fragment data of base material.";
+	data.push_back({});
+}
+
 /* --------------------------------------------- */
 // Texture material
 /* --------------------------------------------- */
@@ -51,8 +57,13 @@ void TextureMaterial::setUniforms()
 	//_shader->setUniform("diffuseTexture", 0);
 }
 
+void TextureMaterial::setFragmentData(std::vector<FragData>& data)
+{
+	data.push_back({ glm::vec4(-1), _diffuseTexture->getTextureHandle() });
+}
+
 /* --------------------------------------------- */
-// Texture material
+// Color material
 /* --------------------------------------------- */
 
 ColorMaterial::ColorMaterial(std::shared_ptr<Shader> shader, glm::vec4 color, glm::vec3 materialCoefficients, float alpha)
@@ -74,4 +85,9 @@ void ColorMaterial::setUniforms()
 glm::vec4 ColorMaterial::getColor()
 {
 	return _color;
+}
+
+void ColorMaterial::setFragmentData(std::vector<FragData>& data)
+{
+	data.push_back({ _color });
 }

@@ -8,7 +8,7 @@
 #include <memory>
 #include <glm/glm.hpp>
 #include "Shader.h"
-#include "Tex.h"
+#include "Data.h"
 
 /*!
  * Base material
@@ -50,8 +50,9 @@ public:
 	 * Sets this material's parameters as uniforms in the shader
 	 */
 	virtual void setUniforms();
-};
 
+	virtual void setFragmentData(std::vector<FragData>& data);
+};
 
 /*!
  * Texture material
@@ -80,6 +81,8 @@ public:
 	 * Set's this material's parameters as uniforms in the shader
 	 */
 	virtual void setUniforms();
+
+	virtual void setFragmentData(std::vector<FragData>& data);
 };
 
 
@@ -112,4 +115,7 @@ public:
 	virtual void setUniforms();
 
 	glm::vec4 getColor();
+
+	virtual void setFragmentData(std::vector<FragData>& data);
+
 };

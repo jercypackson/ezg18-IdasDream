@@ -1,11 +1,9 @@
 #include "pch.h"
 #include "Extensions.h"
 
-
 Extensions::Extensions()
 {
 }
-
 
 Extensions::~Extensions()
 {
@@ -25,7 +23,6 @@ glm::vec4 Extensions::toGlmVec4(const aiColor4D & aiCol4)
 {
 	return glm::vec4(aiCol4.r, aiCol4.g, aiCol4.b, aiCol4.a);
 }
-
 
 glm::mat4 Extensions::toGlmMat4(const aiMatrix4x4 & aiMat4)
 {

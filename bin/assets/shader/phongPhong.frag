@@ -5,16 +5,25 @@
 * This file is part of the ECG Lab Framework and must not be redistributed.
 */
 
+#extension GL_ARB_bindless_texture : enable
+#extension GL_ARB_shader_draw_parameters : enable
+#extension GL_NV_gpu_shader5 : enable
+
 in VertexData {
 	vec3 position_world;
 	vec3 normal_world;
-    vec3 color;
+	vec2 uv;
+    flat int drawID;
 } vert;
 
 out vec4 color;
 
-uniform vec3 camera_world;
+//per frame
+uniform vec3 camera_world; 
+//
 
+
+//once
 uniform vec3 materialCoefficients = vec3(0.2,0.9,0.3); // x = ambient, y = diffuse, z = specular 
 uniform float specularAlpha = 100;
 
@@ -22,12 +31,16 @@ uniform struct DirectionalLight {
 	vec3 color;
 	vec3 direction;
 } dirL;
+//
 
-//uniform struct PointLight {
-//	vec3 color;
-//	vec3 position;
-//	vec3 attenuation;
-//} pointL;
+struct FragData {
+    vec4 col;
+    sampler2D textureBuffer;
+};
+
+layout(std430, binding = 1) buffer fragColorBuffer {
+    FragData data[];
+};
 
 vec3 phong(vec3 n, vec3 l, vec3 v, vec3 diffuseC, float diffuseF, vec3 specularC, float specularF, float alpha, bool attenuate, vec3 attenuation) {
 	float d = length(l);
@@ -41,15 +54,15 @@ vec3 phong(vec3 n, vec3 l, vec3 v, vec3 diffuseC, float diffuseF, vec3 specularC
 void main() {	
 	vec3 n = normalize(vert.normal_world);
 	vec3 v = normalize(camera_world - vert.position_world);
+
+    vec4 c = data[vert.drawID].col;
+    if (c.r < 0 || c.r > 1){ //invalid color
+        c = texture(data[vert.drawID].textureBuffer, vert.uv);
+    }
 	
-	color = vec4(vert.color * materialCoefficients.x, 1); // ambient
+	color = vec4(c.rgb * materialCoefficients.x, 1); // ambient
 	
 	// add directional light contribution
-	color.rgb += phong(n, -dirL.direction, v, dirL.color * vert.color, materialCoefficients.y, dirL.color, materialCoefficients.z, specularAlpha, false, vec3(0));
-			
-	// add point light contribution
-	//color.rgb += phong(n, pointL.position - vert.position_world, v, pointL.color * vert.color, materialCoefficients.y, pointL.color, materialCoefficients.z, specularAlpha, true, pointL.attenuation);
-
-    //color.rbg = abs(n);
+	color.rgb += phong(n, -dirL.direction, v, dirL.color * c.rgb, materialCoefficients.y, dirL.color, materialCoefficients.z, specularAlpha, false, vec3(0));
 }
 

@@ -24,10 +24,8 @@ private:
 	std::vector<Geometry> _obj;
 	ArcballCamera _arcballCamera;
 
-	DirectionalLight _dirL;
-
 	SceneObject* _scene;
 
-	std::unique_ptr<Buffer> _dataBuffer;
-
+	std::unique_ptr<Buffer> _vertDataBuffer;
+	std::unique_ptr<Buffer> _fragDataBuffer;
 };

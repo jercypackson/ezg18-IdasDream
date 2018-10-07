@@ -12,26 +12,27 @@ layout(location = 2) in vec2 uv;
 out VertexData {
 	vec3 position_world;
 	vec3 normal_world;
-    vec3 color;
+	vec2 uv;
+    flat int drawID;
 } vert;
 
 uniform mat4 viewProjMatrix;
 
-struct Data {
+struct VertData {
     mat4 modelMatix;
     mat4 normalMatrix;
-    vec4 diffuseColor;
 };
 
 layout(std430, binding = 0) buffer dataBuffer {
-	Data data[];
+	VertData data[];
 };
 
 void main() {
-    Data d = data[gl_DrawID];
-	vert.normal_world = mat3(d.normalMatrix) * normal;//
-	vec4 position_world_ = d.modelMatix * vec4(position, 1);//
+    VertData d = data[gl_DrawID];
+	vert.normal_world = mat3(d.normalMatrix) * normal;
+	vec4 position_world_ = d.modelMatix * vec4(position, 1);
 	vert.position_world = position_world_.xyz;
-    vert.color = vec3(d.diffuseColor);
+    vert.uv = uv;
+    vert.drawID = gl_DrawID;
 	gl_Position = viewProjMatrix * position_world_;
 }
