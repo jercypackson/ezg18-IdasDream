@@ -89,8 +89,8 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 			aiColor4D* pOut = new aiColor4D(1,0,0,1); //default
 			aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_DIFFUSE, pOut);
 
-			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec4(*pOut), glm::vec3(1), 1);
-			
+			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec4(*pOut), glm::vec3(1), 1.0f);
+
 			delete pOut;
 		}
 		else if (diffMatCount == 1) {
@@ -114,7 +114,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 				std::cout << "ERROR: This texture is not supported." << std::endl;
 			}
 
-			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("tex"), glm::vec3(), 0, 
+			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
 				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo(), data));
 		}
 		else {
