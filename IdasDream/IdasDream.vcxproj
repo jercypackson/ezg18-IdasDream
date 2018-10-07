@@ -102,6 +102,7 @@
   <ItemGroup>
     <ClInclude Include="Data.h" />
     <ClInclude Include="Extensions.h" />
+    <ClInclude Include="Hierachy.h" />
     <ClInclude Include="IdasDream.h" />
     <ClInclude Include="Importer.h" />
     <ClInclude Include="Light.h" />
@@ -109,9 +110,11 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="ShaderManager.h" />
+    <ClInclude Include="Transformation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Extensions.cpp" />
+    <ClCompile Include="Hierachy.cpp" />
     <ClCompile Include="IdasDream.cpp" />
     <ClCompile Include="Importer.cpp" />
     <ClCompile Include="Main.cpp" />

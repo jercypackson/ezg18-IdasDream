@@ -7,7 +7,6 @@
 
 #extension GL_ARB_bindless_texture : enable
 #extension GL_ARB_shader_draw_parameters : enable
-#extension GL_NV_gpu_shader5 : enable
 
 in VertexData {
 	vec3 position_world;
@@ -64,5 +63,7 @@ void main() {
 	
 	// add directional light contribution
 	color.rgb += phong(n, -dirL.direction, v, dirL.color * c.rgb, materialCoefficients.y, dirL.color, materialCoefficients.z, specularAlpha, false, vec3(0));
+
+    //color.rgb = abs(n);
 }
 

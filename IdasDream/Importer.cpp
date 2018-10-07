@@ -4,6 +4,7 @@
 #include "Extensions.h"
 #include "Geometry.h"
 #include "ShaderManager.h"
+#include "TextureInfo.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb\stb_image.h>
@@ -22,7 +23,7 @@ Importer::~Importer()
 
 SceneObject* Importer::import()
 {
-	auto so = new SceneObject(glm::mat4(1.f), nullptr);
+	auto so = new SceneObject("root", glm::mat4(1.f), nullptr);
 
 	//for each file in path
 	for (const auto & p : std::filesystem::directory_iterator(_path)) {
@@ -39,8 +40,8 @@ void Importer::importFile(std::string file, SceneObject* root)
 }
 
 void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
-
-	auto s = new SceneObject(Extensions::toGlmMat4(node->mTransformation), parent);
+	
+	auto s = new SceneObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
 
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
 
@@ -115,7 +116,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 			}
 
 			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
-				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo(), data));
+				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
 		}
 		else {
 			std::cout << "ERROR: Multiple Textures on one object not supported." << std::endl;
@@ -137,6 +138,12 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 FileImporter::FileImporter(std::string file, SceneObject* root)
 {
 	_scene = _importer.ReadFile(file.c_str(), aiProcess_Triangulate);
+
+	auto from = std::max(file.find_last_of("\\"), file.find_last_of('/')) + 1;
+	auto to = file.find_last_of('.');
+
+	_scene->mRootNode->mName = aiString(file.substr(from, to - from));
+
 	readNode(_scene->mRootNode, root);
 }
 

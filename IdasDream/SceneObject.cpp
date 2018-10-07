@@ -2,22 +2,17 @@
 #include "SceneObject.h"
 #include <glm/gtx/matrix_decompose.hpp>
 
-SceneObject::SceneObject(glm::mat4 modelMatrix, SceneObject * parent)
-	: _parent(parent), _modelMatrix(modelMatrix)
+SceneObject::SceneObject(std::string name, glm::mat4 modelMatrix, SceneObject * parent)
+	: _name(name), _parent(parent), _localModelMatrix(modelMatrix)
 {
-	glm::quat orientation;
-	glm::vec3 translation;
-	glm::vec3 v3;
-	glm::vec4 v4;
-
-	glm::decompose(modelMatrix, v3, orientation, translation, v3, v4);
-
-	_position = translation;
-	_rotation = glm::eulerAngles(orientation);
-
-	if (_parent) _parent->addChild(this);
-
-	_normalMatrix = glm::transpose(glm::inverse(getModelMatrix()));
+	if (_parent) {
+		_parent->addChild(this);
+		setMatrices(_parent->getModelMatrix());
+	}
+	else {
+		setMatrices(glm::mat4(1.0f));
+	}
+	calcTransf();
 }
 
 SceneObject::~SceneObject()
@@ -37,9 +32,6 @@ void SceneObject::addData(GeometryData geometryData, std::shared_ptr<Material> m
 }
 
 glm::mat4 SceneObject::getModelMatrix() {
-	if (_parent != nullptr) {
-		return _parent->getModelMatrix() * _modelMatrix;
-	}
 	return _modelMatrix;
 }
 
@@ -71,4 +63,43 @@ bool SceneObject::getHasData()
 {
 	return hasData;
 }
+
+std::string SceneObject::getName()
+{
+	return _name;
+}
+
+void SceneObject::setLocalModelMatrix(glm::mat4 mm)
+{
+	_localModelMatrix = mm;
+	setMatrices(_parent->getModelMatrix());
+	calcTransf();
+}
+
+void SceneObject::setMatrices(glm::mat4 parentMM)
+{
+	_modelMatrix = parentMM * _localModelMatrix;
+	_normalMatrix = glm::transpose(glm::inverse(_modelMatrix));
+	for (const auto & c : _children) {
+		c->setMatrices(_modelMatrix);
+	}
+}
+
+void SceneObject::calcTransf()
+{
+	glm::quat orientation;
+	glm::vec3 translation;
+	glm::vec3 v3;
+	glm::vec4 v4;
+	glm::decompose(_localModelMatrix, v3, orientation, translation, v3, v4);
+	_transformation = Transformation(translation, orientation);
+}
+
+//glm::mat4 SceneObject::getModelMatrixRecursive()
+//{
+//	if (_parent != nullptr) {
+//		return _parent->getModelMatrix() * _localModelMatrix;
+//	}
+//	return _localModelMatrix;
+//}
 
