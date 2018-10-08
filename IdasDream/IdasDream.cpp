@@ -16,7 +16,7 @@
 #include <limits>
 
 #include "Data.h"
-#include "Transformation.h"
+#include "Transform.h"
 #include <glm/gtc/constants.hpp>
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, float speed)
@@ -97,29 +97,22 @@ void IdasDream::init()
 
 
 
-
 	//init animation
 	_ida = _hierachy->find("ida");
 
-	std::map<float, Transformation> ida = {
-
-		{   0.0f,	Transformation(glm::vec3(-21,9,-1), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
-		{   3.0f,	Transformation(glm::vec3(-21,9,1), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
-		{   5.0f,	Transformation(glm::vec3(-21,9,6), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
-		{   7.33f,	Transformation(glm::vec3(-21,5,10 + 1.0f / 3), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
-		{   8.0f,	Transformation(glm::vec3(-21,5,11), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
-		{   9.0f,	Transformation(glm::vec3(-21,5,11), glm::vec3(glm::half_pi<float>(),glm::half_pi<float>(),glm::pi<float>()))	},
-		{  11.0f,	Transformation(glm::vec3(-19,5,11), glm::vec3(glm::half_pi<float>(),glm::half_pi<float>(),glm::pi<float>()))	},
-		{  12.0f,	Transformation(glm::vec3(-19,5,11), glm::vec3(glm::half_pi<float>(),0,glm::pi<float>()))	},
-		{  14.0f,	Transformation(glm::vec3(-19,5,7), glm::vec3(glm::half_pi<float>(),0,glm::pi<float>()))	},
+	std::map<float, Transform> ida = {
+		{   0.0f,	Transform(glm::vec3(-21,9,-1), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
+		{   3.0f,	Transform(glm::vec3(-21,9,1), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
+		{   5.0f,	Transform(glm::vec3(-21,9,6), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
+		{   7.33f,	Transform(glm::vec3(-21,5,10 + 1.0f / 3), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
+		{   8.0f,	Transform(glm::vec3(-21,5,11), glm::vec3(glm::half_pi<float>(),glm::pi<float>(),glm::pi<float>()))	},
+		{   9.0f,	Transform(glm::vec3(-21,5,11), glm::vec3(glm::half_pi<float>(),glm::half_pi<float>(),glm::pi<float>()))	},
+		{  11.0f,	Transform(glm::vec3(-19,5,11), glm::vec3(glm::half_pi<float>(),glm::half_pi<float>(),glm::pi<float>()))	},
+		{  12.0f,	Transform(glm::vec3(-19,5,11), glm::vec3(glm::half_pi<float>(),0,glm::pi<float>()))	},
+		{  14.0f,	Transform(glm::vec3(-19,5,7), glm::vec3(glm::half_pi<float>(),0,glm::pi<float>()))	},
 	};
-	
 
-	for (auto const&[key, val] : ida)
-	{
-		_idaTime.push_back(key);
-		_idaTransf.push_back(val);
-	}
+	_ida->setAnimation(Animation(ida));
 
 	//update offset
 	_timeOffset += static_cast<float>(_window.getTime());
@@ -147,22 +140,9 @@ void IdasDream::animate(float dt)
 {
 	float time = getTime();
 
-	if (time > _idaTime.back()) {
-		return;
-	}
-
-	auto lessOrEqual = std::prev(std::upper_bound(_idaTime.begin(), _idaTime.end(), time), 1);
-	auto greaterOrEqual = std::lower_bound(_idaTime.begin(), _idaTime.end(), time);
-	
-	auto delta = (time - (*lessOrEqual)) / ((*greaterOrEqual) - (*lessOrEqual));
-
-	auto transf = Transformation::lerp(
-		_idaTransf[lessOrEqual - _idaTime.begin()], 
-		_idaTransf[greaterOrEqual - _idaTime.begin()],
-		delta
-	);
-
-	_ida->setLocalModelMatrix(transf.getMatrix());
+	_hierachy->forEach([&t = time](SceneObject* s) {
+		s->animate(t);
+	});
 }
 
 float IdasDream::getTime()

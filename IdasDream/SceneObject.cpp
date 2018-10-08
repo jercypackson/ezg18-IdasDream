@@ -76,6 +76,25 @@ void SceneObject::setLocalModelMatrix(glm::mat4 mm)
 	calcTransf();
 }
 
+bool SceneObject::setAnimation(Animation anim)
+{
+	if (!_animation.has_value()) {
+		_animation = anim;
+		return true;
+	}
+	return false;
+}
+
+void SceneObject::animate(float time)
+{
+	if (_animation.has_value()) {
+		auto mm = _animation->getCurrentMatrix(time);
+		if (mm) {
+			setLocalModelMatrix(mm.value());
+		}
+	}
+}
+
 void SceneObject::setMatrices(glm::mat4 parentMM)
 {
 	_modelMatrix = parentMM * _localModelMatrix;
@@ -92,7 +111,7 @@ void SceneObject::calcTransf()
 	glm::vec3 v3;
 	glm::vec4 v4;
 	glm::decompose(_localModelMatrix, v3, orientation, translation, v3, v4);
-	_transformation = Transformation(translation, orientation);
+	_transform = Transform(translation, orientation);
 }
 
 //glm::mat4 SceneObject::getModelMatrixRecursive()

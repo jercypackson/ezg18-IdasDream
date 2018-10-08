@@ -36,7 +36,7 @@ private:
 	float _speed;
 
 	std::vector<float> _idaTime;
-	std::vector<Transformation> _idaTransf;
+	std::vector<Transform> _idaTransf;
 	SceneObject* _ida;
 
 	std::vector<VertData> _vertData;

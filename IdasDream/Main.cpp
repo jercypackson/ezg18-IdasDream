@@ -15,7 +15,8 @@ int main(int argc, char** argv)
 		reader.GetInteger("WindowParams", "width", 1600),
 		reader.GetInteger("WindowParams", "height", 900),
 		reader.GetBoolean("WindowParams", "fullscreen", false),
-		static_cast<float>(reader.GetReal("Animation", "timeOffset", 0))
+		static_cast<float>(reader.GetReal("Animation", "timeOffset", 0)),
+		static_cast<float>(reader.GetReal("Animation", "speed", 1))
 	);
 
 	if (!app->start()) {

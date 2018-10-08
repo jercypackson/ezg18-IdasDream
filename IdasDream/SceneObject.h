@@ -5,7 +5,11 @@
 
 #include "Material.h"
 #include "Geometry.h"
-#include "Transformation.h"
+#include "Transform.h"
+
+#include <optional>
+
+#include "Animation.h"
 
 class SceneObject
 {
@@ -29,10 +33,14 @@ public:
 
 	void setLocalModelMatrix(glm::mat4 mm);
 
+	bool setAnimation(Animation anim);
+
+	void animate(float time);
+
 private:
 	std::string _name;
 
-	Transformation _transformation; //local
+	Transform _transform; //local
 	glm::mat4 _localModelMatrix;
 	glm::mat4 _modelMatrix; //global
 	glm::mat4 _normalMatrix; //global
@@ -48,6 +56,8 @@ private:
 	void setMatrices(glm::mat4 parentMM);
 
 	void calcTransf();
+
+	std::optional<Animation> _animation;
 	
 	//glm::mat4 getModelMatrixRecursive();
 };
