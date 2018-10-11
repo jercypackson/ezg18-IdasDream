@@ -106,12 +106,17 @@ void SceneObject::setMatrices(glm::mat4 parentMM)
 
 void SceneObject::calcTransf()
 {
-	glm::quat orientation;
-	glm::vec3 translation;
-	glm::vec3 v3;
-	glm::vec4 v4;
-	glm::decompose(_localModelMatrix, v3, orientation, translation, v3, v4);
-	_transform = Transform(translation, orientation);
+	glm::vec3 Scale, Translation, Skew;
+	glm::quat Orientation;
+	glm::vec4 Perspective;
+
+	glm::decompose(_localModelMatrix, Scale, Orientation, Translation, Skew, Perspective);
+
+	//if (Scale != glm::vec3(1.0f) || Skew != glm::vec3(0.0f) || Perspective != glm::vec4(glm::vec3(0.0f),1.0f)) {
+	//	std::cout << "Attentione" << std::endl;
+	//}
+
+	_transform = Transform(Translation, Orientation);
 }
 
 //glm::mat4 SceneObject::getModelMatrixRecursive()

@@ -11,9 +11,11 @@ class Animation
 public:
 	Animation();
 	Animation(std::vector<float> time, std::vector<Transform> transform);
-	Animation(std::map<float, Transform> timeTransformMap);
+	Animation(std::map<float, Transform>& timeTransformMap);
 
 	std::optional<glm::mat4> getCurrentMatrix(float currTime);
+
+	std::optional<Transform> getCurrentTransform(float currTime);
 
 	~Animation();
 

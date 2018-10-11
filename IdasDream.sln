@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IdasDream", "IdasDream\IdasDream.vcxproj", "{A188FBE4-0A4A-4944-8FFC-1CED3B56077A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA} = {C8A0F021-6D2E-4704-97D6-79380987FCDA}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EzEngine", "..\..\..\..\..\..\..\Users\laro\Documents\EzEngine\EzEngine\EzEngine.vcxproj", "{C8A0F021-6D2E-4704-97D6-79380987FCDA}"
 EndProject

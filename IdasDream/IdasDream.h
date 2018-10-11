@@ -8,6 +8,7 @@
 #include "Light.h"
 #include "SceneObject.h"
 #include "Hierachy.h"
+#include "AnimatedCamera.h"
 
 class IdasDream
 	: public Application
@@ -25,6 +26,7 @@ private:
 	std::shared_ptr<Shader> _shader;
 	std::vector<Geometry> _obj;
 	ArcballCamera _arcballCamera;
+	AnimatedCamera _animatedCamera;
 
 	std::unique_ptr<Hierachy> _hierachy;
 
@@ -40,5 +42,7 @@ private:
 	SceneObject* _ida;
 
 	std::vector<VertData> _vertData;
+
+	Animation _camAnim;
 
 };

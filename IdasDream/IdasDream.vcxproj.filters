@@ -51,10 +51,10 @@
     <ClInclude Include="Transformation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PathCamera.h">
+    <ClInclude Include="Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
+    <ClInclude Include="AnimatedCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,10 +86,10 @@
     <ClCompile Include="Hierachy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PathCamera.cpp">
+    <ClCompile Include="Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
+    <ClCompile Include="AnimatedCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

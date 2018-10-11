@@ -23,8 +23,8 @@ uniform vec3 camera_world;
 
 
 //once
-uniform vec3 materialCoefficients = vec3(0.2,0.9,0.3); // x = ambient, y = diffuse, z = specular 
-uniform float specularAlpha = 100;
+uniform vec3 materialCoefficients = vec3(0.2,0.9,0.01); // x = ambient, y = diffuse, z = specular 
+uniform float specularAlpha = 2;
 
 uniform struct DirectionalLight {
 	vec3 color;
