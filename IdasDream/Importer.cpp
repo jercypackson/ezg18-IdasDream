@@ -6,11 +6,10 @@
 #include "ShaderManager.h"
 #include "TextureInfo.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb\stb_image.h>
+//#define STB_IMAGE_IMPLEMENTATION
+//#include <stb\stb_image.h>
 
-
-// todo create hierachy, sort after material/shader
+#include "GltfImporter.h"
 
 Importer::Importer(std::string path) 
 	: _path(path)
@@ -100,8 +99,8 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 			auto tex = Extensions::assets + "textures/" + str.C_Str();
 
-			int width, height, nrComponents;
-			unsigned char *data = stbi_load(tex.c_str(), &width, &height, &nrComponents, 4);
+			int width=0, height=0, nrComponents=0;
+			//unsigned char *data = stbi_load(tex.c_str(), &width, &height, &nrComponents, 4);
 
 			TextureFormat f;
 
@@ -115,14 +114,18 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 				std::cout << "ERROR: This texture is not supported." << std::endl;
 			}
 
-			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
-				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
+			//mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
+			//	std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
 		}
 		else {
 			std::cout << "ERROR: Multiple Textures on one object not supported." << std::endl;
 		}
 
 		s->addData(gd, mat);
+
+		if (mesh->HasBones()) {
+			std::cout << "yay bones - spooky" << std::endl;
+		}
 	}
 	else if (node->mNumMeshes > 1) {
 		std::cout << "Error: More than one mesh in node!" << std::endl;
@@ -137,10 +140,24 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 FileImporter::FileImporter(std::string file, SceneObject* root)
 {
-	_scene = _importer.ReadFile(file.c_str(), aiProcess_Triangulate);
-
 	auto from = std::max(file.find_last_of("\\"), file.find_last_of('/')) + 1;
 	auto to = file.find_last_of('.');
+
+	if (file.substr(to+1,4) == "gltf") {
+		new GltfImporter(file);
+	}
+
+	_scene = _importer.ReadFile(file.c_str(), aiProcess_Triangulate);
+
+	if (_scene == nullptr) {
+		std::cout << "Scene " << file << " was null." << std::endl;
+		return;
+	}
+
+	//auto dat = _scene->mRootNode->mChildren[0]->mMetaData->mValues[0].mData;
+	//auto v = reinterpret_cast<const char *>(dat);
+
+	
 
 	_scene->mRootNode->mName = aiString(file.substr(from, to - from));
 

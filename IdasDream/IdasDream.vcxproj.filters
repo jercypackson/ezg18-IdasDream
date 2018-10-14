@@ -57,6 +57,12 @@
     <ClInclude Include="AnimatedCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bones.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GltfImporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -90,6 +96,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AnimatedCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bones.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GltfImporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

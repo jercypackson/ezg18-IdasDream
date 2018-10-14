@@ -125,6 +125,21 @@ void IdasDream::init()
 
 	_ida->setAnimation(Animation(ida));
 
+
+
+
+
+
+	//bones
+	std::vector<glm::mat4> bones;
+	_hierachy->forEach([](SceneObject* s) {
+
+	});
+
+
+
+
+
 	//update offset
 	_timeOffset += static_cast<float>(_window.getTime());
 }

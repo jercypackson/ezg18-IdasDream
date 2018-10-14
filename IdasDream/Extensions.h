@@ -15,4 +15,6 @@ public:
 	static glm::vec4 toGlmVec4(const aiColor4D & aiCol4);
 	static glm::mat4 toGlmMat4(const aiMatrix4x4& aiMat4);
 	static inline const std::string assets = "../assets/";
+
+	static float round(float f, int precision);
 };

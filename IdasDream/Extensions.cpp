@@ -50,3 +50,10 @@ glm::mat4 Extensions::toGlmMat4(const aiMatrix4x4 & aiMat4)
 
 	return glmMat4;
 }
+
+float Extensions::round(float f, int precision)
+{
+	unsigned int multiplier = 10 ^ (precision);
+
+	return roundf(f * multiplier) / multiplier;
+}
