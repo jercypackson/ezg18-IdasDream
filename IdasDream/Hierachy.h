@@ -5,16 +5,7 @@
 class Hierachy
 {
 public:
-	Hierachy(SceneObject * root);
-	~Hierachy();
-
-	void forEach(const std::function <void(SceneObject*)>& func);
-	SceneObject* find(const std::string& name);
-
-private:
-	SceneObject* _root;
-
-	void forEach(SceneObject* s, const std::function <void(SceneObject*)>& func);
-
+	static SceneObject* find(SceneObject* s, const std::string & name);
+	static void forEach(SceneObject* s, const std::function <void(SceneObject*)>& func);
 };
 

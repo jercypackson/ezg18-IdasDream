@@ -7,6 +7,7 @@
 #include <assimp\scene.h>
 
 #include "SceneObject.h"
+#include "ArmatureObject.h"
 
 class Importer
 {
@@ -31,4 +32,6 @@ private:
 	const aiScene* _scene;
 	void readNode(const aiNode* node, SceneObject* parent);
 	Assimp::Importer _importer;
+
+	ArmatureObject* _armature = nullptr;
 };

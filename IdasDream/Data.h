@@ -12,3 +12,9 @@ struct FragData {
 	std::uint64_t textureBuffer;    //8 byte
 	std::uint64_t _padding;         //8 byte padding
 };
+
+struct VertexBoneData
+{
+	unsigned int id;
+	float weight;
+};

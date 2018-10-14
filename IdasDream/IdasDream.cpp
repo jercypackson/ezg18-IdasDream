@@ -49,8 +49,7 @@ void IdasDream::init()
 	_arcballCamera.registerToWindow(_window);
 	_animatedCamera.registerToWindow(_window);
 
-	auto scene = Importer(Extensions::assets + "objects").import();
-	_hierachy = std::make_unique<Hierachy>(scene);
+	_root = Importer(Extensions::assets + "objects").import();
 
 	// load and use default shader
 	_shader = ShaderManager::getShader("phongPhong");
@@ -60,7 +59,7 @@ void IdasDream::init()
 	std::vector<GeometryData> geometryData;
 	std::vector<FragData> fragData;
 
-	_hierachy->forEach([&gd = geometryData, &vd = _vertData, &fd = fragData](SceneObject* s) {
+	Hierachy::forEach(_root, [&gd = geometryData, &vd = _vertData, &fd = fragData](SceneObject* s) {
 		if (s->getHasData()) {
 			gd.push_back(s->getGeometryData());
 
@@ -100,7 +99,7 @@ void IdasDream::init()
 
 
 	//init animation
-	_ida = _hierachy->find("ida");
+	_ida = Hierachy::find(_root, "ida");
 
 	std::map<float, Transform> ida = {
 		{   0.0f,	Transform(	glm::vec3(-21, 9, -1),		glm::vec3(	glm::half_pi<float>(),	glm::pi<float>(),		glm::pi<float>())	)	},
@@ -132,7 +131,7 @@ void IdasDream::init()
 
 	//bones
 	std::vector<glm::mat4> bones;
-	_hierachy->forEach([](SceneObject* s) {
+	Hierachy::forEach(_root, [](SceneObject* s) {
 
 	});
 
@@ -155,7 +154,7 @@ void IdasDream::update(float dt)
 	
 	//todo: only update if something changed
 	_vertData.clear();
-	_hierachy->forEach([&vd = _vertData](SceneObject* s) {
+	Hierachy::forEach(_root, [&vd = _vertData](SceneObject* s) {
 		if (s->getHasData()) {
 			vd.push_back({
 				s->getModelMatrix(),
@@ -173,7 +172,7 @@ void IdasDream::update(float dt)
 
 void IdasDream::animate(float time)
 {
-	_hierachy->forEach([&t = time](SceneObject* s) {
+	Hierachy::forEach(_root, [&t = time](SceneObject* s) {
 		s->animate(t);
 	});
 }
@@ -194,7 +193,7 @@ void IdasDream::render(float dt)
 	_shader->setUniform("camera_world", _arcballCamera.getPosition());
 	//*/
 
-#if _DEBUG
+#if writ
 	bool write = false;
 
 	if (write) {

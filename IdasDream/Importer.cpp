@@ -9,6 +9,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb\stb_image.h>
 
+#include "Hierachy.h"
+#include "ArmatureObject.h"
+
 Importer::Importer(std::string path) 
 	: _path(path)
 {
@@ -38,6 +41,8 @@ void Importer::importFile(std::string file, SceneObject* root)
 
 void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 	
+
+
 	auto s = new SceneObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
 
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
@@ -46,6 +51,11 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		auto mesh = _scene->mMeshes[node->mMeshes[0]];
 
 		auto gd = GeometryData();
+
+		gd.positions.reserve(mesh->mNumVertices);
+		gd.normals.reserve(mesh->mNumVertices);
+		gd.uvs.reserve(mesh->mNumVertices);
+		gd.indices.reserve(mesh->mNumVertices);
 
 		gd.boundingBox.minVertex = glm::vec4(glm::vec3(std::numeric_limits<float>::max()), 1);
 		gd.boundingBox.maxVertex = glm::vec4(glm::vec3(std::numeric_limits<float>::min()), 1);
@@ -121,8 +131,12 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 		s->addData(gd, mat);
 
-		if (mesh->HasBones()) {
-			std::cout << "yay bones - spooky" << std::endl;
+		for (unsigned int i = 0; i < mesh->mNumBones; i++)
+		{
+			auto b = mesh->mBones[i];
+			//auto arm = Hierachy::find(_armature, b->mName.C_Str());
+			//auto armObj = dynamic_cast<ArmatureObject*>(&arm);
+				
 		}
 	}
 	else if (node->mNumMeshes > 1) {

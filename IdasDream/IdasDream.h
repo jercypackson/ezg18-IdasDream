@@ -28,8 +28,6 @@ private:
 	ArcballCamera _arcballCamera;
 	AnimatedCamera _animatedCamera;
 
-	std::unique_ptr<Hierachy> _hierachy;
-
 	std::unique_ptr<Buffer> _vertDataBuffer;
 	std::unique_ptr<Buffer> _fragDataBuffer;
 
@@ -45,4 +43,5 @@ private:
 
 	Animation _camAnim;
 
+	SceneObject* _root;
 };
