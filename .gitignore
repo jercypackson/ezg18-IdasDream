@@ -271,3 +271,6 @@ buildRelease\.bat
 bin/Debug/IdasDream\.exe
 
 IdasDream/bin/Debug/vc141\.idb
+
+
+IdasDream\.sln
