@@ -6,10 +6,8 @@
 #include "ShaderManager.h"
 #include "TextureInfo.h"
 
-//#define STB_IMAGE_IMPLEMENTATION
-//#include <stb\stb_image.h>
-
-#include "GltfImporter.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb\stb_image.h>
 
 Importer::Importer(std::string path) 
 	: _path(path)
@@ -99,8 +97,8 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 			auto tex = Extensions::assets + "textures/" + str.C_Str();
 
-			int width=0, height=0, nrComponents=0;
-			//unsigned char *data = stbi_load(tex.c_str(), &width, &height, &nrComponents, 4);
+			int width = 0, height = 0, nrComponents = 0;
+			unsigned char *data = stbi_load(tex.c_str(), &width, &height, &nrComponents, 4);
 
 			TextureFormat f;
 
@@ -114,8 +112,8 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 				std::cout << "ERROR: This texture is not supported." << std::endl;
 			}
 
-			//mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
-			//	std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
+			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
+				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
 		}
 		else {
 			std::cout << "ERROR: Multiple Textures on one object not supported." << std::endl;
@@ -142,10 +140,6 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 {
 	auto from = std::max(file.find_last_of("\\"), file.find_last_of('/')) + 1;
 	auto to = file.find_last_of('.');
-
-	if (file.substr(to+1,4) == "gltf") {
-		new GltfImporter(file);
-	}
 
 	_scene = _importer.ReadFile(file.c_str(), aiProcess_Triangulate);
 

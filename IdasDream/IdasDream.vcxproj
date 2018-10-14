@@ -105,7 +105,6 @@
     <ClInclude Include="Bones.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="Extensions.h" />
-    <ClInclude Include="GltfImporter.h" />
     <ClInclude Include="Hierachy.h" />
     <ClInclude Include="IdasDream.h" />
     <ClInclude Include="Importer.h" />
@@ -121,7 +120,6 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Bones.cpp" />
     <ClCompile Include="Extensions.cpp" />
-    <ClCompile Include="GltfImporter.cpp" />
     <ClCompile Include="Hierachy.cpp" />
     <ClCompile Include="IdasDream.cpp" />
     <ClCompile Include="Importer.cpp" />
