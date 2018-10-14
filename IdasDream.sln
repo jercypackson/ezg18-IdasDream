@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IdasDream", "IdasDream\IdasDream.vcxproj", "{A188FBE4-0A4A-4944-8FFC-1CED3B56077A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EzEngine", "..\..\..\..\..\..\..\Users\laro\Documents\EzEngine\EzEngine\EzEngine.vcxproj", "{C8A0F021-6D2E-4704-97D6-79380987FCDA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,12 +19,6 @@ Global
 		{A188FBE4-0A4A-4944-8FFC-1CED3B56077A}.Release|x64.ActiveCfg = Release|x64
 		{A188FBE4-0A4A-4944-8FFC-1CED3B56077A}.Release|x64.Build.0 = Release|x64
 		{A188FBE4-0A4A-4944-8FFC-1CED3B56077A}.Release|x86.ActiveCfg = Release|x64
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA}.Debug|x64.ActiveCfg = Debug|x64
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA}.Debug|x64.Build.0 = Debug|x64
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA}.Debug|x86.ActiveCfg = Debug|x64
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA}.Release|x64.ActiveCfg = Release|x64
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA}.Release|x64.Build.0 = Release|x64
-		{C8A0F021-6D2E-4704-97D6-79380987FCDA}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
