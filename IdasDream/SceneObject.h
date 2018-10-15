@@ -17,7 +17,7 @@ public:
 	SceneObject(std::string name, glm::mat4 modelMatrix, SceneObject* parent);
 	~SceneObject();
 
-	void addData(GeometryData geometryData, std::shared_ptr<Material> material);
+	virtual void addData(GeometryData geometryData, std::shared_ptr<Material> material);
 
 	glm::mat4 getModelMatrix();
 	glm::mat4 getNormalMatrix();

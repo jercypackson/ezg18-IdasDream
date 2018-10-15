@@ -41,9 +41,22 @@ void Importer::importFile(std::string file, SceneObject* root)
 
 void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 	
+	SceneObject* s;
+	
+	bool isArmatureRoot = strcmp(node->mName.C_Str(), "Armature") == 0;
 
+	if (isArmatureRoot || dynamic_cast<ArmatureObject*>(parent)) {
+		ArmatureObject* a = new ArmatureObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
+		
+		if (isArmatureRoot) {
+			_armature = a;
+		}
+		s = a;
+	}
+	else {
+		s = new SceneObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
+	}
 
-	auto s = new SceneObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
 
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
 

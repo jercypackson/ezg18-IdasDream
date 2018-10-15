@@ -20,7 +20,6 @@ public:
 
 private:
 	std::string _path;
-	Assimp::Importer _importer;
 };
 
 class FileImporter

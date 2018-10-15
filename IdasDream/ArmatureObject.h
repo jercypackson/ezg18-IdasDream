@@ -10,6 +10,6 @@ public:
 	void setOffsetMatrix(glm::mat4 offsetMatrix);
 
 private:
-	glm::mat4 _offsetMatrix;
+	glm::mat4 _offsetMatrix = glm::mat4(1.0f);
 };
 

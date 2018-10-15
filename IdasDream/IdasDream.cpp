@@ -34,7 +34,7 @@ IdasDream::~IdasDream()
 
 void IdasDream::init()
 {
-	// key callback to toggle wireframe mode
+
 	_window.registerKeyInputHandler([&to = _timeOffset, &w = _window](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
