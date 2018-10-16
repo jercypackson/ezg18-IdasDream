@@ -2,23 +2,15 @@
 
 #include <string>
 #include <glm\glm.hpp>
-#include <map>
-
-struct Bone {
-	std::string name;
-	glm::mat4 offset;
-};
+#include <vector>
 
 class Bones
 {
 public:
-	Bones();
-	~Bones();
-
-	bool addBone(std::string name, glm::mat4 offset);
-	glm::mat4 getBone(std::string name);
-
+	static unsigned int bone(std::string name);
+	static int getBone(std::string name);
+	static size_t size();
 private:
-	std::map<std::string, glm::mat4> map;
+	static std::vector<std::string> names;
+	static std::vector<std::string> init_names();
 };
-

@@ -7,14 +7,14 @@ struct VertData {
 	glm::mat4 normalMatrix;
 };
 
-struct FragData {
-	glm::vec4 col;					//16 byte
-	std::uint64_t textureBuffer;    //8 byte
-	std::uint64_t _padding;         //8 byte padding
+const int NUM_BONES_PER_VEREX = 7;
+struct BoneData {
+	float weigth[NUM_BONES_PER_VEREX] = {};
 };
 
-struct VertexBoneData
-{
-	unsigned int id;
-	float weight;
+struct FragData {
+	glm::vec4 col;					//16 byte
+	std::uint64_t textureBuffer;	//8 byte
+	std::uint64_t _padding;			//8 byte padding
 };
+

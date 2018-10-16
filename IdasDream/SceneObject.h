@@ -17,7 +17,8 @@ public:
 	SceneObject(std::string name, glm::mat4 modelMatrix, SceneObject* parent);
 	~SceneObject();
 
-	virtual void addData(GeometryData geometryData, std::shared_ptr<Material> material);
+	void addData(GeometryData geometryData, std::shared_ptr<Material> material);
+	void addBoneData(std::vector<BoneData> boneData);
 
 	glm::mat4 getModelMatrix();
 	glm::mat4 getNormalMatrix();
@@ -37,9 +38,15 @@ public:
 
 	void animate(float time);
 
-private:
+	virtual SceneObject* createChild(std::string name, glm::mat4 modelMatrix, SceneObject* parent);
+	virtual void setBones(std::vector<glm::mat4>& bd);
+
+	void setBoneData(std::vector<BoneData>& bd, std::vector<int>& boneDataStartBuffer);
+
+protected:
 	std::string _name;
 
+private:
 	Transform _transform; //local
 	glm::mat4 _localModelMatrix;
 	glm::mat4 _modelMatrix; //global
@@ -47,9 +54,11 @@ private:
 	SceneObject* _parent;
 
 	bool hasData = false;
+	bool _hasBoneData = false;
 
 	std::shared_ptr<Material> _material;
 	GeometryData _geometryData;
+	std::vector<BoneData> _boneData;
 
 	std::vector<SceneObject*> _children;
 
@@ -58,6 +67,8 @@ private:
 	void calcTransf();
 
 	std::optional<Animation> _animation;
+
+
 	
 	//glm::mat4 getModelMatrixRecursive();
 };

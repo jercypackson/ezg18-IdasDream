@@ -37,7 +37,7 @@ struct FragData {
     sampler2D textureBuffer;
 };
 
-layout(std430, binding = 1) buffer fragColorBuffer {
+layout(std430, binding = 4) buffer fragColorBuffer {
     FragData data[];
 };
 

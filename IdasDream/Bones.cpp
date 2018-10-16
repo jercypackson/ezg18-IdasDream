@@ -2,28 +2,40 @@
 #include "Bones.h"
 
 
-Bones::Bones()
-{
-	map = std::map<std::string, glm::mat4>();
-}
+std::vector<std::string> Bones::names = init_names();
 
 
-Bones::~Bones()
+unsigned int Bones::bone(std::string name)
 {
-}
+	auto it = std::find(names.begin(), names.end(), name);
 
-bool Bones::addBone(std::string name, glm::mat4 offset)
-{
-	if (map.find(name) != map.end()) {
-		return false;
+	//if not found
+	if (it == names.end()) {
+		names.push_back(name);
+		it = names.end();
 	}
 
-	map[name] = offset;
-	return true;
+	return (unsigned int)(it - names.begin()); //return index
 }
 
-glm::mat4 Bones::getBone(std::string name)
+int Bones::getBone(std::string name)
 {
-	return map[name];
+	auto it = std::find(names.begin(), names.end(), name);
+
+	//if not found
+	if (it == names.end()) {
+		return -1;
+	}
+
+	return (unsigned int)(it - names.begin()); //return index
 }
 
+size_t Bones::size()
+{
+	return names.size();
+}
+
+std::vector<std::string> Bones::init_names()
+{
+	return std::vector<std::string>();
+}

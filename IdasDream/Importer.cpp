@@ -11,6 +11,7 @@
 
 #include "Hierachy.h"
 #include "ArmatureObject.h"
+#include "Bones.h"
 
 Importer::Importer(std::string path) 
 	: _path(path)
@@ -42,20 +43,16 @@ void Importer::importFile(std::string file, SceneObject* root)
 void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 	
 	SceneObject* s;
-	
-	bool isArmatureRoot = strcmp(node->mName.C_Str(), "Armature") == 0;
 
-	if (isArmatureRoot || dynamic_cast<ArmatureObject*>(parent)) {
+	if (strcmp(node->mName.C_Str(), "Armature") == 0) {
 		ArmatureObject* a = new ArmatureObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
-		
-		if (isArmatureRoot) {
-			_armature = a;
-		}
+		_armature = a;
 		s = a;
 	}
 	else {
-		s = new SceneObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
+		s = parent->createChild(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
 	}
+	
 
 
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
@@ -147,9 +144,19 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		for (unsigned int i = 0; i < mesh->mNumBones; i++)
 		{
 			auto b = mesh->mBones[i];
-			//auto arm = Hierachy::find(_armature, b->mName.C_Str());
-			//auto armObj = dynamic_cast<ArmatureObject*>(&arm);
-				
+			unsigned int boneIdx = Bones::bone(b->mName.C_Str());
+			auto arm = dynamic_cast<ArmatureObject*>(Hierachy::find(_armature, b->mName.C_Str()));
+			arm->setBoneIdx(boneIdx);
+			arm->setOffsetMatrix(Extensions::toGlmMat4(b->mOffsetMatrix));
+
+			std::vector<BoneData> boneData(_scene->mMeshes[node->mMeshes[0]]->mNumVertices);
+			
+			for (unsigned int i = 0; i < b->mNumWeights; i++) {
+				auto w = b->mWeights[i];
+				boneData[w.mVertexId].weigth[boneIdx] = w.mWeight;
+			}
+
+			s->addBoneData(boneData);
 		}
 	}
 	else if (node->mNumMeshes > 1) {
@@ -174,11 +181,6 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 		std::cout << "Scene " << file << " was null." << std::endl;
 		return;
 	}
-
-	//auto dat = _scene->mRootNode->mChildren[0]->mMetaData->mValues[0].mData;
-	//auto v = reinterpret_cast<const char *>(dat);
-
-	
 
 	_scene->mRootNode->mName = aiString(file.substr(from, to - from));
 

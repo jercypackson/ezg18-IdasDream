@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "SceneObject.h"
 #include <glm/gtx/matrix_decompose.hpp>
+#include <algorithm> 
 
 SceneObject::SceneObject(std::string name, glm::mat4 modelMatrix, SceneObject * parent)
 	: _name(name), _parent(parent), _localModelMatrix(modelMatrix)
@@ -29,6 +30,12 @@ void SceneObject::addData(GeometryData geometryData, std::shared_ptr<Material> m
 		_material = material;
 		hasData = true;
 	}
+}
+
+void SceneObject::addBoneData(std::vector<BoneData> boneData)
+{
+	_boneData = boneData;
+	_hasBoneData = true;
 }
 
 glm::mat4 SceneObject::getModelMatrix() {
@@ -92,6 +99,39 @@ void SceneObject::animate(float time)
 		if (mm) {
 			setLocalModelMatrix(mm.value());
 		}
+	}
+}
+
+SceneObject * SceneObject::createChild(std::string name, glm::mat4 modelMatrix, SceneObject * parent)
+{
+	return new SceneObject(name, modelMatrix, parent);
+}
+
+void SceneObject::setBones(std::vector<glm::mat4>& bd)
+{
+	//do nothing
+}
+
+void SceneObject::setBoneData(std::vector<BoneData>& bd, std::vector<int>& boneDataStartBuffer)
+{
+	if (!_hasBoneData) {
+		boneDataStartBuffer.push_back(-1);
+		return;
+	}
+
+
+	bd.insert(bd.end(), _boneData.begin(), _boneData.end());
+
+
+	auto result = std::find_if(boneDataStartBuffer.rbegin(), boneDataStartBuffer.rend(),
+		[](int i) { return i >= 0; });
+
+	if (result != boneDataStartBuffer.rend()) {
+		//valid
+		boneDataStartBuffer.push_back(*result + _geometryData.positions.size());
+	}
+	else {
+		boneDataStartBuffer.push_back(0);
 	}
 }
 

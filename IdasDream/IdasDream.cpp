@@ -19,8 +19,10 @@
 #include "Transform.h"
 #include <glm/gtc/constants.hpp>
 
+#include "Bones.h"
+
 IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, float speed)
-	: Application({ width, height, fullscreen, "Idas Dream", 4, 6 }),
+	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6 }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
 	_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
 	_timeOffset(-timeOffset), _speed(speed)
@@ -57,19 +59,29 @@ void IdasDream::init()
 	_shader->use();
 
 	std::vector<GeometryData> geometryData;
+	std::vector<glm::mat4> bones;
+	std::vector<BoneData> boneData;
+	std::vector<int> boneDataStart;
 	std::vector<FragData> fragData;
 
-	Hierachy::forEach(_root, [&gd = geometryData, &vd = _vertData, &fd = fragData](SceneObject* s) {
+	bones.resize(Bones::size());
+
+	Hierachy::forEach(_root, [&gd = geometryData, &vd = _vertData, &fd = fragData, &b = bones, &bd = boneData, &bds = boneDataStart](SceneObject* s) {
 		if (s->getHasData()) {
 			gd.push_back(s->getGeometryData());
 
 			vd.push_back({
 				s->getModelMatrix(),
 				s->getNormalMatrix()
-				});
+			});
 
 			s->getMaterial()->setFragmentData(fd);
+
+			s->setBoneData(bd, bds);
 		}
+		
+		//do for the armature
+		s->setBones(b);
 	});
 
 	DrawCallInfo dci = DrawCallInfo::fromGeometryData(geometryData);
@@ -78,8 +90,18 @@ void IdasDream::init()
 	_vertDataBuffer = std::make_unique<Buffer>(&_vertData[0], sizeof(VertData) * _vertData.size(), BufferUsage::DYNAMIC);
 	_vertDataBuffer->bind(BufferType::SSBO, 0);
 
+	//std::unique_ptr<Buffer> bonesBuffer = std::make_unique<Buffer>(&bones[0], sizeof(glm::mat4) * bones.size(), //BufferUsage::STATIC);
+	//bonesBuffer->bind(BufferType::SSBO, 1);
+	//
+	//std::unique_ptr<Buffer> boneDataBuffer = std::make_unique<Buffer>(&boneData[0], sizeof(BoneData) * boneData.size(), //BufferUsage::STATIC);
+	//boneDataBuffer->bind(BufferType::SSBO, 2);
+	//
+	//std::unique_ptr<Buffer> boneDataStartBuffer = std::make_unique<Buffer>(&boneDataStart[0], sizeof(int) * boneDataStart.size/(), /BufferUsage::STATIC);
+	//boneDataBuffer->bind(BufferType::SSBO, 3);
+	//
+	//
 	_fragDataBuffer = std::make_unique<Buffer>(&fragData[0], sizeof(FragData) * fragData.size(), BufferUsage::STATIC);
-	_fragDataBuffer->bind(BufferType::SSBO, 1);
+	_fragDataBuffer->bind(BufferType::SSBO, 4);
 
 
 	// Initialize lights
@@ -127,18 +149,6 @@ void IdasDream::init()
 
 
 
-
-
-	//bones
-	std::vector<glm::mat4> bones;
-	Hierachy::forEach(_root, [](SceneObject* s) {
-
-	});
-
-
-
-
-
 	//update offset
 	_timeOffset += static_cast<float>(_window.getTime());
 }
@@ -151,8 +161,6 @@ void IdasDream::update(float dt)
 
 	animate(time);
 
-	
-	//todo: only update if something changed
 	_vertData.clear();
 	Hierachy::forEach(_root, [&vd = _vertData](SceneObject* s) {
 		if (s->getHasData()) {
@@ -185,7 +193,7 @@ float IdasDream::getTime()
 void IdasDream::render(float dt)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//*
+	/*
 	_shader->setUniform("viewProjMatrix", _animatedCamera.getViewProjectionMatrix());
 	_shader->setUniform("camera_world", _animatedCamera.getPosition());
 	/*/
