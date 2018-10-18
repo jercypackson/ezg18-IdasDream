@@ -119,20 +119,8 @@ void SceneObject::setBoneData(std::vector<BoneData>& bd, std::vector<int>& boneD
 		return;
 	}
 
-
+	boneDataStartBuffer.push_back(bd.size());
 	bd.insert(bd.end(), _boneData.begin(), _boneData.end());
-
-
-	auto result = std::find_if(boneDataStartBuffer.rbegin(), boneDataStartBuffer.rend(),
-		[](int i) { return i >= 0; });
-
-	if (result != boneDataStartBuffer.rend()) {
-		//valid
-		boneDataStartBuffer.push_back(*result + _geometryData.positions.size());
-	}
-	else {
-		boneDataStartBuffer.push_back(0);
-	}
 }
 
 void SceneObject::setMatrices(glm::mat4 parentMM)

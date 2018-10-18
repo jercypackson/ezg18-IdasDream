@@ -14,6 +14,7 @@ out VertexData {
 	vec3 normal_world;
 	vec2 uv;
     flat int drawID;
+    vec3 debugColor;
 } vert;
 
 uniform mat4 viewProjMatrix;
@@ -27,43 +28,59 @@ layout(std430, binding = 0) buffer dataBuffer {
 	VertData data[];
 };
 
-//layout(std430, binding = 1) buffer bonesBuffer {
-//	mat4 bones[];
-//};
-//
-//const int NUM_BONES_PER_VEREX = 7;
-//
-//struct BoneData {
-//    uint boneIdx[NUM_BONES_PER_VEREX];
-//    float weigth[NUM_BONES_PER_VEREX];
-//};
-//
-//layout(std430, binding = 2) buffer boneDataBuffer {
-//	BoneData boneData[];
-//};
-//
-//layout(std430, binding = 3) buffer boneDataStartBuffer {
-//	int boneDataStartIdx[];
-//};
+layout(std430, binding = 1) buffer bonesBuffer {
+	mat4 bones[];
+};
+
+const int NUM_BONES_PER_VEREX = 7;
+struct BoneData {
+    float weigth[NUM_BONES_PER_VEREX];
+};
+
+layout(std430, binding = 2) buffer boneDataBuffer {
+	BoneData boneData[];
+};
+
+layout(std430, binding = 3) buffer boneDataStartBuffer {
+	int boneDataStartIdx[];
+};
 
 void main() {
 
-    //int boneDataIdx = boneDataStartIdx[gl_DrawID] + gl_VertexID;
-    //BoneData bd = boneData[boneDataIdx];
-    //
-    //mat4 boneTransform = mat4(0.0f);
-    //
-    //for (int i = 0; i < NUM_BONES_PER_VEREX; i++){
-    //    boneTransform += bones[bd.boneIdx[i]] * bd.weigth[i];
-    //}
+    vec4 NormalL = vec4(normal, 0.0);
+    vec4 PosL = vec4(position, 1.0);
 
-    //todo: use boneTransform
+    int startIdx = boneDataStartIdx[gl_DrawID];
+
+    if (startIdx < 0) {
+        //no vertex skinning
+
+    } else {
+        //todo: remove basevertex
+        int boneDataIdx = startIdx + gl_VertexID - gl_BaseVertex;
+
+        BoneData bd = boneData[boneDataIdx];
+        
+        mat4 boneTransform = mat4(0.0f);
+        
+        for (int i = 0; i < NUM_BONES_PER_VEREX; i++){
+            boneTransform += bones[i] * bd.weigth[i];
+        }
+        
+        NormalL = boneTransform * NormalL;
+        PosL = boneTransform * PosL;
+    }
+
+
 
     VertData d = data[gl_DrawID];
-	vert.normal_world = mat3(d.normalMatrix) * normal;
-	vec4 position_world_ = d.modelMatix * vec4(position, 1);
+    
+	vert.normal_world = (d.normalMatrix * NormalL).xyz;
+
+	vec4 position_world_ = d.modelMatix * PosL;
 	vert.position_world = position_world_.xyz;
+	gl_Position = viewProjMatrix * position_world_;
+
     vert.uv = uv;
     vert.drawID = gl_DrawID;
-	gl_Position = viewProjMatrix * position_world_;
 }

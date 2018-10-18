@@ -12,7 +12,7 @@ unsigned int Bones::bone(std::string name)
 	//if not found
 	if (it == names.end()) {
 		names.push_back(name);
-		it = names.end();
+		it = names.end() - 1;
 	}
 
 	return (unsigned int)(it - names.begin()); //return index

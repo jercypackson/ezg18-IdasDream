@@ -9,7 +9,7 @@ struct VertData {
 
 const int NUM_BONES_PER_VEREX = 7;
 struct BoneData {
-	float weigth[NUM_BONES_PER_VEREX] = {};
+	float weight[NUM_BONES_PER_VEREX] = {};
 };
 
 struct FragData {

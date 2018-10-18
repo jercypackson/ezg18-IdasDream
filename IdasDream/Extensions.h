@@ -17,4 +17,6 @@ public:
 	static inline const std::string assets = "../assets/";
 
 	static float round(float f, int precision);
+	static glm::vec3 round(glm::vec3 v, int precision);
+	static glm::vec4 round(glm::vec4 v, int precision);
 };

@@ -30,8 +30,6 @@ void ArmatureObject::setBoneIdx(unsigned int boneIdx)
 void ArmatureObject::setBones(std::vector<glm::mat4>& bd)
 {
 	auto id = Bones::getBone(_name);
-
 	if (id < 0) return;
-
-	bd[Bones::getBone(_name)] = getModelMatrix() * _offsetMatrix;
+	bd[id] = getModelMatrix() * _offsetMatrix;
 }

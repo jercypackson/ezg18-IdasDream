@@ -21,6 +21,10 @@
 
 #include "Bones.h"
 
+#include <glm/gtx/matrix_decompose.hpp>
+#include <glm/gtc/quaternion.hpp>
+
+
 IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, float speed)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6 }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
@@ -52,12 +56,14 @@ void IdasDream::init()
 	_animatedCamera.registerToWindow(_window);
 
 	_root = Importer(Extensions::assets + "objects").import();
+	
 
 	// load and use default shader
 	_shader = ShaderManager::getShader("phongPhong");
 	_shader->registerToWindow(_window);
 	_shader->use();
 
+	//todo reserve
 	std::vector<GeometryData> geometryData;
 	std::vector<glm::mat4> bones;
 	std::vector<BoneData> boneData;
@@ -84,22 +90,60 @@ void IdasDream::init()
 		s->setBones(b);
 	});
 
+	//normalize vertex weigths
+	for (size_t i = 0; i < boneData.size(); i++)
+	{
+		float sum = 0;
+		for (size_t j = 0; j < NUM_BONES_PER_VEREX; j++)
+		{
+			sum += boneData[i].weight[j];
+		}
+		
+		if (sum != 1) {
+			for (size_t j = 0; j < NUM_BONES_PER_VEREX; j++)
+			{
+				boneData[i].weight[j] /= sum;
+			}
+		}
+	}
+
+
+	
+	//glm::vec3 Scale, Translation, Skew;
+	//glm::quat Orientation;
+	//glm::vec4 Perspective;
+
+	//for (size_t i = 0; i < bones.size(); i++)
+	//{
+	//	glm::decompose(bones[i], Scale, Orientation, Translation, Skew, Perspective);
+	//	glm::vec3 Euler = glm::eulerAngles(Orientation);
+
+	//	Scale = Extensions::round(Scale, 4);
+	//	Euler = Extensions::round(Euler, 4);
+	//	Translation = Extensions::round(Translation, 4);
+	//	Skew = Extensions::round(Skew, 4);
+	//	Perspective = Extensions::round(Perspective, 4);
+
+	//	bool test = true;
+	//}
+	
+
+
 	DrawCallInfo dci = DrawCallInfo::fromGeometryData(geometryData);
 	_obj.push_back(Geometry(dci, geometryData));
 
 	_vertDataBuffer = std::make_unique<Buffer>(&_vertData[0], sizeof(VertData) * _vertData.size(), BufferUsage::DYNAMIC);
 	_vertDataBuffer->bind(BufferType::SSBO, 0);
 
-	//std::unique_ptr<Buffer> bonesBuffer = std::make_unique<Buffer>(&bones[0], sizeof(glm::mat4) * bones.size(), //BufferUsage::STATIC);
-	//bonesBuffer->bind(BufferType::SSBO, 1);
-	//
-	//std::unique_ptr<Buffer> boneDataBuffer = std::make_unique<Buffer>(&boneData[0], sizeof(BoneData) * boneData.size(), //BufferUsage::STATIC);
-	//boneDataBuffer->bind(BufferType::SSBO, 2);
-	//
-	//std::unique_ptr<Buffer> boneDataStartBuffer = std::make_unique<Buffer>(&boneDataStart[0], sizeof(int) * boneDataStart.size/(), /BufferUsage::STATIC);
-	//boneDataBuffer->bind(BufferType::SSBO, 3);
-	//
-	//
+	_bonesBuffer = std::make_unique<Buffer>(&bones[0], sizeof(glm::mat4) * bones.size(), BufferUsage::STATIC);
+	_bonesBuffer->bind(BufferType::SSBO, 1);
+	
+	_boneDataBuffer = std::make_unique<Buffer>(&boneData[0], sizeof(BoneData) * boneData.size(), BufferUsage::STATIC);
+	_boneDataBuffer->bind(BufferType::SSBO, 2);
+	
+	_boneDataStartBuffer = std::make_unique<Buffer>(&boneDataStart[0], sizeof(int) * boneDataStart.size(), BufferUsage::STATIC);
+	_boneDataStartBuffer->bind(BufferType::SSBO, 3);
+	
 	_fragDataBuffer = std::make_unique<Buffer>(&fragData[0], sizeof(FragData) * fragData.size(), BufferUsage::STATIC);
 	_fragDataBuffer->bind(BufferType::SSBO, 4);
 

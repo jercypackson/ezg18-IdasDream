@@ -57,3 +57,22 @@ float Extensions::round(float f, int precision)
 
 	return roundf(f * multiplier) / multiplier;
 }
+
+glm::vec3 Extensions::round(glm::vec3 v, int precision)
+{
+	return glm::vec3(
+		round(v.x, precision), 
+		round(v.y, precision), 
+		round(v.z, precision)
+	);
+}
+
+glm::vec4 Extensions::round(glm::vec4 v, int precision)
+{
+	return glm::vec4(
+		round(v.x, precision),
+		round(v.y, precision),
+		round(v.z, precision),
+		round(v.w, precision)
+	);
+}

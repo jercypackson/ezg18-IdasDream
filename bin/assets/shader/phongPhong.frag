@@ -13,6 +13,7 @@ in VertexData {
 	vec3 normal_world;
 	vec2 uv;
     flat int drawID;
+    vec3 debugColor;
 } vert;
 
 out vec4 color;
@@ -50,7 +51,11 @@ vec3 phong(vec3 n, vec3 l, vec3 v, vec3 diffuseC, float diffuseF, vec3 specularC
 	return (diffuseF * diffuseC * max(0, dot(n, l)) + specularF * specularC * pow(max(0, dot(r, v)), alpha)) * att; 
 }
 
-void main() {	
+void main() {
+
+    //todo: remove
+    DirectionalLight dirL = DirectionalLight(vec3(1), vec3(0.5,-1,-0.3));
+
 	vec3 n = normalize(vert.normal_world);
 	vec3 v = normalize(camera_world - vert.position_world);
 
@@ -65,5 +70,6 @@ void main() {
 	color.rgb += phong(n, -dirL.direction, v, dirL.color * c.rgb, materialCoefficients.y, dirL.color, materialCoefficients.z, specularAlpha, false, vec3(0));
 
     //color.rgb = abs(n);
+    //color = vec4(vert.debugColor, 1);
 }
 

@@ -30,6 +30,9 @@ private:
 
 	std::unique_ptr<Buffer> _vertDataBuffer;
 	std::unique_ptr<Buffer> _fragDataBuffer;
+	std::unique_ptr<Buffer> _bonesBuffer;
+	std::unique_ptr<Buffer> _boneDataBuffer;
+	std::unique_ptr<Buffer> _boneDataStartBuffer;
 
 	float getTime();
 	float _timeOffset;
