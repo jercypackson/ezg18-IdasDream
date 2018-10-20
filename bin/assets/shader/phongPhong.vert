@@ -58,7 +58,7 @@ void main() {
     } else {
         //todo: remove basevertex
         int boneDataIdx = startIdx + gl_VertexID - gl_BaseVertex;
-
+        
         BoneData bd = boneData[boneDataIdx];
         
         mat4 boneTransform = mat4(0.0f);

@@ -128,7 +128,6 @@ void IdasDream::init()
 	//}
 	
 
-
 	DrawCallInfo dci = DrawCallInfo::fromGeometryData(geometryData);
 	_obj.push_back(Geometry(dci, geometryData));
 
@@ -167,16 +166,18 @@ void IdasDream::init()
 	//init animation
 	_ida = Hierachy::find(_root, "ida");
 
+	glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, glm::pi<float>());
+
 	std::map<float, Transform> ida = {
-		{   0.0f,	Transform(	glm::vec3(-21, 9, -1),		glm::vec3(	glm::half_pi<float>(),	glm::pi<float>(),		glm::pi<float>())	)	},
-		{   3.0f,	Transform(	glm::vec3(-21, 9,  1),		glm::vec3(	glm::half_pi<float>(),	glm::pi<float>(),		glm::pi<float>())	)	},
-		{   5.0f,	Transform(	glm::vec3(-21, 9,  6),		glm::vec3(	glm::half_pi<float>(),	glm::pi<float>(),		glm::pi<float>())	)	},
-		{   7.33f,	Transform(	glm::vec3(-21, 5, 10.33f),	glm::vec3(	glm::half_pi<float>(),	glm::pi<float>(),		glm::pi<float>())	)	},
-		{   8.0f,	Transform(	glm::vec3(-21, 5, 11),		glm::vec3(	glm::half_pi<float>(),	glm::pi<float>(),		glm::pi<float>())	)	},
-		{   9.0f,	Transform(	glm::vec3(-21, 5, 11),		glm::vec3(	glm::half_pi<float>(),	glm::half_pi<float>(),	glm::pi<float>())	)	},
-		{  11.0f,	Transform(	glm::vec3(-19, 5, 11),		glm::vec3(	glm::half_pi<float>(),	glm::half_pi<float>(),	glm::pi<float>())	)	},
-		{  12.0f,	Transform(	glm::vec3(-19, 5, 11),		glm::vec3(	glm::half_pi<float>(),	0,						glm::pi<float>())	)	},
-		{  14.0f,	Transform(	glm::vec3(-19, 5,  7),		glm::vec3(	glm::half_pi<float>(),	0,						glm::pi<float>())	)	},
+		{   0.0f,	Transform(	glm::vec3(-21, 9, -1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
+		{   3.0f,	Transform(	glm::vec3(-21, 9,  1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
+		{   5.0f,	Transform(	glm::vec3(-21, 9,  6),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
+		{   7.33f,	Transform(	glm::vec3(-21, 5, 10.33f),	baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
+		{   8.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
+		{   9.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0)	)	},
+		{  11.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0)	)	},
+		{  12.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	0,						0)	)	},
+		{  14.0f,	Transform(	glm::vec3(-19, 5,  7),		baseRot + glm::vec3(	0.0f,	0,						0)	)	},
 	};
 
 	std::map<float, Transform> cam = {

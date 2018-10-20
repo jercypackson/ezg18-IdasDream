@@ -141,26 +141,28 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 		s->addData(gd, mat);
 
-		std::vector<BoneData> boneData(_scene->mMeshes[node->mMeshes[0]]->mNumVertices);
+		if (mesh->HasBones()) {
 
-		for (unsigned int i = 0; i < mesh->mNumBones; i++)
-		{
-			auto b = mesh->mBones[i];
-			unsigned int boneIdx = Bones::bone(b->mName.C_Str());
-			auto arm = dynamic_cast<ArmatureObject*>(Hierachy::find(_armature, b->mName.C_Str()));
-			arm->setBoneIdx(boneIdx);
-			arm->setOffsetMatrix(Extensions::toGlmMat4(b->mOffsetMatrix));
+			std::vector<BoneData> boneData(_scene->mMeshes[node->mMeshes[0]]->mNumVertices);
 
-			
-			for (unsigned int j = 0; j < b->mNumWeights; j++) {
-				auto w = b->mWeights[j];
-				boneData[w.mVertexId].weight[boneIdx] = w.mWeight;
+			for (unsigned int i = 0; i < mesh->mNumBones; i++)
+			{
+				auto b = mesh->mBones[i];
+				unsigned int boneIdx = Bones::bone(b->mName.C_Str());
+				auto arm = dynamic_cast<ArmatureObject*>(Hierachy::find(_armature, b->mName.C_Str()));
+				arm->setBoneIdx(boneIdx);
+				arm->setOffsetMatrix(Extensions::toGlmMat4(b->mOffsetMatrix));
+
+
+				for (unsigned int j = 0; j < b->mNumWeights; j++) {
+					auto w = b->mWeights[j];
+					boneData[w.mVertexId].weight[boneIdx] = w.mWeight;
+				}
+
 			}
 
+			s->addBoneData(boneData);
 		}
-
-		s->addBoneData(boneData);
-
 	}
 	else if (node->mNumMeshes > 1) {
 		std::cout << "Error: More than one mesh in node!" << std::endl;
