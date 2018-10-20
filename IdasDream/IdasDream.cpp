@@ -65,14 +65,13 @@ void IdasDream::init()
 
 	//todo reserve
 	std::vector<GeometryData> geometryData;
-	std::vector<glm::mat4> bones;
 	std::vector<BoneData> boneData;
 	std::vector<int> boneDataStart;
 	std::vector<FragData> fragData;
 
-	bones.resize(Bones::size());
+	_bones.resize(Bones::size());
 
-	Hierachy::forEach(_root, [&gd = geometryData, &vd = _vertData, &fd = fragData, &b = bones, &bd = boneData, &bds = boneDataStart](SceneObject* s) {
+	Hierachy::forEach(_root, [&gd = geometryData, &vd = _vertData, &fd = fragData, &b = _bones, &bd = boneData, &bds = boneDataStart](SceneObject* s) {
 		if (s->getHasData()) {
 			gd.push_back(s->getGeometryData());
 
@@ -113,9 +112,9 @@ void IdasDream::init()
 	//glm::quat Orientation;
 	//glm::vec4 Perspective;
 
-	//for (size_t i = 0; i < bones.size(); i++)
+	//for (size_t i = 0; i < _bones.size(); i++)
 	//{
-	//	glm::decompose(bones[i], Scale, Orientation, Translation, Skew, Perspective);
+	//	glm::decompose(_bones[i], Scale, Orientation, Translation, Skew, Perspective);
 	//	glm::vec3 Euler = glm::eulerAngles(Orientation);
 
 	//	Scale = Extensions::round(Scale, 4);
@@ -134,7 +133,7 @@ void IdasDream::init()
 	_vertDataBuffer = std::make_unique<Buffer>(&_vertData[0], sizeof(VertData) * _vertData.size(), BufferUsage::DYNAMIC);
 	_vertDataBuffer->bind(BufferType::SSBO, 0);
 
-	_bonesBuffer = std::make_unique<Buffer>(&bones[0], sizeof(glm::mat4) * bones.size(), BufferUsage::STATIC);
+	_bonesBuffer = std::make_unique<Buffer>(&_bones[0], sizeof(glm::mat4) * _bones.size(), BufferUsage::DYNAMIC);
 	_bonesBuffer->bind(BufferType::SSBO, 1);
 	
 	_boneDataBuffer = std::make_unique<Buffer>(&boneData[0], sizeof(BoneData) * boneData.size(), BufferUsage::STATIC);
@@ -165,31 +164,36 @@ void IdasDream::init()
 
 	//init animation
 	_ida = Hierachy::find(_root, "ida");
-
-	glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, glm::pi<float>());
-
+	//glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, glm::pi<float>());
+	glm::vec3 baseRot = glm::vec3(glm::quarter_pi<float>(), 0, 0);
 	std::map<float, Transform> ida = {
-		{   0.0f,	Transform(	glm::vec3(-21, 9, -1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
-		{   3.0f,	Transform(	glm::vec3(-21, 9,  1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
-		{   5.0f,	Transform(	glm::vec3(-21, 9,  6),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
-		{   7.33f,	Transform(	glm::vec3(-21, 5, 10.33f),	baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
-		{   8.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0)	)	},
-		{   9.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0)	)	},
-		{  11.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0)	)	},
-		{  12.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	0,						0)	)	},
-		{  14.0f,	Transform(	glm::vec3(-19, 5,  7),		baseRot + glm::vec3(	0.0f,	0,						0)	)	},
+		//{	 0.0f,	Transform(glm::vec3(-21, 9,  1),		baseRot + glm::vec3(0.0f,	glm::pi<float>(),		0))},
+		{	 0.0f,	Transform(glm::vec3(1,0,0),			baseRot + glm::vec3(0.0f,	0,		0))},
+		{	 (1.0f / 24) * 10 ,	Transform(glm::vec3(1,0,0),		baseRot + glm::vec3(0.0f,	0,		0))},
+		{	 (1.0f / 24) * 20,	Transform(glm::vec3(1,20,0),		baseRot + glm::vec3(0.0f,	0,		0))},
+		//{	 3.0f,	Transform(	glm::vec3(-21, 9,  1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
+		//{	 5.0f,	Transform(	glm::vec3(-21, 9,  6),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
+		//{	 7.33f,	Transform(	glm::vec3(-21, 5, 10.33f),	baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
+		//{	 8.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
+		//{	 9.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0))},
+		//{	11.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0))},
+		//{	12.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	0,						0))},
+		//{	14.0f,	Transform(	glm::vec3(-19, 5,  7),		baseRot + glm::vec3(	0.0f,	0,						0))},
 	};
+	_ida->setAnimation(Animation(ida));
+
 
 	std::map<float, Transform> cam = {
 		{  0.0f, Transform(glm::vec3(-33.4545f, 32.3217f, 18.7543f), -glm::vec3(0.710f,1.165f,0)) },
 		{ 10.0f, Transform(glm::vec3(-33.7117f, 21.4750f, 32.1298f), -glm::vec3(0.380f,0.845f,0)) },
 		{ 20.0f, Transform(glm::vec3(-18.1747f, 35.7631f, 33.7641f), -glm::vec3(0.755f,0.455f,0)) },
 	};
-
-
 	_camAnim = Animation(cam);
 
-	_ida->setAnimation(Animation(ida));
+
+
+
+
 
 
 
@@ -207,15 +211,21 @@ void IdasDream::update(float dt)
 	animate(time);
 
 	_vertData.clear();
-	Hierachy::forEach(_root, [&vd = _vertData](SceneObject* s) {
+	_bones.clear();
+	_bones.resize(Bones::size());
+
+	Hierachy::forEach(_root, [&vd = _vertData, &b = _bones](SceneObject* s) {
 		if (s->getHasData()) {
 			vd.push_back({
 				s->getModelMatrix(),
 				s->getNormalMatrix()
 			});
 		}
+
+		s->setBones(b);
 	});
 	_vertDataBuffer->update(&_vertData[0], sizeof(VertData) * _vertData.size());
+	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
 	auto camt = _camAnim.getCurrentTransform(time);
 	if (camt) {

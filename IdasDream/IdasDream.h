@@ -43,6 +43,7 @@ private:
 	SceneObject* _ida;
 
 	std::vector<VertData> _vertData;
+	std::vector<glm::mat4> _bones;
 
 	Animation _camAnim;
 

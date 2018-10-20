@@ -53,8 +53,6 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		s = parent->createChild(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
 	}
 	
-
-
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
 
 	if (node->mNumMeshes == 1) {
@@ -153,21 +151,20 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 				arm->setBoneIdx(boneIdx);
 				arm->setOffsetMatrix(Extensions::toGlmMat4(b->mOffsetMatrix));
 
-
 				for (unsigned int j = 0; j < b->mNumWeights; j++) {
 					auto w = b->mWeights[j];
 					boneData[w.mVertexId].weight[boneIdx] = w.mWeight;
 				}
-
 			}
 
 			s->addBoneData(boneData);
 		}
+
+		
 	}
 	else if (node->mNumMeshes > 1) {
 		std::cout << "Error: More than one mesh in node!" << std::endl;
 	}
-
 
 	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{
@@ -190,6 +187,57 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 	_scene->mRootNode->mName = aiString(file.substr(from, to - from));
 
 	readNode(_scene->mRootNode, root);
+
+
+	//read animations
+	for (unsigned int a = 0; a < _scene->mNumAnimations; a++)
+	{
+		auto anim = _scene->mAnimations[a];
+		auto secondsPerTick = 1 / anim->mTicksPerSecond;
+
+		//iterate positionkeys, rot, scale
+		for (unsigned int c = 0; c < anim->mNumChannels; c++)
+		{
+			auto channel = anim->mChannels[c];
+
+			unsigned int numKeys = channel->mNumPositionKeys;
+
+			if (channel->mNumRotationKeys != numKeys) {
+				std::cout << "Error: Invalid animaion keys." << std::endl;
+			}
+
+			std::vector<float> time;
+			std::vector<Transform> transform;
+
+			for (unsigned int p = 0; p < channel->mNumPositionKeys; p++)
+			{
+				auto pos = channel->mPositionKeys[p];
+				auto rot = channel->mRotationKeys[p];
+
+				if (pos.mTime != rot.mTime) {
+					std::cout << "Error: Position and rotation timings do not match." << std::endl;
+				}
+				
+				time.push_back(static_cast<float>(pos.mTime * secondsPerTick));
+
+				transform.push_back(Transform(Extensions::round(Extensions::toGlmVec3(pos.mValue),3), Extensions::round(Extensions::toGlmQuat(rot.mValue),3)));
+			}
+
+			//just checking
+			for (unsigned int s = 0; s < channel->mNumScalingKeys; s++)
+			{
+				if (Extensions::round(Extensions::toGlmVec3(channel->mScalingKeys[s].mValue), 3) 
+					!= glm::vec3(1)) {
+					std::cout << "Error: Scaling in animation not supported" << std::endl;
+				}
+			}
+
+			auto arm = dynamic_cast<ArmatureObject*>(Hierachy::find(_armature, channel->mNodeName.C_Str()));
+			arm->addAnimation(anim->mName.C_Str(), Animation(time, transform));
+
+		}
+	}
+
 }
 
 FileImporter::~FileImporter()

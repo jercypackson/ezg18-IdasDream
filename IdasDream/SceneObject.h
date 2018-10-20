@@ -36,7 +36,7 @@ public:
 
 	bool setAnimation(Animation anim);
 
-	void animate(float time);
+	virtual void animate(float time);
 
 	virtual SceneObject* createChild(std::string name, glm::mat4 modelMatrix, SceneObject* parent);
 	virtual void setBones(std::vector<glm::mat4>& bd);

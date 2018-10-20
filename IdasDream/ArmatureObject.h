@@ -15,6 +15,10 @@ public:
 
 	void setBones(std::vector<glm::mat4>& bd) override;
 
+	void addAnimation(std::string name, Animation anim);
+
+	void animate(float time) override;
+
 
 private:
 
@@ -22,5 +26,8 @@ private:
 
 	unsigned int _boneIdx;
 	bool _isBone = false;
+
+	std::map<std::string, Animation> animations;
+
 };
 

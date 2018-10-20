@@ -1,14 +1,6 @@
 #include "pch.h"
 #include "Extensions.h"
 
-Extensions::Extensions()
-{
-}
-
-Extensions::~Extensions()
-{
-}
-
 glm::vec3 Extensions::toGlmVec3(const aiVector3D& aiVec3)
 {
 	return glm::vec3(aiVec3.x, aiVec3.y, aiVec3.z);
@@ -51,6 +43,11 @@ glm::mat4 Extensions::toGlmMat4(const aiMatrix4x4 & aiMat4)
 	return glmMat4;
 }
 
+glm::quat Extensions::toGlmQuat(const aiQuaternion & aiQuat)
+{
+	return glm::quat(aiQuat.w, aiQuat.x, aiQuat.y, aiQuat.z);
+}
+
 float Extensions::round(float f, int precision)
 {
 	unsigned int multiplier = 10 ^ (precision);
@@ -76,3 +73,14 @@ glm::vec4 Extensions::round(glm::vec4 v, int precision)
 		round(v.w, precision)
 	);
 }
+
+glm::quat Extensions::round(glm::quat q, int precision)
+{
+	return glm::quat(
+		round(q.w, precision),
+		round(q.x, precision),
+		round(q.y, precision),
+		round(q.z, precision)
+	);
+}
+

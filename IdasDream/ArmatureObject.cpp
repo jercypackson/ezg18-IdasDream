@@ -33,3 +33,19 @@ void ArmatureObject::setBones(std::vector<glm::mat4>& bd)
 	if (id < 0) return;
 	bd[id] = getModelMatrix() * _offsetMatrix;
 }
+
+void ArmatureObject::addAnimation(std::string name, Animation anim)
+{
+	animations[name] = anim;
+}
+
+void ArmatureObject::animate(float time)
+{
+	std::string name = "Armature|WalkingCycle.1";
+	auto anim = animations[name];
+
+	auto mm = anim.getCurrentMatrix(time);
+	if (mm) {
+		setLocalModelMatrix(mm.value());
+	}
+}
