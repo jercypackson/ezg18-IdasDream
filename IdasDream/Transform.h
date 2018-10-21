@@ -2,6 +2,7 @@
 
 #include <glm\glm.hpp>
 #include <glm/gtx/transform.hpp>
+#include <glm/ext/quaternion_common.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/quaternion.hpp>
 #include <glm/gtx/compatibility.hpp>
@@ -42,6 +43,6 @@ struct Transform
 	}
 
 	static Transform mix(Transform t1, Transform t2, float delta) {
-		return Transform(glm::mix(t1.pos, t2.pos, delta), glm::mix(t1.quat, t2.quat, delta));
+		return Transform(glm::mix(t1.pos, t2.pos, delta), glm::slerp(t1.quat, t2.quat, delta));
 	}
 };

@@ -114,7 +114,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="ShaderManager.h" />
-    <ClInclude Include="Transformation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedCamera.cpp" />

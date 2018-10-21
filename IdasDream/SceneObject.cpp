@@ -134,6 +134,7 @@ void SceneObject::setMatrices(glm::mat4 parentMM)
 
 void SceneObject::calcTransf()
 {
+#if _DEBUG
 	glm::vec3 Scale, Translation, Skew;
 	glm::quat Orientation;
 	glm::vec4 Perspective;
@@ -145,6 +146,7 @@ void SceneObject::calcTransf()
 	//}
 
 	_transform = Transform(Translation, Orientation);
+#endif
 }
 
 //glm::mat4 SceneObject::getModelMatrixRecursive()

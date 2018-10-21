@@ -41,11 +41,19 @@ void ArmatureObject::addAnimation(std::string name, Animation anim)
 
 void ArmatureObject::animate(float time)
 {
-	std::string name = "Armature|WalkingCycle.1";
-	auto anim = animations[name];
+	if (!animations.empty()) {
+		//
 
-	auto mm = anim.getCurrentMatrix(time);
-	if (mm) {
-		setLocalModelMatrix(mm.value());
+		/*
+		std::string name = "Armature|ArmatureActionadf";
+		auto anim = animations[name];
+		/*/
+		auto anim = animations.begin()->second;
+		//*/
+
+		auto mm = anim.getCurrentMatrix(time);
+		if (mm) {
+			setLocalModelMatrix(mm.value());
+		}
 	}
 }

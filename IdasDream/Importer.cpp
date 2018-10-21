@@ -220,7 +220,8 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 				
 				time.push_back(static_cast<float>(pos.mTime * secondsPerTick));
 
-				transform.push_back(Transform(Extensions::round(Extensions::toGlmVec3(pos.mValue),3), Extensions::round(Extensions::toGlmQuat(rot.mValue),3)));
+				transform.push_back(Transform(Extensions::toGlmVec3(pos.mValue), Extensions::toGlmQuat(rot.mValue)));
+				//transform.push_back(Transform(Extensions::round(Extensions::toGlmVec3(pos.mValue), 3), glm::vec3(0)));
 			}
 
 			//just checking

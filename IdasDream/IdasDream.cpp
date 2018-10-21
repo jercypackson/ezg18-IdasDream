@@ -165,12 +165,14 @@ void IdasDream::init()
 	//init animation
 	_ida = Hierachy::find(_root, "ida");
 	//glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, glm::pi<float>());
-	glm::vec3 baseRot = glm::vec3(glm::quarter_pi<float>(), 0, 0);
+	glm::vec3 baseRot = glm::vec3(glm::half_pi<float>(), 0, 0);
 	std::map<float, Transform> ida = {
 		//{	 0.0f,	Transform(glm::vec3(-21, 9,  1),		baseRot + glm::vec3(0.0f,	glm::pi<float>(),		0))},
 		{	 0.0f,	Transform(glm::vec3(1,0,0),			baseRot + glm::vec3(0.0f,	0,		0))},
-		{	 (1.0f / 24) * 10 ,	Transform(glm::vec3(1,0,0),		baseRot + glm::vec3(0.0f,	0,		0))},
-		{	 (1.0f / 24) * 20,	Transform(glm::vec3(1,20,0),		baseRot + glm::vec3(0.0f,	0,		0))},
+		{	 1.0f,	Transform(glm::vec3(1,0,0),			baseRot + glm::vec3(0.0f,	0,		0))},
+		//{	 2.0f,	Transform(glm::vec3(1,20,0),			glm::vec3(0.0f,	0,		0))},
+		//{	 (1.0f / 24) * 10 ,	Transform(glm::vec3(1,0,0),		baseRot + glm::vec3(0.0f,	0,		0))},
+		//{	 (1.0f / 24) * 20,	Transform(glm::vec3(1,20,0),		baseRot + glm::vec3(0.0f,	0,		0))},
 		//{	 3.0f,	Transform(	glm::vec3(-21, 9,  1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
 		//{	 5.0f,	Transform(	glm::vec3(-21, 9,  6),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
 		//{	 7.33f,	Transform(	glm::vec3(-21, 5, 10.33f),	baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
