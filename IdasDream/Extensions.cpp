@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Extensions.h"
+#include <glm/gtx/matrix_decompose.hpp>
 
 glm::vec3 Extensions::toGlmVec3(const aiVector3D& aiVec3)
 {
@@ -82,5 +83,44 @@ glm::quat Extensions::round(glm::quat q, int precision)
 		round(q.y, precision),
 		round(q.z, precision)
 	);
+}
+
+void Extensions::decompose(glm::mat4 m)
+{
+	glm::vec3 Scale, Translation, Skew;
+	glm::quat Orientation;
+	glm::vec4 Perspective;
+
+	glm::decompose(m, Scale, Orientation, Translation, Skew, Perspective);
+	glm::vec3 Euler = glm::eulerAngles(Orientation);
+
+	int p = 4;
+	Scale = Extensions::round(Scale, p);
+	Euler = Extensions::round(Euler, p);
+	Translation = Extensions::round(Translation, p);
+	Skew = Extensions::round(Skew, p);
+	Perspective = Extensions::round(Perspective, p);
+
+	if (Scale != glm::vec3(1)) {
+		bool err = true;
+	}
+
+	if (Euler != glm::vec3(0)) {
+		bool err = true;
+	}
+
+	if (Translation != glm::vec3(0)) {
+		bool err = true;
+	}
+
+	if (Skew != glm::vec3(0)) {
+		bool err = true;
+	}
+
+	if (Perspective != glm::vec4(0,0,0,1)) {
+		bool err = true;
+	}
+
+	bool test = true;
 }
 

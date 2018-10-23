@@ -21,4 +21,5 @@ public:
 	static glm::vec4 round(glm::vec4 v, int precision);
 	static glm::quat round(glm::quat q, int precision);
 
+	static void decompose(glm::mat4 m);
 };

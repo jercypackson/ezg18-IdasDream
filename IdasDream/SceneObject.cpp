@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SceneObject.h"
 #include <glm/gtx/matrix_decompose.hpp>
-#include <algorithm> 
+#include <algorithm>
 
 SceneObject::SceneObject(std::string name, glm::mat4 modelMatrix, SceneObject * parent)
 	: _name(name), _parent(parent), _localModelMatrix(modelMatrix)
@@ -78,7 +78,12 @@ std::string SceneObject::getName()
 
 void SceneObject::setLocalModelMatrix(glm::mat4 mm)
 {
-	_localModelMatrix = mm;
+	_localModelMatrix =  mm;
+
+	if (_globalInverse) {
+		_localModelMatrix = _globalInverse.value() * _localModelMatrix;
+	}
+
 	setMatrices(_parent->getModelMatrix());
 	calcTransf();
 }
@@ -119,8 +124,18 @@ void SceneObject::setBoneData(std::vector<BoneData>& bd, std::vector<int>& boneD
 		return;
 	}
 
-	boneDataStartBuffer.push_back(bd.size());
+	boneDataStartBuffer.push_back(static_cast<int>(bd.size()));
 	bd.insert(bd.end(), _boneData.begin(), _boneData.end());
+}
+
+bool SceneObject::setGlobalInverse(glm::mat4 gi)
+{
+	if (_globalInverse == std::nullopt) {
+		_globalInverse = gi;
+		setLocalModelMatrix(_localModelMatrix); //so that the gi is added
+		return true;
+	}
+	return false;
 }
 
 void SceneObject::setMatrices(glm::mat4 parentMM)
@@ -139,7 +154,7 @@ void SceneObject::calcTransf()
 	glm::quat Orientation;
 	glm::vec4 Perspective;
 
-	glm::decompose(_localModelMatrix, Scale, Orientation, Translation, Skew, Perspective);
+	glm::decompose(_modelMatrix, Scale, Orientation, Translation, Skew, Perspective);
 
 	//if (Scale != glm::vec3(1.0f) || Skew != glm::vec3(0.0f) || Perspective != glm::vec4(glm::vec3(0.0f),1.0f)) {
 	//	std::cout << "Attentione" << std::endl;

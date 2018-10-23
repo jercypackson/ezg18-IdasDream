@@ -33,4 +33,5 @@ private:
 	Assimp::Importer _importer;
 
 	ArmatureObject* _armature = nullptr;
+	glm::mat4 _armatureInverse;
 };

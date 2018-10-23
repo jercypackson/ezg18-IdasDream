@@ -45,13 +45,23 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 	SceneObject* s;
 
 	if (strcmp(node->mName.C_Str(), "Armature") == 0) {
-		ArmatureObject* a = new ArmatureObject(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
+		auto armT = Extensions::toGlmMat4(node->mTransformation);
+		_armatureInverse = glm::inverse(armT);
+
+		ArmatureObject* a = new ArmatureObject(node->mName.C_Str(), glm::mat4(1.0f), parent);
 		_armature = a;
+		
 		s = a;
 	}
 	else {
-		s = parent->createChild(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
+		auto t = Extensions::toGlmMat4(node->mTransformation);
+		s = parent->createChild(node->mName.C_Str(), t, parent);
+
+		if (_armature != nullptr) {
+			s->setGlobalInverse(_armatureInverse);
+		}
 	}
+
 	
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
 

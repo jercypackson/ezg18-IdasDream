@@ -107,23 +107,9 @@ void IdasDream::init()
 	}
 
 
-	
-	//glm::vec3 Scale, Translation, Skew;
-	//glm::quat Orientation;
-	//glm::vec4 Perspective;
-
 	//for (size_t i = 0; i < _bones.size(); i++)
 	//{
-	//	glm::decompose(_bones[i], Scale, Orientation, Translation, Skew, Perspective);
-	//	glm::vec3 Euler = glm::eulerAngles(Orientation);
-
-	//	Scale = Extensions::round(Scale, 4);
-	//	Euler = Extensions::round(Euler, 4);
-	//	Translation = Extensions::round(Translation, 4);
-	//	Skew = Extensions::round(Skew, 4);
-	//	Perspective = Extensions::round(Perspective, 4);
-
-	//	bool test = true;
+	//	Extensions::decompose(_bones[i]);
 	//}
 	
 
@@ -163,13 +149,26 @@ void IdasDream::init()
 
 
 	//init animation
-	_ida = Hierachy::find(_root, "ida");
-	//glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, glm::pi<float>());
-	glm::vec3 baseRot = glm::vec3(glm::half_pi<float>(), 0, 0);
+	_ida = Hierachy::find(_root, "Ida");
+	glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, 0);
 	std::map<float, Transform> ida = {
-		//{	 0.0f,	Transform(glm::vec3(-21, 9,  1),		baseRot + glm::vec3(0.0f,	glm::pi<float>(),		0))},
-		{	 0.0f,	Transform(glm::vec3(1,0,0),			baseRot + glm::vec3(0.0f,	0,		0))},
-		{	 1.0f,	Transform(glm::vec3(1,0,0),			baseRot + glm::vec3(0.0f,	0,		0))},
+		{	         0.f,	Transform(glm::vec3(-21, 2, -9),		baseRot + glm::vec3(0.0f,	0,		0))},
+		{	 10.f / 24.f,	Transform(glm::vec3(-21, 2, -9),		baseRot + glm::vec3(0.0f,	0,		0))},
+		{	 20.f / 24.f,	Transform(glm::vec3(-21, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,	0,		0))},
+		//{	 30.f / 24.f,	Transform(glm::vec3(-21, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,		0,	glm::half_pi<float>()))},
+		{	 30.f / 24.f,	Transform(glm::vec3(-20, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,		0,	-glm::half_pi<float>()))},
+		{	 40.f / 24.f,	Transform(glm::vec3(-18, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,		0,	-glm::half_pi<float>()))},
+
+
+
+
+		//{	 0.0f,	Transform(glm::vec3(1,0,0),				baseRot + glm::vec3(0.0f,	0,		0))},
+		//{	 1.0f,	Transform(glm::vec3(1,0,0),				baseRot + glm::vec3(0.0f,	0,		0))},
+		//{	 2.0f,	Transform(glm::vec3(1,20,0),			baseRot + glm::vec3(0.0f,	0,		0))},
+		
+		
+		
+		
 		//{	 2.0f,	Transform(glm::vec3(1,20,0),			glm::vec3(0.0f,	0,		0))},
 		//{	 (1.0f / 24) * 10 ,	Transform(glm::vec3(1,0,0),		baseRot + glm::vec3(0.0f,	0,		0))},
 		//{	 (1.0f / 24) * 20,	Transform(glm::vec3(1,20,0),		baseRot + glm::vec3(0.0f,	0,		0))},
@@ -183,7 +182,6 @@ void IdasDream::init()
 		//{	14.0f,	Transform(	glm::vec3(-19, 5,  7),		baseRot + glm::vec3(	0.0f,	0,						0))},
 	};
 	_ida->setAnimation(Animation(ida));
-
 
 	std::map<float, Transform> cam = {
 		{  0.0f, Transform(glm::vec3(-33.4545f, 32.3217f, 18.7543f), -glm::vec3(0.710f,1.165f,0)) },

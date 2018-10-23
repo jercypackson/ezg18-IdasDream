@@ -43,15 +43,17 @@ public:
 
 	void setBoneData(std::vector<BoneData>& bd, std::vector<int>& boneDataStartBuffer);
 
+	virtual bool setGlobalInverse(glm::mat4 gi);
+
 protected:
 	std::string _name;
+	glm::mat4 _localModelMatrix;
+	SceneObject* _parent;
 
 private:
 	Transform _transform; //local
-	glm::mat4 _localModelMatrix;
 	glm::mat4 _modelMatrix; //global
 	glm::mat4 _normalMatrix; //global
-	SceneObject* _parent;
 
 	bool hasData = false;
 	bool _hasBoneData = false;
@@ -68,7 +70,7 @@ private:
 
 	std::optional<Animation> _animation;
 
+	std::optional<glm::mat4> _globalInverse; //if there is a amrature this is needed
 
-	
 	//glm::mat4 getModelMatrixRecursive();
 };

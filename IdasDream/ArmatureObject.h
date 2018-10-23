@@ -19,6 +19,9 @@ public:
 
 	void animate(float time) override;
 
+	glm::mat4 getLocalModelMatrix();
+
+	bool setGlobalInverse(glm::mat4 gi) override;
 
 private:
 
@@ -28,6 +31,8 @@ private:
 	bool _isBone = false;
 
 	std::map<std::string, Animation> animations;
+
+	std::optional<glm::mat4> _globalInverseArm; //if there is a amrature this is needed
 
 };
 
