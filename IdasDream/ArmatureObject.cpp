@@ -34,15 +34,10 @@ void ArmatureObject::setBones(std::vector<glm::mat4>& bd)
 	auto id = Bones::getBone(_name);
 	if (id < 0) return;
 
-	glm::mat4 v;
-
+	glm::mat4 v = getModelMatrix() * _offsetMatrix;
 	if (_globalInverseArm) {
-		v = getModelMatrix() * _offsetMatrix * _globalInverseArm.value();
+		v = v * _globalInverseArm.value();
 	}
-	else {
-		v = getModelMatrix() * _offsetMatrix;
-	}
-
 
 	bd[id] = v;
 }
@@ -54,20 +49,16 @@ void ArmatureObject::addAnimation(std::string name, Animation anim)
 
 void ArmatureObject::animate(float time)
 {
-	if (!animations.empty()) {
-		//
+	if (_animationTime.empty() || time < _animationTime.front()) return;
 
-		/*
-		std::string name = "Armature|ArmatureActionadf";
-		auto anim = animations[name];
-		/*/
-		auto anim = animations.begin()->second;
-		//*/
+	auto lessOrEqual = std::prev(std::upper_bound(_animationTime.begin(), _animationTime.end(), time), 1);
+	auto lessOrEqualIdx = lessOrEqual - _animationTime.begin();
 
-		auto mm = anim.getCurrentMatrix(time);
-		if (mm) {
-			setLocalModelMatrix(mm.value());
-		}
+	auto name = _animationName[lessOrEqualIdx];
+
+	auto mm = animations[name].getCurrentMatrix(time - *lessOrEqual);
+	if (mm) {
+		setLocalModelMatrix(mm.value());
 	}
 }
 
@@ -78,10 +69,15 @@ glm::mat4 ArmatureObject::getLocalModelMatrix()
 
 bool ArmatureObject::setGlobalInverse(glm::mat4 gi)
 {
-	//todo: replace with if has bone
-	if (_globalInverseArm == std::nullopt && _name == "Body") {
+	if (_name == "Body") { //idk why this works but i'm not complaining
 		_globalInverseArm = gi;
 		return true;
 	}
 	return false;
+}
+
+void ArmatureObject::addAnimationSequence(std::vector<float> time, std::vector<std::string> name)
+{
+	_animationTime = time;
+	_animationName = name;
 }

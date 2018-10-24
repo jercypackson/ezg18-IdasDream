@@ -90,11 +90,11 @@ void SceneObject::setLocalModelMatrix(glm::mat4 mm)
 
 bool SceneObject::setAnimation(Animation anim)
 {
-	if (!_animation.has_value()) {
+	//if (!_animation.has_value()) {
 		_animation = anim;
 		return true;
-	}
-	return false;
+	//}
+	//return false;
 }
 
 void SceneObject::animate(float time)
@@ -136,6 +136,11 @@ bool SceneObject::setGlobalInverse(glm::mat4 gi)
 		return true;
 	}
 	return false;
+}
+
+void SceneObject::addAnimationSequence(std::vector<float> time, std::vector<std::string> name)
+{
+	//do nothing
 }
 
 void SceneObject::setMatrices(glm::mat4 parentMM)

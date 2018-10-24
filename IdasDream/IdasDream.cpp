@@ -24,6 +24,17 @@
 #include <glm/gtx/matrix_decompose.hpp>
 #include <glm/gtc/quaternion.hpp>
 
+#include <nlohmann/json.hpp>
+// for convenience
+using json = nlohmann::json;
+
+// ifstream constructor.
+#include <iostream>     // std::cout
+#include <fstream>      // std::ifstream
+
+#include <INIReader.h>
+
+
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, float speed)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6 }),
@@ -47,6 +58,16 @@ void IdasDream::init()
 		switch (inp.key) {
 		case KeyInput::Key::F1:
 			to = static_cast<float>(w.getTime());
+			break;
+		}
+	});
+
+	_window.registerKeyInputHandler([this](const KeyInput& inp) {
+		if (inp.action != KeyInput::Action::RELEASED) return;
+
+		switch (inp.key) {
+		case KeyInput::Key::F2:
+			reload();
 			break;
 		}
 	});
@@ -146,42 +167,8 @@ void IdasDream::init()
 
 
 
-
-
 	//init animation
-	_ida = Hierachy::find(_root, "Ida");
-	glm::vec3 baseRot = glm::vec3(-glm::half_pi<float>(), 0, 0);
-	std::map<float, Transform> ida = {
-		{	         0.f,	Transform(glm::vec3(-21, 2, -9),		baseRot + glm::vec3(0.0f,	0,		0))},
-		{	 10.f / 24.f,	Transform(glm::vec3(-21, 2, -9),		baseRot + glm::vec3(0.0f,	0,		0))},
-		{	 20.f / 24.f,	Transform(glm::vec3(-21, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,	0,		0))},
-		//{	 30.f / 24.f,	Transform(glm::vec3(-21, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,		0,	glm::half_pi<float>()))},
-		{	 30.f / 24.f,	Transform(glm::vec3(-20, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,		0,	-glm::half_pi<float>()))},
-		{	 40.f / 24.f,	Transform(glm::vec3(-18, 2 + 2.f / 3.f, -9),		baseRot + glm::vec3(0.0f,		0,	-glm::half_pi<float>()))},
 
-
-
-
-		//{	 0.0f,	Transform(glm::vec3(1,0,0),				baseRot + glm::vec3(0.0f,	0,		0))},
-		//{	 1.0f,	Transform(glm::vec3(1,0,0),				baseRot + glm::vec3(0.0f,	0,		0))},
-		//{	 2.0f,	Transform(glm::vec3(1,20,0),			baseRot + glm::vec3(0.0f,	0,		0))},
-		
-		
-		
-		
-		//{	 2.0f,	Transform(glm::vec3(1,20,0),			glm::vec3(0.0f,	0,		0))},
-		//{	 (1.0f / 24) * 10 ,	Transform(glm::vec3(1,0,0),		baseRot + glm::vec3(0.0f,	0,		0))},
-		//{	 (1.0f / 24) * 20,	Transform(glm::vec3(1,20,0),		baseRot + glm::vec3(0.0f,	0,		0))},
-		//{	 3.0f,	Transform(	glm::vec3(-21, 9,  1),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
-		//{	 5.0f,	Transform(	glm::vec3(-21, 9,  6),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
-		//{	 7.33f,	Transform(	glm::vec3(-21, 5, 10.33f),	baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
-		//{	 8.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::pi<float>(),		0))},
-		//{	 9.0f,	Transform(	glm::vec3(-21, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0))},
-		//{	11.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	glm::half_pi<float>(),	0))},
-		//{	12.0f,	Transform(	glm::vec3(-19, 5, 11),		baseRot + glm::vec3(	0.0f,	0,						0))},
-		//{	14.0f,	Transform(	glm::vec3(-19, 5,  7),		baseRot + glm::vec3(	0.0f,	0,						0))},
-	};
-	_ida->setAnimation(Animation(ida));
 
 	std::map<float, Transform> cam = {
 		{  0.0f, Transform(glm::vec3(-33.4545f, 32.3217f, 18.7543f), -glm::vec3(0.710f,1.165f,0)) },
@@ -196,7 +183,7 @@ void IdasDream::init()
 
 
 
-
+	reload();
 
 	//update offset
 	_timeOffset += static_cast<float>(_window.getTime());
@@ -245,6 +232,7 @@ float IdasDream::getTime()
 	return (static_cast<float>(_window.getTime()) - _timeOffset) * _speed;
 }
 
+
 void IdasDream::render(float dt)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -271,4 +259,77 @@ void IdasDream::render(float dt)
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
+}
+
+void IdasDream::reload()
+{
+	INIReader reader(Extensions::assets + "settings.ini");
+
+	_timeOffset = -static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
+	_speed = static_cast<float>(reader.GetReal("Animation", "speed", 1));
+	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
+
+	auto animationPath = reader.Get("Animation", "animationPath", "animation.json");
+
+	std::ifstream ifs(Extensions::assets + animationPath, std::ifstream::in);
+	json root;
+	ifs >> root;
+	ifs.close();
+
+	for (json::iterator it = root.begin(); it != root.end(); ++it) {
+		std::string name = it.key();
+
+		auto sceneObj = Hierachy::find(_root, name);
+
+		auto obj = it.value();
+
+		{
+			auto oa = obj["ObjectAnimation"];
+			if (!oa.is_null()) {
+
+				std::vector<float> time;
+				std::vector<Transform> transform;
+
+				auto s = oa.size();
+				time.reserve(s);
+				transform.reserve(s);
+
+				for (auto& a : oa) {
+
+					time.push_back(a[0] / _ticksPerSecond);
+
+					auto p = a[1];
+					auto r = a[2];
+					transform.push_back(Transform(glm::vec3(p[0], p[1], p[2]), glm::radians(glm::vec3(r[0], r[1], r[2]))));
+				}
+
+				sceneObj->setAnimation(Animation(time, transform));
+			}
+		}
+		{
+			auto ra = obj["RiggedAnimation"];
+			if (!ra.is_null()) {
+
+				std::vector<float> time;
+				std::vector<string> animation;
+
+				auto s = ra.size();
+				time.reserve(s);
+				animation.reserve(s);
+
+				for (auto& a : ra) {
+
+					time.push_back(a[0] / _ticksPerSecond);
+					animation.push_back(a[1]);
+				}
+
+				Hierachy::forEach(sceneObj, [&t = time, &a = animation](SceneObject* s) {
+					s->addAnimationSequence(t, a);
+				});
+			}
+		}
+
+		bool test = true;
+	}
+
 }

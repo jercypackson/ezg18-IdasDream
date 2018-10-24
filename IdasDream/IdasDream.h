@@ -37,6 +37,7 @@ private:
 	float getTime();
 	float _timeOffset;
 	float _speed;
+	float _ticksPerSecond;
 
 	std::vector<float> _idaTime;
 	std::vector<Transform> _idaTransf;
@@ -48,4 +49,6 @@ private:
 	Animation _camAnim;
 
 	SceneObject* _root;
+
+	void reload();
 };

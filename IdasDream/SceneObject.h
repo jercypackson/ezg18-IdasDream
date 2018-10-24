@@ -45,6 +45,8 @@ public:
 
 	virtual bool setGlobalInverse(glm::mat4 gi);
 
+	virtual void addAnimationSequence(std::vector<float> time, std::vector<std::string> name);
+
 protected:
 	std::string _name;
 	glm::mat4 _localModelMatrix;

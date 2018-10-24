@@ -45,8 +45,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 	SceneObject* s;
 
 	if (strcmp(node->mName.C_Str(), "Armature") == 0) {
-		auto armT = Extensions::toGlmMat4(node->mTransformation);
-		_armatureInverse = glm::inverse(armT);
+		_armatureInverse = glm::inverse(Extensions::toGlmMat4(node->mTransformation));
 
 		ArmatureObject* a = new ArmatureObject(node->mName.C_Str(), glm::mat4(1.0f), parent);
 		_armature = a;
@@ -54,8 +53,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		s = a;
 	}
 	else {
-		auto t = Extensions::toGlmMat4(node->mTransformation);
-		s = parent->createChild(node->mName.C_Str(), t, parent);
+		s = parent->createChild(node->mName.C_Str(), Extensions::toGlmMat4(node->mTransformation), parent);
 
 		if (_armature != nullptr) {
 			s->setGlobalInverse(_armatureInverse);
@@ -203,7 +201,7 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 	for (unsigned int a = 0; a < _scene->mNumAnimations; a++)
 	{
 		auto anim = _scene->mAnimations[a];
-		auto secondsPerTick = 1 / anim->mTicksPerSecond;
+		auto secondsPerTick = 1 / anim->mTicksPerSecond; //todo: compare to IdasDream::_ticksPerSecond
 
 		//iterate positionkeys, rot, scale
 		for (unsigned int c = 0; c < anim->mNumChannels; c++)

@@ -115,6 +115,10 @@
     <None Include="..\bin\assets\settings.ini">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="cpp.hint" />
+    <None Include="..\bin\assets\animation.json">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\bin\assets\textures\1000px-Font_Awesome_5_solid_chess-board.png">

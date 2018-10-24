@@ -23,6 +23,8 @@ public:
 
 	bool setGlobalInverse(glm::mat4 gi) override;
 
+	void addAnimationSequence(std::vector<float> time, std::vector<std::string> name) override;
+
 private:
 
 	glm::mat4 _offsetMatrix = glm::mat4(1.0f);
@@ -34,5 +36,7 @@ private:
 
 	std::optional<glm::mat4> _globalInverseArm; //if there is a amrature this is needed
 
-};
+	std::vector<float> _animationTime;
+	std::vector<std::string> _animationName;
 
+};
