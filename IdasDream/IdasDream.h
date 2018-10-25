@@ -35,6 +35,7 @@ private:
 	std::unique_ptr<Buffer> _boneDataStartBuffer;
 
 	float getTime();
+	float _currTimeOffset;
 	float _timeOffset;
 	float _speed;
 	float _ticksPerSecond;

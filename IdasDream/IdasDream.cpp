@@ -40,7 +40,7 @@ IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, f
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6 }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
 	_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-	_timeOffset(-timeOffset), _speed(speed)
+	_timeOffset(timeOffset), _speed(speed)
 {
 	_arcballCamera.setZoom(50);
 }
@@ -52,12 +52,12 @@ IdasDream::~IdasDream()
 void IdasDream::init()
 {
 
-	_window.registerKeyInputHandler([&to = _timeOffset, &w = _window](const KeyInput& inp) {
+	_window.registerKeyInputHandler([&cto = _currTimeOffset, &to = _timeOffset, &w = _window](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
 		switch (inp.key) {
 		case KeyInput::Key::F1:
-			to = static_cast<float>(w.getTime());
+			cto = static_cast<float>(w.getTime()) - to;
 			break;
 		}
 	});
@@ -186,7 +186,7 @@ void IdasDream::init()
 	reload();
 
 	//update offset
-	_timeOffset += static_cast<float>(_window.getTime());
+	_currTimeOffset += static_cast<float>(_window.getTime()) - _timeOffset;
 }
 
 void IdasDream::update(float dt)
@@ -229,7 +229,7 @@ void IdasDream::animate(float time)
 
 float IdasDream::getTime()
 {
-	return (static_cast<float>(_window.getTime()) - _timeOffset) * _speed;
+	return (static_cast<float>(_window.getTime()) - _currTimeOffset) * _speed;
 }
 
 
@@ -265,7 +265,7 @@ void IdasDream::reload()
 {
 	INIReader reader(Extensions::assets + "settings.ini");
 
-	_timeOffset = -static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
+	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
 	_speed = static_cast<float>(reader.GetReal("Animation", "speed", 1));
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
 
@@ -296,7 +296,7 @@ void IdasDream::reload()
 
 				for (auto& a : oa) {
 
-					time.push_back(a[0] / _ticksPerSecond);
+					time.push_back((float)(a[0]) / _ticksPerSecond);
 
 					auto p = a[1];
 					auto r = a[2];

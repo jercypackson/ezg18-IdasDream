@@ -3,36 +3,73 @@
     "ObjectAnimation": [
       [
         0.0,
-        [ -21, 2, -9 ],
+        [ -21, 9, 1 ],
         [ -90, 0, 0 ]
       ],
       [
-        10,
-        [ -21, 2, -9 ],
+        10.0,
+        [ -21, 9, 1 ],
         [ -90, 0, 0 ]
       ],
       [
-        20,
-        [ -21, 2.667, -9 ],
+        85.0,
+        [ -21, 9, 6 ],
         [ -90, 0, 0 ]
       ],
       [
-        30,
-        [ -20, 2.667, -9 ],
-        [ -90, 0, -90 ]
+        90.0,
+        [ -21, 8.75, 6.375 ],
+        [ -90, 0, 0 ]
       ],
       [
-        60,
-        [ -18, 2.667, -9 ],
-        [ -90, 0, -90 ]
+        230.0,
+        [ -21, 5.25, 9.875 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        240.0,
+        [ -21, 5, 10.333 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        245.0,
+        [ -21, 5, 10.333 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        265.0,
+        [ -21, 5, 11.666 ],
+        [ -90, 0, 0 ]
       ]
     ]
   },
   "Armature": {
     "RiggedAnimation": [
-      [ 0, "Armature|StartWalking" ],
-      [ 20, "Armature|WalkingCycle.1" ],
-      [ 50, "Armature|WalkingCycle.2" ]
+      [ 0, "Armature|start" ],
+      [ 15, "Armature|walk.1" ],
+      [ 25, "Armature|walk.2" ],
+      [ 35, "Armature|walk.1" ],
+      [ 45, "Armature|walk.2" ],
+      [ 55, "Armature|walk.1" ],
+      [ 65, "Armature|walk.2" ],
+      [ 75, "Armature|walk.1" ],
+      [ 85, "Armature|startStairs.1" ],
+      [ 100, "Armature|stairs.1" ],
+      [ 110, "Armature|stairs.2" ],
+      [ 120, "Armature|stairs.1" ],
+      [ 130, "Armature|stairs.2" ],
+      [ 140, "Armature|stairs.1" ],
+      [ 150, "Armature|stairs.2" ],
+      [ 160, "Armature|stairs.1" ],
+      [ 170, "Armature|stairs.2" ],
+      [ 180, "Armature|stairs.1" ],
+      [ 190, "Armature|stairs.2" ],
+      [ 200, "Armature|stairs.1" ],
+      [ 210, "Armature|stairs.2" ],
+      [ 220, "Armature|stairs.1" ],
+      [ 230, "Armature|endStairs.1" ],
+      [ 245, "Armature|walk.2" ],
+      [ 255, "Armature|walk.1" ]
     ]
   }
 }
