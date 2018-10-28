@@ -40,7 +40,7 @@ IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, f
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6 }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
 	_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-	_timeOffset(timeOffset), _speed(speed)
+	_timeOffset(timeOffset / speed), _speed(speed)
 {
 	_arcballCamera.setZoom(50);
 }
@@ -265,8 +265,8 @@ void IdasDream::reload()
 {
 	INIReader reader(Extensions::assets + "settings.ini");
 
-	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
 	_speed = static_cast<float>(reader.GetReal("Animation", "speed", 1));
+	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0)) / _speed;
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
 
 	auto animationPath = reader.Get("Animation", "animationPath", "animation.json");
@@ -319,8 +319,8 @@ void IdasDream::reload()
 
 				for (auto& a : ra) {
 
-					time.push_back(a[0] / _ticksPerSecond);
-					animation.push_back(a[1]);
+					time.push_back((float)(a[0]) / _ticksPerSecond);
+					animation.push_back((std::string)(a[1]));
 				}
 
 				Hierachy::forEach(sceneObj, [&t = time, &a = animation](SceneObject* s) {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Application.h"
+#include "FlyCamera.h"
 #include "ArcballCamera.h"
 #include "Geometry.h"
 #include "Shader.h"
