@@ -115,6 +115,31 @@
         445.0,
         [ -3, 9, 18.667 ],
         [ -90, 180, 0 ]
+      ],
+      [
+        460.0,
+        [ -3, 9, 18.107 ],
+        [ -90, 180, 0 ]
+      ],
+      [
+        540.0,
+        [ -3, 11, 16.107 ],
+        [ -90, 180, 0 ]
+      ],
+      [
+        550.0,
+        [ -3, 11.22, 15.857 ],
+        [ -90, 180, 0 ]
+      ],
+      [
+        555.0,
+        [ -3, 11.5, 15.607 ],
+        [ -90, 180, 0 ]
+      ],
+      [
+        565.0,
+        [ -3, 11.5, 15.607 ],
+        [ -90, 180, 0 ]
       ]
     ]
   },
@@ -159,7 +184,18 @@
       [ 380, "Armature|walk.2" ],
       [ 390, "Armature|walk.1" ],
       [ 400, "Armature|end.1" ],
-      [ 430, "Armature|start" ]
+      [ 430, "Armature|start" ],
+      [ 445, "Armature|startStairsUp.2" ],
+      [ 460, "Armature|stairsUp.2" ],
+      [ 470, "Armature|stairsUp.1" ],
+      [ 480, "Armature|stairsUp.2" ],
+      [ 490, "Armature|stairsUp.1" ],
+      [ 500, "Armature|stairsUp.2" ],
+      [ 510, "Armature|stairsUp.1" ],
+      [ 520, "Armature|stairsUp.2" ],
+      [ 530, "Armature|stairsUp.1" ],
+      [ 540, "Armature|endStairsUp.2" ],
+      [ 555, "Armature|end.1" ]
     ]
   },
   "Cube.tra.x.-2": {
@@ -176,6 +212,11 @@
       ],
       [
         430,
+        [ -3, -19, 7 ],
+        [ 0, 0, 0 ]
+      ],
+      [
+        1000,
         [ -3, -19, 7 ],
         [ 0, 0, 0 ]
       ]
