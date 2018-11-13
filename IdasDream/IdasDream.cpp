@@ -78,7 +78,6 @@ void IdasDream::init()
 
 	_root = Importer(Extensions::assets + "objects").import();
 	
-
 	// load and use default shader
 	_shader = ShaderManager::getShader("phongPhong");
 	_shader->registerToWindow(_window);
@@ -94,6 +93,7 @@ void IdasDream::init()
 
 	Hierachy::forEach(_root, [&gd = geometryData, &vd = _vertData, &fd = fragData, &b = _bones, &bd = boneData, &bds = boneDataStart](SceneObject* s) {
 		if (s->getHasData()) {
+
 			gd.push_back(s->getGeometryData());
 
 			vd.push_back({
@@ -126,13 +126,6 @@ void IdasDream::init()
 			}
 		}
 	}
-
-
-	//for (size_t i = 0; i < _bones.size(); i++)
-	//{
-	//	Extensions::decompose(_bones[i]);
-	//}
-	
 
 	DrawCallInfo dci = DrawCallInfo::fromGeometryData(geometryData);
 	_obj.push_back(Geometry(dci, geometryData));
@@ -201,12 +194,22 @@ void IdasDream::update(float dt)
 	_bones.clear();
 	_bones.resize(Bones::size());
 
-	Hierachy::forEach(_root, [&vd = _vertData, &b = _bones](SceneObject* s) {
+	Hierachy::forEach(_root, [&vd = _vertData, &b = _bones, &t = time](SceneObject* s) {
 		if (s->getHasData()) {
-			vd.push_back({
+
+			VertData data = {
 				s->getModelMatrix(),
 				s->getNormalMatrix()
-			});
+			};
+
+			if (s->getName().find("Twist") != std::string::npos) {
+
+				float twist = t * 0.1f;
+
+				data.twistParam = std::min(t * 0.1f, glm::pi<float>() / 16.0f);
+			}
+
+			vd.push_back(data);
 		}
 
 		s->setBones(b);

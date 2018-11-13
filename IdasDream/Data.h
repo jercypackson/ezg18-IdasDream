@@ -5,6 +5,8 @@
 struct VertData {
 	glm::mat4 modelMatix;
 	glm::mat4 normalMatrix;
+	float twistParam = 0;
+	glm::vec3 _padding;
 };
 
 const int NUM_BONES_PER_VEREX = 7;

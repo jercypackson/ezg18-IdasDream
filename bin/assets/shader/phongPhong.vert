@@ -22,6 +22,7 @@ uniform mat4 viewProjMatrix;
 struct VertData {
     mat4 modelMatix;
     mat4 normalMatrix;
+    float twistParam;
 };
 
 layout(std430, binding = 0) buffer dataBuffer {
@@ -45,10 +46,30 @@ layout(std430, binding = 3) buffer boneDataStartBuffer {
 	int boneDataStartIdx[];
 };
 
+mat4 createTwistMat(float k, float z) {
+    mat4 twist = mat4(1.0f);
+
+    twist[0][0] = cos(k*z);
+    twist[0][1] = sin(k*z);
+
+    twist[1][0] = -sin(k*z);
+    twist[1][1] = cos(k*z);
+
+    return twist;
+}
+
 void main() {
 
     vec4 NormalL = vec4(normal, 0.0);
     vec4 PosL = vec4(position, 1.0);
+
+    VertData d = data[gl_DrawID];
+
+    //twist
+    mat4 twist = createTwistMat(d.twistParam, PosL.z);
+
+    NormalL = twist * NormalL;  //no non-uniform scaling, so no need to transpose and invert
+    PosL = twist * PosL;
 
     int startIdx = boneDataStartIdx[gl_DrawID];
 
@@ -73,7 +94,6 @@ void main() {
 
 
 
-    VertData d = data[gl_DrawID];
     
 	vert.normal_world = (d.normalMatrix * NormalL).xyz;
 
