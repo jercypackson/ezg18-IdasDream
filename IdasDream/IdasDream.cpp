@@ -239,13 +239,15 @@ float IdasDream::getTime()
 void IdasDream::render(float dt)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	/*
-	_shader->setUniform("viewProjMatrix", _animatedCamera.getViewProjectionMatrix());
-	_shader->setUniform("camera_world", _animatedCamera.getPosition());
-	/*/
-	_shader->setUniform("viewProjMatrix", _arcballCamera.getViewProjectionMatrix());
-	_shader->setUniform("camera_world", _arcballCamera.getPosition());
-	//*/
+
+	if (_useArcballCam) {
+		_shader->setUniform("viewProjMatrix", _arcballCamera.getViewProjectionMatrix());
+		_shader->setUniform("camera_world", _arcballCamera.getPosition());
+	}
+	else {
+		_shader->setUniform("viewProjMatrix", _animatedCamera.getViewProjectionMatrix());
+		_shader->setUniform("camera_world", _animatedCamera.getPosition());
+	}
 
 #if writ
 	bool write = false;
@@ -271,6 +273,8 @@ void IdasDream::reload()
 	_speed = static_cast<float>(reader.GetReal("Animation", "speed", 1));
 	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0)) / _speed;
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
+
+	_useArcballCam = reader.GetBoolean("Camera", "arcball", false);
 
 	auto animationPath = reader.Get("Animation", "animationPath", "animation.json");
 

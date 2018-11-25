@@ -135,14 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\bin\assets\animation.json" />
-    <None Include="..\bin\assets\objects\test.dae" />
     <None Include="..\bin\assets\settings.ini" />
     <None Include="..\bin\assets\shader\phongPhong.frag" />
     <None Include="..\bin\assets\shader\phongPhong.vert" />
     <None Include="cpp.hint" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\bin\assets\textures\1000px-Font_Awesome_5_solid_chess-board.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

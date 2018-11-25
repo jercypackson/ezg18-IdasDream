@@ -1,9 +1,4 @@
 #version 460 core
-/*
-* Copyright 2018 Vienna University of Technology.
-* Institute of Computer Graphics and Algorithms.
-* This file is part of the ECG Lab Framework and must not be redistributed.
-*/
 
 layout(location = 0) in vec3 position;
 layout(location = 1) in vec3 normal;

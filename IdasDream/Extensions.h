@@ -8,7 +8,7 @@
 class Extensions
 {
 public:
-	static inline const std::string assets = "../assets/";
+	static inline const std::string assets = "./assets/";
 
 	static glm::vec3 toGlmVec3(const aiVector3D& aiVec3);
 	static glm::vec3 toGlmVec3(const aiColor4D& aiCol4);

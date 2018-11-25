@@ -109,9 +109,6 @@
     <None Include="..\bin\assets\shader\phongPhong.vert">
       <Filter>Source Files\Shader</Filter>
     </None>
-    <None Include="..\bin\assets\objects\test.dae">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\bin\assets\settings.ini">
       <Filter>Resource Files</Filter>
     </None>
@@ -119,10 +116,5 @@
     <None Include="..\bin\assets\animation.json">
       <Filter>Resource Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\bin\assets\textures\1000px-Font_Awesome_5_solid_chess-board.png">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>

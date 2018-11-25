@@ -1,9 +1,4 @@
 #version 460 core
-/*
-* Copyright 2018 Vienna University of Technology.
-* Institute of Computer Graphics and Algorithms.
-* This file is part of the ECG Lab Framework and must not be redistributed.
-*/
 
 #extension GL_ARB_bindless_texture : enable
 #extension GL_ARB_shader_draw_parameters : enable

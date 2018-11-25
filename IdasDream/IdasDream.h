@@ -40,6 +40,7 @@ private:
 	float _timeOffset;
 	float _speed;
 	float _ticksPerSecond;
+	bool _useArcballCam;
 
 	std::vector<float> _idaTime;
 	std::vector<Transform> _idaTransf;
