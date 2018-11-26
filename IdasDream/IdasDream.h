@@ -15,7 +15,7 @@ class IdasDream
 	: public Application
 {
 public:
-	IdasDream(int width, int height, bool fullscreen, float timeOffset = 0, float speed = 1);
+	IdasDream(int width, int height, bool fullscreen, int samples);
 	virtual ~IdasDream();
 
 	void init() override;
@@ -37,8 +37,8 @@ private:
 
 	float getTime();
 	float _currTimeOffset;
-	float _timeOffset;
-	float _speed;
+	float _timeOffset = 0;
+	float _speed = 1;
 	float _ticksPerSecond;
 	bool _useArcballCam;
 

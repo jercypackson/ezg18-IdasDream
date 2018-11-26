@@ -36,11 +36,10 @@ using json = nlohmann::json;
 
 
 
-IdasDream::IdasDream(int width, int height, bool fullscreen, float timeOffset, float speed)
-	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6 }),
+IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
+	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-	_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-	_timeOffset(timeOffset / speed), _speed(speed)
+	_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
 {
 	_arcballCamera.setZoom(50);
 }
