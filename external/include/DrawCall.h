@@ -14,7 +14,8 @@ struct DrawCallInfo
 		TRIANGLE_STRIP = 2,
 		TRIANGLE_FAN = 3,
 		PATCH_ARRAYS = 4,
-		PATCH_ELEMENTS = 5
+		PATCH_ELEMENTS = 5,
+		POINT_ARRAYS = 6
 	} geometryType = GeometryType::TRIANGLE_ARRAYS;
 
 	enum class DrawCallType
@@ -70,6 +71,7 @@ public:
 	void drawTriangleFanInstanced() const;
 	void drawTriangleFanIndirect() const;
 	void drawTriangleArrays() const;
+	void drawPointArrays() const;
 	void drawTriangleArraysInstanced() const;
 	void drawTriangleArraysIndirect() const;
 	void drawMultiTriangleArraysIndirect() const;

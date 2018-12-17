@@ -10,6 +10,7 @@
 #include "SceneObject.h"
 #include "Hierachy.h"
 #include "AnimatedCamera.h"
+#include "Particles.h"
 
 class IdasDream
 	: public Application
@@ -24,6 +25,8 @@ public:
 	void render(float dt) override;
 
 private:
+	Particles* _particles;
+
 	std::shared_ptr<Shader> _shader;
 	std::vector<StaticMesh> _obj;
 	ArcballCamera _arcballCamera;
@@ -54,4 +57,5 @@ private:
 	SceneObject* _root;
 
 	void reload();
+
 };

@@ -60,6 +60,9 @@
     <ClInclude Include="ArmatureObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Particles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -101,6 +104,9 @@
     <ClCompile Include="ArmatureObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Particles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\bin\assets\shader\phongPhong.frag">
@@ -115,6 +121,18 @@
     <None Include="cpp.hint" />
     <None Include="..\bin\assets\animation.json">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\bin\assets\shader\particlePhysics.comp">
+      <Filter>Source Files\Shader</Filter>
+    </None>
+    <None Include="..\bin\assets\shader\particles.frag">
+      <Filter>Source Files\Shader</Filter>
+    </None>
+    <None Include="..\bin\assets\shader\particles.vert">
+      <Filter>Source Files\Shader</Filter>
+    </None>
+    <None Include="..\bin\assets\shader\particles.geom">
+      <Filter>Source Files\Shader</Filter>
     </None>
   </ItemGroup>
 </Project>

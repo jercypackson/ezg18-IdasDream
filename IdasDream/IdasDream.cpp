@@ -34,6 +34,8 @@ using json = nlohmann::json;
 
 #include <INIReader.h>
 
+#include "Particles.h"
+
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples }),
 	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
@@ -169,6 +171,8 @@ void IdasDream::init()
 
 
 
+	// particles
+	_particles = new Particles();
 
 
 
@@ -211,6 +215,7 @@ void IdasDream::update(float dt)
 
 		s->setBones(b);
 	});
+	_shader->use();
 	_vertDataBuffer->update(&_vertData[0], sizeof(VertData) * _vertData.size());
 	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
@@ -218,6 +223,8 @@ void IdasDream::update(float dt)
 	if (camt) {
 		_animatedCamera.update(camt.value());
 	}
+
+	_particles->compute(dt);
 }
 
 void IdasDream::animate(float time)
@@ -237,6 +244,15 @@ void IdasDream::render(float dt)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	_shader->use();
+
+	_vertDataBuffer->bind(BufferType::SSBO, 0);
+	_bonesBuffer->bind(BufferType::SSBO, 1);
+	_boneDataBuffer->bind(BufferType::SSBO, 2);
+	_boneDataStartBuffer->bind(BufferType::SSBO, 3);
+	_fragDataBuffer->bind(BufferType::SSBO, 4);
+
+
 	if (_useArcballCam) {
 		_shader->setUniform("viewProjMatrix", _arcballCamera.getViewProjectionMatrix());
 		_shader->setUniform("camera_world", _arcballCamera.getPosition());
@@ -252,7 +268,7 @@ void IdasDream::render(float dt)
 	if (write) {
 		auto pos = _arcballCamera.getPosition();
 		auto rot = -_arcballCamera.getRot();
-		std::cout << "glm::vec3(" 
+		std::cout << "glm::vec3("
 			<< pos.x << "," << pos.y << "," << pos.z << "), glm::vec3("
 			<< rot.x << "," << rot.y << "," << rot.z << ")"
 			<< std::endl;
@@ -261,6 +277,13 @@ void IdasDream::render(float dt)
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
+
+	_shader->unuse();
+
+	glEnable(GL_PROGRAM_POINT_SIZE);
+	_particles->draw(_useArcballCam ? _arcballCamera.getViewProjectionMatrix() : _animatedCamera.getViewProjectionMatrix());
+	glDisable(GL_PROGRAM_POINT_SIZE);
+	
 }
 
 void IdasDream::reload()

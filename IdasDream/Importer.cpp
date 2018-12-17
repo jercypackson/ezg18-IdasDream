@@ -229,7 +229,6 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 				time.push_back(static_cast<float>(pos.mTime * secondsPerTick));
 
 				transform.push_back(Transform(Extensions::toGlmVec3(pos.mValue), Extensions::toGlmQuat(rot.mValue)));
-				//transform.push_back(Transform(Extensions::round(Extensions::toGlmVec3(pos.mValue), 3), glm::vec3(0)));
 			}
 
 			//just checking
@@ -243,7 +242,6 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 
 			auto arm = dynamic_cast<ArmatureObject*>(Hierachy::find(_armature, channel->mNodeName.C_Str()));
 			arm->addAnimation(anim->mName.C_Str(), Animation(time, transform));
-
 		}
 	}
 
