@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "Material.h"
-#include "Geometry.h"
+#include "StaticMesh.h"
 #include "Transform.h"
 
 #include <optional>

@@ -2,7 +2,7 @@
 #include "Importer.h"
 #include <filesystem>
 #include "Extensions.h"
-#include "Geometry.h"
+#include "StaticMesh.h"
 #include "ShaderManager.h"
 #include "TextureInfo.h"
 

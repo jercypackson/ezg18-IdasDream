@@ -31,7 +31,8 @@ enum class BufferType {
 class Buffer {
 protected:
 
-	friend class Geometry;
+	friend class BaseGeometry;
+	friend class DrawCall;
 
 	GLuint _handle;
 	size_t _size;
@@ -45,7 +46,7 @@ public:
 	~Buffer();
 
 	void bind(BufferType type, unsigned int block) const;
-	void update(const void* data, size_t size = std::numeric_limits<size_t>::max(), size_t offset = 0);
+	void update(const void* data, size_t size = std::numeric_limits<size_t>::max(), size_t offset = 0) const;
 
 	template <typename T>
 	void read(T* data, size_t length = std::numeric_limits<size_t>::max(), size_t offset = 0)

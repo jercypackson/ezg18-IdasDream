@@ -6,7 +6,7 @@
 #include <assimp\postprocess.h>
 #include <assimp\scene.h>
 
-#include "Geometry.h"
+#include "StaticMesh.h"
 #include "Extensions.h"
 
 #include "ShaderManager.h"
@@ -33,8 +33,6 @@ using json = nlohmann::json;
 #include <fstream>      // std::ifstream
 
 #include <INIReader.h>
-
-
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples }),
@@ -127,7 +125,7 @@ void IdasDream::init()
 	}
 
 	DrawCallInfo dci = DrawCallInfo::fromGeometryData(geometryData);
-	_obj.push_back(Geometry(dci, geometryData));
+	_obj.push_back(StaticMesh(dci, geometryData));
 
 	_vertDataBuffer = std::make_unique<Buffer>(&_vertData[0], sizeof(VertData) * _vertData.size(), BufferUsage::DYNAMIC);
 	_vertDataBuffer->bind(BufferType::SSBO, 0);
