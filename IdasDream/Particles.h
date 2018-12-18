@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "Buffer.h"
 #include "BaseGeometry.h"
+#include "ParticleObject.h"
 
 class Particles
 {
@@ -23,13 +24,12 @@ private:
 
 	bool index = 0;
 
-	std::shared_ptr<Buffer> ssbo_pos[2];
-	std::unique_ptr<Buffer> ssbo_vel[2];
+	std::vector<ParticleObject> particleObject;
+	std::vector<Buffer> ssbo_vel;
 	std::unique_ptr<Buffer> atomicCounter;
 
 	unsigned int MAX_PARTICLES = 255;
 
 	unsigned int particle_count;
-
-	BaseGeometry* particleObject[2];
 };
+

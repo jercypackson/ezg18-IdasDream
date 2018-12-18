@@ -111,6 +111,7 @@
     <ClInclude Include="Importer.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="ParticleObject.h" />
     <ClInclude Include="Particles.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SceneObject.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="Importer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="ParticleObject.cpp" />
     <ClCompile Include="Particles.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -138,7 +140,7 @@
   <ItemGroup>
     <None Include="..\bin\assets\animation.json" />
     <None Include="..\bin\assets\settings.ini" />
-    <None Include="..\bin\assets\shader\particlePhysics.comp" />
+    <None Include="..\bin\assets\shader\particles.comp" />
     <None Include="..\bin\assets\shader\particles.frag" />
     <None Include="..\bin\assets\shader\particles.geom" />
     <None Include="..\bin\assets\shader\particles.vert" />
