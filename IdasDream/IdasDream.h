@@ -57,5 +57,4 @@ private:
 	SceneObject* _root;
 
 	void reload();
-
 };

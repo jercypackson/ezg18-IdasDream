@@ -6,20 +6,19 @@
 
 Particles::Particles()
 {
-	computeShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::COMPUTE });
-	computeShader->use();
-	computeShader->setUniform("MaximumCount", MAX_PARTICLES);
+	//computeShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::COMPUTE });
+	//computeShader->use();
+	//computeShader->setUniform("MaximumCount", MAX_PARTICLES);
 
-	particleObject.push_back(ParticleObject(MAX_PARTICLES));
 	//ssbo_vel.push_back(Buffer(nullptr, MAX_PARTICLES * sizeof(glm::vec4), BufferUsage::DYNAMIC));
 	//
 	//particleObject.push_back(ParticleObject(MAX_PARTICLES));
 	//ssbo_vel.push_back(Buffer(nullptr, MAX_PARTICLES * sizeof(glm::vec4), BufferUsage::DYNAMIC));
 
 
-	GLuint value = 0;
-	atomicCounter = std::make_unique<Buffer>(&value, sizeof(GLuint), BufferUsage::DYNAMIC);
-	atomicCounter->bind(BufferType::ATOMIC_COUNTER, 4);
+	//GLuint value = 0;
+	//atomicCounter = std::make_unique<Buffer>(&value, sizeof(GLuint), BufferUsage::DYNAMIC);
+	//atomicCounter->bind(BufferType::ATOMIC_COUNTER, 4);
 
 
 	//for rendering
@@ -27,25 +26,28 @@ Particles::Particles()
 
 	particleShader->use();
 
-	const int TTL = 10;
-	std::vector<glm::vec4> positions;
-	std::vector<glm::vec4> velocities;
+	particleObject.push_back(ParticleObject(MAX_PARTICLES));
 
-	positions.push_back(glm::vec4(0, 100, 0, TTL));
-	positions.push_back(glm::vec4(0, 5, 0, TTL));
-	positions.push_back(glm::vec4(0, 50, 0, TTL));
-	velocities.push_back(glm::vec4(0, 0, 0, 0));
-	velocities.push_back(glm::vec4(0, 0, 0, 0));
-
-
-	particle_count = (unsigned int)(positions.size());
-
-	particleObject[index].getVertexBuffer(0).update(&positions[0], particle_count);
+	//const int TTL = 10;
+	//std::vector<glm::vec4> positions;
+	//std::vector<glm::vec4> velocities;
+	//
+	//positions.push_back(glm::vec4(0, 100, 0, TTL));
+	//positions.push_back(glm::vec4(0, 5, 0, TTL));
+	//positions.push_back(glm::vec4(0, 50, 0, TTL));
+	//velocities.push_back(glm::vec4(0, 0, 0, 0));
+	//velocities.push_back(glm::vec4(0, 0, 0, 0));
+	//
+	//
+	//particle_count = (unsigned int)(positions.size());
+	//
+	//particleObject[index].getVertexBuffer(0).update(&positions[0], particle_count);
 	//ssbo_vel[index].update(&velocities[0], particle_count);
 
 }
 
 void Particles::compute(float delta) {
+	/*
 	computeShader->use();
 	computeShader->setUniform("LastCount", particle_count);
 	computeShader->setUniform("DeltaT", delta);
@@ -77,19 +79,27 @@ void Particles::compute(float delta) {
 	atomicCounter->update(&counterValue, sizeof(GLuint));
 
 	glMemoryBarrier(GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT);
+	*/
 }
 
 void Particles::draw(glm::mat4 viewMatrix) {
 	enableBlendMode();
 
+	glEnable(GL_PROGRAM_POINT_SIZE);
+
+
 	particleShader->use();
 
-	particleShader->setUniform("modelMatrix", glm::mat4());
+	particleShader->setUniform("modelMatrix", glm::mat4(1.0f));
 	particleShader->setUniform("viewMatrix", viewMatrix);
 
 	particleShader->setUniform("diffuseColor", glm::vec3(1, 0, 0));
 
+	particleObject[index].bindVertexArray();
 	particleObject[index].draw();
+
+	glDisable(GL_PROGRAM_POINT_SIZE);
+
 
 	disableBlendMode();
 	particleShader->unuse();

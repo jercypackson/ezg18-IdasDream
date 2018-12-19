@@ -280,10 +280,7 @@ void IdasDream::render(float dt)
 
 	_shader->unuse();
 
-	glEnable(GL_PROGRAM_POINT_SIZE);
-	_particles->draw(_useArcballCam ? _arcballCamera.getViewProjectionMatrix() : _animatedCamera.getViewProjectionMatrix());
-	glDisable(GL_PROGRAM_POINT_SIZE);
-	
+	_particles->draw(_useArcballCam ? _arcballCamera.getViewProjectionMatrix() : _animatedCamera.getViewProjectionMatrix());	
 }
 
 void IdasDream::reload()
