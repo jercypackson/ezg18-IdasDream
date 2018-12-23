@@ -134,9 +134,6 @@
     <None Include="..\bin\assets\shader\particles.vert">
       <Filter>Source Files\Shader</Filter>
     </None>
-    <None Include="..\bin\assets\shader\particles.geom">
-      <Filter>Source Files\Shader</Filter>
-    </None>
     <None Include="..\bin\assets\shader\particles.comp">
       <Filter>Source Files\Shader</Filter>
     </None>

@@ -6,10 +6,10 @@
 
 Particles::Particles()
 {
-	computeShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::COMPUTE });
 
 	//for rendering
 	particleShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::VERTEX, ShaderType::FRAGMENT });
+	particleShader->use();
 
 	particleObject.push_back(ParticleObject(particleLocation, MAX_PARTICLES));
 	particleObject.push_back(ParticleObject(particleLocation, MAX_PARTICLES));
@@ -29,11 +29,16 @@ Particles::Particles()
 	velocities.push_back(glm::vec4(0, 0, 0, 0));
 
 
-	particleObject[index].getVertexBuffer(particleLocation).update(&positions[0], positions.size() * sizeof(positions[0]));
+	particleObject[0].getVertexBuffer(particleLocation).update(&positions[0], positions.size() * sizeof(positions[0]));
+	particleObject[1].getVertexBuffer(particleLocation).update(&positions[0], positions.size() * sizeof(positions[0]));
 	particleObject[index].getVelocitiesBuffer()->update(&velocities[0], velocities.size() * sizeof(velocities[0]));
 	
 	
-	
+
+
+	computeShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::COMPUTE });
+	computeShader->use();
+
 	particle_count = (unsigned int)positions.size();
 
 	atomicCounter = std::make_unique<Buffer>(&particle_count, sizeof(particle_count), BufferUsage::DYNAMIC);
@@ -56,13 +61,13 @@ void Particles::compute(float delta) {
 	particleObject[index].getVertexBuffer(particleLocation)	 .bind(BufferType::SSBO, 2);
 	particleObject[index].getVelocitiesBuffer()				->bind(BufferType::SSBO, 3);
 
+	atomicCounter->bind(BufferType::ATOMIC_COUNTER, 4);
 
 	GLuint groups = (particle_count / 128) + 1;
 	glDispatchCompute(groups, 1, 1);
 
 	glMemoryBarrier(GL_ATOMIC_COUNTER_BARRIER_BIT);
 
-	atomicCounter->bind(BufferType::ATOMIC_COUNTER, 4);
 
 	unsigned int counterValue = 0;
 	atomicCounter->read(&counterValue, sizeof(counterValue));

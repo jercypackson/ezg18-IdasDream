@@ -142,7 +142,6 @@
     <None Include="..\bin\assets\settings.ini" />
     <None Include="..\bin\assets\shader\particles.comp" />
     <None Include="..\bin\assets\shader\particles.frag" />
-    <None Include="..\bin\assets\shader\particles.geom" />
     <None Include="..\bin\assets\shader\particles.vert" />
     <None Include="..\bin\assets\shader\phongPhong.frag" />
     <None Include="..\bin\assets\shader\phongPhong.vert" />
