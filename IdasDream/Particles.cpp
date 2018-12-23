@@ -33,7 +33,6 @@ Particles::Particles()
 	particleObject[1].getVertexBuffer(particleLocation).update(&positions[0], positions.size() * sizeof(positions[0]));
 	particleObject[index].getVelocitiesBuffer()->update(&velocities[0], velocities.size() * sizeof(velocities[0]));
 	
-	
 
 
 	computeShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::COMPUTE });
@@ -42,14 +41,24 @@ Particles::Particles()
 	particle_count = (unsigned int)positions.size();
 
 	atomicCounter = std::make_unique<Buffer>(&particle_count, sizeof(particle_count), BufferUsage::DYNAMIC);
-	atomicCounter->bind(BufferType::ATOMIC_COUNTER, 4); //is this necessary?
 }
 
 void Particles::compute(float delta) {
+
+	//calc patricles to spawn
+	particles_to_spawn += spawnRatePerSecond * delta;
+	GLuint spawnCount = 0;
+	if (particles_to_spawn >= 1) {
+		spawnCount += (int)particles_to_spawn;
+		particles_to_spawn -= spawnCount;
+	}
+	//
+
 	computeShader->use();
 	computeShader->setUniform("LastCount", particle_count);
 	computeShader->setUniform("DeltaT", delta);
 	computeShader->setUniform("MaximumCount", MAX_PARTICLES); //todo: move to constructor?
+	computeShader->setUniform("spawnCount", spawnCount);
 
 	//read
 	particleObject[index].getVertexBuffer(particleLocation)	 .bind(BufferType::SSBO, 0);
@@ -94,7 +103,7 @@ void Particles::draw(glm::mat4 viewMatrix) {
 	particleShader->setUniform("diffuseColor", glm::vec3(1, 1, 1));
 
 	particleObject[index].bindVertexArray();
-	particleObject[index].draw();
+	particleObject[index].draw(particle_count);
 
 	glDisable(GL_PROGRAM_POINT_SIZE);
 

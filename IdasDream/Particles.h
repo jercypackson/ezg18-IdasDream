@@ -29,10 +29,14 @@ private:
 	std::vector<GeometryData> gdv;
 
 
-	unsigned int MAX_PARTICLES = 255;
+	unsigned int MAX_PARTICLES = 256;
 
 	unsigned int particle_count;
 
 	const unsigned int particleLocation = 0;
+
+	double particles_to_spawn = 0;
+	const double spawnRatePerSecond = 2;
+
 };
 

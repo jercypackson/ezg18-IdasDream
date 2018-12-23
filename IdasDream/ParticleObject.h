@@ -11,6 +11,8 @@ public:
 
 	std::shared_ptr<Buffer> getVelocitiesBuffer();
 
+	void draw(unsigned int count) const;
+
 private:
 	/// settings
 	const BufferUsage bufferUsage = BufferUsage::DYNAMIC;
@@ -22,4 +24,3 @@ private:
 
 	std::shared_ptr<Buffer> velocities;
 };
-

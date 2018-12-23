@@ -16,8 +16,11 @@ layout (binding = 4, offset = 0) uniform atomic_uint Count;
 uniform uint LastCount;
 uniform uint MaximumCount;
 uniform float DeltaT;
+uniform uint spawnCount;
 
-const vec3 GRAVITY = vec3(0, -1.0f, 0);
+const vec3 GRAVITY = vec3(0, -1.f, 0);
+
+const float TTL_new = 3;
 
 void addParticleToOutputList(vec3 pos, vec3 vel, float TTL){
 	uint nr = atomicCounterIncrement(Count);
@@ -33,12 +36,26 @@ void addParticleToOutputList(vec3 pos, vec3 vel, float TTL){
 
 void main() {
 	uint idx = gl_GlobalInvocationID.x; //one dimensional
-	if (idx >= LastCount) return;
+
+	if (idx >= (LastCount + spawnCount)) return;
+
+	vec3 pos = vec3(0);
+	vec3 velocity = vec3(0,0.5f,0);
+	float TTL = TTL_new;
+
+	if (idx < LastCount) {
+		//update old
+		velocity = Velocity_In[idx].xyz;
+		pos = Position_In[idx].xyz;
+		TTL = Position_In[idx].w;
+	}
+
 	vec3 forces = GRAVITY;
-	forces += vec3(0.2f, 0, 0); //todo add froce
-	vec3 velocity = /*Velocity_In[idx].xyz + DeltaT **/ forces;
-	vec3 pos = Position_In[idx].xyz + DeltaT * velocity;
-	float TTL = Position_In[idx].w - DeltaT;
+	forces += vec3(0.25f, 0, 0); //todo add froce
+	velocity += DeltaT * forces;
+	pos += DeltaT * velocity;
+	TTL -= DeltaT;
+
 	if (TTL > 0) {
 		addParticleToOutputList(pos, velocity, TTL);
 	}

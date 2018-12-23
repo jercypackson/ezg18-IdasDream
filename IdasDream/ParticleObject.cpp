@@ -40,3 +40,9 @@ ParticleObject& ParticleObject::operator=(ParticleObject&& other)
 	BaseGeometry::operator=(std::move(other));
 	return *this;
 }
+
+//todo: find some way to integrate this into the engine?
+void ParticleObject::draw(unsigned int count) const
+{
+	glDrawArrays(GL_POINTS, 0, count);
+}
