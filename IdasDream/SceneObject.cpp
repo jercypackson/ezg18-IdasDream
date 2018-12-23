@@ -78,7 +78,7 @@ std::string SceneObject::getName()
 
 void SceneObject::setLocalModelMatrix(glm::mat4 mm)
 {
-	_localModelMatrix =  mm;
+	_localModelMatrix = mm;
 
 	if (_globalInverse) {
 		_localModelMatrix = _globalInverse.value() * _localModelMatrix;
@@ -88,13 +88,9 @@ void SceneObject::setLocalModelMatrix(glm::mat4 mm)
 	calcTransf();
 }
 
-bool SceneObject::setAnimation(Animation anim)
+void SceneObject::setAnimation(Animation anim)
 {
-	//if (!_animation.has_value()) {
-		_animation = anim;
-		return true;
-	//}
-	//return false;
+	_animation = anim;
 }
 
 void SceneObject::animate(float time)

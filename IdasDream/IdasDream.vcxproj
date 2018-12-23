@@ -145,7 +145,6 @@
     <None Include="..\bin\assets\shader\particles.vert" />
     <None Include="..\bin\assets\shader\phongPhong.frag" />
     <None Include="..\bin\assets\shader\phongPhong.vert" />
-    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

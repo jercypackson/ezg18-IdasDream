@@ -76,7 +76,7 @@ void IdasDream::init()
 	_animatedCamera.registerToWindow(_window);
 
 	_root = Importer(Extensions::assets + "objects").import();
-	
+
 	// load and use default shader
 	_shader = ShaderManager::getShader("phongPhong");
 	_shader->registerToWindow(_window);
@@ -98,13 +98,13 @@ void IdasDream::init()
 			vd.push_back({
 				s->getModelMatrix(),
 				s->getNormalMatrix()
-			});
+				});
 
 			s->getMaterial()->setFragmentData(fd);
 
 			s->setBoneData(bd, bds);
 		}
-		
+
 		//do for the armature
 		s->setBones(b);
 	});
@@ -117,7 +117,7 @@ void IdasDream::init()
 		{
 			sum += boneData[i].weight[j];
 		}
-		
+
 		if (sum != 1) {
 			for (size_t j = 0; j < NUM_BONES_PER_VEREX; j++)
 			{
@@ -134,26 +134,26 @@ void IdasDream::init()
 
 	_bonesBuffer = std::make_unique<Buffer>(&_bones[0], sizeof(glm::mat4) * _bones.size(), BufferUsage::DYNAMIC);
 	_bonesBuffer->bind(BufferType::SSBO, 1);
-	
+
 	_boneDataBuffer = std::make_unique<Buffer>(&boneData[0], sizeof(BoneData) * boneData.size(), BufferUsage::STATIC);
 	_boneDataBuffer->bind(BufferType::SSBO, 2);
-	
+
 	_boneDataStartBuffer = std::make_unique<Buffer>(&boneDataStart[0], sizeof(int) * boneDataStart.size(), BufferUsage::STATIC);
 	_boneDataStartBuffer->bind(BufferType::SSBO, 3);
-	
+
 	_fragDataBuffer = std::make_unique<Buffer>(&fragData[0], sizeof(FragData) * fragData.size(), BufferUsage::STATIC);
 	_fragDataBuffer->bind(BufferType::SSBO, 4);
 
 
 	// Initialize lights
-	DirectionalLight dirL = DirectionalLight(glm::vec3(1.0f), glm::vec3(0.5,-1,-0.3));
+	DirectionalLight dirL = DirectionalLight(glm::vec3(1.0f), glm::vec3(0.5, -1, -0.3));
 
 	_shader->setUniform("dirL.color", dirL.color);
 	_shader->setUniform("dirL.direction", dirL.direction);
 
 
 	// some OpenGL defaults
-	glClearColor(0.33f,0.4f,0.5f, 1.0f);
+	glClearColor(0.33f, 0.4f, 0.5f, 1.0f);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 
@@ -224,7 +224,7 @@ void IdasDream::update(float dt)
 		_animatedCamera.update(camt.value());
 	}
 
-	_particles->compute(dt);
+	_particles->compute(dt, _idaAnim.getCurrentTransform(time).value_or(Transform(glm::vec3())));
 }
 
 void IdasDream::animate(float time)
@@ -280,7 +280,7 @@ void IdasDream::render(float dt)
 
 	_shader->unuse();
 
-	_particles->draw(_useArcballCam ? _arcballCamera.getViewProjectionMatrix() : _animatedCamera.getViewProjectionMatrix());	
+	_particles->render(_useArcballCam ? _arcballCamera.getViewProjectionMatrix() : _animatedCamera.getViewProjectionMatrix());
 }
 
 void IdasDream::reload()
@@ -327,7 +327,13 @@ void IdasDream::reload()
 					transform.push_back(Transform(glm::vec3(p[0], p[1], p[2]), glm::radians(glm::vec3(r[0], r[1], r[2]))));
 				}
 
-				sceneObj->setAnimation(Animation(time, transform));
+				Animation animation = Animation(time, transform);
+
+				if (name.find("Ida") != string::npos) {
+					_idaAnim = animation;
+				}
+
+				sceneObj->setAnimation(animation);
 			}
 		}
 		{
@@ -352,8 +358,5 @@ void IdasDream::reload()
 				});
 			}
 		}
-
-		bool test = true;
 	}
-
 }

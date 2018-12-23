@@ -124,7 +124,6 @@
     <None Include="..\bin\assets\settings.ini">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="cpp.hint" />
     <None Include="..\bin\assets\animation.json">
       <Filter>Resource Files</Filter>
     </None>

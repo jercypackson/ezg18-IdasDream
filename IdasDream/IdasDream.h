@@ -45,14 +45,11 @@ private:
 	float _ticksPerSecond;
 	bool _useArcballCam;
 
-	std::vector<float> _idaTime;
-	std::vector<Transform> _idaTransf;
-	SceneObject* _ida;
-
 	std::vector<VertData> _vertData;
 	std::vector<glm::mat4> _bones;
 
 	Animation _camAnim;
+	Animation _idaAnim;
 
 	SceneObject* _root;
 

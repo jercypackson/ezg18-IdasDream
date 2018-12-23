@@ -1,4 +1,4 @@
-#version 460 core
+#version 450 core
 
 layout (local_size_x = 128, local_size_y = 1, local_size_z = 1) in;
 
@@ -18,9 +18,25 @@ uniform uint MaximumCount;
 uniform float DeltaT;
 uniform uint spawnCount;
 
-const vec3 GRAVITY = vec3(0, -1.f, 0);
+uniform vec3 startPos;
+uniform vec3 startVel;
 
-const float TTL_new = 3;
+const float TTL_new = 10;
+
+// https://thebookofshaders.com/10/
+float random (vec2 st) {
+    return fract(sin(dot(st.xy,
+                         vec2(12.9898,78.233)))*
+        43758.5453123);
+}
+
+float random(float f1, float f2) {
+	return random(vec2(f1,f2));
+}
+
+vec3 randomV (float dt) {
+	return vec3(random(dt, dt+0.1452f), random(dt+1.2f, dt+3.7f), random(dt+10.44f, dt+32.4f));
+}
 
 void addParticleToOutputList(vec3 pos, vec3 vel, float TTL){
 	uint nr = atomicCounterIncrement(Count);
@@ -39,8 +55,15 @@ void main() {
 
 	if (idx >= (LastCount + spawnCount)) return;
 
-	vec3 pos = vec3(0);
-	vec3 velocity = vec3(0,0.5f,0);
+	//todo: efficiency??
+
+	vec3 r = randomV(DeltaT);
+
+	vec3 pos = startPos;
+
+	float f = 0.3;
+
+	vec3 velocity = startVel * 0.1f + r * f - vec3(f / 2.f);
 	float TTL = TTL_new;
 
 	if (idx < LastCount) {
@@ -50,11 +73,11 @@ void main() {
 		TTL = Position_In[idx].w;
 	}
 
-	vec3 forces = GRAVITY;
-	forces += vec3(0.25f, 0, 0); //todo add froce
-	velocity += DeltaT * forces;
-	pos += DeltaT * velocity;
 	TTL -= DeltaT;
+
+	velocity *= pow(0.7f, DeltaT);
+	pos += DeltaT * velocity;
+
 
 	if (TTL > 0) {
 		addParticleToOutputList(pos, velocity, TTL);

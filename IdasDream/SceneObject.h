@@ -34,7 +34,7 @@ public:
 
 	void setLocalModelMatrix(glm::mat4 mm);
 
-	bool setAnimation(Animation anim);
+	void setAnimation(Animation anim);
 
 	virtual void animate(float time);
 
