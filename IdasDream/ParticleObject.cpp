@@ -1,21 +1,42 @@
 #include "pch.h"
 #include "ParticleObject.h"
 
-
-ParticleObject::ParticleObject(int maxCount)
-	: BaseGeometry(DrawCallInfo{ DrawCallInfo::GeometryType::POINT_ARRAYS, DrawCallInfo::DrawCallType::SINGLE, { 0 }, { 3 } })
+ParticleObject::ParticleObject(unsigned int location, int maxCount)
+	: BaseGeometry(DrawCallInfo{ 
+		DrawCallInfo::GeometryType::POINT_ARRAYS,
+		DrawCallInfo::DrawCallType::SINGLE, 
+		{ 0 }, 
+		{ maxCount } }
+	  )
 {
-	const int TTL = 10;
-	std::vector<glm::vec4> positions;
+	int bufferSize = maxCount * format.getByteSize();
 
-	positions.push_back(glm::vec4( 0.0f,  0.0f, -0.1f, TTL));
-	positions.push_back(glm::vec4(-5.0f,  5.0f, -0.1f, TTL));
-	positions.push_back(glm::vec4( 0.0f, 10.0f, -0.1f, TTL));
+	addVertexAttrib(
+		std::move(
+			Buffer(nullptr, bufferSize, bufferUsage)
+		), 
+		format,
+		location
+	);
 
-	Buffer positionBuffer = Buffer(&positions[0], positions.size() * sizeof(glm::vec4), BufferUsage::DYNAMIC);
-	addVertexAttrib(std::move(positionBuffer), { 4, VertexAttribFormat::DataType::FLOAT }, to_underlying(VertexAttribDefaults::POSITIONS));
+	velocities = std::make_shared<Buffer>(nullptr, bufferSize, bufferUsage);
 }
 
-ParticleObject::~ParticleObject()
+std::shared_ptr<Buffer> ParticleObject::getVelocitiesBuffer() {
+	return velocities;
+}
+
+ParticleObject::~ParticleObject() { }
+
+// Use this if custom move behavior is desired -> DECLARE_CSTR_MOVE
+ParticleObject::ParticleObject(ParticleObject&& other)
+	: BaseGeometry(std::move(other))
 {
+	velocities = other.velocities;
+}
+
+ParticleObject& ParticleObject::operator=(ParticleObject&& other)
+{
+	BaseGeometry::operator=(std::move(other));
+	return *this;
 }

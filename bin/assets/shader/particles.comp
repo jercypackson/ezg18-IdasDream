@@ -17,7 +17,7 @@ uniform uint LastCount;
 uniform uint MaximumCount;
 uniform float DeltaT;
 
-const vec3 GRAVITY = vec3(0, -9.81f, 0);
+const vec3 GRAVITY = vec3(0, -1.0f, 0);
 
 void addParticleToOutputList(vec3 pos, vec3 vel, float TTL){
 	uint nr = atomicCounterIncrement(Count);
@@ -32,12 +32,11 @@ void addParticleToOutputList(vec3 pos, vec3 vel, float TTL){
 }
 
 void main() {
-	//do something
 	uint idx = gl_GlobalInvocationID.x; //one dimensional
 	if (idx >= LastCount) return;
 	vec3 forces = GRAVITY;
-	forces += vec3(-5.5f, 0, 0); //todo add froce
-	vec3 velocity = Velocity_In[idx].xyz + DeltaT * forces;
+	forces += vec3(-0.2f, 0, 0); //todo add froce
+	vec3 velocity = /*Velocity_In[idx].xyz + DeltaT **/ forces;
 	vec3 pos = Position_In[idx].xyz + DeltaT * velocity;
 	float TTL = Position_In[idx].w - DeltaT;
 	if (TTL > 0) {

@@ -224,7 +224,7 @@ void IdasDream::update(float dt)
 		_animatedCamera.update(camt.value());
 	}
 
-	//_particles->compute(dt);
+	_particles->compute(dt);
 }
 
 void IdasDream::animate(float time)

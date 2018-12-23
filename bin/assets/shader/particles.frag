@@ -21,7 +21,12 @@ vec3 glowSphere(vec3 color, vec2 p, float radius, float glow)
 void main() {
     vec3 baseColor = diffuseColor * clamp(vert.TTL, 0.0f, 1.0f);
 
-    vec3 fcolor = glowSphere(baseColor, gl_PointCoord * 2 - 1, 3, 2);
+    vec3 fcolor = glowSphere(
+        baseColor, 
+        gl_PointCoord * 2 - 1, 
+        3,// * gl_FragCoord.z, //the farther away, the smaller
+        2
+    );
     float lum = dot(fcolor, vec3(0.299, 0.587, 0.114));
 
 	color = vec4(fcolor, lum);

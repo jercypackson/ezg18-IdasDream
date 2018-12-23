@@ -24,8 +24,7 @@ private:
 
 	bool index = 0;
 
-	std::vector<BaseGeometry> particleObject;
-	std::vector<Buffer> ssbo_vel;
+	std::vector<ParticleObject> particleObject;
 	std::unique_ptr<Buffer> atomicCounter;
 	std::vector<GeometryData> gdv;
 
@@ -33,5 +32,7 @@ private:
 	unsigned int MAX_PARTICLES = 255;
 
 	unsigned int particle_count;
+
+	const unsigned int particleLocation = 0;
 };
 
