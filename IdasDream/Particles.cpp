@@ -93,7 +93,7 @@ void Particles::draw(glm::mat4 viewMatrix) {
 	particleShader->setUniform("modelMatrix", glm::mat4(1.0f));
 	particleShader->setUniform("viewMatrix", viewMatrix);
 
-	particleShader->setUniform("diffuseColor", glm::vec3(1, 0, 0));
+	particleShader->setUniform("diffuseColor", glm::vec3(1, 1, 1));
 
 	particleObject[index].bindVertexArray();
 	particleObject[index].draw();
