@@ -13,32 +13,8 @@ Particles::Particles()
 	particleObject.push_back(ParticleObject(particleLocation, MAX_PARTICLES));
 	particleObject.push_back(ParticleObject(particleLocation, MAX_PARTICLES));
 
-
-	// fill buffer
-
-	const int TTL = 3;
-	std::vector<glm::vec4> positions;
-	positions.push_back(glm::vec4(0.1f, 0.0f, 0.0f, TTL));
-	positions.push_back(glm::vec4(0.1f, 5.0f, 5.0f, TTL));
-	positions.push_back(glm::vec4(0.1f, 10.0f, 0.0f, TTL));
-
-	std::vector<glm::vec4> velocities;
-	velocities.push_back(glm::vec4(0, 0, 0, 0));
-	velocities.push_back(glm::vec4(0, 0, 0, 0));
-	velocities.push_back(glm::vec4(0, 0, 0, 0));
-
-
-	particleObject[0].getVertexBuffer(particleLocation).update(&positions[0], positions.size() * sizeof(positions[0]));
-	particleObject[1].getVertexBuffer(particleLocation).update(&positions[0], positions.size() * sizeof(positions[0]));
-	particleObject[0].getVelocitiesBuffer()->update(&velocities[0], velocities.size() * sizeof(velocities[0]));
-	particleObject[1].getVelocitiesBuffer()->update(&velocities[0], velocities.size() * sizeof(velocities[0]));
-
-
-
 	computeShader = std::make_unique<Shader>(Extensions::assets + "shader/particles", ShaderList{ ShaderType::COMPUTE });
 	computeShader->use();
-
-	particle_count = (unsigned int)positions.size();
 
 	atomicCounter = std::make_unique<Buffer>(&particle_count, sizeof(particle_count), BufferUsage::DYNAMIC);
 }
@@ -48,7 +24,8 @@ void Particles::compute(float delta, Transform pose) {
 	//calc particles to spawn
 	particles_to_spawn += spawnRatePerSecond * delta;
 	GLuint spawnCount = 0;
-	if (particles_to_spawn >= 1) {
+	if (particles_to_spawn >= 1)
+	{
 		spawnCount += (int)particles_to_spawn;
 		particles_to_spawn -= spawnCount;
 	}
@@ -57,7 +34,7 @@ void Particles::compute(float delta, Transform pose) {
 	computeShader->use();
 	computeShader->setUniform("LastCount", particle_count);
 	computeShader->setUniform("DeltaT", delta);
-	computeShader->setUniform("MaximumCount", MAX_PARTICLES); //todo: move to constructor?
+	computeShader->setUniform("MaximumCount", MAX_PARTICLES); //TODO: move to constructor?
 	computeShader->setUniform("spawnCount", spawnCount);
 
 	computeShader->setUniform("startPos", pose.pos);
@@ -74,13 +51,13 @@ void Particles::compute(float delta, Transform pose) {
 	particleObject[index].getVertexBuffer(particleLocation).bind(BufferType::SSBO, 2);
 	particleObject[index].getVelocitiesBuffer()->bind(BufferType::SSBO, 3);
 
+
 	atomicCounter->bind(BufferType::ATOMIC_COUNTER, 4);
 
-	GLuint groups = (particle_count / 128) + 1;
+	GLuint groups = (particle_count / 256) + 1;
 	glDispatchCompute(groups, 1, 1);
 
 	glMemoryBarrier(GL_ATOMIC_COUNTER_BARRIER_BIT);
-
 
 	unsigned int counterValue = 0;
 	atomicCounter->read(&counterValue, sizeof(counterValue));
@@ -129,7 +106,6 @@ void Particles::disableBlendMode() {
 	glDisable(GL_BLEND);
 	glDepthMask(GL_TRUE);
 }
-
 
 Particles::~Particles()
 {

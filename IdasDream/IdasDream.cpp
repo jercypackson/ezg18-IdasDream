@@ -38,10 +38,12 @@ using json = nlohmann::json;
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples }),
-	_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-	_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
+	//_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
+	//_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
+	_arcballCamera({ -48, 48, -27, 27, -90, 90}),
+	_animatedCamera({ 0.1f, 100.0f ,0.1f, 100.0f ,0.1f, 100.0f })
 {
-	_arcballCamera.setZoom(50);
+	//_arcballCamera.setZoom(50);
 }
 
 IdasDream::~IdasDream()

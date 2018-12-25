@@ -1,6 +1,6 @@
-#version 450 core
+#version 460 core
 
-layout (local_size_x = 128, local_size_y = 1, local_size_z = 1) in;
+layout (local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
 
 layout(std430, binding = 0) buffer Pos1
 	{ vec4 Position_In[]; };
@@ -21,7 +21,7 @@ uniform uint spawnCount;
 uniform vec3 startPos;
 uniform vec3 startVel;
 
-const float TTL_new = 10;
+const float TTL_new = 20;
 
 // https://thebookofshaders.com/10/
 float random (vec2 st) {
@@ -61,9 +61,9 @@ void main() {
 
 	vec3 pos = startPos;
 
-	float f = 0.3;
+	float f = 0.2;
 
-	vec3 velocity = startVel * 0.1f + r * f - vec3(f / 2.f);
+	vec3 velocity = startVel * 0.15f + r * f - vec3(f / 2.f);
 	float TTL = TTL_new;
 
 	if (idx < LastCount) {

@@ -30,14 +30,14 @@ private:
 	std::vector<GeometryData> gdv;
 
 
-	unsigned int MAX_PARTICLES = 1024;
+	unsigned int MAX_PARTICLES = 4096;
 
-	unsigned int particle_count;
+	unsigned int particle_count = 0;
 
 	const unsigned int particleLocation = 0;
 
 	double particles_to_spawn = 0;
-	const double spawnRatePerSecond = 100;
+	const double spawnRatePerSecond = 128;
 
 	glm::vec3 prevPos;
 };

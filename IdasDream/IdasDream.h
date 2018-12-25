@@ -2,7 +2,7 @@
 
 #include "Application.h"
 #include "FlyCamera.h"
-#include "ArcballCamera.h"
+#include "OrthoArcballCamera.h"
 #include "StaticMesh.h"
 #include "Shader.h"
 #include <glm\glm.hpp>
@@ -29,7 +29,7 @@ private:
 
 	std::shared_ptr<Shader> _shader;
 	std::vector<StaticMesh> _obj;
-	ArcballCamera _arcballCamera;
+	OrthoArcballCamera _arcballCamera;
 	AnimatedCamera _animatedCamera;
 
 	std::unique_ptr<Buffer> _vertDataBuffer;

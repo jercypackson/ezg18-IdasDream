@@ -24,7 +24,7 @@ void main() {
     vec3 fcolor = glowSphere(
         baseColor, 
         gl_PointCoord * 2 - 1, 
-        3,// * gl_FragCoord.z, //the farther away, the smaller
+        3,
         2
     );
     float lum = dot(fcolor, vec3(0.299, 0.587, 0.114));
