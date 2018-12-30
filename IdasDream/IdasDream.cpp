@@ -37,13 +37,11 @@ using json = nlohmann::json;
 #include "Particles.h"
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
-	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples }),
-	//_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-	//_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
-	_arcballCamera({ -48, 48, -27, 27, -90, 90}),
-	_animatedCamera({ 0.1f, 100.0f ,0.1f, 100.0f ,0.1f, 100.0f })
+	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples })
 {
 	//_arcballCamera.setZoom(50);
+
+	_camera = &_oc;
 }
 
 IdasDream::~IdasDream()
@@ -74,8 +72,7 @@ void IdasDream::init()
 	});
 
 
-	_arcballCamera.registerToWindow(_window);
-	_animatedCamera.registerToWindow(_window);
+	_camera->registerToWindow(_window);
 
 	_root = Importer(Extensions::assets + "objects").import();
 
@@ -187,7 +184,7 @@ void IdasDream::init()
 
 void IdasDream::update(float dt)
 {
-	_arcballCamera.update(_window, dt);
+	_camera->update(_window, dt);
 
 	float time = getTime();
 
@@ -222,9 +219,9 @@ void IdasDream::update(float dt)
 	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
 	auto camt = _camAnim.getCurrentTransform(time);
-	if (camt) {
-		_animatedCamera.update(camt.value());
-	}
+	//if (camt) {
+	//	_animatedCamera.update(camt.value());
+	//}
 
 	_particles->compute(dt, _idaAnim.getCurrentTransform(time).value_or(Transform(glm::vec3())));
 }
@@ -255,14 +252,8 @@ void IdasDream::render(float dt)
 	_fragDataBuffer->bind(BufferType::SSBO, 4);
 
 
-	if (_useArcballCam) {
-		_shader->setUniform("viewProjMatrix", _arcballCamera.getViewProjectionMatrix());
-		_shader->setUniform("camera_world", _arcballCamera.getPosition());
-	}
-	else {
-		_shader->setUniform("viewProjMatrix", _animatedCamera.getViewProjectionMatrix());
-		_shader->setUniform("camera_world", _animatedCamera.getPosition());
-	}
+	_shader->setUniform("viewProjMatrix", _camera->getViewProjectionMatrix());
+	_shader->setUniform("camera_world", _camera->getPosition());
 
 #if writ
 	bool write = false;
@@ -282,7 +273,7 @@ void IdasDream::render(float dt)
 
 	_shader->unuse();
 
-	_particles->render(_useArcballCam ? _arcballCamera.getViewProjectionMatrix() : _animatedCamera.getViewProjectionMatrix());
+	_particles->render(_camera->getViewProjectionMatrix());
 }
 
 void IdasDream::reload()

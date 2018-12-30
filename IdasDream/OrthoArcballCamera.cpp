@@ -3,7 +3,7 @@
 
 
 OrthoArcballCamera::OrthoArcballCamera(OrthographicProjection op)
-	: ArcballCamera(ProjectionMode(op.left, op.right, op.bottom, op.top, op.near, op.far)), _keyspeed(0.1f), _mouseX(0), _mouseY(0), _yaw(0.0f), _pitch(0.0f), _strafe(glm::vec3(0))
+	: Camera(ProjectionMode(op.left, op.right, op.bottom, op.top, op.near, op.far)), _keyspeed(0.1f), _mouseX(0), _mouseY(0), _yaw(0.0f), _pitch(0.0f), _strafe(glm::vec3(0))
 {
 }
 
@@ -30,9 +30,9 @@ void OrthoArcballCamera::update(const Window& window, float dt)
 		_pitch = glm::max(_pitch, -glm::pi<float>()*0.5f + 0.01f);
 	}
 
-	pos.x = getZoom() * glm::cos(_pitch) * -glm::sin(_yaw);
-	pos.y = getZoom() * glm::sin(_pitch);
-	pos.z = getZoom() * glm::cos(_pitch) * glm::cos(_yaw);
+	pos.x = /*getZoom() **/ glm::cos(_pitch) * -glm::sin(_yaw);
+	pos.y = /*getZoom() **/ glm::sin(_pitch);
+	pos.z = /*getZoom() **/ glm::cos(_pitch) * glm::cos(_yaw);
 	_position = pos;
 	_direction = -glm::normalize(pos);
 
@@ -41,7 +41,7 @@ void OrthoArcballCamera::update(const Window& window, float dt)
 		glm::vec3 right = glm::normalize(glm::cross(-pos, up));
 		up = glm::normalize(glm::cross(right, -pos));
 
-		float strafeSpeed = speed * this->getZoom() * 0.1f;
+		float strafeSpeed = speed /** this->getZoom()*/ * 0.1f;
 		_strafe += up * float(dy) * strafeSpeed + right * -float(dx) * strafeSpeed;
 	}
 
@@ -82,12 +82,12 @@ void OrthoArcballCamera::registerToWindow(Window & window)
 
 	ID id = window.registerMouseInputHandler([this](const MouseInput& inp) {
 		if (inp.button == MouseInput::Button::LEFT) {
-			if (inp.action == MouseInput::Action::PRESSED)  this->setDragging(true);
-			else this->setDragging(false);
+			//if (inp.action == MouseInput::Action::PRESSED)  this->setDragging(true);
+			//else this->setDragging(false);
 		}
 		else if (inp.button == MouseInput::Button::RIGHT) {
-			if (inp.action == MouseInput::Action::PRESSED) this->setStrafing(true);
-			else this->setStrafing(false);
+			//if (inp.action == MouseInput::Action::PRESSED) this->setStrafing(true);
+			//else this->setStrafing(false);
 		}
 
 		if (inp.action == MouseInput::Action::SCROLLED) {
@@ -98,7 +98,7 @@ void OrthoArcballCamera::registerToWindow(Window & window)
 			op.bottom	-= inp.scrollDelta * 9.f / 16.f;
 			op.top		+= inp.scrollDelta * 9.f / 16.f;
 
-			_projectionMode = ProjectionMode(op);
+			//_projectionMode = ProjectionMode(op);
 			_projMatrix = _projectionMode.getProjectionMatrix();
 		}
 	});
@@ -113,9 +113,9 @@ void OrthoArcballCamera::registerToWindow(Window & window)
 			_keyspeed *= 2.0f;
 		else if (input.key == KeyInput::Key::DOWN)
 			_keyspeed *= 0.5f;
-		else if (input.key == KeyInput::Key::LEFT)
-			this->setZoom(this->getZoom() - 0.5f * this->getZoom() * 0.1f);
-		else if (input.key == KeyInput::Key::RIGHT)
-			this->setZoom(this->getZoom() + 0.5f * this->getZoom() * 0.1f);
+		//else if (input.key == KeyInput::Key::LEFT)
+		//	this->setZoom(this->getZoom() - 0.5f * this->getZoom() * 0.1f);
+		//else if (input.key == KeyInput::Key::RIGHT)
+		//	this->setZoom(this->getZoom() + 0.5f * this->getZoom() * 0.1f);
 	});
 }

@@ -112,6 +112,7 @@
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="OrthoArcballCamera.h" />
+    <ClInclude Include="OrthoCamera.h" />
     <ClInclude Include="ParticleObject.h" />
     <ClInclude Include="Particles.h" />
     <ClInclude Include="pch.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="OrthoArcballCamera.cpp" />
+    <ClCompile Include="OrthoCamera.cpp" />
     <ClCompile Include="ParticleObject.cpp" />
     <ClCompile Include="Particles.cpp" />
     <ClCompile Include="pch.cpp">

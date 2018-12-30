@@ -1,7 +1,7 @@
 #pragma once
-#include <ArcballCamera.h>
+#include <Camera.h>
 class OrthoArcballCamera :
-	public ArcballCamera
+	public Camera
 {
 public:
 	OrthoArcballCamera(OrthographicProjection op);
@@ -9,6 +9,8 @@ public:
 	void update(const Window& window, float dt) override;
 
 	void registerToWindow(Window& window) override;
+	void unregisterFromWindow(Window& window) override {};
+
 
 private:
 	float _keyspeed;

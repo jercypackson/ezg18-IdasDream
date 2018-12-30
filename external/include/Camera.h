@@ -37,19 +37,9 @@ public:
 	{
 	}
 
-	ProjectionMode(PerspectiveProjection perspectiveProejction)
-		: _perspectiveProjection(perspectiveProejction), _isPerspective(true)
-	{
-	}
-
 	ProjectionMode(float left, float right, float bottom, float top, float near, float far)
-		: _orthographicProjection({ left, right, bottom, top, near, far }), _isPerspective(false)
-	{
-	}
-
-	ProjectionMode(OrthographicProjection orthographicProjection)
-		: _orthographicProjection(orthographicProjection), _isPerspective(false)
-	{
+		: _orthographicProjection({ left, right, bottom, top, near, far}), _isPerspective(false)
+	{		
 	}
 
 	bool isPerspective() { return _isPerspective; }
