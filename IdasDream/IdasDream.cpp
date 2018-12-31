@@ -51,12 +51,12 @@ IdasDream::~IdasDream()
 void IdasDream::init()
 {
 
-	_window.registerKeyInputHandler([&cto = _currTimeOffset, &to = _timeOffset, &w = _window](const KeyInput& inp) {
+	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
 		switch (inp.key) {
 		case KeyInput::Key::F1:
-			cto = static_cast<float>(w.getTime()) - to;
+			t = to;
 			break;
 		}
 	});
@@ -178,23 +178,26 @@ void IdasDream::init()
 
 	reload();
 
-	//update offset
-	_currTimeOffset += static_cast<float>(_window.getTime()) - _timeOffset;
+	_time = _timeOffset; // reset time
 }
 
 void IdasDream::update(float dt)
 {
+	if (dt > 1 / 30.f) { //on debugging to avoid bit jumps
+		dt = 1 / 30.f;
+	}
+
+	_time += dt * _speed;
+
 	_camera->update(_window, dt);
 
-	float time = getTime();
-
-	animate(time);
+	animate(_time);
 
 	_vertData.clear();
 	_bones.clear();
 	_bones.resize(Bones::size());
 
-	Hierachy::forEach(_root, [&vd = _vertData, &b = _bones, &t = time](SceneObject* s) {
+	Hierachy::forEach(_root, [&vd = _vertData, &b = _bones, &t = _time](SceneObject* s) {
 		if (s->getHasData()) {
 
 			VertData data = {
@@ -218,12 +221,12 @@ void IdasDream::update(float dt)
 	_vertDataBuffer->update(&_vertData[0], sizeof(VertData) * _vertData.size());
 	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
-	auto camt = _camAnim.getCurrentTransform(time);
+	auto camt = _camAnim.getCurrentTransform(_time);
 	//if (camt) {
 	//	_animatedCamera.update(camt.value());
 	//}
 
-	_particles->compute(dt, _idaAnim.getCurrentTransform(time).value_or(Transform(glm::vec3())));
+	_particles->compute(dt, _idaAnim.getCurrentTransform(_time).value_or(Transform(glm::vec3())));
 }
 
 void IdasDream::animate(float time)
@@ -232,12 +235,6 @@ void IdasDream::animate(float time)
 		s->animate(t);
 	});
 }
-
-float IdasDream::getTime()
-{
-	return (static_cast<float>(_window.getTime()) - _currTimeOffset) * _speed;
-}
-
 
 void IdasDream::render(float dt)
 {
