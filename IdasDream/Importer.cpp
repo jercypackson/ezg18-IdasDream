@@ -109,11 +109,19 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		aiMaterial *aiMat = _scene->mMaterials[mesh->mMaterialIndex];
 		auto diffMatCount = aiMat->GetTextureCount(aiTextureType_DIFFUSE);
 
+
+		aiColor4D* spec = new aiColor4D(0);
+		aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_SPECULAR, spec);
+
+		std::cout << s->getName() << ": " << spec->r << " " << spec->g << " " << spec->b << " " << spec->a << " " << std::endl;
+
+		glm::vec3 matCoeffs = glm::vec3(0.2, 0.9, spec->r * 2);
+
 		if (diffMatCount == 0) {
 			aiColor4D* pOut = new aiColor4D(1,0,0,1); //default
 			aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_DIFFUSE, pOut);
 
-			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec4(*pOut), glm::vec3(1), 1.0f);
+			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec4(*pOut), matCoeffs, 1.0f);
 
 			delete pOut;
 		}
@@ -138,7 +146,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 				std::cout << "ERROR: This texture is not supported." << std::endl;
 			}
 
-			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), glm::vec3(), 0.0f, 
+			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), matCoeffs, 0.0f,
 				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
 		}
 		else {

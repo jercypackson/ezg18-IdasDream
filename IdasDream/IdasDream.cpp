@@ -51,12 +51,15 @@ IdasDream::~IdasDream()
 void IdasDream::init()
 {
 
-	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset](const KeyInput& inp) {
+	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
-		switch (inp.key) {
-		case KeyInput::Key::F1:
+		switch ((int)inp.key) {
+		case (int)KeyInput::Key::F1:
 			t = to;
+			break;
+		case GLFW_KEY_P:
+			p = !p;
 			break;
 		}
 	});
@@ -183,13 +186,16 @@ void IdasDream::init()
 
 void IdasDream::update(float dt)
 {
+	_camera->update(_window, dt);
+
+	if (_pause) return;
+
 	if (dt > 1 / 30.f) { //on debugging to avoid bit jumps
 		dt = 1 / 30.f;
 	}
 
 	_time += dt * _speed;
 
-	_camera->update(_window, dt);
 
 	animate(_time);
 

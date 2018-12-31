@@ -56,6 +56,7 @@ private:
 	std::unique_ptr<Buffer> _boneDataBuffer;
 	std::unique_ptr<Buffer> _boneDataStartBuffer;
 
+	bool _pause = false;
 	float _time;
 	float _timeOffset = 0;
 	float _speed = 1;

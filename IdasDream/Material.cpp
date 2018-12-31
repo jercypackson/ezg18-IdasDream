@@ -32,7 +32,7 @@ void Material::setUniforms()
 
 void Material::setFragmentData(std::vector<FragData>& data)
 {
-	std::cout << "Error: Cannot set fragment data of base material.";
+	std::cout << "Error: Cannot set fragment data of base material." << std::endl;
 	data.push_back({});
 }
 
@@ -59,7 +59,7 @@ void TextureMaterial::setUniforms()
 
 void TextureMaterial::setFragmentData(std::vector<FragData>& data)
 {
-	data.push_back({ glm::vec4(-1), _diffuseTexture->getTextureHandle() });
+	data.push_back({ glm::vec4(-1), _materialCoefficients.z, _diffuseTexture->getTextureHandle() });
 }
 
 /* --------------------------------------------- */
@@ -67,7 +67,7 @@ void TextureMaterial::setFragmentData(std::vector<FragData>& data)
 /* --------------------------------------------- */
 
 ColorMaterial::ColorMaterial(std::shared_ptr<Shader> shader, glm::vec4 color, glm::vec3 materialCoefficients, float alpha)
-	: Material(shader, materialCoefficients, alpha),  _color(color)
+	: Material(shader, materialCoefficients, alpha), _color(color)
 {
 }
 
@@ -89,5 +89,5 @@ glm::vec4 ColorMaterial::getColor()
 
 void ColorMaterial::setFragmentData(std::vector<FragData>& data)
 {
-	data.push_back({ _color });
+	data.push_back({ _color, _materialCoefficients.z });
 }

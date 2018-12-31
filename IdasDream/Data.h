@@ -16,7 +16,7 @@ struct BoneData {
 
 struct FragData {
 	glm::vec4 col;					//16 byte
+	float specularCoeff;			//4 byte
 	std::uint64_t textureBuffer;	//8 byte
-	std::uint64_t _padding;			//8 byte padding
 };
 
