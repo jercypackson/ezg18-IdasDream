@@ -15,7 +15,7 @@ public:
 
 	std::optional<glm::mat4> getCurrentMatrix(float currTime);
 
-	std::optional<Transform> getCurrentTransform(float currTime);
+	std::optional<Transform> getCurrentTransform(float currTime, bool fadeInOut = false);
 
 	~Animation();
 

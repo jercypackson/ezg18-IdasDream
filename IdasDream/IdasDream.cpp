@@ -212,9 +212,9 @@ void IdasDream::update(float dt)
 	if (_pause && !_nextFrame) return;
 	_nextFrame = false;
 
-	if (dt > 1 / 30.f) { //on debugging to avoid big jumps
-		dt = 1 / 30.f;
-	}
+	//if (dt > 1 / 30.f) { //on debugging to avoid big jumps
+	dt = 1 / 10.f;
+	//}
 
 	_time += dt * _speed;
 
@@ -249,7 +249,7 @@ void IdasDream::update(float dt)
 	_vertDataBuffer->update(&_vertData[0], sizeof(VertData) * _vertData.size());
 	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
-	auto camtr = _camAnim.getCurrentTransform(_time);
+	auto camtr = _camAnim.getCurrentTransform(_time, true);
 	if (camtr) {
 		_camera->update(camtr.value());
 	}
