@@ -36,6 +36,9 @@ using json = nlohmann::json;
 
 #include "Particles.h"
 
+#include <irrKlang\irrKlang.h>
+
+
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples })
 {
@@ -171,6 +174,20 @@ void IdasDream::init()
 
 	// particles
 	_particles = new Particles();
+
+
+
+
+
+	//music yay
+	// start the sound engine with default parameters
+	irrklang::ISoundEngine* engine = irrklang::createIrrKlangDevice();
+	if (!engine)
+	{
+		printf("Could not startup irrklang ISoundEngine\n");
+	}
+	engine->play2D((Extensions::assets + "music/Creepy-doll-music.mp3").c_str(), true);
+
 
 
 
