@@ -36,7 +36,6 @@ using json = nlohmann::json;
 
 #include "Particles.h"
 
-#include <irrKlang\irrKlang.h>
 
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
@@ -49,12 +48,14 @@ IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 
 IdasDream::~IdasDream()
 {
+	if (sound) sound->drop();
+	soundEngine->drop();
 }
 
 void IdasDream::init()
 {
 
-	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause, &n = _nextFrame, &tps = _ticksPerSecond, &particles = _particles](const KeyInput& inp) {
+	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause, &n = _nextFrame, &tps = _ticksPerSecond, &particles = _particles, &s = sound](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
 		switch ((int)inp.key) {
@@ -62,9 +63,14 @@ void IdasDream::init()
 			t = to;
 			particles->clear();
 			p = false;
+			if (s) {
+				s->setPlayPosition(0);
+				s->setIsPaused(p);
+			}
 			break;
 		case GLFW_KEY_P:
 			p = !p;
+			if (s) s->setIsPaused(p);
 			break;
 		case GLFW_KEY_N:
 			n = true;
@@ -181,13 +187,13 @@ void IdasDream::init()
 
 	//music yay
 	// start the sound engine with default parameters
-	irrklang::ISoundEngine* engine = irrklang::createIrrKlangDevice();
-	if (!engine)
+	soundEngine = irrklang::createIrrKlangDevice();
+	if (!soundEngine)
 	{
-		printf("Could not startup irrklang ISoundEngine\n");
+		printf("Could not startup irrklang Sound Engine\n");
 	}
-	engine->play2D((Extensions::assets + "music/Creepy-doll-music.mp3").c_str(), true);
-
+	const char* path = (Extensions::assets + "music/Creepy-doll-music.mp3").c_str();
+	sound = soundEngine->play2D("", true, true, true);
 
 
 
@@ -195,6 +201,8 @@ void IdasDream::init()
 	reload();
 
 	_time = _timeOffset; // reset time
+
+	if (sound) sound->setIsPaused(false);
 }
 
 void IdasDream::update(float dt)

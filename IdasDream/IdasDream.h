@@ -12,6 +12,7 @@
 #include "AnimatedCamera.h"
 #include "OrthoCamera.h"
 #include "Particles.h"
+#include <irrKlang\irrKlang.h>
 
 class IdasDream
 	: public Application
@@ -26,6 +27,9 @@ public:
 	void render(float dt) override;
 
 private:
+	irrklang::ISoundEngine* soundEngine;
+	irrklang::ISound* sound;
+
 	Particles* _particles;
 
 	std::shared_ptr<Shader> _shader;
