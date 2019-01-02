@@ -109,12 +109,8 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		aiMaterial *aiMat = _scene->mMaterials[mesh->mMaterialIndex];
 		auto diffMatCount = aiMat->GetTextureCount(aiTextureType_DIFFUSE);
 
-
 		aiColor4D* spec = new aiColor4D(0);
 		aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_SPECULAR, spec);
-
-		std::cout << s->getName() << ": " << spec->r << " " << spec->g << " " << spec->b << " " << spec->a << " " << std::endl;
-
 		glm::vec3 matCoeffs = glm::vec3(0.2, 0.9, spec->r * 2);
 
 		if (diffMatCount == 0) {

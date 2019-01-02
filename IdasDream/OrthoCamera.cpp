@@ -3,9 +3,13 @@
 
 OrthoCamera::OrthoCamera(OrthographicProjection op)
 	: Camera({ op.left, op.right, op.bottom, op.top, op.near, op.far }),
-	_mouseX(0), _mouseY(0), _yaw(0.0f), _pitch(0.0f), _strafe(glm::vec3(0)), _zoom(15.0f), _speed(0.005f)
-{	
-	_resolution = (abs(op.left) + abs(op.right)) / (abs(op.bottom) + abs(op.top));
+	_mouseX(0), _mouseY(0), _pitch(glm::radians(0.0f)), _yaw(glm::radians(90.1f)), _strafe(glm::vec3(0)), _zoom(15.0f), _speed(0.005f), _orthoScale(60.0f)
+{
+	_position = glm::vec3(-30, 10, 5.5);
+	_resolution = (abs(op.bottom) + abs(op.top)) / (abs(op.left) + abs(op.right));
+	_defaultOrthoProj = op;
+
+	setOrthoScale(_orthoScale);
 }
 
 OrthoCamera::~OrthoCamera()
@@ -23,21 +27,12 @@ void OrthoCamera::update(const Window& window, float dt)
 	_mouseX = x;
 	_mouseY = y;
 
-	glm::vec3 pos;
-
-
 	if (_dragging) {
 		_yaw += dx * _speed;
 		_pitch += dy * _speed;
-
-		_pitch = glm::min(_pitch, glm::pi<float>()*0.5f - 0.01f);
-		_pitch = glm::max(_pitch, -glm::pi<float>()*0.5f + 0.01f);
 	}
 
-	pos.x = glm::cos(_pitch) * -glm::sin(_yaw);
-	pos.y = glm::sin(_pitch);
-	pos.z = glm::cos(_pitch) * glm::cos(_yaw);
-	_direction = -glm::normalize(pos);
+	calcDir();
 
 	glm::vec3 left = -glm::cross(_direction, glm::vec3(0.0f, 1.0f, 0.0f));
 	glm::vec3 up = glm::cross(_direction, left);
@@ -54,6 +49,11 @@ void OrthoCamera::update(const Window& window, float dt)
 		_position += dy * _speed * up;
 	}
 
+	updateViewMat();
+}
+
+void OrthoCamera::updateViewMat()
+{
 	_viewMatrix = glm::lookAt(_position, _position + _direction, glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
@@ -72,15 +72,7 @@ void OrthoCamera::registerToWindow(Window& window)
 		}
 
 		if (inp.action == MouseInput::Action::SCROLLED) {
-
-			auto op = _projectionMode.getOrthographicProjection();
-			op.left += inp.scrollDelta;
-			op.right -= inp.scrollDelta;
-			op.bottom += inp.scrollDelta / _resolution;
-			op.top -= inp.scrollDelta / _resolution;
-
-			_projectionMode = ProjectionMode({ op.left, op.right, op.bottom, op.top, op.near, op.far });
-			_projMatrix = _projectionMode.getProjectionMatrix();
+			setOrthoScale(_orthoScale + inp.scrollDelta);
 		}
 	});
 
@@ -107,4 +99,53 @@ void OrthoCamera::unregisterFromWindow(Window& window)
 	window.unregisterMouseInputHandler(_registeredMouseCallbacks[0]);
 	//window.unregisterKeyInputHandler
 	_registeredMouseCallbacks.clear();
+}
+
+void OrthoCamera::setOrthoScale(float orthoScale)
+{
+	_orthoScale = orthoScale;
+
+	float os = _orthoScale / 2;
+
+	_projectionMode = ProjectionMode({
+		_defaultOrthoProj.left - os,
+		_defaultOrthoProj.right + os,
+		_defaultOrthoProj.bottom - os * _resolution,
+		_defaultOrthoProj.top + os * _resolution,
+
+		_defaultOrthoProj.near,
+		_defaultOrthoProj.far
+		});
+
+	_projMatrix = _projectionMode.getProjectionMatrix();
+}
+
+void OrthoCamera::calcDir()
+{
+	if (_pitch > glm::half_pi<float>()) {
+		_pitch -= glm::pi<float>();
+	}
+
+	glm::vec3 pos;
+	pos.x = glm::cos(_pitch) * -glm::sin(_yaw);
+	pos.y = glm::sin(_pitch);
+	pos.z = glm::cos(_pitch) * glm::cos(_yaw);
+	_direction = -glm::normalize(pos);
+}
+
+OrthoCameraAnimated::OrthoCameraAnimated(OrthographicProjection op)
+	: OrthoCamera(op)
+{
+}
+
+void OrthoCameraAnimated::update(Transform transform)
+{
+	_position = transform.pos;
+	_pitch = transform.rot.x;
+	_yaw = transform.rot.y;
+
+	setOrthoScale(transform.scale);
+
+	calcDir();
+	updateViewMat();
 }

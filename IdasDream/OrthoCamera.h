@@ -5,10 +5,11 @@
 #include <glm\gtx\euler_angles.hpp>
 
 #include "Camera.h"
+#include "Transform.h"
 
 class OrthoCamera : public Camera
 {
-private:
+protected:
 	bool _dragging;
 	bool _strafing;
 	int _mouseX, _mouseY;
@@ -18,7 +19,16 @@ private:
 
 	float _speed;
 	float _resolution;
-	
+
+	float _orthoScale;
+
+	OrthographicProjection _defaultOrthoProj;
+
+	void setOrthoScale(float orthoScale);
+
+	void calcDir();
+	void updateViewMat();
+
 public:
 	OrthoCamera(OrthographicProjection op);
 	~OrthoCamera();
@@ -28,11 +38,21 @@ public:
 	void setZoom(float zoom) { _zoom = zoom; }
 	float getZoom() { return _zoom; }
 
+
 	void update(const Window& window, float dt) override;
+	virtual void update(Transform transform) {};
 	void registerToWindow(Window& window) override;
 	void unregisterFromWindow(Window& window) override;
 
 	glm::vec3 getRot() {
 		return glm::vec3(_pitch, _yaw, 0);
 	}
+};
+
+
+class OrthoCameraAnimated : public OrthoCamera
+{
+public:
+	OrthoCameraAnimated(OrthographicProjection op);
+	void update(Transform transform) override;
 };

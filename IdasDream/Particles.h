@@ -19,6 +19,8 @@ public:
 
 	void disableBlendMode();
 
+	void clear();
+
 private:
 	std::unique_ptr<Shader> computeShader;
 	std::unique_ptr<Shader> particleShader;

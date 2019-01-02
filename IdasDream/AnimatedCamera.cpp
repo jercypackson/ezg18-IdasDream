@@ -11,7 +11,7 @@ AnimatedCamera::~AnimatedCamera()
 void AnimatedCamera::update(Transform transform)
 {
 	_position = transform.pos;
-	_direction = transform.rot;
+	//_direction = transform.rot;
 	_viewMatrix = glm::inverse(transform.getMatrix());
 }
 

@@ -107,6 +107,11 @@ void Particles::disableBlendMode() {
 	glDepthMask(GL_TRUE);
 }
 
+void Particles::clear()
+{
+	particle_count = 0;
+}
+
 Particles::~Particles()
 {
 }

@@ -32,21 +32,11 @@ private:
 	std::vector<StaticMesh> _obj;
 
 
+	OrthographicProjection _orthoProj = { -0.8f, 0.8f, -0.45f, 0.45f, 0.1f, 100.f };
+	OrthoCamera _oc = OrthoCamera(_orthoProj);
+	OrthoCameraAnimated _oca = OrthoCameraAnimated(_orthoProj);
 
-
-
-	//_arcballCamera({ 60.0f, width / (float)height, 0.1f, 100.0f }),
-//_animatedCamera({ 60.0f, width / (float)height, 0.1f, 100.0f })
-
-
-	ArcballCamera _arcballCamera = ArcballCamera({ 60.0f, 16.0f/9.0f, 0.1f, 100.0f });
-	//AnimatedCamera _animatedCamera;
-	OrthoCamera _oc = OrthoCamera({ -48, 48, -27, 27, -90, 90 });
-	FlyCamera _flyCam = FlyCamera({ -48, 48, -27, 27, -90, 90 });
-
-	Camera* _camera;
-
-
+	OrthoCamera* _camera;
 
 
 
@@ -57,6 +47,7 @@ private:
 	std::unique_ptr<Buffer> _boneDataStartBuffer;
 
 	bool _pause = false;
+	bool _nextFrame = false;
 	float _time;
 	float _timeOffset = 0;
 	float _speed = 1;

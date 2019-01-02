@@ -41,7 +41,7 @@ IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 {
 	//_arcballCamera.setZoom(50);
 
-	_camera = &_oc;
+	_camera = &_oca;
 }
 
 IdasDream::~IdasDream()
@@ -51,15 +51,23 @@ IdasDream::~IdasDream()
 void IdasDream::init()
 {
 
-	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause](const KeyInput& inp) {
+	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause, &n = _nextFrame, &tps = _ticksPerSecond, &particles = _particles](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
 		switch ((int)inp.key) {
 		case (int)KeyInput::Key::F1:
 			t = to;
+			particles->clear();
+			p = false;
 			break;
 		case GLFW_KEY_P:
 			p = !p;
+			break;
+		case GLFW_KEY_N:
+			n = true;
+			break;
+		case GLFW_KEY_T:
+			std::cout << "Time: " << t << ", Ticks: " << t * tps << std::endl;
 			break;
 		}
 	});
@@ -161,18 +169,6 @@ void IdasDream::init()
 
 
 
-	//init animation
-
-
-	std::map<float, Transform> cam = {
-		{  0.0f, Transform(glm::vec3(-33.4545f, 32.3217f, 18.7543f), -glm::vec3(0.710f,1.165f,0)) },
-		{ 10.0f, Transform(glm::vec3(-33.7117f, 21.4750f, 32.1298f), -glm::vec3(0.380f,0.845f,0)) },
-		{ 20.0f, Transform(glm::vec3(-18.1747f, 35.7631f, 33.7641f), -glm::vec3(0.755f,0.455f,0)) },
-	};
-	_camAnim = Animation(cam);
-
-
-
 	// particles
 	_particles = new Particles();
 
@@ -188,9 +184,10 @@ void IdasDream::update(float dt)
 {
 	_camera->update(_window, dt);
 
-	if (_pause) return;
+	if (_pause && !_nextFrame) return;
+	_nextFrame = false;
 
-	if (dt > 1 / 30.f) { //on debugging to avoid bit jumps
+	if (dt > 1 / 30.f) { //on debugging to avoid big jumps
 		dt = 1 / 30.f;
 	}
 
@@ -215,7 +212,7 @@ void IdasDream::update(float dt)
 
 				float twist = t * 0.1f;
 
-				data.twistParam = std::min(t * 0.1f, glm::pi<float>() / 16.0f);
+				data.twistParam = 0; // std::min(t * 0.1f, glm::pi<float>() / 16.0f);
 			}
 
 			vd.push_back(data);
@@ -227,10 +224,10 @@ void IdasDream::update(float dt)
 	_vertDataBuffer->update(&_vertData[0], sizeof(VertData) * _vertData.size());
 	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
-	auto camt = _camAnim.getCurrentTransform(_time);
-	//if (camt) {
-	//	_animatedCamera.update(camt.value());
-	//}
+	auto camtr = _camAnim.getCurrentTransform(_time);
+	if (camtr) {
+		_camera->update(camtr.value());
+	}
 
 	_particles->compute(dt, _idaAnim.getCurrentTransform(_time).value_or(Transform(glm::vec3())));
 }
@@ -320,13 +317,24 @@ void IdasDream::reload()
 
 					auto p = a[1];
 					auto r = a[2];
-					transform.push_back(Transform(glm::vec3(p[0], p[1], p[2]), glm::radians(glm::vec3(r[0], r[1], r[2]))));
+
+					auto s = a[3];
+
+					transform.push_back(Transform(
+						glm::vec3(p[0], p[1], p[2]),
+						glm::radians(glm::vec3(r[0], r[1], r[2])),
+						s.empty() ? 1 : float(s)
+					));
 				}
 
 				Animation animation = Animation(time, transform);
 
+				//this is getting messy, todo: find a better way?
 				if (name.find("Ida") != string::npos) {
 					_idaAnim = animation;
+				}
+				else if (name.find("Camera") != string::npos) {
+					_camAnim = animation;
 				}
 
 				sceneObj->setAnimation(animation);

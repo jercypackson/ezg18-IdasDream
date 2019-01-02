@@ -11,6 +11,7 @@ struct Transform
 {
 	glm::vec3 pos;
 	glm::vec3 rot;
+	float scale;
 
 	glm::quat quat;
 
@@ -18,24 +19,28 @@ struct Transform
 		pos = glm::vec3(0.0f);
 		quat = glm::quat();
 		rot = glm::eulerAngles(quat);
+		scale = 1;
 	}
 
-	Transform(glm::vec3 pos) {
+	Transform(glm::vec3 pos, float sc = 1) {
 		this->pos = pos;
 		quat = glm::quat();
 		rot = glm::eulerAngles(quat);
+		scale = sc;
 	}
 
-	Transform(glm::vec3 pos, glm::vec3 rot) {
+	Transform(glm::vec3 pos, glm::vec3 rot, float sc = 1) {
 		this->pos = pos;
 		this->rot = rot;
 		quat = glm::quat(rot);
+		scale = sc;
 	}
 
-	Transform(glm::vec3 pos, glm::quat quat) {
+	Transform(glm::vec3 pos, glm::quat quat, float sc = 1) {
 		this->pos = pos;
 		this->quat = quat;
 		rot = glm::eulerAngles(quat);
+		scale = sc;
 	}
 
 	glm::mat4 getMatrix() {
@@ -43,6 +48,6 @@ struct Transform
 	}
 
 	static Transform mix(Transform t1, Transform t2, float delta) {
-		return Transform(glm::mix(t1.pos, t2.pos, delta), glm::slerp(t1.quat, t2.quat, delta));
+		return Transform(glm::mix(t1.pos, t2.pos, delta), glm::slerp(t1.quat, t2.quat, delta), glm::mix(t1.scale, t2.scale, delta));
 	}
 };
