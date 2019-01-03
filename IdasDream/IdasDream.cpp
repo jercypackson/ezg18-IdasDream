@@ -52,7 +52,7 @@ IdasDream::~IdasDream()
 void IdasDream::init()
 {
 
-	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause, &n = _nextFrame, &tps = _ticksPerSecond, &particles = _particles, &s = sound](const KeyInput& inp) {
+	_window.registerKeyInputHandler([&t = _time, &to = _timeOffset, &p = _pause, &n = _nextFrame, &tps = _ticksPerSecond, &particles = _particles, &s = sound, &ac = _animatedCamera, &c = _camera](const KeyInput& inp) {
 		if (inp.action != KeyInput::Action::RELEASED) return;
 
 		switch ((int)inp.key) {
@@ -75,6 +75,13 @@ void IdasDream::init()
 		case GLFW_KEY_T:
 			std::cout << "Time: " << t << ", Ticks: " << t * tps << std::endl;
 			break;
+		case GLFW_KEY_C:
+			ac = !ac;
+			break;
+		case GLFW_KEY_X:
+			c->printPose();
+			break;
+
 		}
 	});
 
@@ -248,7 +255,7 @@ void IdasDream::update(float dt)
 
 	auto camtr = _camAnim.getCurrentTransform(_time, true);
 	if (_animatedCamera && camtr) {
-		_camera->update(camtr.value());
+		_camera->update(camtr.value(), _animatedCamera);
 	}
 
 	_particles->compute(dt, _idaAnim.getCurrentTransform(_time).value_or(Transform(glm::vec3())));

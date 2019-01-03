@@ -40,13 +40,11 @@ public:
 
 
 	void update(const Window& window, float dt) override;
-	virtual void update(Transform transform) {};
+	virtual void update(Transform transform, bool updateMat = true) {};
 	void registerToWindow(Window& window) override;
 	void unregisterFromWindow(Window& window) override;
 
-	glm::vec3 getRot() {
-		return glm::vec3(_pitch, _yaw, 0);
-	}
+	void printPose();
 };
 
 
@@ -54,5 +52,5 @@ class OrthoCameraAnimated : public OrthoCamera
 {
 public:
 	OrthoCameraAnimated(OrthographicProjection op);
-	void update(Transform transform) override;
+	void update(Transform transform, bool updateMat = true) override;
 };

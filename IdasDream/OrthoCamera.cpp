@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "OrthoCamera.h"
+#include <iostream>     // std::cout
+
 
 OrthoCamera::OrthoCamera(OrthographicProjection op)
 	: Camera({ op.left, op.right, op.bottom, op.top, op.near, op.far }),
@@ -28,7 +30,7 @@ void OrthoCamera::update(const Window& window, float dt)
 	_mouseY = y;
 
 	if (_dragging) {
-		_yaw += dx * _speed;
+		_yaw -= dx * _speed;
 		_pitch += dy * _speed;
 	}
 
@@ -101,6 +103,16 @@ void OrthoCamera::unregisterFromWindow(Window& window)
 	_registeredMouseCallbacks.clear();
 }
 
+void OrthoCamera::printPose()
+{
+	std::cout << ",[" << std::endl;
+	std::cout << "0," << std::endl;
+	std::cout << "[ " << _position.x << ", " << _position.y << ", " << _position.z << " ]," << std::endl;
+	std::cout << "[ " << -glm::degrees(_pitch) << ", " << -glm::degrees(_yaw) << ", 0 ]," << std::endl;
+	std::cout << _orthoScale << std::endl;
+	std::cout << "]" << std::endl;
+}
+
 void OrthoCamera::setOrthoScale(float orthoScale)
 {
 	_orthoScale = orthoScale;
@@ -126,15 +138,11 @@ void OrthoCamera::calcDir()
 		_pitch -= glm::pi<float>();
 	}
 
-	if (_yaw > glm::pi<float>()) {
-		_yaw -= glm::pi<float>();
-	}
-
 	glm::vec3 pos;
 	pos.x = glm::cos(_pitch) * -glm::sin(_yaw);
 	pos.y = glm::sin(_pitch);
 	pos.z = glm::cos(_pitch) * glm::cos(_yaw);
-	_direction = -glm::normalize(pos);
+	_direction = glm::normalize(pos);
 }
 
 OrthoCameraAnimated::OrthoCameraAnimated(OrthographicProjection op)
@@ -142,16 +150,24 @@ OrthoCameraAnimated::OrthoCameraAnimated(OrthographicProjection op)
 {
 }
 
-void OrthoCameraAnimated::update(Transform transform)
+void OrthoCameraAnimated::update(Transform transform, bool updateMat)
 {
 	_position = transform.pos;
 
 	_direction = glm::normalize(transform.quat * glm::vec3(0, 0, 1));
 
-	_yaw = glm::acos(-_direction.z);
-	_pitch = -glm::atan(_direction.y / _direction.x) / 2.f;
+	_pitch = glm::asin(_direction.y);
+	_yaw = glm::atan(-_direction.x / _direction.z);
+
+	if (glm::isnan(_yaw)) {
+		_yaw = 0;
+	}
+	else if (_yaw > 0) {
+		_yaw -= glm::pi<float>();
+	}
 
 	setOrthoScale(transform.scale);
 
-	updateViewMat();
+	if (updateMat)
+		updateViewMat();
 }
