@@ -149,7 +149,7 @@ void OrthoCameraAnimated::update(Transform transform)
 	_direction = glm::normalize(transform.quat * glm::vec3(0, 0, 1));
 
 	_yaw = glm::acos(-_direction.z);
-	_pitch = -glm::atan(_direction.y / _direction.x);
+	_pitch = -glm::atan(_direction.y / _direction.x) / 2.f;
 
 	setOrthoScale(transform.scale);
 

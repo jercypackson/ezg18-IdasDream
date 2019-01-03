@@ -2,7 +2,6 @@
 
 #include "Application.h"
 #include "FlyCamera.h"
-#include "ArcballCamera.h"
 #include "StaticMesh.h"
 #include "Shader.h"
 #include <glm\glm.hpp>
@@ -35,13 +34,8 @@ private:
 	std::shared_ptr<Shader> _shader;
 	std::vector<StaticMesh> _obj;
 
-
-	OrthographicProjection _orthoProj = { -0.8f, 0.8f, -0.45f, 0.45f, 0.1f, 100.f };
-	OrthoCamera _oc = OrthoCamera(_orthoProj);
-	OrthoCameraAnimated _oca = OrthoCameraAnimated(_orthoProj);
-
-	OrthoCamera* _camera;
-
+	OrthoCamera* _camera = new OrthoCameraAnimated({ -0.8f, 0.8f, -0.45f, 0.45f, 0.1f, 100.f });
+	bool _animatedCamera = true;
 
 
 	std::unique_ptr<Buffer> _vertDataBuffer;
@@ -56,7 +50,6 @@ private:
 	float _timeOffset = 0;
 	float _speed = 1;
 	float _ticksPerSecond;
-	bool _useArcballCam;
 
 	std::vector<VertData> _vertData;
 	std::vector<glm::mat4> _bones;

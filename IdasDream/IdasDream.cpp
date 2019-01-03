@@ -41,9 +41,6 @@ using json = nlohmann::json;
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
 	: Application({ width, height, fullscreen, "Ida's Dream", 4, 6, samples })
 {
-	//_arcballCamera.setZoom(50);
-
-	_camera = &_oca;
 }
 
 IdasDream::~IdasDream()
@@ -250,7 +247,7 @@ void IdasDream::update(float dt)
 	_bonesBuffer->update(&_bones[0], sizeof(glm::mat4) * _bones.size());
 
 	auto camtr = _camAnim.getCurrentTransform(_time, true);
-	if (camtr) {
+	if (_animatedCamera && camtr) {
 		_camera->update(camtr.value());
 	}
 
@@ -280,19 +277,6 @@ void IdasDream::render(float dt)
 	_shader->setUniform("viewProjMatrix", _camera->getViewProjectionMatrix());
 	_shader->setUniform("camera_world", _camera->getPosition());
 
-#if writ
-	bool write = false;
-
-	if (write) {
-		auto pos = _arcballCamera.getPosition();
-		auto rot = -_arcballCamera.getRot();
-		std::cout << "glm::vec3("
-			<< pos.x << "," << pos.y << "," << pos.z << "), glm::vec3("
-			<< rot.x << "," << rot.y << "," << rot.z << ")"
-			<< std::endl;
-	}
-#endif
-
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
 
@@ -309,7 +293,7 @@ void IdasDream::reload()
 	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
 
-	_useArcballCam = reader.GetBoolean("Camera", "arcball", false);
+	_animatedCamera = reader.GetBoolean("Camera", "automatic", true);
 
 	auto animationPath = reader.Get("Animation", "animationPath", "animation.json");
 

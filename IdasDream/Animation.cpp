@@ -30,7 +30,15 @@ float prev = 0;
 
 std::optional<Transform> Animation::getCurrentTransform(float currTime, bool fadeInOut)
 {
-	if (_time.empty() || currTime < _time.front() || currTime > _time.back()) return std::nullopt;
+	if (_time.empty()) return std::nullopt;
+
+	if (currTime < _time.front()) {
+		return _transform.front();
+	}
+
+	if (currTime > _time.back()) {
+		return _transform.back();
+	}
 
 	auto lessOrEqual = std::prev(std::upper_bound(_time.begin(), _time.end(), currTime), 1);
 	auto greaterOrEqual = std::lower_bound(_time.begin(), _time.end(), currTime);

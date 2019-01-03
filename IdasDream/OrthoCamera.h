@@ -10,8 +10,8 @@
 class OrthoCamera : public Camera
 {
 protected:
-	bool _dragging;
-	bool _strafing;
+	bool _dragging = false;
+	bool _strafing = false;
 	int _mouseX, _mouseY;
 	float _yaw, _pitch;
 	float _zoom;
