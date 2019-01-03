@@ -212,9 +212,9 @@ void IdasDream::update(float dt)
 	if (_pause && !_nextFrame) return;
 	_nextFrame = false;
 
-	//if (dt > 1 / 30.f) { //on debugging to avoid big jumps
-	dt = 1 / 10.f;
-	//}
+	if (dt > 1 / 30.f) { //on debugging to avoid big jumps
+		dt = 1 / 30.f;
+	}
 
 	_time += dt * _speed;
 

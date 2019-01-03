@@ -38,19 +38,8 @@ std::optional<Transform> Animation::getCurrentTransform(float currTime, bool fad
 	float delta = (currTime - (*lessOrEqual)) / ((*greaterOrEqual) - (*lessOrEqual));
 
 	if (fadeInOut) {
-
-		//todo: find the point where b * (1 - cos(pi*(c*x)))=y and y=x+a meet
-
-		if (delta < 0.2f) {
-			delta = 0.2 - 0.2 * glm::cos((5.0 * glm::pi<double>() * (double)delta) / 2.0);
-		}
-		else if (delta > 0.8f) {
-			delta = 0.8 + 0.2 * glm::sin((5.0 * glm::pi<double>() * (double)delta) / 2.0);
-		}
-		std::cout << delta << std::endl;
-		prev = delta;
+		delta = -glm::cos(glm::pi<float>() * (delta)) / 2.0f + 0.5f;
 	}
-
 
 	auto transf = Transform::mix(
 		_transform[lessOrEqual - _time.begin()],

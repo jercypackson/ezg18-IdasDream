@@ -126,6 +126,10 @@ void OrthoCamera::calcDir()
 		_pitch -= glm::pi<float>();
 	}
 
+	if (_yaw > glm::pi<float>()) {
+		_yaw -= glm::pi<float>();
+	}
+
 	glm::vec3 pos;
 	pos.x = glm::cos(_pitch) * -glm::sin(_yaw);
 	pos.y = glm::sin(_pitch);
@@ -141,11 +145,13 @@ OrthoCameraAnimated::OrthoCameraAnimated(OrthographicProjection op)
 void OrthoCameraAnimated::update(Transform transform)
 {
 	_position = transform.pos;
-	_pitch = transform.rot.x;
-	_yaw = transform.rot.y;
+
+	_direction = glm::normalize(transform.quat * glm::vec3(0, 0, 1));
+
+	_yaw = glm::acos(-_direction.z);
+	_pitch = -glm::atan(_direction.y / _direction.x);
 
 	setOrthoScale(transform.scale);
 
-	calcDir();
 	updateViewMat();
 }
