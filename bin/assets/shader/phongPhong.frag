@@ -53,7 +53,7 @@ void main() {
     DirectionalLight dirL = DirectionalLight(vec3(1), vec3(0.5,-1,-0.3));
 
 	vec3 n = normalize(vert.normal_world);
-	vec3 v = normalize(vert.position_world - camera_world);
+	vec3 v = -normalize(vert.position_world - camera_world);
 
     vec4 c = data[vert.drawID].col;
     if (c.r < 0 || c.r > 1){ //invalid color

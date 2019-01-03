@@ -35,7 +35,7 @@ using json = nlohmann::json;
 #include <INIReader.h>
 
 #include "Particles.h"
-
+#include <stdlib.h>
 
 
 IdasDream::IdasDream(int width, int height, bool fullscreen, int samples = 1)
@@ -194,7 +194,7 @@ void IdasDream::init()
 	}
 	const char* path = (Extensions::assets + "music/Creepy-doll-music.mp3").c_str();
 	sound = soundEngine->play2D("", true, true, true);
-
+	system("CLS"); //clear bc this output isnt needed
 
 
 
@@ -306,7 +306,7 @@ void IdasDream::reload()
 	INIReader reader(Extensions::assets + "settings.ini");
 
 	_speed = static_cast<float>(reader.GetReal("Animation", "speed", 1));
-	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0)) / _speed;
+	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
 
 	_useArcballCam = reader.GetBoolean("Camera", "arcball", false);

@@ -1,5 +1,48 @@
 {
   "Ida": {
+    "ObjectAnimation": [
+      [
+        0,
+        [ -21, 9, 1 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        140,
+        [ -21, 9, 1 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        175,
+        [ -21, 9, 3 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        270,
+        [ -21, 9, 3 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        315,
+        [ -21, 9, 6 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        320,
+        [ -21, 8.75, 6.375 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        330,
+        [ -21, 8.5, 6.625 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        450,
+        [ -21, 5.5, 9.625 ],
+        [ -90, 0, 0 ]
+      ]
+    ],
+
     "ObjectAnimationn": [
       [
         0.0,
@@ -64,6 +107,34 @@
     ]
   },
   "Armature": {
+    "RiggedAnimation": [
+      [ 0, "Armature|end.1" ],
+      [ 120, "Armature|start" ],
+      [ 135, "Armature|walk.1" ],
+      [ 145, "Armature|walk.2" ],
+      [ 155, "Armature|walk.1" ],
+      [ 165, "Armature|walk.2" ],
+      [ 175, "Armature|end.2" ],
+      [ 260, "Armature|start" ],
+      [ 275, "Armature|walk.1" ],
+      [ 285, "Armature|walk.2" ],
+      [ 295, "Armature|walk.1" ],
+      [ 305, "Armature|walk.2" ],
+      [ 315, "Armature|startStairs.2" ],
+      [ 330, "Armature|stairs.2" ],
+      [ 340, "Armature|stairs.1" ],
+      [ 350, "Armature|stairs.2" ],
+      [ 360, "Armature|stairs.1" ],
+      [ 370, "Armature|stairs.2" ],
+      [ 380, "Armature|stairs.1" ],
+      [ 390, "Armature|stairs.2" ],
+      [ 400, "Armature|stairs.1" ],
+      [ 410, "Armature|stairs.2" ],
+      [ 420, "Armature|stairs.1" ],
+      [ 430, "Armature|stairs.2" ],
+      [ 440, "Armature|stairs.1" ]
+
+    ],
     "RiggedAnimationn": [
       [ 0, "Armature|start" ],
       [ 15, "Armature|walk.1" ],
@@ -143,27 +214,27 @@
     "ObjectAnimation": [
       [
         0,
-        [ -30, 10.7, 2 ],
+        [ -30, 10.1, 5.2 ],
         [ 0, 90, 0 ],
-        9
+        8.8
       ],
       [
         20,
-        [ -30, 10.7, 2 ],
+        [ -30, 10.1, 5.2 ],
         [ 0, 90, 0 ],
-        9
+        8.8
       ],
       [
-        200,
-        [ -30, 12.6, 10.9 ],
-        [ 13.4, 126.2, 0 ],
-        12
+        250,
+        [ -30, 10.7, 12.9 ],
+        [ 4.5, 122.2, 0 ],
+        11.5
       ],
       [
-        300,
-        [ -30, 12.6, 10.9 ],
-        [ 13.4, 126.2, 0 ],
-        12
+        400,
+        [ -30, 10.7, 12.9 ],
+        [ 4.5, 122.2, 0 ],
+        11.5
       ]
 
     ],
