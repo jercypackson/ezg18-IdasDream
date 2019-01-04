@@ -300,7 +300,7 @@ void IdasDream::reload()
 	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
 
-	_animatedCamera = reader.GetBoolean("Camera", "automatic", true);
+	//_animatedCamera = reader.GetBoolean("Camera", "automatic", true);
 
 	auto animationPath = reader.Get("Animation", "animationPath", "animation.json");
 
