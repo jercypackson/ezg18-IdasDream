@@ -375,68 +375,76 @@
         2155,
         [ -17, 18.333, 11 ],
         [ 90, 90, -90 ]
-      ]
-    ],
-    "ObjectAnimationn": [
-      [
-        0.0,
-        [ -21, 9, 1 ],
-        [ -90, 0, 0 ]
       ],
       [
-        10.0,
-        [ -21, 9, 1 ],
-        [ -90, 0, 0 ]
+        2165,
+        [ -17, 18.667, 10.667 ],
+        [ 90, 45, -90 ]
       ],
       [
-        85.0,
-        [ -21, 9, 6 ],
-        [ -90, 0, 0 ]
+        2175,
+        [ -17, 19, 10.333 ],
+        [ 90, 0, -90 ]
       ],
       [
-        90.0,
-        [ -21, 8.75, 6.375 ],
-        [ -90, 0, 0 ]
+        2305,
+        [ -17, 19, 1.667 ],
+        [ 90, 0, -90 ]
       ],
       [
-        230.0,
-        [ -21, 5.25, 9.875 ],
-        [ -90, 0, 0 ]
+        2315,
+        [ -17, 18.667, 1.333 ],
+        [ 90, -45, -90 ]
       ],
       [
-        240.0,
-        [ -21, 5, 10.333 ],
-        [ -90, 0, 0 ]
+        2325,
+        [ -17, 18.333, 1 ],
+        [ 90, -90, -90 ]
       ],
       [
-        245.0,
-        [ -21, 5, 10.667 ],
-        [ -90, 45, 0 ]
+        2340,
+        [ -17, 18.107, 1 ],
+        [ 90, -90, -90 ]
       ],
       [
-        255.0,
-        [ -20.667, 5, 11 ],
-        [ -90, 90, 0 ]
+        2560,
+        [ -22.5, 12.607, 1 ],
+        [ 90, -90, -90 ]
       ],
       [
-        270.0,
-        [ -19.667, 5, 11 ],
-        [ -90, 90, 0 ]
+        2570,
+        [ -22.75, 12.387, 1 ],
+        [ 90, -90, -90 ]
       ],
       [
-        275.0,
-        [ -19.333, 5, 11 ],
-        [ -90, 135, 0 ]
+        2575,
+        [ -23, 12, 1 ],
+        [ 90, -90, -90 ]
       ],
       [
-        285.0,
-        [ -19, 5, 10.333 ],
-        [ -90, 180, 0 ]
+        2625,
+        [ -23, 8, 1 ],
+        [ 90, -90, -90 ]
       ],
       [
-        325.0,
-        [ -19, 5, 7.333 ],
-        [ -90, 180, 0 ]
+        2635,
+        [ -23, 7.75, 1.25 ],
+        [ 90, -135, -90 ]
+      ],
+      [
+        2825,
+        [ -23, 1.25, 7.75 ],
+        [ 90, -135, -90 ]
+      ],
+      [
+        2835,
+        [ -23, 1, 8 ],
+        [ 90, 180, -90 ]
+      ],
+      [
+        2925,
+        [ -23, 1, 14 ],
+        [ 90, 180, -90 ]
       ]
     ]
   },
@@ -606,62 +614,83 @@
       [ 2115, "Armature|walk.1" ],
       [ 2125, "Armature|walk.2" ],
       [ 2135, "Armature|walk.1" ],
-      [ 2145, "Armature|walk.2" ]
-    ],
-    "RiggedAnimationn": [
-      [ 0, "Armature|start" ],
-      [ 15, "Armature|walk.1" ],
-      [ 25, "Armature|walk.2" ],
-      [ 35, "Armature|walk.1" ],
-      [ 45, "Armature|walk.2" ],
-      [ 55, "Armature|walk.1" ],
-      [ 65, "Armature|walk.2" ],
-      [ 75, "Armature|walk.1" ],
-      [ 85, "Armature|startStairs.1" ],
-      [ 100, "Armature|stairs.1" ],
-      [ 110, "Armature|stairs.2" ],
-      [ 120, "Armature|stairs.1" ],
-      [ 130, "Armature|stairs.2" ],
-      [ 140, "Armature|stairs.1" ],
-      [ 150, "Armature|stairs.2" ],
-      [ 160, "Armature|stairs.1" ],
-      [ 170, "Armature|stairs.2" ],
-      [ 180, "Armature|stairs.1" ],
-      [ 190, "Armature|stairs.2" ],
-      [ 200, "Armature|stairs.1" ],
-      [ 210, "Armature|stairs.2" ],
-      [ 220, "Armature|stairs.1" ],
-      [ 230, "Armature|endStairs.1" ],
-      [ 245, "Armature|walk.2" ],
-      [ 255, "Armature|walk.1" ],
-      [ 265, "Armature|walk.2" ],
-      [ 275, "Armature|walk.1" ],
-      [ 285, "Armature|walk.2" ],
-      [ 295, "Armature|walk.1" ],
-      [ 305, "Armature|walk.2" ],
-      [ 315, "Armature|walk.1" ],
-      [ 325, "Armature|walk.2" ],
-      [ 335, "Armature|start" ],
-      [ 350, "Armature|walk.1" ],
-      [ 360, "Armature|walk.2" ],
-      [ 370, "Armature|walk.1" ],
-      [ 380, "Armature|walk.2" ],
-      [ 390, "Armature|walk.1" ],
-      [ 400, "Armature|end.1" ],
-      [ 430, "Armature|start" ],
-      [ 445, "Armature|startStairsUp.2" ],
-      [ 460, "Armature|stairsUp.2" ],
-      [ 470, "Armature|stairsUp.1" ],
-      [ 480, "Armature|stairsUp.2" ],
-      [ 490, "Armature|stairsUp.1" ],
-      [ 500, "Armature|stairsUp.2" ],
-      [ 510, "Armature|stairsUp.1" ],
-      [ 520, "Armature|stairsUp.2" ],
-      [ 530, "Armature|stairsUp.1" ],
-      [ 540, "Armature|stairsUp.2" ],
-      [ 550, "Armature|stairsUp.1" ],
-      [ 560, "Armature|endStairsUp.2" ],
-      [ 575, "Armature|end.1" ]
+      [ 2145, "Armature|walk.2" ],
+      [ 2155, "Armature|walk.1" ],
+      [ 2165, "Armature|walk.2" ],
+      [ 2175, "Armature|walk.1" ],
+      [ 2185, "Armature|walk.2" ],
+      [ 2195, "Armature|walk.1" ],
+      [ 2205, "Armature|walk.2" ],
+      [ 2215, "Armature|walk.1" ],
+      [ 2225, "Armature|walk.2" ],
+      [ 2235, "Armature|walk.1" ],
+      [ 2245, "Armature|walk.2" ],
+      [ 2255, "Armature|walk.1" ],
+      [ 2265, "Armature|walk.2" ],
+      [ 2275, "Armature|walk.1" ],
+      [ 2285, "Armature|walk.2" ],
+      [ 2295, "Armature|walk.1" ],
+      [ 2305, "Armature|walk.2" ],
+      [ 2315, "Armature|walk.1" ],
+      [ 2325, "Armature|startStairsUp.1" ],
+      [ 2340, "Armature|stairsUp.1" ],
+      [ 2350, "Armature|stairsUp.2" ],
+      [ 2360, "Armature|stairsUp.1" ],
+      [ 2370, "Armature|stairsUp.2" ],
+      [ 2380, "Armature|stairsUp.1" ],
+      [ 2390, "Armature|stairsUp.2" ],
+      [ 2400, "Armature|stairsUp.1" ],
+      [ 2410, "Armature|stairsUp.2" ],
+      [ 2420, "Armature|stairsUp.1" ],
+      [ 2430, "Armature|stairsUp.2" ],
+      [ 2440, "Armature|stairsUp.1" ],
+      [ 2450, "Armature|stairsUp.2" ],
+      [ 2460, "Armature|stairsUp.1" ],
+      [ 2470, "Armature|stairsUp.2" ],
+      [ 2480, "Armature|stairsUp.1" ],
+      [ 2490, "Armature|stairsUp.2" ],
+      [ 2500, "Armature|stairsUp.1" ],
+      [ 2510, "Armature|stairsUp.2" ],
+      [ 2520, "Armature|stairsUp.1" ],
+      [ 2530, "Armature|stairsUp.2" ],
+      [ 2540, "Armature|stairsUp.1" ],
+      [ 2550, "Armature|stairsUp.2" ],
+      [ 2560, "Armature|endStairsUp.1" ],
+      [ 2575, "Armature|walk.1" ],
+      [ 2585, "Armature|walk.2" ],
+      [ 2595, "Armature|walk.1" ],
+      [ 2605, "Armature|walk.2" ],
+      [ 2615, "Armature|walk.1" ],
+      [ 2625, "Armature|walk.2" ],
+      [ 2635, "Armature|walk.1" ],
+      [ 2645, "Armature|walk.2" ],
+      [ 2655, "Armature|walk.1" ],
+      [ 2665, "Armature|walk.2" ],
+      [ 2675, "Armature|walk.1" ],
+      [ 2685, "Armature|walk.2" ],
+      [ 2695, "Armature|walk.1" ],
+      [ 2705, "Armature|walk.2" ],
+      [ 2715, "Armature|walk.1" ],
+      [ 2725, "Armature|walk.2" ],
+      [ 2735, "Armature|walk.1" ],
+      [ 2745, "Armature|walk.2" ],
+      [ 2755, "Armature|walk.1" ],
+      [ 2765, "Armature|walk.2" ],
+      [ 2775, "Armature|walk.1" ],
+      [ 2785, "Armature|walk.2" ],
+      [ 2795, "Armature|walk.1" ],
+      [ 2805, "Armature|walk.2" ],
+      [ 2815, "Armature|walk.1" ],
+      [ 2825, "Armature|walk.2" ],
+      [ 2835, "Armature|walk.1" ],
+      [ 2845, "Armature|walk.2" ],
+      [ 2855, "Armature|walk.1" ],
+      [ 2865, "Armature|walk.2" ],
+      [ 2875, "Armature|walk.1" ],
+      [ 2885, "Armature|walk.2" ],
+      [ 2895, "Armature|walk.1" ],
+      [ 2905, "Armature|walk.2" ],
+      [ 2915, "Armature|walk.1" ]
     ]
   },
   "Door.007": {
@@ -905,38 +934,42 @@
         [ -34.7813, 26.2999, 24.3675 ],
         [ 24.611, 135, 0 ],
         30
-      ]
-    ],
-    "ObjectAnimationn": [
-      [
-        40,
-        [ -30, 10, 5.5 ],
-        [ 5, 90, 0 ],
-        19
       ],
       [
-        75,
-        [ -30, 12.3, 4.8 ],
-        [ 13.5, 90, 0 ],
-        12.7
+        2340,
+        [ -34.7813, 26.2999, 24.3675 ],
+        [ 24.611, 135, 0 ],
+        30
       ],
       [
-        200,
-        [ -28.4, 12, 9.3 ],
-        [ 13.5, 71.5, 0 ],
-        9.2
+        2400,
+        [ -32.1833, 27.0689, 25.5139 ],
+        [ 22.0327, 149.897, 0 ],
+        16
       ],
       [
-        175,
-        [ -27.5, 8.5, 12.4 ],
-        [ 13.5, 61.5, 0 ],
-        9.2
+        2575,
+        [ -34.6132, 22.5448, 26.2214 ],
+        [ 22.0327, 149.897, 0 ],
+        16
       ],
       [
-        320,
-        [ -29.5, 10.4, 25.6 ],
-        [ 13.5, 43.5, 0 ],
-        29
+        2635,
+        [ -31.563, 16.1569, 30.9772 ],
+        [ 21.7462, 149.038, 0 ],
+        34
+      ],
+      [
+        2835,
+        [ -31.1472, 19.6974, 27.4055 ],
+        [ 38.0755, 144.167, 0 ],
+        28
+      ],
+      [
+        2930,
+        [ -25.0514, 21.0147, 27.1821 ],
+        [ 54.9777, 158.205, 0 ],
+        18
       ]
     ]
   }
