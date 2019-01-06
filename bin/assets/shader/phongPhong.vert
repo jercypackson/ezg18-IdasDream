@@ -10,7 +10,6 @@ out VertexData {
 	vec2 uv;
     flat int drawID;
     vec3 debugColor;
-    flat bool skinned;
 } vert;
 
 uniform mat4 viewProjMatrix;
@@ -69,15 +68,10 @@ void main() {
 
     int startIdx = boneDataStartIdx[gl_DrawID];
 
-    vert.skinned = false;
-
     if (startIdx < 0) {
         //no vertex skinning
 
     } else {
-
-        vert.skinned = true;
-
         //todo: remove basevertex
         int boneDataIdx = startIdx + gl_VertexID - gl_BaseVertex;
         

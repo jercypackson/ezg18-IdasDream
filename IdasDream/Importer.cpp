@@ -13,7 +13,7 @@
 #include "ArmatureObject.h"
 #include "Bones.h"
 
-Importer::Importer(std::string path) 
+Importer::Importer(std::string path)
 	: _path(path)
 {
 }
@@ -41,7 +41,7 @@ void Importer::importFile(std::string file, SceneObject* root)
 }
 
 void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
-	
+
 	SceneObject* s;
 
 	if (strcmp(node->mName.C_Str(), "Armature") == 0) {
@@ -49,7 +49,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 
 		ArmatureObject* a = new ArmatureObject(node->mName.C_Str(), glm::mat4(1.0f), parent);
 		_armature = a;
-		
+
 		s = a;
 	}
 	else {
@@ -60,7 +60,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		}
 	}
 
-	
+
 	//if (node->mNumMeshes == 0) do nothing, empty SceneObject
 
 	if (node->mNumMeshes == 1) {
@@ -82,15 +82,15 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 			gd.positions.push_back(position);
 			gd.normals.push_back(Extensions::toGlmVec3(mesh->mNormals[i]));
 
-			gd.uvs.push_back(mesh->mTextureCoords[0] ? 
-				glm::vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y) : 
+			gd.uvs.push_back(mesh->mTextureCoords[0] ?
+				glm::vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y) :
 				glm::vec2(0.0f, 0.0f));
 
 			//bb
 			if (position.x < gd.boundingBox.minVertex.x) gd.boundingBox.minVertex.x = position.x;
 			if (position.y < gd.boundingBox.minVertex.y) gd.boundingBox.minVertex.y = position.y;
 			if (position.z < gd.boundingBox.minVertex.z) gd.boundingBox.minVertex.z = position.z;
-							 							 
+
 			if (position.x > gd.boundingBox.maxVertex.x) gd.boundingBox.maxVertex.x = position.x;
 			if (position.y > gd.boundingBox.maxVertex.y) gd.boundingBox.maxVertex.y = position.y;
 			if (position.z > gd.boundingBox.maxVertex.z) gd.boundingBox.maxVertex.z = position.z;
@@ -112,9 +112,10 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 		aiColor4D* spec = new aiColor4D(0);
 		aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_SPECULAR, spec);
 		glm::vec3 matCoeffs = glm::vec3(0.2, 0.9, spec->r * 2);
+		delete spec;
 
 		if (diffMatCount == 0) {
-			aiColor4D* pOut = new aiColor4D(1,0,0,1); //default
+			aiColor4D* pOut = new aiColor4D(1, 0, 0, 1); //default
 			aiGetMaterialColor(aiMat, AI_MATKEY_COLOR_DIFFUSE, pOut);
 
 			mat = std::make_shared<ColorMaterial>(ShaderManager::getShader("phongPhong"), Extensions::toGlmVec4(*pOut), matCoeffs, 1.0f);
@@ -149,6 +150,15 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 			std::cout << "ERROR: Multiple Textures on one object not supported." << std::endl;
 		}
 
+		aiString* matName = new aiString();
+		aiGetMaterialString(aiMat, AI_MATKEY_NAME, matName);
+
+		if (strstr(matName->C_Str(), "NOSHADOW")) {
+			mat->setReceivesShadow(false);
+		}
+
+		delete matName;
+
 		s->addData(gd, mat);
 
 		if (mesh->HasBones()) {
@@ -172,7 +182,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 			s->addBoneData(boneData);
 		}
 
-		
+
 	}
 	else if (node->mNumMeshes > 1) {
 		std::cout << "Error: More than one mesh in node!" << std::endl;
@@ -229,7 +239,7 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 				if (pos.mTime != rot.mTime) {
 					std::cout << "Error: Position and rotation timings do not match." << std::endl;
 				}
-				
+
 				time.push_back(static_cast<float>(pos.mTime * secondsPerTick));
 
 				transform.push_back(Transform(Extensions::toGlmVec3(pos.mValue), Extensions::toGlmQuat(rot.mValue)));
@@ -238,7 +248,7 @@ FileImporter::FileImporter(std::string file, SceneObject* root)
 			//just checking
 			for (unsigned int s = 0; s < channel->mNumScalingKeys; s++)
 			{
-				if (Extensions::round(Extensions::toGlmVec3(channel->mScalingKeys[s].mValue), 3) 
+				if (Extensions::round(Extensions::toGlmVec3(channel->mScalingKeys[s].mValue), 3)
 					!= glm::vec3(1)) {
 					std::cout << "Error: Scaling in animation not supported" << std::endl;
 				}

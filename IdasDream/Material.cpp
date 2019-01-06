@@ -36,6 +36,11 @@ void Material::setFragmentData(std::vector<FragData>& data)
 	data.push_back({});
 }
 
+void Material::setReceivesShadow(bool receive)
+{
+	_receivesShadow = receive;
+}
+
 /* --------------------------------------------- */
 // Texture material
 /* --------------------------------------------- */
@@ -59,7 +64,13 @@ void TextureMaterial::setUniforms()
 
 void TextureMaterial::setFragmentData(std::vector<FragData>& data)
 {
-	data.push_back({ glm::vec4(-1), _materialCoefficients.z, _diffuseTexture->getTextureHandle() });
+	FragData d;
+	d.col = glm::vec4(-1);
+	d.specularCoeff = _materialCoefficients.z;
+	d.textureBuffer = _diffuseTexture->getTextureHandle();
+	d.receivesShadow = _receivesShadow;
+
+	data.push_back(d);
 }
 
 /* --------------------------------------------- */
@@ -89,5 +100,11 @@ glm::vec4 ColorMaterial::getColor()
 
 void ColorMaterial::setFragmentData(std::vector<FragData>& data)
 {
-	data.push_back({ _color, _materialCoefficients.z });
+	FragData d;
+	d.col = _color;
+	d.textureBuffer = 0;
+	d.specularCoeff = _materialCoefficients.z;
+	d.receivesShadow = _receivesShadow;
+
+	data.push_back(d);
 }

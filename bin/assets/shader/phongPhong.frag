@@ -9,7 +9,6 @@ in VertexData {
 	vec2 uv;
     flat int drawID;
     vec3 debugColor;
-    flat bool skinned;
 } vert;
 
 out vec4 color;
@@ -34,6 +33,7 @@ uniform struct DirectionalLight {
 struct FragData {
     vec4 col;
     float specularCoeff;
+    int receivesShadow;
     sampler2D textureBuffer;
 };
 
@@ -51,7 +51,6 @@ vec3 phong(vec3 n, vec3 l, vec3 v, vec3 diffuseC, float diffuseF, vec3 specularC
 }
 
 void main() {
-
     //todo: remove
     DirectionalLight dirL = DirectionalLight(vec3(1), vec3(0.5,-1,-0.3));
 
@@ -70,7 +69,7 @@ void main() {
 
     // fake shadow
     float fadeOut = (min(distance(feetPosition, vert.position_world), 1.0));
-    if (vert.skinned) fadeOut = 1.0;
+    if (data[vert.drawID].receivesShadow == 0) fadeOut = 1.0;
     fadeOut = smoothstep(0.15, 1.0, fadeOut);
     fadeOut = fadeOut * 0.7 + 0.3;
     color.rgb = color.rgb * fadeOut + (1.0 - fadeOut) * vec3(0.1);

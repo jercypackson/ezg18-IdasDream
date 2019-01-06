@@ -33,12 +33,14 @@ protected:
 	/*!
 	 * The material's coefficients (x = ambient, y = diffuse, z = specular)
 	 */
-	glm::vec3 _materialCoefficients; 
+	glm::vec3 _materialCoefficients;
 
 	/*!
 	 * Alpha value, i.e. the shininess constant
 	 */
 	float _alpha;
+
+	bool _receivesShadow = true;
 
 public:
 	/*!
@@ -52,6 +54,9 @@ public:
 	virtual void setUniforms();
 
 	virtual void setFragmentData(std::vector<FragData>& data);
+
+	void setReceivesShadow(bool receive);
+
 };
 
 /*!
@@ -74,7 +79,7 @@ public:
 	 * @param diffuseTexture: The diffuse texture of this material
 	 */
 	TextureMaterial(std::shared_ptr<Shader> shader, glm::vec3 materialCoefficients, float alpha, std::shared_ptr<Texture2DBL> diffuseTexture);
-	
+
 	virtual ~TextureMaterial();
 
 	/*!
