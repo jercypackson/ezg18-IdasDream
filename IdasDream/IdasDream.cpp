@@ -284,10 +284,8 @@ void IdasDream::render(float dt)
 	_shader->setUniform("viewProjMatrix", _camera->getViewProjectionMatrix());
 	_shader->setUniform("camera_world", _camera->getPosition());
 
-
-	// TODO replace direction vector (face down)
-	glm::vec3 downVec = glm::vec3(0.0f, -1.0f, 0.0f);
-	_shader->setUniform("feetPosition", _idaAnim.getCurrentTransform(_time)->pos + downVec);
+	auto idaTr = _idaAnim.getCurrentTransform(_time);
+	_shader->setUniform("feetPosition", idaTr->pos + idaTr->quat * glm::vec3(0.0f, 0.0f, -1.0f));
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
