@@ -258,7 +258,7 @@ void IdasDream::update(float dt)
 		_camera->update(camtr.value(), _animatedCamera);
 	}
 
-	_particles->compute(dt, _idaAnim.getCurrentTransform(_time).value_or(Transform(glm::vec3())));
+	_particles->compute(dt, _time, _idaAnim.getCurrentTransform(_time).value_or(Transform(glm::vec3())));
 }
 
 void IdasDream::animate(float time)
@@ -292,7 +292,7 @@ void IdasDream::render(float dt)
 
 	_shader->unuse();
 
-	//_particles->render(_camera->getViewProjectionMatrix());
+	_particles->render(_camera->getViewProjectionMatrix());
 }
 
 void IdasDream::reload()

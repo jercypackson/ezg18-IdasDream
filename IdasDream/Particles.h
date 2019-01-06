@@ -12,7 +12,7 @@ public:
 	Particles();
 	~Particles();
 
-	void compute(float delta, Transform pose);
+	void compute(float delta, float time, Transform pose);
 	void render(glm::mat4 viewMatrix);
 
 	void enableBlendMode();

@@ -19,7 +19,7 @@ Particles::Particles()
 	atomicCounter = std::make_unique<Buffer>(&particle_count, sizeof(particle_count), BufferUsage::DYNAMIC);
 }
 
-void Particles::compute(float delta, Transform pose) {
+void Particles::compute(float delta, float time, Transform pose) {
 
 	//calc particles to spawn
 	particles_to_spawn += spawnRatePerSecond * delta;
@@ -34,11 +34,13 @@ void Particles::compute(float delta, Transform pose) {
 	computeShader->use();
 	computeShader->setUniform("LastCount", particle_count);
 	computeShader->setUniform("DeltaT", delta);
-	computeShader->setUniform("MaximumCount", MAX_PARTICLES); //TODO: move to constructor?
+	computeShader->setUniform("time", time);
+	computeShader->setUniform("MaximumCount", MAX_PARTICLES);
 	computeShader->setUniform("spawnCount", spawnCount);
+	computeShader->setUniform("sideways", pose.quat * glm::vec3(1, 0, 0));
 
-	computeShader->setUniform("startPos", pose.pos);
-	computeShader->setUniform("startVel", 0.5f * glm::normalize(prevPos - pose.pos));
+	computeShader->setUniform("startPos", pose.pos + pose.quat * glm::vec3(0, 0.3f, 0.3f));
+	computeShader->setUniform("startVel", (prevPos - pose.pos) / delta);
 	prevPos = pose.pos;
 
 	//read
