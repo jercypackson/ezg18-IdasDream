@@ -9,6 +9,7 @@ in VertexData {
 	vec2 uv;
     flat int drawID;
     vec3 debugColor;
+    flat bool skinned;
 } vert;
 
 out vec4 color;
@@ -17,10 +18,8 @@ out vec4 color;
 uniform vec3 camera_world; 
 //
 
-// blob shadow
-uniform mat4 blobMatrix;
-uniform vec3 blobDown;
-uniform vec3 blobCamPos;
+// fake shadow
+uniform vec3 feetPosition;
 
 //once
 uniform vec3 materialCoefficients = vec3(0.2,0.9,0.0); // x = ambient, y = diffuse, z = specular 
@@ -69,17 +68,12 @@ void main() {
 	// add directional light contribution
 	color.rgb += phong(n, -dirL.direction, v, dirL.color * c.rgb, materialCoefficients.y, dirL.color, data[vert.drawID].specularCoeff, specularAlpha, false, vec3(0));
 
-
-    vec4 proj_ndc = blobMatrix * vec4(vert.position_world, 1.0);
-    proj_ndc.xyz = proj_ndc.xyz / proj_ndc.w;
-
-    float fadeOut = min(1.0f, distance(vec2(0.0), proj_ndc.xy));
-    // fadeOut = 1 if vert normal is (almost) orthogonal to blobDown
-    if(dot(blobDown, normalize(blobCamPos - vert.position_world)) >= 0.0 || abs(dot(normalize(vert.normal_world), blobDown)) < 0.1) fadeOut = 1.0f;
-
-    fadeOut = smoothstep(0.0f, 1.0f, fadeOut);
+    // fake shadow
+    float fadeOut = (min(distance(feetPosition, vert.position_world), 1.0));
+    if (vert.skinned) fadeOut = 1.0;
+    fadeOut = smoothstep(0.15, 1.0, fadeOut);
+    fadeOut = fadeOut * 0.7 + 0.3;
     color.rgb = color.rgb * fadeOut + (1.0 - fadeOut) * vec3(0.1);
-
 
     //color.rgb = abs(n);
     //color = vec4(vert.debugColor, 1);

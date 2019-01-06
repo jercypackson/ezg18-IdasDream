@@ -284,20 +284,17 @@ void IdasDream::render(float dt)
 	_shader->setUniform("viewProjMatrix", _camera->getViewProjectionMatrix());
 	_shader->setUniform("camera_world", _camera->getPosition());
 
+
 	// TODO replace direction vector (face down)
 	glm::vec3 downVec = glm::vec3(0.0f, -1.0f, 0.0f);
-	auto blobView = glm::lookAt(_idaAnim.getCurrentTransform(_time)->pos, _idaAnim.getCurrentTransform(_time)->pos + downVec, glm::vec3(1.0f, 0.0f, 0.0f));
-	auto blobProj = glm::perspective(glm::radians(90.0f), 1.0f, 0.001f, 100.0f);
-	_shader->setUniform("blobMatrix", blobProj * blobView);
-	_shader->setUniform("blobDown", downVec);
-	_shader->setUniform("blobCamPos", _idaAnim.getCurrentTransform(_time)->pos);
+	_shader->setUniform("feetPosition", _idaAnim.getCurrentTransform(_time)->pos + downVec);
 
 	_obj[0].bindVertexArray();
 	_obj[0].draw();
 
 	_shader->unuse();
 
-	_particles->render(_camera->getViewProjectionMatrix());
+	//_particles->render(_camera->getViewProjectionMatrix());
 }
 
 void IdasDream::reload()
