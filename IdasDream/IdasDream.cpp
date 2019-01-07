@@ -81,7 +81,6 @@ void IdasDream::init()
 		case GLFW_KEY_X:
 			c->printPose();
 			break;
-
 		}
 	});
 
@@ -197,6 +196,7 @@ void IdasDream::init()
 		printf("Could not startup irrklang Sound Engine\n");
 	}
 	const char* path = (Extensions::assets + "music/Creepy-doll-music.mp3").c_str();
+	const char* pathStillAlive = (Extensions::assets + "music/12 Still Alive.mp3").c_str();
 	sound = soundEngine->play2D("", true, true, true);
 	system("CLS"); //clear bc this output isnt needed
 

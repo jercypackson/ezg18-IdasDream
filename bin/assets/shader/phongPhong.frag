@@ -61,6 +61,10 @@ void main() {
     if (c.r < 0 || c.r > 1){ //invalid color
         c = texture(data[vert.drawID].textureBuffer, vert.uv);
     }
+
+    if (c.a == 0) {
+        discard;
+    }
 	
 	color = vec4(c.rgb * materialCoefficients.x, 1); // ambient
 	
@@ -73,7 +77,7 @@ void main() {
     fadeOut = smoothstep(0.15, 1.0, fadeOut);
     fadeOut = fadeOut * 0.7 + 0.3;
     color.rgb = color.rgb * fadeOut + (1.0 - fadeOut) * vec3(0.1);
-
+    
     //color.rgb = abs(n);
     //color = vec4(vert.debugColor, 1);
 }
