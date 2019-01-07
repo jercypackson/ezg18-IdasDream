@@ -72,7 +72,6 @@ void main() {
         //no vertex skinning
 
     } else {
-        //todo: remove basevertex
         int boneDataIdx = startIdx + gl_VertexID - gl_BaseVertex;
         
         BoneData bd = boneData[boneDataIdx];
@@ -86,7 +85,6 @@ void main() {
         NormalL = boneTransform * NormalL;
         PosL = boneTransform * PosL;
     }
-
 
 
     

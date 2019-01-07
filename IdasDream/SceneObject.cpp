@@ -2,6 +2,7 @@
 #include "SceneObject.h"
 #include <glm/gtx/matrix_decompose.hpp>
 #include <algorithm>
+#include "Extensions.h"
 
 SceneObject::SceneObject(std::string name, glm::mat4 modelMatrix, SceneObject * parent)
 	: _name(name), _parent(parent), _localModelMatrix(modelMatrix)

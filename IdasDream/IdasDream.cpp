@@ -237,11 +237,18 @@ void IdasDream::update(float dt)
 				s->getNormalMatrix()
 			};
 
-			if (s->getName().find("Twist") != std::string::npos) {
+			if (s->getName().find("Twist.000") != std::string::npos) {
 
-				float twist = t * 0.1f;
+				float start = 3891.92f / 24.f;
+				if (t > start) {
 
-				data.twistParam = std::min(t * 0.1f, glm::pi<float>() / 16.0f);
+					if (t < start + glm::pi<float>() / 16.0f * 10) {
+						data.twistParam = -(t - start) * 0.1f;
+					}
+					else {
+						data.twistParam = -glm::pi<float>() / 16.0f;
+					}
+				}
 			}
 
 			vd.push_back(data);
