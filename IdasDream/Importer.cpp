@@ -139,7 +139,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 				f = TextureFormat::R8;
 			}
 			else if (nrComponents == 4) {
-				f = TextureFormat::RGBA8;
+				f = TextureFormat::SRGBA8;
 			}
 			else {
 				std::cout << "ERROR: This texture is not supported." << std::endl;

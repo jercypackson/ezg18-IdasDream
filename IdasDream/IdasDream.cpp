@@ -241,7 +241,7 @@ void IdasDream::update(float dt)
 
 				float twist = t * 0.1f;
 
-				data.twistParam = 0; // std::min(t * 0.1f, glm::pi<float>() / 16.0f);
+				data.twistParam = std::min(t * 0.1f, glm::pi<float>() / 16.0f);
 			}
 
 			vd.push_back(data);
