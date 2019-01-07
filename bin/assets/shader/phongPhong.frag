@@ -62,9 +62,7 @@ void main() {
         c = texture(data[vert.drawID].textureBuffer, vert.uv);
     }
 
-    if (c.a == 0) {
-        discard;
-    }
+    if (c.a < 0.99) discard;
 	
 	color = vec4(c.rgb * materialCoefficients.x, 1); // ambient
 	

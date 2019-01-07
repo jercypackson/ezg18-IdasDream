@@ -316,6 +316,7 @@ void IdasDream::reload()
 		std::string name = it.key();
 
 		auto sceneObj = Hierachy::find(_root, name);
+		if (!sceneObj) continue;
 
 		auto obj = it.value();
 

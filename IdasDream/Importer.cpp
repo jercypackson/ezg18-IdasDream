@@ -29,6 +29,8 @@ SceneObject* Importer::import()
 	//for each file in path
 	for (const auto & p : std::filesystem::directory_iterator(_path)) {
 		auto filePath = p.path().string();
+		std::string ending = "_";
+		if (0 == filePath.compare(filePath.length() - ending.length(), ending.length(), ending)) continue;
 		importFile(filePath, so);
 	}
 
@@ -144,7 +146,7 @@ void FileImporter::readNode(const aiNode* node, SceneObject* parent) {
 			}
 
 			mat = std::make_shared<TextureMaterial>(ShaderManager::getShader("phongPhong"), matCoeffs, 0.0f,
-				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::TRILINEAR }), data));
+				std::make_shared<Texture2DBL>(width, height, f, SamplerInfo({ SamplerInfo::Filtering::BILINEAR }), data));
 		}
 		else {
 			std::cout << "ERROR: Multiple Textures on one object not supported." << std::endl;

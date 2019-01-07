@@ -959,6 +959,20 @@
       ]
     ]
   },
+  "Credits": {
+    "ObjectAnimation": [
+      [
+        0,
+        [ 0,0,0 ],
+        [ -90, 0, 0 ]
+      ],
+      [
+        400,
+        [ 0, 40, 0 ],
+        [ -90, 0, 0 ]
+      ]
+    ]
+  },
   "TransWall": {
     "ObjectAnimation": [
       [
