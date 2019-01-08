@@ -289,7 +289,7 @@ void IdasDream::update(float dt)
 	_particles->compute(dt, _time, _idaAnim.getCurrentTransform(_time).value_or(Transform(glm::vec3())));
 }
 
-void IdasDream::animate(float time)
+void IdasDream::animate(float time) const
 {
 	Hierachy::forEach(_root, [&t = time](SceneObject* s) {
 		s->animate(t);

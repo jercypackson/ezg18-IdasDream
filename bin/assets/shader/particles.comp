@@ -56,7 +56,7 @@ void main() {
 	uint idx = gl_GlobalInvocationID.x; //one dimensional
 
 	if (idx >= (LastCount + spawnCount)) return;
-	if (idx >= LastCount && length(startVel) < 0.01) return;
+	if (idx >= LastCount && (length(startVel) < 0.01 || length(startVel) > 3)) return;
 
 	vec3 r = randomV(time);
 
