@@ -1100,6 +1100,46 @@
         6005,
         [ -7, 21, 1.667 ],
         [ 90, 180, -180 ]
+      ],
+      [
+        6115,
+        [ -7, 21, 9 ],
+        [ 90, 180, -180 ]
+      ],
+      [
+        6125,
+        [ -6.5, 21, 9.5 ],
+        [ 90, 135, -180 ]
+      ],
+      [
+        6145,
+        [ -5.5, 21, 10.5 ],
+        [ 90, 135, -180 ]
+      ],
+      [
+        6155,
+        [ -5, 21, 11 ],
+        [ 90, 90, -180 ]
+      ],
+      [
+        6205,
+        [ -1.667, 21, 11 ],
+        [ 90, 90, -180 ]
+      ],
+      [
+        6215,
+        [ -1.333, 21, 10.667 ],
+        [ 90, 45, -180 ]
+      ],
+      [
+        6225,
+        [ -1, 21, 10.333 ],
+        [ 90, 0, -180 ]
+      ],
+      [
+        6375,
+        [ -1, 21, 0.333 ],
+        [ 90, 0, -180 ]
       ]
     ]
   },
@@ -1622,7 +1662,44 @@
       [ 5965, "Armature|walk.2" ],
       [ 5975, "Armature|walk.1" ],
       [ 5985, "Armature|walk.2" ],
-      [ 5995, "Armature|walk.1" ]
+      [ 5995, "Armature|walk.1" ],
+      [ 6005, "Armature|walk.2" ],
+      [ 6015, "Armature|walk.1" ],
+      [ 6025, "Armature|walk.2" ],
+      [ 6035, "Armature|walk.1" ],
+      [ 6045, "Armature|walk.2" ],
+      [ 6055, "Armature|walk.1" ],
+      [ 6065, "Armature|walk.2" ],
+      [ 6075, "Armature|walk.1" ],
+      [ 6085, "Armature|walk.2" ],
+      [ 6095, "Armature|walk.1" ],
+      [ 6105, "Armature|walk.2" ],
+      [ 6115, "Armature|walk.1" ],
+      [ 6125, "Armature|walk.2" ],
+      [ 6135, "Armature|walk.1" ],
+      [ 6145, "Armature|walk.2" ],
+      [ 6155, "Armature|walk.1" ],
+      [ 6165, "Armature|walk.2" ],
+      [ 6175, "Armature|walk.1" ],
+      [ 6185, "Armature|walk.2" ],
+      [ 6195, "Armature|walk.1" ],
+      [ 6205, "Armature|walk.2" ],
+      [ 6215, "Armature|walk.1" ],
+      [ 6225, "Armature|walk.2" ],
+      [ 6235, "Armature|walk.1" ],
+      [ 6245, "Armature|walk.2" ],
+      [ 6255, "Armature|walk.1" ],
+      [ 6265, "Armature|walk.2" ],
+      [ 6275, "Armature|walk.1" ],
+      [ 6285, "Armature|walk.2" ],
+      [ 6295, "Armature|walk.1" ],
+      [ 6305, "Armature|walk.2" ],
+      [ 6315, "Armature|walk.1" ],
+      [ 6325, "Armature|walk.2" ],
+      [ 6335, "Armature|walk.1" ],
+      [ 6345, "Armature|walk.2" ],
+      [ 6355, "Armature|walk.1" ],
+      [ 6365, "Armature|walk.2" ]
     ]
   },
   "Door.007": {
