@@ -195,12 +195,9 @@ void IdasDream::init()
 	{
 		printf("Could not startup irrklang Sound Engine\n");
 	}
-	const char* path = (Extensions::assets + "music/Creepy-doll-music.mp3").c_str();
-	const char* pathStillAlive = (Extensions::assets + "music/12 Still Alive.mp3").c_str();
-	sound = soundEngine->play2D("", true, true, true);
+	auto path = Extensions::assets + "music/Creepy-doll-music.mp3";
+	sound = soundEngine->play2D(path.c_str(), true, true, true);
 	system("CLS"); //clear bc this output isnt needed
-
-
 
 	reload();
 
@@ -222,6 +219,24 @@ void IdasDream::update(float dt)
 
 	_time += dt * _speed;
 
+	// music
+	float start = 226.611;
+	float end = 5540.f / 24.f;
+	if (_time > start && _time < end)
+	{
+		sound->setVolume((_time - start)*-1 / (end - start) + 1);
+	}
+	else if (_time > end + 1 && sound && sound->getVolume() < 0.5f)
+	{
+		auto pathStillAlive = Extensions::assets + "music/12 Still Alive.mp3";
+		sound = soundEngine->play2D(pathStillAlive.c_str(), false, false, true);
+	}
+	else if (sound->isFinished())
+	{
+		_window.close();
+	}
+
+	//
 
 	animate(_time);
 
