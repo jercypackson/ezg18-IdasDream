@@ -22,7 +22,7 @@ public:
 
 	void init() override;
 	void update(float dt) override;
-	void animate(float dt) const;
+	void animate(float time) const;
 	void render(float dt) override;
 
 private:

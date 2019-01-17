@@ -121,7 +121,6 @@
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnimatedCamera.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="ArmatureObject.cpp" />
     <ClCompile Include="Bones.cpp" />
