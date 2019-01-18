@@ -18,6 +18,7 @@ struct VertData {
     mat4 modelMatix;
     mat4 normalMatrix;
     float twistParam;
+    float waveParam;
 };
 
 layout(std430, binding = 0) buffer dataBuffer {
@@ -65,6 +66,14 @@ void main() {
 
     NormalL = twist * NormalL;  //no non-uniform scaling, so no need to transpose and invert
     PosL = twist * PosL;
+
+    if (d.waveParam >= 0) {
+        float t = d.waveParam;
+        float u = PosL.y;
+        PosL = vec4(PosL.x, PosL.y, (sin(t + u) - sin(t + 2)) * 0.3, 1);
+        NormalL = vec4(0, NormalL.z * -cos(t+u) * 0.3, 1, 0);
+    }
+
 
     int startIdx = boneDataStartIdx[gl_DrawID];
 

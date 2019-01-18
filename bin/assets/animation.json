@@ -1,5568 +1,1 @@
-{
-  "Armature": {
-    "RiggedAnimation": [
-      [
-        0.0,
-        "Armature|end.1"
-      ],
-      [
-        120.0,
-        "Armature|start"
-      ],
-      [
-        135.0,
-        "Armature|walk.1"
-      ],
-      [
-        145.0,
-        "Armature|walk.2"
-      ],
-      [
-        155.0,
-        "Armature|walk.1"
-      ],
-      [
-        165.0,
-        "Armature|walk.2"
-      ],
-      [
-        175.0,
-        "Armature|end.2"
-      ],
-      [
-        260.0,
-        "Armature|start"
-      ],
-      [
-        275.0,
-        "Armature|walk.1"
-      ],
-      [
-        285.0,
-        "Armature|walk.2"
-      ],
-      [
-        295.0,
-        "Armature|walk.1"
-      ],
-      [
-        305.0,
-        "Armature|walk.2"
-      ],
-      [
-        315.0,
-        "Armature|startStairs.2"
-      ],
-      [
-        330.0,
-        "Armature|stairs.2"
-      ],
-      [
-        340.0,
-        "Armature|stairs.1"
-      ],
-      [
-        350.0,
-        "Armature|stairs.2"
-      ],
-      [
-        360.0,
-        "Armature|stairs.1"
-      ],
-      [
-        370.0,
-        "Armature|stairs.2"
-      ],
-      [
-        380.0,
-        "Armature|stairs.1"
-      ],
-      [
-        390.0,
-        "Armature|stairs.2"
-      ],
-      [
-        400.0,
-        "Armature|stairs.1"
-      ],
-      [
-        410.0,
-        "Armature|stairs.2"
-      ],
-      [
-        420.0,
-        "Armature|stairs.1"
-      ],
-      [
-        430.0,
-        "Armature|stairs.2"
-      ],
-      [
-        440.0,
-        "Armature|stairs.1"
-      ],
-      [
-        450.0,
-        "Armature|stairs.2"
-      ],
-      [
-        460.0,
-        "Armature|endStairs.2"
-      ],
-      [
-        475.0,
-        "Armature|walk.1"
-      ],
-      [
-        485.0,
-        "Armature|walk.2"
-      ],
-      [
-        495.0,
-        "Armature|startStairs.2"
-      ],
-      [
-        510.0,
-        "Armature|stairs.2"
-      ],
-      [
-        520.0,
-        "Armature|stairs.1"
-      ],
-      [
-        530.0,
-        "Armature|stairs.2"
-      ],
-      [
-        540.0,
-        "Armature|stairs.1"
-      ],
-      [
-        550.0,
-        "Armature|stairs.2"
-      ],
-      [
-        560.0,
-        "Armature|endStairs.2"
-      ],
-      [
-        575.0,
-        "Armature|walk.1"
-      ],
-      [
-        585.0,
-        "Armature|walk.2"
-      ],
-      [
-        595.0,
-        "Armature|walk.1"
-      ],
-      [
-        605.0,
-        "Armature|walk.2"
-      ],
-      [
-        615.0,
-        "Armature|walk.1"
-      ],
-      [
-        625.0,
-        "Armature|walk.2"
-      ],
-      [
-        635.0,
-        "Armature|walk.1"
-      ],
-      [
-        645.0,
-        "Armature|walk.2"
-      ],
-      [
-        655.0,
-        "Armature|walk.1"
-      ],
-      [
-        665.0,
-        "Armature|walk.2"
-      ],
-      [
-        675.0,
-        "Armature|walk.1"
-      ],
-      [
-        685.0,
-        "Armature|walk.2"
-      ],
-      [
-        695.0,
-        "Armature|walk.1"
-      ],
-      [
-        705.0,
-        "Armature|walk.2"
-      ],
-      [
-        715.0,
-        "Armature|walk.1"
-      ],
-      [
-        725.0,
-        "Armature|walk.2"
-      ],
-      [
-        735.0,
-        "Armature|walk.1"
-      ],
-      [
-        745.0,
-        "Armature|walk.2"
-      ],
-      [
-        755.0,
-        "Armature|walk.1"
-      ],
-      [
-        765.0,
-        "Armature|walk.2"
-      ],
-      [
-        775.0,
-        "Armature|walk.1"
-      ],
-      [
-        785.0,
-        "Armature|walk.2"
-      ],
-      [
-        795.0,
-        "Armature|startStairsUp.2"
-      ],
-      [
-        810.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        820.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        830.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        840.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        850.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        860.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        870.0,
-        "Armature|endStairsUp.2"
-      ],
-      [
-        885.0,
-        "Armature|walk.2"
-      ],
-      [
-        895.0,
-        "Armature|walk.1"
-      ],
-      [
-        905.0,
-        "Armature|walk.2"
-      ],
-      [
-        915.0,
-        "Armature|walk.1"
-      ],
-      [
-        925.0,
-        "Armature|walk.2"
-      ],
-      [
-        935.0,
-        "Armature|walk.1"
-      ],
-      [
-        945.0,
-        "Armature|walk.2"
-      ],
-      [
-        955.0,
-        "Armature|walk.1"
-      ],
-      [
-        965.0,
-        "Armature|walk.2"
-      ],
-      [
-        975.0,
-        "Armature|walk.1"
-      ],
-      [
-        985.0,
-        "Armature|walk.2"
-      ],
-      [
-        995.0,
-        "Armature|walk.1"
-      ],
-      [
-        1005.0,
-        "Armature|walk.2"
-      ],
-      [
-        1015.0,
-        "Armature|walk.1"
-      ],
-      [
-        1025.0,
-        "Armature|walk.2"
-      ],
-      [
-        1035.0,
-        "Armature|walk.1"
-      ],
-      [
-        1045.0,
-        "Armature|walk.2"
-      ],
-      [
-        1055.0,
-        "Armature|walk.1"
-      ],
-      [
-        1065.0,
-        "Armature|walk.2"
-      ],
-      [
-        1075.0,
-        "Armature|walk.1"
-      ],
-      [
-        1085.0,
-        "Armature|walk.2"
-      ],
-      [
-        1095.0,
-        "Armature|walk.1"
-      ],
-      [
-        1105.0,
-        "Armature|walk.2"
-      ],
-      [
-        1115.0,
-        "Armature|walk.1"
-      ],
-      [
-        1125.0,
-        "Armature|walk.2"
-      ],
-      [
-        1135.0,
-        "Armature|walk.1"
-      ],
-      [
-        1145.0,
-        "Armature|walk.2"
-      ],
-      [
-        1155.0,
-        "Armature|walk.1"
-      ],
-      [
-        1165.0,
-        "Armature|walk.2"
-      ],
-      [
-        1175.0,
-        "Armature|walk.1"
-      ],
-      [
-        1185.0,
-        "Armature|walk.2"
-      ],
-      [
-        1195.0,
-        "Armature|walk.1"
-      ],
-      [
-        1205.0,
-        "Armature|walk.2"
-      ],
-      [
-        1215.0,
-        "Armature|walk.1"
-      ],
-      [
-        1225.0,
-        "Armature|walk.2"
-      ],
-      [
-        1235.0,
-        "Armature|walk.1"
-      ],
-      [
-        1245.0,
-        "Armature|walk.2"
-      ],
-      [
-        1255.0,
-        "Armature|walk.1"
-      ],
-      [
-        1265.0,
-        "Armature|walk.2"
-      ],
-      [
-        1275.0,
-        "Armature|walk.1"
-      ],
-      [
-        1285.0,
-        "Armature|walk.2"
-      ],
-      [
-        1295.0,
-        "Armature|walk.1"
-      ],
-      [
-        1305.0,
-        "Armature|walk.2"
-      ],
-      [
-        1315.0,
-        "Armature|walk.1"
-      ],
-      [
-        1325.0,
-        "Armature|walk.2"
-      ],
-      [
-        1335.0,
-        "Armature|walk.1"
-      ],
-      [
-        1345.0,
-        "Armature|walk.2"
-      ],
-      [
-        1355.0,
-        "Armature|walk.1"
-      ],
-      [
-        1365.0,
-        "Armature|walk.2"
-      ],
-      [
-        1375.0,
-        "Armature|walk.1"
-      ],
-      [
-        1385.0,
-        "Armature|startStairsUp.1"
-      ],
-      [
-        1400.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1410.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1420.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1430.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1440.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1450.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1460.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1470.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1480.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1490.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1500.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1510.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1520.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1530.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1540.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1550.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1560.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1570.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1580.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1590.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1600.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        1610.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        1620.0,
-        "Armature|endStairsUp.1"
-      ],
-      [
-        1635.0,
-        "Armature|walk.1"
-      ],
-      [
-        1645.0,
-        "Armature|walk.2"
-      ],
-      [
-        1655.0,
-        "Armature|walk.1"
-      ],
-      [
-        1665.0,
-        "Armature|walk.2"
-      ],
-      [
-        1675.0,
-        "Armature|walk.1"
-      ],
-      [
-        1685.0,
-        "Armature|walk.2"
-      ],
-      [
-        1695.0,
-        "Armature|walk.1"
-      ],
-      [
-        1705.0,
-        "Armature|walk.2"
-      ],
-      [
-        1715.0,
-        "Armature|walk.1"
-      ],
-      [
-        1725.0,
-        "Armature|walk.2"
-      ],
-      [
-        1735.0,
-        "Armature|walk.1"
-      ],
-      [
-        1745.0,
-        "Armature|walk.2"
-      ],
-      [
-        1755.0,
-        "Armature|walk.1"
-      ],
-      [
-        1765.0,
-        "Armature|walk.2"
-      ],
-      [
-        1775.0,
-        "Armature|walk.1"
-      ],
-      [
-        1785.0,
-        "Armature|walk.2"
-      ],
-      [
-        1795.0,
-        "Armature|walk.1"
-      ],
-      [
-        1805.0,
-        "Armature|walk.2"
-      ],
-      [
-        1815.0,
-        "Armature|walk.1"
-      ],
-      [
-        1825.0,
-        "Armature|walk.2"
-      ],
-      [
-        1835.0,
-        "Armature|walk.1"
-      ],
-      [
-        1845.0,
-        "Armature|walk.2"
-      ],
-      [
-        1855.0,
-        "Armature|walk.1"
-      ],
-      [
-        1865.0,
-        "Armature|walk.2"
-      ],
-      [
-        1875.0,
-        "Armature|walk.1"
-      ],
-      [
-        1885.0,
-        "Armature|walk.2"
-      ],
-      [
-        1895.0,
-        "Armature|walk.1"
-      ],
-      [
-        1905.0,
-        "Armature|walk.2"
-      ],
-      [
-        1915.0,
-        "Armature|walk.1"
-      ],
-      [
-        1925.0,
-        "Armature|walk.2"
-      ],
-      [
-        1935.0,
-        "Armature|walk.1"
-      ],
-      [
-        1945.0,
-        "Armature|walk.2"
-      ],
-      [
-        1955.0,
-        "Armature|walk.1"
-      ],
-      [
-        1965.0,
-        "Armature|walk.2"
-      ],
-      [
-        1975.0,
-        "Armature|walk.1"
-      ],
-      [
-        1985.0,
-        "Armature|walk.2"
-      ],
-      [
-        1995.0,
-        "Armature|walk.1"
-      ],
-      [
-        2005.0,
-        "Armature|walk.2"
-      ],
-      [
-        2015.0,
-        "Armature|walk.1"
-      ],
-      [
-        2025.0,
-        "Armature|walk.2"
-      ],
-      [
-        2035.0,
-        "Armature|walk.1"
-      ],
-      [
-        2045.0,
-        "Armature|walk.2"
-      ],
-      [
-        2055.0,
-        "Armature|walk.1"
-      ],
-      [
-        2065.0,
-        "Armature|walk.2"
-      ],
-      [
-        2075.0,
-        "Armature|walk.1"
-      ],
-      [
-        2085.0,
-        "Armature|walk.2"
-      ],
-      [
-        2095.0,
-        "Armature|walk.1"
-      ],
-      [
-        2105.0,
-        "Armature|walk.2"
-      ],
-      [
-        2115.0,
-        "Armature|walk.1"
-      ],
-      [
-        2125.0,
-        "Armature|walk.2"
-      ],
-      [
-        2135.0,
-        "Armature|walk.1"
-      ],
-      [
-        2145.0,
-        "Armature|walk.2"
-      ],
-      [
-        2155.0,
-        "Armature|walk.1"
-      ],
-      [
-        2165.0,
-        "Armature|walk.2"
-      ],
-      [
-        2175.0,
-        "Armature|walk.1"
-      ],
-      [
-        2185.0,
-        "Armature|walk.2"
-      ],
-      [
-        2195.0,
-        "Armature|walk.1"
-      ],
-      [
-        2205.0,
-        "Armature|walk.2"
-      ],
-      [
-        2215.0,
-        "Armature|walk.1"
-      ],
-      [
-        2225.0,
-        "Armature|walk.2"
-      ],
-      [
-        2235.0,
-        "Armature|walk.1"
-      ],
-      [
-        2245.0,
-        "Armature|walk.2"
-      ],
-      [
-        2255.0,
-        "Armature|walk.1"
-      ],
-      [
-        2265.0,
-        "Armature|walk.2"
-      ],
-      [
-        2275.0,
-        "Armature|walk.1"
-      ],
-      [
-        2285.0,
-        "Armature|walk.2"
-      ],
-      [
-        2295.0,
-        "Armature|walk.1"
-      ],
-      [
-        2305.0,
-        "Armature|walk.2"
-      ],
-      [
-        2315.0,
-        "Armature|walk.1"
-      ],
-      [
-        2325.0,
-        "Armature|walk.2"
-      ],
-      [
-        2335.0,
-        "Armature|walk.1"
-      ],
-      [
-        2345.0,
-        "Armature|walk.2"
-      ],
-      [
-        2355.0,
-        "Armature|walk.1"
-      ],
-      [
-        2365.0,
-        "Armature|walk.2"
-      ],
-      [
-        2375.0,
-        "Armature|walk.1"
-      ],
-      [
-        2385.0,
-        "Armature|walk.2"
-      ],
-      [
-        2395.0,
-        "Armature|startStairs.2"
-      ],
-      [
-        2410.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2420.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2430.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2440.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2450.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2460.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2470.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2480.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2490.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2500.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2510.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2520.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2530.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2540.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2550.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2560.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2570.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2580.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2590.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2600.0,
-        "Armature|stairs.1"
-      ],
-      [
-        2610.0,
-        "Armature|stairs.2"
-      ],
-      [
-        2620.0,
-        "Armature|endStairs.2"
-      ],
-      [
-        2635.0,
-        "Armature|walk.1"
-      ],
-      [
-        2645.0,
-        "Armature|walk.2"
-      ],
-      [
-        2655.0,
-        "Armature|walk.1"
-      ],
-      [
-        2665.0,
-        "Armature|walk.2"
-      ],
-      [
-        2675.0,
-        "Armature|walk.1"
-      ],
-      [
-        2685.0,
-        "Armature|walk.2"
-      ],
-      [
-        2695.0,
-        "Armature|walk.1"
-      ],
-      [
-        2705.0,
-        "Armature|walk.2"
-      ],
-      [
-        2715.0,
-        "Armature|walk.1"
-      ],
-      [
-        2725.0,
-        "Armature|walk.2"
-      ],
-      [
-        2735.0,
-        "Armature|walk.1"
-      ],
-      [
-        2745.0,
-        "Armature|walk.2"
-      ],
-      [
-        2755.0,
-        "Armature|walk.1"
-      ],
-      [
-        2765.0,
-        "Armature|walk.2"
-      ],
-      [
-        2775.0,
-        "Armature|walk.1"
-      ],
-      [
-        2785.0,
-        "Armature|walk.2"
-      ],
-      [
-        2795.0,
-        "Armature|walk.1"
-      ],
-      [
-        2805.0,
-        "Armature|walk.2"
-      ],
-      [
-        2815.0,
-        "Armature|walk.1"
-      ],
-      [
-        2825.0,
-        "Armature|walk.2"
-      ],
-      [
-        2835.0,
-        "Armature|walk.1"
-      ],
-      [
-        2845.0,
-        "Armature|walk.2"
-      ],
-      [
-        2855.0,
-        "Armature|walk.1"
-      ],
-      [
-        2865.0,
-        "Armature|walk.2"
-      ],
-      [
-        2875.0,
-        "Armature|walk.1"
-      ],
-      [
-        2885.0,
-        "Armature|walk.2"
-      ],
-      [
-        2895.0,
-        "Armature|walk.1"
-      ],
-      [
-        2905.0,
-        "Armature|walk.2"
-      ],
-      [
-        2915.0,
-        "Armature|walk.1"
-      ],
-      [
-        3030.0,
-        "Armature|walk.2"
-      ],
-      [
-        3040.0,
-        "Armature|walk.1"
-      ],
-      [
-        3050.0,
-        "Armature|walk.2"
-      ],
-      [
-        3060.0,
-        "Armature|walk.1"
-      ],
-      [
-        3070.0,
-        "Armature|walk.2"
-      ],
-      [
-        3080.0,
-        "Armature|walk.1"
-      ],
-      [
-        3090.0,
-        "Armature|walk.2"
-      ],
-      [
-        3100.0,
-        "Armature|walk.1"
-      ],
-      [
-        3110.0,
-        "Armature|walk.2"
-      ],
-      [
-        3120.0,
-        "Armature|walk.1"
-      ],
-      [
-        3130.0,
-        "Armature|walk.2"
-      ],
-      [
-        3140.0,
-        "Armature|walk.1"
-      ],
-      [
-        3150.0,
-        "Armature|walk.2"
-      ],
-      [
-        3160.0,
-        "Armature|walk.1"
-      ],
-      [
-        3170.0,
-        "Armature|walk.2"
-      ],
-      [
-        3180.0,
-        "Armature|walk.1"
-      ],
-      [
-        3190.0,
-        "Armature|walk.2"
-      ],
-      [
-        3200.0,
-        "Armature|walk.1"
-      ],
-      [
-        3210.0,
-        "Armature|walk.2"
-      ],
-      [
-        3220.0,
-        "Armature|walk.1"
-      ],
-      [
-        3230.0,
-        "Armature|walk.2"
-      ],
-      [
-        3240.0,
-        "Armature|walk.1"
-      ],
-      [
-        3250.0,
-        "Armature|walk.2"
-      ],
-      [
-        3260.0,
-        "Armature|walk.1"
-      ],
-      [
-        3270.0,
-        "Armature|walk.2"
-      ],
-      [
-        3280.0,
-        "Armature|walk.1"
-      ],
-      [
-        3290.0,
-        "Armature|walk.2"
-      ],
-      [
-        3300.0,
-        "Armature|walk.1"
-      ],
-      [
-        3310.0,
-        "Armature|walk.2"
-      ],
-      [
-        3320.0,
-        "Armature|walk.1"
-      ],
-      [
-        3330.0,
-        "Armature|walk.2"
-      ],
-      [
-        3340.0,
-        "Armature|walk.1"
-      ],
-      [
-        3350.0,
-        "Armature|walk.2"
-      ],
-      [
-        3360.0,
-        "Armature|walk.1"
-      ],
-      [
-        3370.0,
-        "Armature|walk.2"
-      ],
-      [
-        3380.0,
-        "Armature|end.2"
-      ],
-      [
-        3500.0,
-        "Armature|start"
-      ],
-      [
-        3515.0,
-        "Armature|walk.1"
-      ],
-      [
-        3525.0,
-        "Armature|walk.2"
-      ],
-      [
-        3535.0,
-        "Armature|walk.1"
-      ],
-      [
-        3545.0,
-        "Armature|walk.2"
-      ],
-      [
-        3555.0,
-        "Armature|walk.1"
-      ],
-      [
-        3565.0,
-        "Armature|walk.2"
-      ],
-      [
-        3575.0,
-        "Armature|walk.1"
-      ],
-      [
-        3585.0,
-        "Armature|walk.2"
-      ],
-      [
-        3595.0,
-        "Armature|walk.1"
-      ],
-      [
-        3605.0,
-        "Armature|walk.2"
-      ],
-      [
-        3615.0,
-        "Armature|startStairs.2"
-      ],
-      [
-        3630.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3640.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3650.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3660.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3670.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3680.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3690.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3700.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3710.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3720.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3730.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3740.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3750.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3760.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3770.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3780.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3790.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3800.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3810.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3820.0,
-        "Armature|stairs.1"
-      ],
-      [
-        3830.0,
-        "Armature|stairs.2"
-      ],
-      [
-        3840.0,
-        "Armature|endStairs.2"
-      ],
-      [
-        3855.0,
-        "Armature|walk.1"
-      ],
-      [
-        3865.0,
-        "Armature|walk.2"
-      ],
-      [
-        3875.0,
-        "Armature|walk.1"
-      ],
-      [
-        3885.0,
-        "Armature|walk.2"
-      ],
-      [
-        3895.0,
-        "Armature|walk.1"
-      ],
-      [
-        3905.0,
-        "Armature|walk.2"
-      ],
-      [
-        3915.0,
-        "Armature|walk.1"
-      ],
-      [
-        3925.0,
-        "Armature|walk.2"
-      ],
-      [
-        3935.0,
-        "Armature|walk.1"
-      ],
-      [
-        3945.0,
-        "Armature|end.1"
-      ],
-      [
-        4000.0,
-        "Armature|start"
-      ],
-      [
-        4015.0,
-        "Armature|walk.1"
-      ],
-      [
-        4025.0,
-        "Armature|walk.2"
-      ],
-      [
-        4035.0,
-        "Armature|walk.1"
-      ],
-      [
-        4045.0,
-        "Armature|walk.2"
-      ],
-      [
-        4055.0,
-        "Armature|startStairs.2"
-      ],
-      [
-        4070.0,
-        "Armature|stairs.2"
-      ],
-      [
-        4080.0,
-        "Armature|stairs.1"
-      ],
-      [
-        4090.0,
-        "Armature|stairs.2"
-      ],
-      [
-        4100.0,
-        "Armature|stairs.1"
-      ],
-      [
-        4110.0,
-        "Armature|stairs.2"
-      ],
-      [
-        4120.0,
-        "Armature|endStairs.2"
-      ],
-      [
-        4135.0,
-        "Armature|walk.1"
-      ],
-      [
-        4145.0,
-        "Armature|walk.2"
-      ],
-      [
-        4155.0,
-        "Armature|walk.1"
-      ],
-      [
-        4165.0,
-        "Armature|walk.2"
-      ],
-      [
-        4175.0,
-        "Armature|walk.1"
-      ],
-      [
-        4185.0,
-        "Armature|walk.2"
-      ],
-      [
-        4195.0,
-        "Armature|walk.1"
-      ],
-      [
-        4205.0,
-        "Armature|walk.2"
-      ],
-      [
-        4215.0,
-        "Armature|walk.1"
-      ],
-      [
-        4225.0,
-        "Armature|walk.2"
-      ],
-      [
-        4235.0,
-        "Armature|walk.1"
-      ],
-      [
-        4245.0,
-        "Armature|walk.2"
-      ],
-      [
-        4255.0,
-        "Armature|walk.1"
-      ],
-      [
-        4265.0,
-        "Armature|walk.2"
-      ],
-      [
-        4275.0,
-        "Armature|walk.1"
-      ],
-      [
-        4285.0,
-        "Armature|walk.2"
-      ],
-      [
-        4295.0,
-        "Armature|walk.1"
-      ],
-      [
-        4305.0,
-        "Armature|walk.2"
-      ],
-      [
-        4315.0,
-        "Armature|walk.1"
-      ],
-      [
-        4325.0,
-        "Armature|walk.2"
-      ],
-      [
-        4335.0,
-        "Armature|walk.1"
-      ],
-      [
-        4345.0,
-        "Armature|walk.2"
-      ],
-      [
-        4355.0,
-        "Armature|startStairsUp.2"
-      ],
-      [
-        4370.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        4380.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        4390.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        4400.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        4410.0,
-        "Armature|stairsUp.2"
-      ],
-      [
-        4420.0,
-        "Armature|stairsUp.1"
-      ],
-      [
-        4430.0,
-        "Armature|endStairsUp.2"
-      ],
-      [
-        4445.0,
-        "Armature|walk.2"
-      ],
-      [
-        4455.0,
-        "Armature|walk.1"
-      ],
-      [
-        4465.0,
-        "Armature|walk.2"
-      ],
-      [
-        4475.0,
-        "Armature|walk.1"
-      ],
-      [
-        4485.0,
-        "Armature|walk.2"
-      ],
-      [
-        4495.0,
-        "Armature|walk.1"
-      ],
-      [
-        4505.0,
-        "Armature|walk.2"
-      ],
-      [
-        4515.0,
-        "Armature|walk.1"
-      ],
-      [
-        4525.0,
-        "Armature|walk.2"
-      ],
-      [
-        4535.0,
-        "Armature|walk.1"
-      ],
-      [
-        4545.0,
-        "Armature|walk.2"
-      ],
-      [
-        4555.0,
-        "Armature|walk.1"
-      ],
-      [
-        4565.0,
-        "Armature|walk.2"
-      ],
-      [
-        4575.0,
-        "Armature|walk.1"
-      ],
-      [
-        4585.0,
-        "Armature|walk.2"
-      ],
-      [
-        4595.0,
-        "Armature|walk.1"
-      ],
-      [
-        4605.0,
-        "Armature|walk.2"
-      ],
-      [
-        4615.0,
-        "Armature|walk.1"
-      ],
-      [
-        4625.0,
-        "Armature|walk.2"
-      ],
-      [
-        4635.0,
-        "Armature|walk.1"
-      ],
-      [
-        4645.0,
-        "Armature|walk.2"
-      ],
-      [
-        4655.0,
-        "Armature|walk.1"
-      ],
-      [
-        4665.0,
-        "Armature|walk.2"
-      ],
-      [
-        4675.0,
-        "Armature|walk.1"
-      ],
-      [
-        4685.0,
-        "Armature|walk.2"
-      ],
-      [
-        4695.0,
-        "Armature|walk.1"
-      ],
-      [
-        4705.0,
-        "Armature|walk.2"
-      ],
-      [
-        4715.0,
-        "Armature|walk.1"
-      ],
-      [
-        4725.0,
-        "Armature|walk.2"
-      ],
-      [
-        4735.0,
-        "Armature|walk.1"
-      ],
-      [
-        4745.0,
-        "Armature|walk.2"
-      ],
-      [
-        4755.0,
-        "Armature|walk.1"
-      ],
-      [
-        4765.0,
-        "Armature|walk.2"
-      ],
-      [
-        4775.0,
-        "Armature|walk.1"
-      ],
-      [
-        4785.0,
-        "Armature|walk.2"
-      ],
-      [
-        4795.0,
-        "Armature|walk.1"
-      ],
-      [
-        4805.0,
-        "Armature|walk.2"
-      ],
-      [
-        4815.0,
-        "Armature|walk.1"
-      ],
-      [
-        4825.0,
-        "Armature|walk.2"
-      ],
-      [
-        4835.0,
-        "Armature|walk.1"
-      ],
-      [
-        4845.0,
-        "Armature|walk.2"
-      ],
-      [
-        4855.0,
-        "Armature|walk.1"
-      ],
-      [
-        4865.0,
-        "Armature|walk.2"
-      ],
-      [
-        4875.0,
-        "Armature|walk.1"
-      ],
-      [
-        4885.0,
-        "Armature|walk.2"
-      ],
-      [
-        4895.0,
-        "Armature|walk.1"
-      ],
-      [
-        4905.0,
-        "Armature|walk.2"
-      ],
-      [
-        4915.0,
-        "Armature|walk.1"
-      ],
-      [
-        4925.0,
-        "Armature|walk.2"
-      ],
-      [
-        4935.0,
-        "Armature|walk.1"
-      ],
-      [
-        4945.0,
-        "Armature|walk.2"
-      ],
-      [
-        4955.0,
-        "Armature|walk.1"
-      ],
-      [
-        4965.0,
-        "Armature|walk.2"
-      ],
-      [
-        4975.0,
-        "Armature|walk.1"
-      ],
-      [
-        4985.0,
-        "Armature|walk.2"
-      ],
-      [
-        4995.0,
-        "Armature|walk.1"
-      ],
-      [
-        5005.0,
-        "Armature|walk.2"
-      ],
-      [
-        5015.0,
-        "Armature|walk.1"
-      ],
-      [
-        5025.0,
-        "Armature|walk.2"
-      ],
-      [
-        5035.0,
-        "Armature|walk.1"
-      ],
-      [
-        5045.0,
-        "Armature|walk.2"
-      ],
-      [
-        5055.0,
-        "Armature|walk.1"
-      ],
-      [
-        5065.0,
-        "Armature|walk.2"
-      ],
-      [
-        5075.0,
-        "Armature|walk.1"
-      ],
-      [
-        5085.0,
-        "Armature|walk.2"
-      ],
-      [
-        5095.0,
-        "Armature|walk.1"
-      ],
-      [
-        5105.0,
-        "Armature|walk.2"
-      ],
-      [
-        5115.0,
-        "Armature|walk.1"
-      ],
-      [
-        5125.0,
-        "Armature|walk.2"
-      ],
-      [
-        5135.0,
-        "Armature|walk.1"
-      ],
-      [
-        5145.0,
-        "Armature|walk.2"
-      ],
-      [
-        5155.0,
-        "Armature|walk.1"
-      ],
-      [
-        5165.0,
-        "Armature|walk.2"
-      ],
-      [
-        5175.0,
-        "Armature|walk.1"
-      ],
-      [
-        5185.0,
-        "Armature|walk.2"
-      ],
-      [
-        5195.0,
-        "Armature|walk.1"
-      ],
-      [
-        5205.0,
-        "Armature|walk.2"
-      ],
-      [
-        5215.0,
-        "Armature|walk.1"
-      ],
-      [
-        5225.0,
-        "Armature|walk.2"
-      ],
-      [
-        5235.0,
-        "Armature|walk.1"
-      ],
-      [
-        5245.0,
-        "Armature|walk.2"
-      ],
-      [
-        5255.0,
-        "Armature|walk.1"
-      ],
-      [
-        5265.0,
-        "Armature|walk.2"
-      ],
-      [
-        5275.0,
-        "Armature|walk.1"
-      ],
-      [
-        5285.0,
-        "Armature|walk.2"
-      ],
-      [
-        5295.0,
-        "Armature|walk.1"
-      ],
-      [
-        5305.0,
-        "Armature|walk.2"
-      ],
-      [
-        5315.0,
-        "Armature|walk.1"
-      ],
-      [
-        5325.0,
-        "Armature|walk.2"
-      ],
-      [
-        5335.0,
-        "Armature|walk.1"
-      ],
-      [
-        5345.0,
-        "Armature|walk.2"
-      ],
-      [
-        5355.0,
-        "Armature|walk.1"
-      ],
-      [
-        5365.0,
-        "Armature|walk.2"
-      ],
-      [
-        5375.0,
-        "Armature|walk.1"
-      ],
-      [
-        5385.0,
-        "Armature|walk.2"
-      ],
-      [
-        5395.0,
-        "Armature|walk.1"
-      ],
-      [
-        5405.0,
-        "Armature|walk.2"
-      ],
-      [ 5415.0, "Armature|walk.1" ],
-      [ 5425.0, "Armature|walk.2" ],
-      [ 5655, "Armature|walk.1" ],
-      [ 5665, "Armature|walk.2" ],
-      [ 5675, "Armature|walk.1" ],
-      [ 5685, "Armature|walk.2" ],
-      [ 5695, "Armature|walk.1" ],
-      [ 5705, "Armature|walk.2" ],
-      [ 5715, "Armature|walk.1" ],
-      [ 5725, "Armature|walk.2" ],
-      [ 5735, "Armature|end.2" ]
-    ]
-  },
-  "Button": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          -11,
-          9,
-          -13
-        ],
-        [
-          90,
-          0,
-          90
-        ]
-      ],
-      [
-        3375.0,
-        [
-          -11,
-          9,
-          -13
-        ],
-        [
-          90,
-          0,
-          90
-        ]
-      ],
-      [
-        3377.0,
-        [
-          -11,
-          9.117287,
-          -13
-        ],
-        [
-          90,
-          0,
-          90
-        ]
-      ]
-    ]
-  },
-  "Camera": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          -30,
-          10.1,
-          5.2
-        ],
-        [
-          0,
-          90,
-          0
-        ],
-        8.8
-      ],
-      [
-        20.0,
-        [
-          -30,
-          10.1,
-          5.2
-        ],
-        [
-          0,
-          90,
-          0
-        ],
-        8.8
-      ],
-      [
-        250.0,
-        [
-          -30,
-          10.7,
-          12.9
-        ],
-        [
-          4.5,
-          122.2,
-          0
-        ],
-        11.5
-      ],
-      [
-        315.0,
-        [
-          -30,
-          10.7,
-          12.9
-        ],
-        [
-          4.5,
-          122.2,
-          0
-        ],
-        11.5
-      ],
-      [
-        470.0,
-        [
-          -29.4,
-          10.5,
-          24.8
-        ],
-        [
-          18,
-          136.5,
-          0
-        ],
-        20
-      ],
-      [
-        550.0,
-        [
-          -17.6306,
-          8.52633,
-          22.8782
-        ],
-        [
-          24.038,
-          165.94,
-          0
-        ],
-        17
-      ],
-      [
-        645.0,
-        [
-          -17.6306,
-          8.52633,
-          22.8782
-        ],
-        [
-          24.038,
-          165.94,
-          0
-        ],
-        17
-      ],
-      [
-        795.0,
-        [
-          -8.44858,
-          9.33956,
-          24.8038
-        ],
-        [
-          24.038,
-          165.94,
-          0
-        ],
-        17
-      ],
-      [
-        860.0,
-        [
-          -11.4008,
-          7.70179,
-          23.8668
-        ],
-        [
-          18.8814,
-          143.881,
-          0
-        ],
-        13
-      ],
-      [
-        960.0,
-        [
-          -25.5547,
-          29.7048,
-          31.063
-        ],
-        [
-          36.3566,
-          141.876,
-          0
-        ],
-        59
-      ],
-      [
-        975.0,
-        [
-          -25.5547,
-          29.7048,
-          31.063
-        ],
-        [
-          36.3566,
-          141.876,
-          0
-        ],
-        59
-      ],
-      [
-        1035.0,
-        [
-          -34.7429,
-          24.3244,
-          25.6856
-        ],
-        [
-          24.611,
-          135,
-          0
-        ],
-        30
-      ],
-      [
-        1100.0,
-        [
-          -34.7429,
-          24.3244,
-          25.6856
-        ],
-        [
-          24.611,
-          135,
-          0
-        ],
-        30
-      ],
-      [
-        1200.0,
-        [
-          -34.7813,
-          26.2999,
-          24.3675
-        ],
-        [
-          24.611,
-          135,
-          0
-        ],
-        30
-      ],
-      [
-        1400.0,
-        [
-          -34.7813,
-          26.2999,
-          24.3675
-        ],
-        [
-          24.611,
-          135,
-          0
-        ],
-        30
-      ],
-      [
-        1460.0,
-        [
-          -32.1833,
-          27.0689,
-          25.5139
-        ],
-        [
-          22.0327,
-          149.897,
-          0
-        ],
-        16
-      ],
-      [
-        1635.0,
-        [
-          -34.6132,
-          22.5448,
-          26.2214
-        ],
-        [
-          22.0327,
-          149.897,
-          0
-        ],
-        16
-      ],
-      [
-        1695.0,
-        [
-          -31.563,
-          16.1569,
-          30.9772
-        ],
-        [
-          21.7462,
-          149.038,
-          0
-        ],
-        34
-      ],
-      [
-        1895.0,
-        [
-          -31.1472,
-          19.6974,
-          27.4055
-        ],
-        [
-          38.0755,
-          144.167,
-          0
-        ],
-        28
-      ],
-      [
-        1990.0,
-        [
-          -25.0514,
-          21.0147,
-          27.1821
-        ],
-        [
-          54.9777,
-          158.205,
-          0
-        ],
-        18
-      ],
-      [
-        2030.0,
-        [
-          -25.0514,
-          21.0147,
-          27.1821
-        ],
-        [
-          54.9777,
-          158.205,
-          0
-        ],
-        18
-      ],
-      [
-        2170.0,
-        [
-          -20.3072,
-          20.379,
-          30.0561
-        ],
-        [
-          54.9777,
-          158.205,
-          0
-        ],
-        18
-      ],
-      [
-        2200.0,
-        [
-          -18.1687,
-          18.779,
-          31.2959
-        ],
-        [
-          43.8958,
-          158.85,
-          0
-        ],
-        19.5789
-      ],
-      [
-        2270.0,
-        [
-          -11.5743,
-          13.845,
-          35.1191
-        ],
-        [
-          26.9028,
-          159.637,
-          0
-        ],
-        22
-      ],
-      [
-        2440.0,
-        [
-          -11.1629,
-          17.7617,
-          33.152
-        ],
-        [
-          26.9028,
-          159.637,
-          0
-        ],
-        17
-      ],
-      [
-        2620.0,
-        [
-          -15.737,
-          21.2768,
-          26.7312
-        ],
-        [
-          19.4544,
-          135,
-          0
-        ],
-        25
-      ],
-      [
-        2780.0,
-        [
-          -11.2356,
-          31.6355,
-          18.8246
-        ],
-        [
-          50.967,
-          167.086,
-          0
-        ],
-        25
-      ],
-      [
-        2880.0,
-        [
-          -11.2356,
-          31.6355,
-          18.8246
-        ],
-        [
-          50.3941,
-          -180,
-          0
-        ],
-        25
-      ],
-      [
-        3030.0,
-        [
-          -11.6773,
-          17.9826,
-          25.4815
-        ],
-        [
-          25.7569,
-          -180,
-          0
-        ],
-        52
-      ],
-      [
-        3060.0,
-        [
-          -14.1,
-          10.4753,
-          29.1037
-        ],
-        [
-          25.7569,
-          -180,
-          0
-        ],
-        18
-      ],
-      [
-        3100.0,
-        [
-          -14.6013,
-          15.4556,
-          23.6568
-        ],
-        [
-          53.8318,
-          170.546,
-          0
-        ],
-        17
-      ],
-      [
-        3140.0,
-        [
-          -15.0136,
-          15.7114,
-          23.0421
-        ],
-        [
-          42.9125,
-          158.372,
-          0
-        ],
-        19.0732
-      ],
-      [
-        3200.0,
-        [
-          -15.7945,
-          16.196,
-          21.8778
-        ],
-        [
-          36.6431,
-          138.747,
-          0
-        ],
-        23
-      ],
-      [
-        3310.0,
-        [
-          -15.7945,
-          16.196,
-          21.8778
-        ],
-        [
-          36.6431,
-          138.747,
-          0
-        ],
-        23
-      ],
-      [
-        3380.0,
-        [
-          -15.9959,
-          18.3495,
-          19.5703
-        ],
-        [
-          36.6431,
-          138.747,
-          0
-        ],
-        23
-      ],
-      [
-        3385.0,
-        [
-          -15.9959,
-          18.3495,
-          19.5703
-        ],
-        [
-          36.6431,
-          138.747,
-          0
-        ],
-        23
-      ],
-      [
-        3440.0,
-        [ -15.5168, 19.9107, 18.446 ],
-        [ 36.6431, 138.747, 0 ],
-        70
-      ],
-      [
-        3573.66,
-        [ -15.5168, 19.9107, 18.446 ],
-        [ 36.6431, 138.747, 0 ],
-        70
-      ],
-      [
-        3669.4,
-        [ -14.4207, 18.9441, 21.455 ],
-        [ 23.1786, 116.115, 0 ],
-        14
-      ],
-      [
-        3832.68,
-        [ -17.0025, 16.3689, 29.7707 ],
-        [ 18.595, 134.163, 0 ],
-        17
-      ],
-      [
-        3910.42,
-        [ -21.5341, 21.3795, 20.0021 ],
-        [ 30.9136, 127.001, 0 ],
-        64
-      ],
-      [
-        3950.07,
-        [ -21.5341, 21.3795, 20.0021 ],
-        [ 30.9136, 127.001, 0 ],
-        64
-      ],
-      [
-        4000,
-        [ -16.5523, 14.1535, 24.704 ],
-        [ 33.2054, -180, 0 ],
-        12
-      ],
-      [
-        4055,
-        [ -18.4265, 13.877, 24.885 ],
-        [ 33.2054, -180, 0 ],
-        12
-      ],
-      [
-        4162.24,
-        [ -22.9726, 7.72276, 26.1813 ],
-        [ 18.595, 148.487, 0 ],
-        18
-      ],
-      [
-        4205.51,
-        [ -16.8158, 3.83097, 21.409 ],
-        [ 6.56289, -180, 0 ],
-        15
-      ],
-      [
-        4244.6,
-        [ -16.8158, 3.83097, 21.409 ],
-        [ 6.56289, -180, 0 ],
-        15
-      ],
-      [
-        4341.5,
-        [ -10.2888, 3.71747, 21.4221 ],
-        [ 6.56289, -180, 0 ],
-        15
-      ],
-      [
-        4497.03,
-        [ -18.2433, 19.0981, 25.3507 ],
-        [ 20.3139, 146.482, 0 ],
-        59
-      ],
-      [
-        4533.16,
-        [ -20.2845, 20.5968, 21.4836 ],
-        [ 39.2215, 143.044, 0 ],
-        33
-      ],
-      [
-        4688.93,
-        [ -49.9577, 49.6738, 37.8416 ],
-        [ 38.935, 128.433, 0 ],
-        25
-      ],
-      [
-        4823.61,
-        [ -47.3317, 6.17319, 17.0428 ],
-        [ -21.512, 105.228, 0 ],
-        20
-      ],
-      [
-        4927.32,
-        [ -42.808, 32.2085, 16.0425 ],
-        [ 18.8816, 104.655, 0 ],
-        20
-      ],
-      [
-        4951.13,
-        [ -42.808, 32.2085, 16.0425 ],
-        [ 18.8816, 104.655, 0 ],
-        20
-      ],
-      [
-        5027.53,
-        [ -33.9344, 36.4569, 26.2536 ],
-        [ 25.4706, 131.871, 0 ],
-        14
-      ],
-      [
-        5193.59,
-        [ -30.3053, 36.7585, 30.0872 ],
-        [ 25.4706, 131.871, 0 ],
-        21
-      ],
-      [
-        5303.66,
-        [ -31.4781, 33.0886, 31.1053 ],
-        [ 34.065, 135, 0 ],
-        66
-      ],
-      [
-        5540,
-        [ -31.4781, 33.0886, 31.1053 ],
-        [ 34.065, 135, 0 ],
-        66
-      ],
-      [
-        5640,
-        [ -50.0034, 57.1949, 62.9357 ],
-        [ 34.065, 135, 0 ],
-        66
-      ]
-    ]
-  },
-  "Creds": {
-    "ObjectAnimation": [
-
-      [
-        0,
-        [ -25, -500, 52 ],
-        [ -90, 32.5, 0 ]
-      ],
-      [
-        5590,
-        [ -25, -500, 52 ],
-        [ -90, 32.5, 0 ]
-      ],
-      [
-        5590,
-        [ -25, -70, 52 ],
-        [ -90, 32.5, 0 ]
-      ],
-      [
-        6500,
-        [ -25, 140, 52 ],
-        [ -90, 32.5, 0 ]
-      ]
-    ]
-  },
-  "Door.007": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          1,
-          -1,
-          16.9
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3390.0,
-        [
-          1,
-          -1,
-          16.9
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3490.0,
-        [
-          1,
-          -1,
-          21
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
-    ]
-  },
-  "Ida": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          -21,
-          9,
-          1
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        140.0,
-        [
-          -21,
-          9,
-          1
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        175.0,
-        [
-          -21,
-          9,
-          3
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        270.0,
-        [
-          -21,
-          9,
-          3
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        315.0,
-        [
-          -21,
-          9,
-          6
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        320.0,
-        [
-          -21,
-          8.75,
-          6.375
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        330.0,
-        [
-          -21,
-          8.5,
-          6.625
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        460.0,
-        [
-          -21,
-          5.25,
-          9.875
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        470.0,
-        [
-          -21,
-          5,
-          10.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        475.0,
-        [
-          -21,
-          5,
-          10.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        495.0,
-        [
-          -21,
-          5,
-          12
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        500.0,
-        [
-          -21,
-          4.75,
-          12.375
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        510.0,
-        [
-          -21,
-          4.5,
-          12.625
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        510.0,
-        [
-          -21,
-          4.5,
-          12.625
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        560.0,
-        [
-          -21,
-          3.25,
-          13.875
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        570.0,
-        [
-          -21,
-          3,
-          14.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        575.0,
-        [
-          -21,
-          3,
-          14.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        585.0,
-        [
-          -21,
-          3,
-          15
-        ],
-        [
-          -90,
-          22.5,
-          0
-        ]
-      ],
-      [
-        595.0,
-        [
-          -20.75,
-          3,
-          15.667
-        ],
-        [
-          -90,
-          22.5,
-          0
-        ]
-      ],
-      [
-        605.0,
-        [
-          -20.5,
-          3,
-          16
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        615.0,
-        [
-          -20.0,
-          3,
-          16.333
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        625.0,
-        [
-          -19.5,
-          3,
-          16.667
-        ],
-        [
-          -90,
-          67.5,
-          0
-        ]
-      ],
-      [
-        635.0,
-        [
-          -19,
-          3,
-          17
-        ],
-        [
-          -90,
-          67.5,
-          0
-        ]
-      ],
-      [
-        645.0,
-        [
-          -18.333,
-          3,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        795.0,
-        [
-          -8.667,
-          3,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        810.0,
-        [
-          -8.107,
-          3,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        870.0,
-        [
-          -6.607,
-          4.5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        880.0,
-        [
-          -6.387,
-          4.75,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        885.0,
-        [
-          -6,
-          5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        905.0,
-        [
-          -4.667,
-          5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        940.0,
-        [
-          -2.333,
-          5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        940.0,
-        [
-          -17,
-          6,
-          5
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        975.0,
-        [
-          -17,
-          8.333,
-          5
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        985.0,
-        [
-          -17,
-          8.667,
-          5.333
-        ],
-        [
-          90,
-          135,
-          -90
-        ]
-      ],
-      [
-        995.0,
-        [
-          -17,
-          9,
-          5.667
-        ],
-        [
-          90,
-          180,
-          -90
-        ]
-      ],
-      [
-        1065.0,
-        [
-          -17,
-          9,
-          10.333
-        ],
-        [
-          90,
-          180,
-          -90
-        ]
-      ],
-      [
-        1075.0,
-        [
-          -17,
-          9.333,
-          10.667
-        ],
-        [
-          90,
-          135,
-          -90
-        ]
-      ],
-      [
-        1085.0,
-        [
-          -17,
-          9.667,
-          11
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        1215.0,
-        [
-          -17,
-          18.333,
-          11
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        1225.0,
-        [
-          -17,
-          18.667,
-          10.667
-        ],
-        [
-          90,
-          45,
-          -90
-        ]
-      ],
-      [
-        1235.0,
-        [
-          -17,
-          19,
-          10.333
-        ],
-        [
-          90,
-          0,
-          -90
-        ]
-      ],
-      [
-        1365.0,
-        [
-          -17,
-          19,
-          1.667
-        ],
-        [
-          90,
-          0,
-          -90
-        ]
-      ],
-      [
-        1375.0,
-        [
-          -17,
-          18.667,
-          1.333
-        ],
-        [
-          90,
-          -45,
-          -90
-        ]
-      ],
-      [
-        1385.0,
-        [
-          -17,
-          18.333,
-          1
-        ],
-        [
-          90,
-          -90,
-          -90
-        ]
-      ],
-      [
-        1400.0,
-        [
-          -17,
-          18.107,
-          1
-        ],
-        [
-          90,
-          -90,
-          -90
-        ]
-      ],
-      [
-        1620.0,
-        [
-          -22.5,
-          12.607,
-          1
-        ],
-        [
-          90,
-          -90,
-          -90
-        ]
-      ],
-      [
-        1630.0,
-        [
-          -22.75,
-          12.387,
-          1
-        ],
-        [
-          90,
-          -90,
-          -90
-        ]
-      ],
-      [
-        1635.0,
-        [
-          -23,
-          12,
-          1
-        ],
-        [
-          90,
-          -90,
-          -90
-        ]
-      ],
-      [
-        1685.0,
-        [
-          -23,
-          8,
-          1
-        ],
-        [
-          90,
-          -90,
-          -90
-        ]
-      ],
-      [
-        1695.0,
-        [
-          -23,
-          7.75,
-          1.25
-        ],
-        [
-          90,
-          -135,
-          -90
-        ]
-      ],
-      [
-        1885.0,
-        [
-          -23,
-          1.25,
-          7.75
-        ],
-        [
-          90,
-          -135,
-          -90
-        ]
-      ],
-      [
-        1895.0,
-        [
-          -23,
-          1,
-          8
-        ],
-        [
-          90,
-          180,
-          -90
-        ]
-      ],
-      [
-        1985.0,
-        [
-          -23,
-          1,
-          14
-        ],
-        [
-          90,
-          180,
-          -90
-        ]
-      ],
-      [
-        1995.0,
-        [
-          -22.9197,
-          1,
-          14.831
-        ],
-        [
-          99.6051,
-          180,
-          -90
-        ]
-      ],
-      [
-        2005.0,
-        [
-          -22.706,
-          1,
-          15.6375
-        ],
-        [
-          109.2102,
-          180,
-          -90
-        ]
-      ],
-      [
-        2015.0,
-        [
-          -22.3661,
-          1,
-          16.4
-        ],
-        [
-          118.8154,
-          180,
-          -90
-        ]
-      ],
-      [
-        2025.0,
-        [
-          -21.9038,
-          1,
-          17.0943
-        ],
-        [
-          128.4205,
-          180,
-          -90
-        ]
-      ],
-      [
-        2035.0,
-        [
-          -21.3353,
-          1,
-          17.7051
-        ],
-        [
-          138.0256,
-          180,
-          -90
-        ]
-      ],
-      [
-        2045.0,
-        [
-          -20.6742,
-          1,
-          18.2141
-        ],
-        [
-          147.6307,
-          180,
-          -90
-        ]
-      ],
-      [
-        2055.0,
-        [
-          -19.938,
-          1,
-          18.6069
-        ],
-        [
-          157.2359,
-          180,
-          -90
-        ]
-      ],
-      [
-        2065.0,
-        [
-          -19.1416,
-          1,
-          18.8563
-        ],
-        [
-          166.841,
-          180,
-          -90
-        ]
-      ],
-      [
-        2075.0,
-        [
-          -18.3126,
-          1,
-          18.9714
-        ],
-        [
-          176.4461,
-          180,
-          -90
-        ]
-      ],
-      [
-        2085.0,
-        [
-          -17.667,
-          1,
-          19
-        ],
-        [
-          180,
-          180,
-          -90
-        ]
-      ],
-      [
-        2275.0,
-        [
-          -5,
-          1,
-          19
-        ],
-        [
-          180,
-          180,
-          -90
-        ]
-      ],
-      [
-        2285.0,
-        [
-          -4.75,
-          1.25,
-          19
-        ],
-        [
-          180,
-          180,
-          -45
-        ]
-      ],
-      [
-        2315.0,
-        [
-          -3.25,
-          2.75,
-          19
-        ],
-        [
-          180,
-          180,
-          -45
-        ]
-      ],
-      [
-        2325.0,
-        [
-          -3,
-          3,
-          19
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2395.0,
-        [
-          -3,
-          8,
-          19
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2400.0,
-        [
-          -3,
-          8.375,
-          18.75
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2410.0,
-        [
-          -3,
-          8.625,
-          18.5
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2620.0,
-        [
-          -3,
-          13.875,
-          13.25
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2630.0,
-        [
-          -3,
-          14.333,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2635.0,
-        [
-          -3,
-          14.333,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2695.0,
-        [
-          -3,
-          18.333,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        2705.0,
-        [
-          -3.333,
-          18.667,
-          13
-        ],
-        [
-          180,
-          180,
-          45
-        ]
-      ],
-      [
-        2715.0,
-        [
-          -3.667,
-          19,
-          13
-        ],
-        [
-          -180,
-          180,
-          90
-        ]
-      ],
-      [
-        2725.0,
-        [
-          -4.3126,
-          19,
-          12.9714
-        ],
-        [
-          -170.3949,
-          180,
-          90
-        ]
-      ],
-      [
-        2735.0,
-        [
-          -5.1416,
-          19,
-          12.8563
-        ],
-        [
-          -160.7898,
-          180,
-          90
-        ]
-      ],
-      [
-        2745.0,
-        [
-          -5.938,
-          19,
-          12.6069
-        ],
-        [
-          -151.1846,
-          180,
-          90
-        ]
-      ],
-      [
-        2755.0,
-        [
-          -6.6742,
-          19,
-          12.2141
-        ],
-        [
-          -141.5795,
-          180,
-          90
-        ]
-      ],
-      [
-        2765.0,
-        [
-          -7.3353,
-          19,
-          11.7051
-        ],
-        [
-          -131.9744,
-          180,
-          90
-        ]
-      ],
-      [
-        2775.0,
-        [
-          -7.9038,
-          19,
-          11.0943
-        ],
-        [
-          -122.3693,
-          180,
-          90
-        ]
-      ],
-      [
-        2785.0,
-        [
-          -8.3661,
-          19,
-          10.4
-        ],
-        [
-          -112.7641,
-          180,
-          90
-        ]
-      ],
-      [
-        2795.0,
-        [
-          -8.706,
-          19,
-          9.6375
-        ],
-        [
-          -103.159,
-          180,
-          90
-        ]
-      ],
-      [
-        2805.0,
-        [
-          -8.9197,
-          19,
-          8.831
-        ],
-        [
-          -93.5539,
-          180,
-          90
-        ]
-      ],
-      [
-        2815.0,
-        [
-          -9,
-          19,
-          8
-        ],
-        [
-          -90,
-          180,
-          90
-        ]
-      ],
-      [
-        2920.0,
-        [
-          -9,
-          19,
-          0.333
-        ],
-        [
-          -90,
-          180,
-          90
-        ]
-      ],
-      [
-        2920.0,
-        [
-          -19,
-          -0.667,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        3025.0,
-        [
-          -19,
-          -0.667,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        3070.0,
-        [
-          -19,
-          2.333,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        3080.0,
-        [
-          -18.667,
-          2.667,
-          13
-        ],
-        [
-          180,
-          180,
-          -45
-        ]
-      ],
-      [
-        3090.0,
-        [
-          -18.333,
-          3,
-          13
-        ],
-        [
-          180,
-          180,
-          -90
-        ]
-      ],
-      [
-        3220.0,
-        [
-          -9.667,
-          3,
-          13
-        ],
-        [
-          180,
-          180,
-          -90
-        ]
-      ],
-      [
-        3230.0,
-        [
-          -9.333,
-          3.333,
-          13
-        ],
-        [
-          180,
-          180,
-          -45
-        ]
-      ],
-      [
-        3240.0,
-        [
-          -9,
-          3.667,
-          13
-        ],
-        [
-          180,
-          180,
-          0
-        ]
-      ],
-      [
-        3250.0,
-        [
-          -9.13068,
-          4.333,
-          12.9957
-        ],
-        [
-          180,
-          176.25,
-          0
-        ]
-      ],
-      [
-        3260.0,
-        [
-          -9.39018,
-          5,
-          12.9616
-        ],
-        [
-          180,
-          168.75,
-          0
-        ]
-      ],
-      [
-        3270.0,
-        [
-          -9.64301,
-          5.667,
-          12.8938
-        ],
-        [
-          180,
-          161.25,
-          0
-        ]
-      ],
-      [
-        3280.0,
-        [
-          -9.88446,
-          6.333,
-          12.7938
-        ],
-        [
-          180,
-          153.75,
-          0
-        ]
-      ],
-      [
-        3290.0,
-        [
-          -10.1111,
-          7,
-          12.6629
-        ],
-        [
-          180,
-          146.25,
-          0
-        ]
-      ],
-      [
-        3300.0,
-        [
-          -10.3188,
-          7.667,
-          12.5036
-        ],
-        [
-          180,
-          138.75,
-          0
-        ]
-      ],
-      [
-        3310.0,
-        [
-          -10.5036,
-          8.333,
-          12.3188
-        ],
-        [
-          180,
-          131.25,
-          0
-        ]
-      ],
-      [
-        3320.0,
-        [
-          -10.6629,
-          9,
-          12.1111
-        ],
-        [
-          180,
-          123.75,
-          0
-        ]
-      ],
-      [
-        3330.0,
-        [
-          -10.7938,
-          9.667,
-          11.8845
-        ],
-        [
-          180,
-          116.25,
-          0
-        ]
-      ],
-      [
-        3340.0,
-        [
-          -10.8938,
-          10.333,
-          11.643
-        ],
-        [
-          180,
-          108.75,
-          0
-        ]
-      ],
-      [
-        3350.0,
-        [
-          -10.9616,
-          11,
-          11.3902
-        ],
-        [
-          180,
-          101.25,
-          0
-        ]
-      ],
-      [
-        3360.0,
-        [
-          -10.9957,
-          11.667,
-          11.1311
-        ],
-        [
-          180,
-          93.75,
-          0
-        ]
-      ],
-      [
-        3370.0,
-        [
-          -11,
-          12.333,
-          11
-        ],
-        [
-          180,
-          90,
-          0
-        ]
-      ],
-      [
-        3380.0,
-        [
-          -11,
-          13,
-          11
-        ],
-        [
-          180,
-          90,
-          0
-        ]
-      ],
-      [
-        3390.0,
-        [
-          -11,
-          13,
-          11
-        ],
-        [
-          180,
-          90,
-          0
-        ]
-      ],
-      [
-        3415.0,
-        [
-          -10.8478,
-          13.7654,
-          11
-        ],
-        [
-          -157.5,
-          90,
-          0
-        ]
-      ],
-      [
-        3440.0,
-        [
-          -10.4142,
-          14.4142,
-          11
-        ],
-        [
-          -135,
-          90,
-          0
-        ]
-      ],
-      [
-        3465.0,
-        [
-          -9.76537,
-          14.8478,
-          11
-        ],
-        [
-          -112.5,
-          90,
-          0
-        ]
-      ],
-      [
-        3490.0,
-        [
-          -9,
-          15,
-          11
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        3510.0,
-        [
-          -9,
-          15,
-          11
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        3595.0,
-        [
-          -3.667,
-          15,
-          11
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        3605.0,
-        [
-          -3.333,
-          15,
-          11.5
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        3615.0,
-        [
-          -3,
-          15,
-          12
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3620.0,
-        [
-          -3,
-          14.75,
-          12.375
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3690.0,
-        [
-          -3,
-          13,
-          14.125
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3840.0,
-        [
-          -3,
-          9.25,
-          17.875
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3850.0,
-        [
-          -3,
-          9,
-          18.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3855.0,
-        [
-          -3,
-          9,
-          18.333
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        3865.0,
-        [
-          -2.667,
-          9,
-          18.667
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        3875.0,
-        [
-          -2.333,
-          9,
-          19
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        3895.0,
-        [
-          -1,
-          9,
-          19
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        3910.0,
-        [
-          0,
-          9,
-          19
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        3910.0,
-        [
-          -19,
-          5,
-          8.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3945.0,
-        [
-          -19,
-          5,
-          10.667
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        3950.0,
-        [
-          -19,
-          5,
-          10.667
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4000.0,
-        [
-          -19,
-          5,
-          10.667
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4010.0,
-        [
-          -19,
-          5,
-          10.667
-        ],
-        [
-          -90,
-          -45,
-          0
-        ]
-      ],
-      [
-        4015.0,
-        [
-          -19.333,
-          5,
-          11
-        ],
-        [
-          -90,
-          -45,
-          0
-        ]
-      ],
-      [
-        4025.0,
-        [
-          -19.667,
-          5,
-          11
-        ],
-        [
-          -90,
-          -90,
-          0
-        ]
-      ],
-      [
-        4035.0,
-        [
-          -20.333,
-          5,
-          11
-        ],
-        [
-          -90,
-          -90,
-          0
-        ]
-      ],
-      [
-        4045.0,
-        [
-          -20.667,
-          5,
-          11.333
-        ],
-        [
-          -90,
-          -45,
-          0
-        ]
-      ],
-      [
-        4055.0,
-        [
-          -21,
-          5,
-          12
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4060.0,
-        [
-          -21,
-          4.75,
-          12.375
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4070.0,
-        [
-          -21,
-          4.5,
-          12.625
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4120.0,
-        [
-          -21,
-          3.25,
-          13.875
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4130.0,
-        [
-          -21,
-          3,
-          14.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4135.0,
-        [
-          -21,
-          3,
-          14.333
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ],
-      [
-        4145.0,
-        [
-          -21,
-          3,
-          15
-        ],
-        [
-          -90,
-          22.5,
-          0
-        ]
-      ],
-      [
-        4155.0,
-        [
-          -20.75,
-          3,
-          15.667
-        ],
-        [
-          -90,
-          22.5,
-          0
-        ]
-      ],
-      [
-        4165.0,
-        [
-          -20.5,
-          3,
-          16
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        4175.0,
-        [
-          -20.0,
-          3,
-          16.333
-        ],
-        [
-          -90,
-          45,
-          0
-        ]
-      ],
-      [
-        4185.0,
-        [
-          -19.5,
-          3,
-          16.667
-        ],
-        [
-          -90,
-          67.5,
-          0
-        ]
-      ],
-      [
-        4195.0,
-        [
-          -19,
-          3,
-          17
-        ],
-        [
-          -90,
-          67.5,
-          0
-        ]
-      ],
-      [
-        4205.0,
-        [
-          -18.333,
-          3,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4355.0,
-        [
-          -8.667,
-          3,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4370.0,
-        [
-          -8.107,
-          3,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4430.0,
-        [
-          -6.607,
-          4.5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4440.0,
-        [
-          -6.387,
-          4.75,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4445.0,
-        [
-          -6,
-          5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4465.0,
-        [
-          -4.667,
-          5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4500.0,
-        [
-          -2.333,
-          5,
-          17
-        ],
-        [
-          -90,
-          90,
-          0
-        ]
-      ],
-      [
-        4500.0,
-        [
-          -17,
-          6,
-          5
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        4535.0,
-        [
-          -17,
-          8.333,
-          5
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        4545.0,
-        [
-          -17,
-          8.667,
-          5.333
-        ],
-        [
-          90,
-          135,
-          -90
-        ]
-      ],
-      [
-        4555.0,
-        [
-          -17,
-          9,
-          5.667
-        ],
-        [
-          90,
-          180,
-          -90
-        ]
-      ],
-      [
-        4625.0,
-        [
-          -17,
-          9,
-          10.333
-        ],
-        [
-          90,
-          180,
-          -90
-        ]
-      ],
-      [
-        4635.0,
-        [
-          -17,
-          9.333,
-          10.667
-        ],
-        [
-          90,
-          135,
-          -90
-        ]
-      ],
-      [
-        4645.0,
-        [
-          -17,
-          9.667,
-          11
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        4775.0,
-        [
-          -17,
-          18.333,
-          11
-        ],
-        [
-          90,
-          90,
-          -90
-        ]
-      ],
-      [
-        4785.0,
-        [
-          -17,
-          18.667,
-          10.667
-        ],
-        [
-          90,
-          45,
-          -90
-        ]
-      ],
-      [
-        4795.0,
-        [
-          -17,
-          19,
-          10.333
-        ],
-        [
-          90,
-          0,
-          -90
-        ]
-      ],
-      [
-        4805.0,
-        [
-          -16.9957,
-          19.1311,
-          9.667
-        ],
-        [
-          90,
-          0,
-          -93.75
-        ]
-      ],
-      [
-        4815.0,
-        [
-          -16.9616,
-          19.3902,
-          9
-        ],
-        [
-          90,
-          0,
-          -101.25
-        ]
-      ],
-      [
-        4825.0,
-        [
-          -16.8938,
-          19.643,
-          8.333
-        ],
-        [
-          90,
-          0,
-          -108.75
-        ]
-      ],
-      [
-        4835.0,
-        [
-          -16.7938,
-          19.8845,
-          7.667
-        ],
-        [
-          90,
-          0,
-          -116.25
-        ]
-      ],
-      [
-        4845.0,
-        [
-          -16.6629,
-          20.1111,
-          7
-        ],
-        [
-          90,
-          0,
-          -123.75
-        ]
-      ],
-      [
-        4855.0,
-        [
-          -16.5036,
-          20.3188,
-          6.333
-        ],
-        [
-          90,
-          0,
-          -131.25
-        ]
-      ],
-      [
-        4865.0,
-        [
-          -16.3188,
-          20.5036,
-          5.667
-        ],
-        [
-          90,
-          0,
-          -138.75
-        ]
-      ],
-      [
-        4875.0,
-        [
-          -16.1111,
-          20.6629,
-          5
-        ],
-        [
-          90,
-          0,
-          -146.25
-        ]
-      ],
-      [
-        4885.0,
-        [
-          -15.88446,
-          20.7938,
-          4.333
-        ],
-        [
-          90,
-          0,
-          -153.75
-        ]
-      ],
-      [
-        4895.0,
-        [
-          -15.64301,
-          20.8938,
-          3.667
-        ],
-        [
-          90,
-          0,
-          -161.25
-        ]
-      ],
-      [
-        4905.0,
-        [
-          -15.39018,
-          20.9616,
-          3
-        ],
-        [
-          90,
-          0,
-          -168.75
-        ]
-      ],
-      [
-        4915.0,
-        [
-          -15.13068,
-          20.9957,
-          2.333
-        ],
-        [
-          90,
-          0,
-          -176.25
-        ]
-      ],
-      [
-        4925.0,
-        [
-          -15,
-          21,
-          1.667
-        ],
-        [
-          90,
-          0,
-          -180
-        ]
-      ],
-      [
-        4935.0,
-        [
-          -14.667,
-          21,
-          1.333
-        ],
-        [
-          90,
-          45,
-          -180
-        ]
-      ],
-      [
-        4945.0,
-        [
-          -14.333,
-          21,
-          1
-        ],
-        [
-          90,
-          90,
-          -180
-        ]
-      ],
-      [
-        5045.0,
-        [
-          -7.667,
-          21,
-          1
-        ],
-        [
-          90,
-          90,
-          -180
-        ]
-      ],
-      [
-        5055.0,
-        [
-          -7.333,
-          21,
-          1.333
-        ],
-        [
-          90,
-          135,
-          -180
-        ]
-      ],
-      [
-        5065.0,
-        [
-          -7,
-          21,
-          1.667
-        ],
-        [
-          90,
-          180,
-          -180
-        ]
-      ],
-      [
-        5175.0,
-        [
-          -7,
-          21,
-          9
-        ],
-        [
-          90,
-          180,
-          -180
-        ]
-      ],
-      [
-        5185.0,
-        [
-          -6.5,
-          21,
-          9.5
-        ],
-        [
-          90,
-          135,
-          -180
-        ]
-      ],
-      [
-        5205.0,
-        [
-          -5.5,
-          21,
-          10.5
-        ],
-        [
-          90,
-          135,
-          -180
-        ]
-      ],
-      [
-        5215.0,
-        [
-          -5,
-          21,
-          11
-        ],
-        [
-          90,
-          90,
-          -180
-        ]
-      ],
-      [
-        5265.0,
-        [
-          -1.667,
-          21,
-          11
-        ],
-        [
-          90,
-          90,
-          -180
-        ]
-      ],
-      [
-        5275.0,
-        [
-          -1.333,
-          21,
-          10.667
-        ],
-        [
-          90,
-          45,
-          -180
-        ]
-      ],
-      [
-        5285.0,
-        [
-          -1,
-          21,
-          10.333
-        ],
-        [
-          90,
-          0,
-          -180
-        ]
-      ],
-      [
-        5439.0,
-        [ -1, 21, 0.04 ],
-        [ 90, 0, -180 ]
-      ],
-      [
-        5660,
-        [ -1, 21, 0.04 ],
-        [ 90, 0, -180 ]
-      ],
-      [
-        5660,
-        [ -21, 9, 0.04 ],
-        [ -90, 0, 0 ]
-      ],
-      [
-        5665,
-        [ -21, 9, 0.04 ],
-        [ -90, 0, 0 ]
-      ],
-      [
-        5735,
-        [ -21, 9, 5 ],
-        [ -90, 0, 0 ]
-      ]
-    ]
-  },
-  "RotCube": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          11,
-          -9,
-          13
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3390.0,
-        [
-          11,
-          -9,
-          13
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3490.0,
-        [
-          11,
-          -9,
-          13
-        ],
-        [
-          -90,
-          0,
-          0
-        ]
-      ]
-    ]
-  },
-  "RotCuboid": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          11,
-          -3,
-          13
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3390.0,
-        [
-          11,
-          -3,
-          13
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3490.0,
-        [
-          11,
-          -3,
-          13
-        ],
-        [
-          90,
-          0,
-          0
-        ]
-      ]
-    ]
-  },
-  "TransCube": {
-    "ObjectAnimation": [
-      [
-        3390.0,
-        [
-          18.99,
-          -1,
-          6.99
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        3490.0,
-        [
-          18.99,
-          -3,
-          6.99
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
-    ]
-  },
-  "TransNoShadowWall": {
-    "ObjectAnimation": [
-      [
-        355.0,
-        [
-          18.99,
-          -1,
-          6.99
-        ],
-        [
-          0,
-          90,
-          0
-        ]
-      ]
-    ]
-  },
-  "TransWall": {
-    "ObjectAnimation": [
-      [
-        0.0,
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        340.0,
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        370.0,
-        [
-          -0.1,
-          -3.9,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        450.0,
-        [
-          -0.1,
-          -3.9,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        450.0,
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        510.0,
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        510.0,
-        [
-          -0.1,
-          -3.9,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        860.0,
-        [
-          -0.1,
-          -3.9,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        860.0,
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        1640.0,
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        1640.0,
-        [
-          -0.1,
-          -3.9,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        2900.0,
-        [
-          -0.1,
-          -3.9,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      [
-        2900.0,
-        [ -3.1, -4.2, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        3840,
-        [ -3.1, -4.2, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        3840,
-        [ -0.01, -3.9, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        3909,
-        [ -0.01, -3.2, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        3976,
-        [ -0.01, -3.2, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        3976,
-        [ -0.01, -3.2, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        4615,
-        [ -0.01, -3.2, 0 ],
-        [ 0, 0, 0 ]
-      ],
-      [
-        4615,
-        [ -0.01, -3.2, 0 ],
-        [ 0, 0, 0 ]
-      ]
-
-    ]
-  }
-}
+{  "Armature": {    "RiggedAnimation": [      [        0.0,        "Armature|end.1"      ],      [        120.0,        "Armature|start"      ],      [        135.0,        "Armature|walk.1"      ],      [        145.0,        "Armature|walk.2"      ],      [        155.0,        "Armature|walk.1"      ],      [        165.0,        "Armature|walk.2"      ],      [        175.0,        "Armature|end.2"      ],      [        260.0,        "Armature|start"      ],      [        275.0,        "Armature|walk.1"      ],      [        285.0,        "Armature|walk.2"      ],      [        295.0,        "Armature|walk.1"      ],      [        305.0,        "Armature|walk.2"      ],      [        315.0,        "Armature|startStairs.2"      ],      [        330.0,        "Armature|stairs.2"      ],      [        340.0,        "Armature|stairs.1"      ],      [        350.0,        "Armature|stairs.2"      ],      [        360.0,        "Armature|stairs.1"      ],      [        370.0,        "Armature|stairs.2"      ],      [        380.0,        "Armature|stairs.1"      ],      [        390.0,        "Armature|stairs.2"      ],      [        400.0,        "Armature|stairs.1"      ],      [        410.0,        "Armature|stairs.2"      ],      [        420.0,        "Armature|stairs.1"      ],      [        430.0,        "Armature|stairs.2"      ],      [        440.0,        "Armature|stairs.1"      ],      [        450.0,        "Armature|stairs.2"      ],      [        460.0,        "Armature|endStairs.2"      ],      [        475.0,        "Armature|walk.1"      ],      [        485.0,        "Armature|walk.2"      ],      [        495.0,        "Armature|startStairs.2"      ],      [        510.0,        "Armature|stairs.2"      ],      [        520.0,        "Armature|stairs.1"      ],      [        530.0,        "Armature|stairs.2"      ],      [        540.0,        "Armature|stairs.1"      ],      [        550.0,        "Armature|stairs.2"      ],      [        560.0,        "Armature|endStairs.2"      ],      [        575.0,        "Armature|walk.1"      ],      [        585.0,        "Armature|walk.2"      ],      [        595.0,        "Armature|walk.1"      ],      [        605.0,        "Armature|walk.2"      ],      [        615.0,        "Armature|walk.1"      ],      [        625.0,        "Armature|walk.2"      ],      [        635.0,        "Armature|walk.1"      ],      [        645.0,        "Armature|walk.2"      ],      [        655.0,        "Armature|walk.1"      ],      [        665.0,        "Armature|walk.2"      ],      [        675.0,        "Armature|walk.1"      ],      [        685.0,        "Armature|walk.2"      ],      [        695.0,        "Armature|walk.1"      ],      [        705.0,        "Armature|walk.2"      ],      [        715.0,        "Armature|walk.1"      ],      [        725.0,        "Armature|walk.2"      ],      [        735.0,        "Armature|walk.1"      ],      [        745.0,        "Armature|walk.2"      ],      [        755.0,        "Armature|walk.1"      ],      [        765.0,        "Armature|walk.2"      ],      [        775.0,        "Armature|walk.1"      ],      [        785.0,        "Armature|walk.2"      ],      [        795.0,        "Armature|startStairsUp.2"      ],      [        810.0,        "Armature|stairsUp.2"      ],      [        820.0,        "Armature|stairsUp.1"      ],      [        830.0,        "Armature|stairsUp.2"      ],      [        840.0,        "Armature|stairsUp.1"      ],      [        850.0,        "Armature|stairsUp.2"      ],      [        860.0,        "Armature|stairsUp.1"      ],      [        870.0,        "Armature|endStairsUp.2"      ],      [        885.0,        "Armature|walk.2"      ],      [        895.0,        "Armature|walk.1"      ],      [        905.0,        "Armature|walk.2"      ],      [        915.0,        "Armature|walk.1"      ],      [        925.0,        "Armature|walk.2"      ],      [        935.0,        "Armature|walk.1"      ],      [        945.0,        "Armature|walk.2"      ],      [        955.0,        "Armature|walk.1"      ],      [        965.0,        "Armature|walk.2"      ],      [        975.0,        "Armature|walk.1"      ],      [        985.0,        "Armature|walk.2"      ],      [        995.0,        "Armature|walk.1"      ],      [        1005.0,        "Armature|walk.2"      ],      [        1015.0,        "Armature|walk.1"      ],      [        1025.0,        "Armature|walk.2"      ],      [        1035.0,        "Armature|walk.1"      ],      [        1045.0,        "Armature|walk.2"      ],      [        1055.0,        "Armature|walk.1"      ],      [        1065.0,        "Armature|walk.2"      ],      [        1075.0,        "Armature|walk.1"      ],      [        1085.0,        "Armature|walk.2"      ],      [        1095.0,        "Armature|walk.1"      ],      [        1105.0,        "Armature|walk.2"      ],      [        1115.0,        "Armature|walk.1"      ],      [        1125.0,        "Armature|walk.2"      ],      [        1135.0,        "Armature|walk.1"      ],      [        1145.0,        "Armature|walk.2"      ],      [        1155.0,        "Armature|walk.1"      ],      [        1165.0,        "Armature|walk.2"      ],      [        1175.0,        "Armature|walk.1"      ],      [        1185.0,        "Armature|walk.2"      ],      [        1195.0,        "Armature|walk.1"      ],      [        1205.0,        "Armature|walk.2"      ],      [        1215.0,        "Armature|walk.1"      ],      [        1225.0,        "Armature|walk.2"      ],      [        1235.0,        "Armature|walk.1"      ],      [        1245.0,        "Armature|walk.2"      ],      [        1255.0,        "Armature|walk.1"      ],      [        1265.0,        "Armature|walk.2"      ],      [        1275.0,        "Armature|walk.1"      ],      [        1285.0,        "Armature|walk.2"      ],      [        1295.0,        "Armature|walk.1"      ],      [        1305.0,        "Armature|walk.2"      ],      [        1315.0,        "Armature|walk.1"      ],      [        1325.0,        "Armature|walk.2"      ],      [        1335.0,        "Armature|walk.1"      ],      [        1345.0,        "Armature|walk.2"      ],      [        1355.0,        "Armature|walk.1"      ],      [        1365.0,        "Armature|walk.2"      ],      [        1375.0,        "Armature|walk.1"      ],      [        1385.0,        "Armature|startStairsUp.1"      ],      [        1400.0,        "Armature|stairsUp.1"      ],      [        1410.0,        "Armature|stairsUp.2"      ],      [        1420.0,        "Armature|stairsUp.1"      ],      [        1430.0,        "Armature|stairsUp.2"      ],      [        1440.0,        "Armature|stairsUp.1"      ],      [        1450.0,        "Armature|stairsUp.2"      ],      [        1460.0,        "Armature|stairsUp.1"      ],      [        1470.0,        "Armature|stairsUp.2"      ],      [        1480.0,        "Armature|stairsUp.1"      ],      [        1490.0,        "Armature|stairsUp.2"      ],      [        1500.0,        "Armature|stairsUp.1"      ],      [        1510.0,        "Armature|stairsUp.2"      ],      [        1520.0,        "Armature|stairsUp.1"      ],      [        1530.0,        "Armature|stairsUp.2"      ],      [        1540.0,        "Armature|stairsUp.1"      ],      [        1550.0,        "Armature|stairsUp.2"      ],      [        1560.0,        "Armature|stairsUp.1"      ],      [        1570.0,        "Armature|stairsUp.2"      ],      [        1580.0,        "Armature|stairsUp.1"      ],      [        1590.0,        "Armature|stairsUp.2"      ],      [        1600.0,        "Armature|stairsUp.1"      ],      [        1610.0,        "Armature|stairsUp.2"      ],      [        1620.0,        "Armature|endStairsUp.1"      ],      [        1635.0,        "Armature|walk.1"      ],      [        1645.0,        "Armature|walk.2"      ],      [        1655.0,        "Armature|walk.1"      ],      [        1665.0,        "Armature|walk.2"      ],      [        1675.0,        "Armature|walk.1"      ],      [        1685.0,        "Armature|walk.2"      ],      [        1695.0,        "Armature|walk.1"      ],      [        1705.0,        "Armature|walk.2"      ],      [        1715.0,        "Armature|walk.1"      ],      [        1725.0,        "Armature|walk.2"      ],      [        1735.0,        "Armature|walk.1"      ],      [        1745.0,        "Armature|walk.2"      ],      [        1755.0,        "Armature|walk.1"      ],      [        1765.0,        "Armature|walk.2"      ],      [        1775.0,        "Armature|walk.1"      ],      [        1785.0,        "Armature|walk.2"      ],      [        1795.0,        "Armature|walk.1"      ],      [        1805.0,        "Armature|walk.2"      ],      [        1815.0,        "Armature|walk.1"      ],      [        1825.0,        "Armature|walk.2"      ],      [        1835.0,        "Armature|walk.1"      ],      [        1845.0,        "Armature|walk.2"      ],      [        1855.0,        "Armature|walk.1"      ],      [        1865.0,        "Armature|walk.2"      ],      [        1875.0,        "Armature|walk.1"      ],      [        1885.0,        "Armature|walk.2"      ],      [        1895.0,        "Armature|walk.1"      ],      [        1905.0,        "Armature|walk.2"      ],      [        1915.0,        "Armature|walk.1"      ],      [        1925.0,        "Armature|walk.2"      ],      [        1935.0,        "Armature|walk.1"      ],      [        1945.0,        "Armature|walk.2"      ],      [        1955.0,        "Armature|walk.1"      ],      [        1965.0,        "Armature|walk.2"      ],      [        1975.0,        "Armature|walk.1"      ],      [        1985.0,        "Armature|walk.2"      ],      [        1995.0,        "Armature|walk.1"      ],      [        2005.0,        "Armature|walk.2"      ],      [        2015.0,        "Armature|walk.1"      ],      [        2025.0,        "Armature|walk.2"      ],      [        2035.0,        "Armature|walk.1"      ],      [        2045.0,        "Armature|walk.2"      ],      [        2055.0,        "Armature|walk.1"      ],      [        2065.0,        "Armature|walk.2"      ],      [        2075.0,        "Armature|walk.1"      ],      [        2085.0,        "Armature|walk.2"      ],      [        2095.0,        "Armature|walk.1"      ],      [        2105.0,        "Armature|walk.2"      ],      [        2115.0,        "Armature|walk.1"      ],      [        2125.0,        "Armature|walk.2"      ],      [        2135.0,        "Armature|walk.1"      ],      [        2145.0,        "Armature|walk.2"      ],      [        2155.0,        "Armature|walk.1"      ],      [        2165.0,        "Armature|walk.2"      ],      [        2175.0,        "Armature|walk.1"      ],      [        2185.0,        "Armature|walk.2"      ],      [        2195.0,        "Armature|walk.1"      ],      [        2205.0,        "Armature|walk.2"      ],      [        2215.0,        "Armature|walk.1"      ],      [        2225.0,        "Armature|walk.2"      ],      [        2235.0,        "Armature|walk.1"      ],      [        2245.0,        "Armature|walk.2"      ],      [        2255.0,        "Armature|walk.1"      ],      [        2265.0,        "Armature|walk.2"      ],      [        2275.0,        "Armature|walk.1"      ],      [        2285.0,        "Armature|walk.2"      ],      [        2295.0,        "Armature|walk.1"      ],      [        2305.0,        "Armature|walk.2"      ],      [        2315.0,        "Armature|walk.1"      ],      [        2325.0,        "Armature|walk.2"      ],      [        2335.0,        "Armature|walk.1"      ],      [        2345.0,        "Armature|walk.2"      ],      [        2355.0,        "Armature|walk.1"      ],      [        2365.0,        "Armature|walk.2"      ],      [        2375.0,        "Armature|walk.1"      ],      [        2385.0,        "Armature|walk.2"      ],      [        2395.0,        "Armature|startStairs.2"      ],      [        2410.0,        "Armature|stairs.2"      ],      [        2420.0,        "Armature|stairs.1"      ],      [        2430.0,        "Armature|stairs.2"      ],      [        2440.0,        "Armature|stairs.1"      ],      [        2450.0,        "Armature|stairs.2"      ],      [        2460.0,        "Armature|stairs.1"      ],      [        2470.0,        "Armature|stairs.2"      ],      [        2480.0,        "Armature|stairs.1"      ],      [        2490.0,        "Armature|stairs.2"      ],      [        2500.0,        "Armature|stairs.1"      ],      [        2510.0,        "Armature|stairs.2"      ],      [        2520.0,        "Armature|stairs.1"      ],      [        2530.0,        "Armature|stairs.2"      ],      [        2540.0,        "Armature|stairs.1"      ],      [        2550.0,        "Armature|stairs.2"      ],      [        2560.0,        "Armature|stairs.1"      ],      [        2570.0,        "Armature|stairs.2"      ],      [        2580.0,        "Armature|stairs.1"      ],      [        2590.0,        "Armature|stairs.2"      ],      [        2600.0,        "Armature|stairs.1"      ],      [        2610.0,        "Armature|stairs.2"      ],      [        2620.0,        "Armature|endStairs.2"      ],      [        2635.0,        "Armature|walk.1"      ],      [        2645.0,        "Armature|walk.2"      ],      [        2655.0,        "Armature|walk.1"      ],      [        2665.0,        "Armature|walk.2"      ],      [        2675.0,        "Armature|walk.1"      ],      [        2685.0,        "Armature|walk.2"      ],      [        2695.0,        "Armature|walk.1"      ],      [        2705.0,        "Armature|walk.2"      ],      [        2715.0,        "Armature|walk.1"      ],      [        2725.0,        "Armature|walk.2"      ],      [        2735.0,        "Armature|walk.1"      ],      [        2745.0,        "Armature|walk.2"      ],      [        2755.0,        "Armature|walk.1"      ],      [        2765.0,        "Armature|walk.2"      ],      [        2775.0,        "Armature|walk.1"      ],      [        2785.0,        "Armature|walk.2"      ],      [        2795.0,        "Armature|walk.1"      ],      [        2805.0,        "Armature|walk.2"      ],      [        2815.0,        "Armature|walk.1"      ],      [        2825.0,        "Armature|walk.2"      ],      [        2835.0,        "Armature|walk.1"      ],      [        2845.0,        "Armature|walk.2"      ],      [        2855.0,        "Armature|walk.1"      ],      [        2865.0,        "Armature|walk.2"      ],      [        2875.0,        "Armature|walk.1"      ],      [        2885.0,        "Armature|walk.2"      ],      [        2895.0,        "Armature|walk.1"      ],      [        2905.0,        "Armature|walk.2"      ],      [        2915.0,        "Armature|walk.1"      ],      [        3030.0,        "Armature|walk.2"      ],      [        3040.0,        "Armature|walk.1"      ],      [        3050.0,        "Armature|walk.2"      ],      [        3060.0,        "Armature|walk.1"      ],      [        3070.0,        "Armature|walk.2"      ],      [        3080.0,        "Armature|walk.1"      ],      [        3090.0,        "Armature|walk.2"      ],      [        3100.0,        "Armature|walk.1"      ],      [        3110.0,        "Armature|walk.2"      ],      [        3120.0,        "Armature|walk.1"      ],      [        3130.0,        "Armature|walk.2"      ],      [        3140.0,        "Armature|walk.1"      ],      [        3150.0,        "Armature|walk.2"      ],      [        3160.0,        "Armature|walk.1"      ],      [        3170.0,        "Armature|walk.2"      ],      [        3180.0,        "Armature|walk.1"      ],      [        3190.0,        "Armature|walk.2"      ],      [        3200.0,        "Armature|walk.1"      ],      [        3210.0,        "Armature|walk.2"      ],      [        3220.0,        "Armature|walk.1"      ],      [        3230.0,        "Armature|walk.2"      ],      [        3240.0,        "Armature|walk.1"      ],      [        3250.0,        "Armature|walk.2"      ],      [        3260.0,        "Armature|walk.1"      ],      [        3270.0,        "Armature|walk.2"      ],      [        3280.0,        "Armature|walk.1"      ],      [        3290.0,        "Armature|walk.2"      ],      [        3300.0,        "Armature|walk.1"      ],      [        3310.0,        "Armature|walk.2"      ],      [        3320.0,        "Armature|walk.1"      ],      [        3330.0,        "Armature|walk.2"      ],      [        3340.0,        "Armature|walk.1"      ],      [        3350.0,        "Armature|walk.2"      ],      [        3360.0,        "Armature|walk.1"      ],      [        3370.0,        "Armature|walk.2"      ],      [        3380.0,        "Armature|end.2"      ],      [        3500.0,        "Armature|start"      ],      [        3515.0,        "Armature|walk.1"      ],      [        3525.0,        "Armature|walk.2"      ],      [        3535.0,        "Armature|walk.1"      ],      [        3545.0,        "Armature|walk.2"      ],      [        3555.0,        "Armature|walk.1"      ],      [        3565.0,        "Armature|walk.2"      ],      [        3575.0,        "Armature|walk.1"      ],      [        3585.0,        "Armature|walk.2"      ],      [        3595.0,        "Armature|walk.1"      ],      [        3605.0,        "Armature|walk.2"      ],      [        3615.0,        "Armature|startStairs.2"      ],      [        3630.0,        "Armature|stairs.2"      ],      [        3640.0,        "Armature|stairs.1"      ],      [        3650.0,        "Armature|stairs.2"      ],      [        3660.0,        "Armature|stairs.1"      ],      [        3670.0,        "Armature|stairs.2"      ],      [        3680.0,        "Armature|stairs.1"      ],      [        3690.0,        "Armature|stairs.2"      ],      [        3700.0,        "Armature|stairs.1"      ],      [        3710.0,        "Armature|stairs.2"      ],      [        3720.0,        "Armature|stairs.1"      ],      [        3730.0,        "Armature|stairs.2"      ],      [        3740.0,        "Armature|stairs.1"      ],      [        3750.0,        "Armature|stairs.2"      ],      [        3760.0,        "Armature|stairs.1"      ],      [        3770.0,        "Armature|stairs.2"      ],      [        3780.0,        "Armature|stairs.1"      ],      [        3790.0,        "Armature|stairs.2"      ],      [        3800.0,        "Armature|stairs.1"      ],      [        3810.0,        "Armature|stairs.2"      ],      [        3820.0,        "Armature|stairs.1"      ],      [        3830.0,        "Armature|stairs.2"      ],      [        3840.0,        "Armature|endStairs.2"      ],      [        3855.0,        "Armature|walk.1"      ],      [        3865.0,        "Armature|walk.2"      ],      [        3875.0,        "Armature|walk.1"      ],      [        3885.0,        "Armature|walk.2"      ],      [        3895.0,        "Armature|walk.1"      ],      [        3905.0,        "Armature|walk.2"      ],      [        3915.0,        "Armature|walk.1"      ],      [        3925.0,        "Armature|walk.2"      ],      [        3935.0,        "Armature|walk.1"      ],      [        3945.0,        "Armature|end.1"      ],      [        4000.0,        "Armature|start"      ],      [        4015.0,        "Armature|walk.1"      ],      [        4025.0,        "Armature|walk.2"      ],      [        4035.0,        "Armature|walk.1"      ],      [        4045.0,        "Armature|walk.2"      ],      [        4055.0,        "Armature|startStairs.2"      ],      [        4070.0,        "Armature|stairs.2"      ],      [        4080.0,        "Armature|stairs.1"      ],      [        4090.0,        "Armature|stairs.2"      ],      [        4100.0,        "Armature|stairs.1"      ],      [        4110.0,        "Armature|stairs.2"      ],      [        4120.0,        "Armature|endStairs.2"      ],      [        4135.0,        "Armature|walk.1"      ],      [        4145.0,        "Armature|walk.2"      ],      [        4155.0,        "Armature|walk.1"      ],      [        4165.0,        "Armature|walk.2"      ],      [        4175.0,        "Armature|walk.1"      ],      [        4185.0,        "Armature|walk.2"      ],      [        4195.0,        "Armature|walk.1"      ],      [        4205.0,        "Armature|walk.2"      ],      [        4215.0,        "Armature|walk.1"      ],      [        4225.0,        "Armature|walk.2"      ],      [        4235.0,        "Armature|walk.1"      ],      [        4245.0,        "Armature|walk.2"      ],      [        4255.0,        "Armature|walk.1"      ],      [        4265.0,        "Armature|walk.2"      ],      [        4275.0,        "Armature|walk.1"      ],      [        4285.0,        "Armature|walk.2"      ],      [        4295.0,        "Armature|walk.1"      ],      [        4305.0,        "Armature|walk.2"      ],      [        4315.0,        "Armature|walk.1"      ],      [        4325.0,        "Armature|walk.2"      ],      [        4335.0,        "Armature|walk.1"      ],      [        4345.0,        "Armature|walk.2"      ],      [        4355.0,        "Armature|startStairsUp.2"      ],      [        4370.0,        "Armature|stairsUp.2"      ],      [        4380.0,        "Armature|stairsUp.1"      ],      [        4390.0,        "Armature|stairsUp.2"      ],      [        4400.0,        "Armature|stairsUp.1"      ],      [        4410.0,        "Armature|stairsUp.2"      ],      [        4420.0,        "Armature|stairsUp.1"      ],      [        4430.0,        "Armature|endStairsUp.2"      ],      [        4445.0,        "Armature|walk.2"      ],      [        4455.0,        "Armature|walk.1"      ],      [        4465.0,        "Armature|walk.2"      ],      [        4475.0,        "Armature|walk.1"      ],      [        4485.0,        "Armature|walk.2"      ],      [        4495.0,        "Armature|walk.1"      ],      [        4505.0,        "Armature|walk.2"      ],      [        4515.0,        "Armature|walk.1"      ],      [        4525.0,        "Armature|walk.2"      ],      [        4535.0,        "Armature|walk.1"      ],      [        4545.0,        "Armature|walk.2"      ],      [        4555.0,        "Armature|walk.1"      ],      [        4565.0,        "Armature|walk.2"      ],      [        4575.0,        "Armature|walk.1"      ],      [        4585.0,        "Armature|walk.2"      ],      [        4595.0,        "Armature|walk.1"      ],      [        4605.0,        "Armature|walk.2"      ],      [        4615.0,        "Armature|walk.1"      ],      [        4625.0,        "Armature|walk.2"      ],      [        4635.0,        "Armature|walk.1"      ],      [        4645.0,        "Armature|walk.2"      ],      [        4655.0,        "Armature|walk.1"      ],      [        4665.0,        "Armature|walk.2"      ],      [        4675.0,        "Armature|walk.1"      ],      [        4685.0,        "Armature|walk.2"      ],      [        4695.0,        "Armature|walk.1"      ],      [        4705.0,        "Armature|walk.2"      ],      [        4715.0,        "Armature|walk.1"      ],      [        4725.0,        "Armature|walk.2"      ],      [        4735.0,        "Armature|walk.1"      ],      [        4745.0,        "Armature|walk.2"      ],      [        4755.0,        "Armature|walk.1"      ],      [        4765.0,        "Armature|walk.2"      ],      [        4775.0,        "Armature|walk.1"      ],      [        4785.0,        "Armature|walk.2"      ],      [        4795.0,        "Armature|walk.1"      ],      [        4805.0,        "Armature|walk.2"      ],      [        4815.0,        "Armature|walk.1"      ],      [        4825.0,        "Armature|walk.2"      ],      [        4835.0,        "Armature|walk.1"      ],      [        4845.0,        "Armature|walk.2"      ],      [        4855.0,        "Armature|walk.1"      ],      [        4865.0,        "Armature|walk.2"      ],      [        4875.0,        "Armature|walk.1"      ],      [        4885.0,        "Armature|walk.2"      ],      [        4895.0,        "Armature|walk.1"      ],      [        4905.0,        "Armature|walk.2"      ],      [        4915.0,        "Armature|walk.1"      ],      [        4925.0,        "Armature|walk.2"      ],      [        4935.0,        "Armature|walk.1"      ],      [        4945.0,        "Armature|walk.2"      ],      [        4955.0,        "Armature|walk.1"      ],      [        4965.0,        "Armature|walk.2"      ],      [        4975.0,        "Armature|walk.1"      ],      [        4985.0,        "Armature|walk.2"      ],      [        4995.0,        "Armature|walk.1"      ],      [        5005.0,        "Armature|walk.2"      ],      [        5015.0,        "Armature|walk.1"      ],      [        5025.0,        "Armature|walk.2"      ],      [        5035.0,        "Armature|walk.1"      ],      [        5045.0,        "Armature|walk.2"      ],      [        5055.0,        "Armature|walk.1"      ],      [        5065.0,        "Armature|walk.2"      ],      [        5075.0,        "Armature|walk.1"      ],      [        5085.0,        "Armature|walk.2"      ],      [        5095.0,        "Armature|walk.1"      ],      [        5105.0,        "Armature|walk.2"      ],      [        5115.0,        "Armature|walk.1"      ],      [        5125.0,        "Armature|walk.2"      ],      [        5135.0,        "Armature|walk.1"      ],      [        5145.0,        "Armature|walk.2"      ],      [        5155.0,        "Armature|walk.1"      ],      [        5165.0,        "Armature|walk.2"      ],      [        5175.0,        "Armature|walk.1"      ],      [        5185.0,        "Armature|walk.2"      ],      [        5195.0,        "Armature|walk.1"      ],      [        5205.0,        "Armature|walk.2"      ],      [        5215.0,        "Armature|walk.1"      ],      [        5225.0,        "Armature|walk.2"      ],      [        5235.0,        "Armature|walk.1"      ],      [        5245.0,        "Armature|walk.2"      ],      [        5255.0,        "Armature|walk.1"      ],      [        5265.0,        "Armature|walk.2"      ],      [        5275.0,        "Armature|walk.1"      ],      [        5285.0,        "Armature|walk.2"      ],      [        5295.0,        "Armature|walk.1"      ],      [        5305.0,        "Armature|walk.2"      ],      [        5315.0,        "Armature|walk.1"      ],      [        5325.0,        "Armature|walk.2"      ],      [        5335.0,        "Armature|walk.1"      ],      [        5345.0,        "Armature|walk.2"      ],      [        5355.0,        "Armature|walk.1"      ],      [        5365.0,        "Armature|walk.2"      ],      [        5375.0,        "Armature|walk.1"      ],      [        5385.0,        "Armature|walk.2"      ],      [        5395.0,        "Armature|walk.1"      ],      [        5405.0,        "Armature|walk.2"      ],      [ 5415.0, "Armature|walk.1" ],      [ 5425.0, "Armature|walk.2" ],      [ 5655, "Armature|walk.1" ],      [ 5665, "Armature|walk.2" ],      [ 5675, "Armature|walk.1" ],      [ 5685, "Armature|walk.2" ],      [ 5695, "Armature|walk.1" ],      [ 5705, "Armature|walk.2" ],      [ 5715, "Armature|walk.1" ],      [ 5725, "Armature|walk.2" ],      [ 5735, "Armature|end.2" ]    ]  },  "Button": {    "ObjectAnimation": [      [        0.0,        [          -11,          9,          -13        ],        [          90,          0,          90        ]      ],      [        3375.0,        [          -11,          9,          -13        ],        [          90,          0,          90        ]      ],      [        3377.0,        [          -11,          9.117287,          -13        ],        [          90,          0,          90        ]      ]    ]  },  "Camera": {    "ObjectAnimation": [      [        0.0,        [          -30,          10.1,          5.2        ],        [          0,          90,          0        ],        8.8      ],      [        20.0,        [          -30,          10.1,          5.2        ],        [          0,          90,          0        ],        8.8      ],      [        250.0,        [          -30,          10.7,          12.9        ],        [          4.5,          122.2,          0        ],        11.5      ],      [        315.0,        [ -30, 10.7, 12.9 ],        [ 4.5, 122.2, 0 ],        11.5      ],      [        470.0,        [ -24.7689, 17.8748, 25.5279 ],        [ 17.3116, 135.745, 0 ],        53.5647      ],      [        550.0,        [ -12.1883, 16.1578, 20.7322 ],        [ 24.038, 165.94, 0 ],        53      ],      [        645.0,        [ -17.6306, 8.52633, 22.8782 ],        [ 24.038, 165.94, 0 ],        17      ],      [        795.0,        [ -8.44858, 9.33956, 24.8038 ],        [ 24.038, 165.94, 0 ],        17      ],      [        860.0,        [          -11.4008,          7.70179,          23.8668        ],        [          18.8814,          143.881,          0        ],        13      ],      [        960.0,        [ -25.3721, 30.2042, 30.739 ],        [ 36.3566, 141.876, 0 ],        60      ],      [        975.0,        [ -25.3721, 30.2042, 30.739 ],        [ 36.3566, 141.876, 0 ],        60      ],      [        1035.0,        [          -34.7429,          24.3244,          25.6856        ],        [          24.611,          135,          0        ],        30      ],      [        1100.0,        [          -34.7429,          24.3244,          25.6856        ],        [          24.611,          135,          0        ],        30      ],      [        1200.0,        [          -34.7813,          26.2999,          24.3675        ],        [          24.611,          135,          0        ],        30      ],      [        1400.0,        [          -34.7813,          26.2999,          24.3675        ],        [          24.611,          135,          0        ],        30      ],      [        1460.0,        [          -32.1833,          27.0689,          25.5139        ],        [          22.0327,          149.897,          0        ],        16      ],      [        1635.0,        [          -34.6132,          22.5448,          26.2214        ],        [          22.0327,          149.897,          0        ],        16      ],      [        1695.0,        [          -31.563,          16.1569,          30.9772        ],        [          21.7462,          149.038,          0        ],        34      ],      [        1895.0,        [          -31.1472,          19.6974,          27.4055        ],        [          38.0755,          144.167,          0        ],        28      ],      [        1990.0,        [          -25.0514,          21.0147,          27.1821        ],        [          54.9777,          158.205,          0        ],        18      ],      [        2030.0,        [          -25.0514,          21.0147,          27.1821        ],        [          54.9777,          158.205,          0        ],        18      ],      [        2170.0,        [          -20.3072,          20.379,          30.0561        ],        [          54.9777,          158.205,          0        ],        18      ],      [        2200.0,        [          -18.1687,          18.779,          31.2959        ],        [          43.8958,          158.85,          0        ],        19.5789      ],      [        2270.0,        [          -11.5743,          13.845,          35.1191        ],        [          26.9028,          159.637,          0        ],        22      ],      [        2440.0,        [          -11.1629,          17.7617,          33.152        ],        [          26.9028,          159.637,          0        ],        17      ],      [        2620.0,        [          -15.737,          21.2768,          26.7312        ],        [          19.4544,          135,          0        ],        25      ],      [        2780.0,        [          -11.2356,          31.6355,          18.8246        ],        [          50.967,          167.086,          0        ],        25      ],      [        2880.0,        [ -11.0199, 32.1592, 18.1929 ],        [ 50.416, 179.508, 0 ],        25      ],      [        3030.0,        [          -11.6773,          18.3,          25.4815        ],        [          25.7569,          -180,          0        ],        52      ],      [        3060.0,        [          -14.1,          10.4753,          29.1037        ],        [          25.7569,          -180,          0        ],        18      ],      [        3100.0,        [          -14.6013,          15.4556,          23.6568        ],        [          53.8318,          170.546,          0        ],        17      ],      [        3140.0,        [          -15.0136,          15.7114,          23.0421        ],        [          42.9125,          158.372,          0        ],        19.0732      ],      [        3200.0,        [          -15.7945,          16.196,          21.8778        ],        [          36.6431,          138.747,          0        ],        23      ],      [        3310.0,        [          -15.7945,          16.196,          21.8778        ],        [          36.6431,          138.747,          0        ],        23      ],      [        3380.0,        [          -15.9959,          18.3495,          19.5703        ],        [          36.6431,          138.747,          0        ],        23      ],      [        3385.0,        [          -15.9959,          18.3495,          19.5703        ],        [          36.6431,          138.747,          0        ],        23      ],      [        3440.0,        [ -15.5168, 20.5, 18.446 ],        [ 36.6431, 138.747, 0 ],        70      ],      [        3573.66,        [ -15.5168, 20.5, 18.446 ],        [ 36.6431, 138.747, 0 ],        70      ],      [        3669.4,        [ -14.4207, 18.9441, 21.455 ],        [ 23.1786, 116.115, 0 ],        14      ],      [        3832.68,        [ -17.0025, 16.3689, 29.7707 ],        [ 18.595, 134.163, 0 ],        17      ],      [        3910.42,        [ -21.8605, 21.7659, 19.1845 ],        [ 30.9136, 127.001, 0 ],        66      ],      [        3950.07,        [ -21.8605, 21.7659, 19.1845 ],        [ 30.9136, 127.001, 0 ],        66      ],      [        4000,        [ -16.5523, 14.1535, 24.704 ],        [ 33.2054, -180, 0 ],        12      ],      [        4055,        [ -18.4265, 13.877, 24.885 ],        [ 33.2054, -180, 0 ],        12      ],      [        4162.24,        [ -22.9726, 7.72276, 26.1813 ],        [ 18.595, 148.487, 0 ],        18      ],      [        4205.51,        [ -16.8158, 3.83097, 21.409 ],        [ 6.56289, -180, 0 ],        15      ],      [        4244.6,        [ -16.8158, 3.83097, 21.409 ],        [ 6.56289, -180, 0 ],        15      ],      [        4341.5,        [ -10.2888, 3.71747, 21.4221 ],        [ 6.56289, -180, 0 ],        15      ],      [        4497.03,        [ -18.1361, 19.6172, 25.1776 ],        [ 20.4373, 146.461, 0 ],        60.8303      ],      [        4533.16,        [ -20.2845, 20.5968, 21.4836 ],        [ 39.2215, 143.044, 0 ],        33      ],      [        4688.93,        [ -49.9577, 49.6738, 37.8416 ],        [ 38.935, 128.433, 0 ],        25      ],      [        4823.61,        [ -47.3317, 6.17319, 17.0428 ],        [ -21.512, 105.228, 0 ],        20      ],      [        4927.32,        [ -42.808, 32.2085, 16.0425 ],        [ 18.8816, 104.655, 0 ],        20      ],      [        4951.13,        [ -42.808, 32.2085, 16.0425 ],        [ 18.8816, 104.655, 0 ],        20      ],      [        5027.53,        [ -33.9344, 36.4569, 26.2536 ],        [ 25.4706, 131.871, 0 ],        14      ],      [        5193.59,        [ -30.3053, 36.7585, 30.0872 ],        [ 25.4706, 131.871, 0 ],        21      ],      [        5303.66,        [ -31.3328, 33.3801, 30.9717 ],        [ 34.065, 135, 0 ],        66      ],      [        5540,        [ -31.3328, 33.3801, 30.9717 ],        [ 34.065, 135, 0 ],        66      ],      [        5640,        [ -49.8337, 57.5619, 62.7543 ],        [ 34.065, 135, 0 ],        66      ]    ]  },  "Creds": {    "ObjectAnimation": [      [        0,        [ -25, -500, 52 ],        [ -90, 32.5, 0 ]      ],      [        5590,        [ -25, -500, 52 ],        [ -90, 32.5, 0 ]      ],      [        5590,        [ -25, -90, 52 ],        [ -90, 32.5, 0 ]      ],      [        7200,        [ -25, 160, 52 ],        [ -90, 32.5, 0 ]      ]    ]  },  "Door.007": {    "ObjectAnimation": [      [        0.0,        [          1,          -1,          16.9        ],        [          0,          0,          0        ]      ],      [        3390.0,        [          1,          -1,          16.9        ],        [          0,          0,          0        ]      ],      [        3490.0,        [          1,          -1,          21        ],        [          0,          0,          0        ]      ]    ]  },  "Ida": {    "ObjectAnimation": [      [        0.0,        [          -21,          9,          1        ],        [          -90,          0,          0        ]      ],      [        140.0,        [          -21,          9,          1        ],        [          -90,          0,          0        ]      ],      [        175.0,        [          -21,          9,          3        ],        [          -90,          0,          0        ]      ],      [        270.0,        [          -21,          9,          3        ],        [          -90,          0,          0        ]      ],      [        315.0,        [          -21,          9,          6        ],        [          -90,          0,          0        ]      ],      [        320.0,        [          -21,          8.75,          6.375        ],        [          -90,          0,          0        ]      ],      [        330.0,        [          -21,          8.5,          6.625        ],        [          -90,          0,          0        ]      ],      [        460.0,        [          -21,          5.25,          9.875        ],        [          -90,          0,          0        ]      ],      [        470.0,        [          -21,          5,          10.333        ],        [          -90,          0,          0        ]      ],      [        475.0,        [          -21,          5,          10.333        ],        [          -90,          0,          0        ]      ],      [        495.0,        [          -21,          5,          12        ],        [          -90,          0,          0        ]      ],      [        500.0,        [          -21,          4.75,          12.375        ],        [          -90,          0,          0        ]      ],      [        510.0,        [          -21,          4.5,          12.625        ],        [          -90,          0,          0        ]      ],      [        510.0,        [          -21,          4.5,          12.625        ],        [          -90,          0,          0        ]      ],      [        560.0,        [          -21,          3.25,          13.875        ],        [          -90,          0,          0        ]      ],      [        570.0,        [          -21,          3,          14.333        ],        [          -90,          0,          0        ]      ],      [        575.0,        [          -21,          3,          14.333        ],        [          -90,          0,          0        ]      ],      [        585.0,        [          -21,          3,          15        ],        [          -90,          22.5,          0        ]      ],      [        595.0,        [          -20.75,          3,          15.667        ],        [          -90,          22.5,          0        ]      ],      [        605.0,        [          -20.5,          3,          16        ],        [          -90,          45,          0        ]      ],      [        615.0,        [          -20.0,          3,          16.333        ],        [          -90,          45,          0        ]      ],      [        625.0,        [          -19.5,          3,          16.667        ],        [          -90,          67.5,          0        ]      ],      [        635.0,        [          -19,          3,          17        ],        [          -90,          67.5,          0        ]      ],      [        645.0,        [          -18.333,          3,          17        ],        [          -90,          90,          0        ]      ],      [        795.0,        [          -8.667,          3,          17        ],        [          -90,          90,          0        ]      ],      [        810.0,        [          -8.107,          3,          17        ],        [          -90,          90,          0        ]      ],      [        870.0,        [          -6.607,          4.5,          17        ],        [          -90,          90,          0        ]      ],      [        880.0,        [          -6.387,          4.75,          17        ],        [          -90,          90,          0        ]      ],      [        885.0,        [          -6,          5,          17        ],        [          -90,          90,          0        ]      ],      [        905.0,        [          -4.667,          5,          17        ],        [          -90,          90,          0        ]      ],      [        940.0,        [          -2.333,          5,          17        ],        [          -90,          90,          0        ]      ],      [        940.0,        [          -17,          6,          5        ],        [          90,          90,          -90        ]      ],      [        975.0,        [          -17,          8.333,          5        ],        [          90,          90,          -90        ]      ],      [        985.0,        [          -17,          8.667,          5.333        ],        [          90,          135,          -90        ]      ],      [        995.0,        [          -17,          9,          5.667        ],        [          90,          180,          -90        ]      ],      [        1065.0,        [          -17,          9,          10.333        ],        [          90,          180,          -90        ]      ],      [        1075.0,        [          -17,          9.333,          10.667        ],        [          90,          135,          -90        ]      ],      [        1085.0,        [          -17,          9.667,          11        ],        [          90,          90,          -90        ]      ],      [        1215.0,        [          -17,          18.333,          11        ],        [          90,          90,          -90        ]      ],      [        1225.0,        [          -17,          18.667,          10.667        ],        [          90,          45,          -90        ]      ],      [        1235.0,        [          -17,          19,          10.333        ],        [          90,          0,          -90        ]      ],      [        1365.0,        [          -17,          19,          1.667        ],        [          90,          0,          -90        ]      ],      [        1375.0,        [          -17,          18.667,          1.333        ],        [          90,          -45,          -90        ]      ],      [        1385.0,        [          -17,          18.333,          1        ],        [          90,          -90,          -90        ]      ],      [        1400.0,        [          -17,          18.107,          1        ],        [          90,          -90,          -90        ]      ],      [        1620.0,        [          -22.5,          12.607,          1        ],        [          90,          -90,          -90        ]      ],      [        1630.0,        [          -22.75,          12.387,          1        ],        [          90,          -90,          -90        ]      ],      [        1635.0,        [          -23,          12,          1        ],        [          90,          -90,          -90        ]      ],      [        1685.0,        [          -23,          8,          1        ],        [          90,          -90,          -90        ]      ],      [        1695.0,        [          -23,          7.75,          1.25        ],        [          90,          -135,          -90        ]      ],      [        1885.0,        [          -23,          1.25,          7.75        ],        [          90,          -135,          -90        ]      ],      [        1895.0,        [          -23,          1,          8        ],        [          90,          180,          -90        ]      ],      [        1985.0,        [          -23,          1,          14        ],        [          90,          180,          -90        ]      ],      [        1995.0,        [          -22.9197,          1,          14.831        ],        [          99.6051,          180,          -90        ]      ],      [        2005.0,        [          -22.706,          1,          15.6375        ],        [          109.2102,          180,          -90        ]      ],      [        2015.0,        [          -22.3661,          1,          16.4        ],        [          118.8154,          180,          -90        ]      ],      [        2025.0,        [          -21.9038,          1,          17.0943        ],        [          128.4205,          180,          -90        ]      ],      [        2035.0,        [          -21.3353,          1,          17.7051        ],        [          138.0256,          180,          -90        ]      ],      [        2045.0,        [          -20.6742,          1,          18.2141        ],        [          147.6307,          180,          -90        ]      ],      [        2055.0,        [          -19.938,          1,          18.6069        ],        [          157.2359,          180,          -90        ]      ],      [        2065.0,        [          -19.1416,          1,          18.8563        ],        [          166.841,          180,          -90        ]      ],      [        2075.0,        [          -18.3126,          1,          18.9714        ],        [          176.4461,          180,          -90        ]      ],      [        2085.0,        [          -17.667,          1,          19        ],        [          180,          180,          -90        ]      ],      [        2275.0,        [          -5,          1,          19        ],        [          180,          180,          -90        ]      ],      [        2285.0,        [          -4.75,          1.25,          19        ],        [          180,          180,          -45        ]      ],      [        2315.0,        [          -3.25,          2.75,          19        ],        [          180,          180,          -45        ]      ],      [        2325.0,        [          -3,          3,          19        ],        [          180,          180,          0        ]      ],      [        2395.0,        [          -3,          8,          19        ],        [          180,          180,          0        ]      ],      [        2400.0,        [          -3,          8.375,          18.75        ],        [          180,          180,          0        ]      ],      [        2410.0,        [          -3,          8.625,          18.5        ],        [          180,          180,          0        ]      ],      [        2620.0,        [          -3,          13.875,          13.25        ],        [          180,          180,          0        ]      ],      [        2630.0,        [          -3,          14.333,          13        ],        [          180,          180,          0        ]      ],      [        2635.0,        [          -3,          14.333,          13        ],        [          180,          180,          0        ]      ],      [        2695.0,        [          -3,          18.333,          13        ],        [          180,          180,          0        ]      ],      [        2705.0,        [          -3.333,          18.667,          13        ],        [          180,          180,          45        ]      ],      [        2715.0,        [          -3.667,          19,          13        ],        [          -180,          180,          90        ]      ],      [        2725.0,        [          -4.3126,          19,          12.9714        ],        [          -170.3949,          180,          90        ]      ],      [        2735.0,        [          -5.1416,          19,          12.8563        ],        [          -160.7898,          180,          90        ]      ],      [        2745.0,        [          -5.938,          19,          12.6069        ],        [          -151.1846,          180,          90        ]      ],      [        2755.0,        [          -6.6742,          19,          12.2141        ],        [          -141.5795,          180,          90        ]      ],      [        2765.0,        [          -7.3353,          19,          11.7051        ],        [          -131.9744,          180,          90        ]      ],      [        2775.0,        [          -7.9038,          19,          11.0943        ],        [          -122.3693,          180,          90        ]      ],      [        2785.0,        [          -8.3661,          19,          10.4        ],        [          -112.7641,          180,          90        ]      ],      [        2795.0,        [          -8.706,          19,          9.6375        ],        [          -103.159,          180,          90        ]      ],      [        2805.0,        [          -8.9197,          19,          8.831        ],        [          -93.5539,          180,          90        ]      ],      [        2815.0,        [          -9,          19,          8        ],        [          -90,          180,          90        ]      ],      [        2920.0,        [          -9,          19,          0.333        ],        [          -90,          180,          90        ]      ],      [        2920.0,        [          -19,          -0.667,          13        ],        [          180,          180,          0        ]      ],      [        3025.0,        [          -19,          -0.667,          13        ],        [          180,          180,          0        ]      ],      [        3070.0,        [          -19,          2.333,          13        ],        [          180,          180,          0        ]      ],      [        3080.0,        [          -18.667,          2.667,          13        ],        [          180,          180,          -45        ]      ],      [        3090.0,        [          -18.333,          3,          13        ],        [          180,          180,          -90        ]      ],      [        3220.0,        [          -9.667,          3,          13        ],        [          180,          180,          -90        ]      ],      [        3230.0,        [          -9.333,          3.333,          13        ],        [          180,          180,          -45        ]      ],      [        3240.0,        [          -9,          3.667,          13        ],        [          180,          180,          0        ]      ],      [        3250.0,        [          -9.13068,          4.333,          12.9957        ],        [          180,          176.25,          0        ]      ],      [        3260.0,        [          -9.39018,          5,          12.9616        ],        [          180,          168.75,          0        ]      ],      [        3270.0,        [          -9.64301,          5.667,          12.8938        ],        [          180,          161.25,          0        ]      ],      [        3280.0,        [          -9.88446,          6.333,          12.7938        ],        [          180,          153.75,          0        ]      ],      [        3290.0,        [          -10.1111,          7,          12.6629        ],        [          180,          146.25,          0        ]      ],      [        3300.0,        [          -10.3188,          7.667,          12.5036        ],        [          180,          138.75,          0        ]      ],      [        3310.0,        [          -10.5036,          8.333,          12.3188        ],        [          180,          131.25,          0        ]      ],      [        3320.0,        [          -10.6629,          9,          12.1111        ],        [          180,          123.75,          0        ]      ],      [        3330.0,        [          -10.7938,          9.667,          11.8845        ],        [          180,          116.25,          0        ]      ],      [        3340.0,        [          -10.8938,          10.333,          11.643        ],        [          180,          108.75,          0        ]      ],      [        3350.0,        [          -10.9616,          11,          11.3902        ],        [          180,          101.25,          0        ]      ],      [        3360.0,        [          -10.9957,          11.667,          11.1311        ],        [          180,          93.75,          0        ]      ],      [        3370.0,        [          -11,          12.333,          11        ],        [          180,          90,          0        ]      ],      [        3380.0,        [          -11,          13,          11        ],        [          180,          90,          0        ]      ],      [        3390.0,        [          -11,          13,          11        ],        [          180,          90,          0        ]      ],      [        3415.0,        [          -10.8478,          13.7654,          11        ],        [          -157.5,          90,          0        ]      ],      [        3440.0,        [          -10.4142,          14.4142,          11        ],        [          -135,          90,          0        ]      ],      [        3465.0,        [          -9.76537,          14.8478,          11        ],        [          -112.5,          90,          0        ]      ],      [        3490.0,        [          -9,          15,          11        ],        [          -90,          90,          0        ]      ],      [        3510.0,        [          -9,          15,          11        ],        [          -90,          90,          0        ]      ],      [        3595.0,        [          -3.667,          15,          11        ],        [          -90,          90,          0        ]      ],      [        3605.0,        [          -3.333,          15,          11.5        ],        [          -90,          45,          0        ]      ],      [        3615.0,        [          -3,          15,          12        ],        [          -90,          0,          0        ]      ],      [        3620.0,        [          -3,          14.75,          12.375        ],        [          -90,          0,          0        ]      ],      [        3690.0,        [          -3,          13,          14.125        ],        [          -90,          0,          0        ]      ],      [        3840.0,        [          -3,          9.25,          17.875        ],        [          -90,          0,          0        ]      ],      [        3850.0,        [          -3,          9,          18.333        ],        [          -90,          0,          0        ]      ],      [        3855.0,        [          -3,          9,          18.333        ],        [          -90,          45,          0        ]      ],      [        3865.0,        [          -2.667,          9,          18.667        ],        [          -90,          45,          0        ]      ],      [        3875.0,        [          -2.333,          9,          19        ],        [          -90,          90,          0        ]      ],      [        3895.0,        [          -1,          9,          19        ],        [          -90,          90,          0        ]      ],      [        3910.0,        [          0,          9,          19        ],        [          -90,          90,          0        ]      ],      [        3910.0,        [          -19,          5,          8.333        ],        [          -90,          0,          0        ]      ],      [        3945.0,        [          -19,          5,          10.667        ],        [          -90,          0,          0        ]      ],      [        3950.0,        [          -19,          5,          10.667        ],        [          -90,          0,          0        ]      ],      [        4000.0,        [          -19,          5,          10.667        ],        [          -90,          0,          0        ]      ],      [        4010.0,        [          -19,          5,          10.667        ],        [          -90,          -45,          0        ]      ],      [        4015.0,        [          -19.333,          5,          11        ],        [          -90,          -45,          0        ]      ],      [        4025.0,        [          -19.667,          5,          11        ],        [          -90,          -90,          0        ]      ],      [        4035.0,        [          -20.333,          5,          11        ],        [          -90,          -90,          0        ]      ],      [        4045.0,        [          -20.667,          5,          11.333        ],        [          -90,          -45,          0        ]      ],      [        4055.0,        [          -21,          5,          12        ],        [          -90,          0,          0        ]      ],      [        4060.0,        [          -21,          4.75,          12.375        ],        [          -90,          0,          0        ]      ],      [        4070.0,        [          -21,          4.5,          12.625        ],        [          -90,          0,          0        ]      ],      [        4120.0,        [          -21,          3.25,          13.875        ],        [          -90,          0,          0        ]      ],      [        4130.0,        [          -21,          3,          14.333        ],        [          -90,          0,          0        ]      ],      [        4135.0,        [          -21,          3,          14.333        ],        [          -90,          0,          0        ]      ],      [        4145.0,        [          -21,          3,          15        ],        [          -90,          22.5,          0        ]      ],      [        4155.0,        [          -20.75,          3,          15.667        ],        [          -90,          22.5,          0        ]      ],      [        4165.0,        [          -20.5,          3,          16        ],        [          -90,          45,          0        ]      ],      [        4175.0,        [          -20.0,          3,          16.333        ],        [          -90,          45,          0        ]      ],      [        4185.0,        [          -19.5,          3,          16.667        ],        [          -90,          67.5,          0        ]      ],      [        4195.0,        [          -19,          3,          17        ],        [          -90,          67.5,          0        ]      ],      [        4205.0,        [          -18.333,          3,          17        ],        [          -90,          90,          0        ]      ],      [        4355.0,        [          -8.667,          3,          17        ],        [          -90,          90,          0        ]      ],      [        4370.0,        [          -8.107,          3,          17        ],        [          -90,          90,          0        ]      ],      [        4430.0,        [          -6.607,          4.5,          17        ],        [          -90,          90,          0        ]      ],      [        4440.0,        [          -6.387,          4.75,          17        ],        [          -90,          90,          0        ]      ],      [        4445.0,        [          -6,          5,          17        ],        [          -90,          90,          0        ]      ],      [        4465.0,        [          -4.667,          5,          17        ],        [          -90,          90,          0        ]      ],      [        4500.0,        [          -2.333,          5,          17        ],        [          -90,          90,          0        ]      ],      [        4500.0,        [          -17,          6,          5        ],        [          90,          90,          -90        ]      ],      [        4535.0,        [          -17,          8.333,          5        ],        [          90,          90,          -90        ]      ],      [        4545.0,        [          -17,          8.667,          5.333        ],        [          90,          135,          -90        ]      ],      [        4555.0,        [          -17,          9,          5.667        ],        [          90,          180,          -90        ]      ],      [        4625.0,        [          -17,          9,          10.333        ],        [          90,          180,          -90        ]      ],      [        4635.0,        [          -17,          9.333,          10.667        ],        [          90,          135,          -90        ]      ],      [        4645.0,        [          -17,          9.667,          11        ],        [          90,          90,          -90        ]      ],      [        4775.0,        [          -17,          18.333,          11        ],        [          90,          90,          -90        ]      ],      [        4785.0,        [          -17,          18.667,          10.667        ],        [          90,          45,          -90        ]      ],      [        4795.0,        [          -17,          19,          10.333        ],        [          90,          0,          -90        ]      ],      [        4805.0,        [          -16.9957,          19.1311,          9.667        ],        [          90,          0,          -93.75        ]      ],      [        4815.0,        [          -16.9616,          19.3902,          9        ],        [          90,          0,          -101.25        ]      ],      [        4825.0,        [          -16.8938,          19.643,          8.333        ],        [          90,          0,          -108.75        ]      ],      [        4835.0,        [          -16.7938,          19.8845,          7.667        ],        [          90,          0,          -116.25        ]      ],      [        4845.0,        [          -16.6629,          20.1111,          7        ],        [          90,          0,          -123.75        ]      ],      [        4855.0,        [          -16.5036,          20.3188,          6.333        ],        [          90,          0,          -131.25        ]      ],      [        4865.0,        [          -16.3188,          20.5036,          5.667        ],        [          90,          0,          -138.75        ]      ],      [        4875.0,        [          -16.1111,          20.6629,          5        ],        [          90,          0,          -146.25        ]      ],      [        4885.0,        [          -15.88446,          20.7938,          4.333        ],        [          90,          0,          -153.75        ]      ],      [        4895.0,        [          -15.64301,          20.8938,          3.667        ],        [          90,          0,          -161.25        ]      ],      [        4905.0,        [          -15.39018,          20.9616,          3        ],        [          90,          0,          -168.75        ]      ],      [        4915.0,        [          -15.13068,          20.9957,          2.333        ],        [          90,          0,          -176.25        ]      ],      [        4925.0,        [          -15,          21,          1.667        ],        [          90,          0,          -180        ]      ],      [        4935.0,        [          -14.667,          21,          1.333        ],        [          90,          45,          -180        ]      ],      [        4945.0,        [          -14.333,          21,          1        ],        [          90,          90,          -180        ]      ],      [        5045.0,        [          -7.667,          21,          1        ],        [          90,          90,          -180        ]      ],      [        5055.0,        [          -7.333,          21,          1.333        ],        [          90,          135,          -180        ]      ],      [        5065.0,        [          -7,          21,          1.667        ],        [          90,          180,          -180        ]      ],      [        5175.0,        [          -7,          21,          9        ],        [          90,          180,          -180        ]      ],      [        5185.0,        [          -6.5,          21,          9.5        ],        [          90,          135,          -180        ]      ],      [        5205.0,        [          -5.5,          21,          10.5        ],        [          90,          135,          -180        ]      ],      [        5215.0,        [          -5,          21,          11        ],        [          90,          90,          -180        ]      ],      [        5265.0,        [          -1.667,          21,          11        ],        [          90,          90,          -180        ]      ],      [        5275.0,        [          -1.333,          21,          10.667        ],        [          90,          45,          -180        ]      ],      [        5285.0,        [          -1,          21,          10.333        ],        [          90,          0,          -180        ]      ],      [        5439.0,        [ -1, 21, 0.04 ],        [ 90, 0, -180 ]      ],      [        5439.0,        [ -21, 9, 0.04 ],        [ -90, 0, 0 ]      ],      [        5660,        [ -21, 9, 0.04 ],        [ -90, 0, 0 ]      ],      [        5665,        [ -21, 9, 0.04 ],        [ -90, 0, 0 ]      ],      [        5735,        [ -21, 9, 5 ],        [ -90, 0, 0 ]      ]    ]  },  "RotCube": {    "ObjectAnimation": [      [        0.0,        [          11,          -9,          13        ],        [          0,          0,          0        ]      ],      [        3390.0,        [          11,          -9,          13        ],        [          0,          0,          0        ]      ],      [        3490.0,        [          11,          -9,          13        ],        [          -90,          0,          0        ]      ]    ]  },  "RotCuboid": {    "ObjectAnimation": [      [        0.0,        [          11,          -3,          13        ],        [          0,          0,          0        ]      ],      [        3390.0,        [          11,          -3,          13        ],        [          0,          0,          0        ]      ],      [        3490.0,        [          11,          -3,          13        ],        [          90,          0,          0        ]      ]    ]  },  "TransCube": {    "ObjectAnimation": [      [        3390.0,        [          18.99,          -1,          6.99        ],        [          0,          0,          0        ]      ],      [        3490.0,        [          18.99,          -3,          6.99        ],        [          0,          0,          0        ]      ]    ]  },  "TransNoShadowWall": {    "ObjectAnimation": [      [        355.0,        [          18.99,          -1,          6.99        ],        [          0,          90,          0        ]      ],      [        3390.0,        [          18.99,          -1,          6.99        ],        [          0,          90,          0        ]      ],      [        3490.0,        [          18.99,          -3,          6.99        ],        [          0,          90,          0        ]      ]    ]  },  "TransWall": {    "ObjectAnimation": [      [        0.0,        [          0,          0,          0        ],        [          0,          0,          0        ]      ],      [        320.0,        [          0,          0,          0        ],        [          0,          0,          0        ]      ],      [        350.0,        [          -0.1,          -3.0,          0        ],        [          0,          0,          0        ]      ],      [        450.0,        [          -0.1,          -3.9,          0        ],        [          0,          0,          0        ]      ],      [        450.0,        [          0,          0,          0        ],        [          0,          0,          0        ]      ],      [        510.0,        [          0,          0,          0        ],        [          0,          0,          0        ]      ],      [        510.0,        [          -0.1,          -3.9,          0        ],        [          0,          0,          0        ]      ],      [        860.0,        [          -0.1,          -3.9,          0        ],        [          0,          0,          0        ]      ],      [        860.0,        [          0,          0,          0        ],        [          0,          0,          0        ]      ],      [        1640.0,        [          0,          0,          0        ],        [          0,          0,          0        ]      ],      [        1640.0,        [          -0.1,          -3.9,          0        ],        [          0,          0,          0        ]      ],      [        2900.0,        [          -0.1,          -3.9,          0        ],        [          0,          0,          0        ]      ],      [        2900.0,        [ -3.1, -4.2, 0 ],        [ 0, 0, 0 ]      ],      [        3840,        [ -3.1, -4.2, 0 ],        [ 0, 0, 0 ]      ],      [        3840,        [ -0.01, -3.9, 0 ],        [ 0, 0, 0 ]      ],      [        3909,        [ -0.01, -3.2, 0 ],        [ 0, 0, 0 ]      ],      [        3974,        [ -0.01, -3.2, 0 ],        [ 0, 0, 0 ]      ],      [        3974,        [ -3.1, -4.2, 0 ],        [ 0, 0, 0 ]      ],      [        4615,        [ -3.1, -4.2, 0 ],        [ 0, 0, 0 ]      ],      [        4615,        [ -0.01, -3.2, 0 ],        [ 0, 0, 0 ]      ],      [        4720,        [ -0.01, -3.2, 0 ],        [ 0, 0, 0 ]      ],      [        4720,        [ -3.1, -4.2, 0 ],        [ 0, 0, 0 ]      ]    ]  }}

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "ArmatureObject.h"
 #include "Bones.h"
-#include <glm\gtc\matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "Extensions.h"
 
 ArmatureObject::ArmatureObject(std::string name, glm::mat4 modelMatrix, SceneObject* parent)
@@ -18,7 +18,7 @@ void ArmatureObject::setOffsetMatrix(glm::mat4 offsetMatrix)
 	_offsetMatrix = offsetMatrix;
 }
 
-SceneObject * ArmatureObject::createChild(std::string name, glm::mat4 modelMatrix, SceneObject * parent)
+SceneObject* ArmatureObject::createChild(std::string name, glm::mat4 modelMatrix, SceneObject* parent)
 {
 	return new ArmatureObject(name, modelMatrix, parent);
 }
@@ -35,7 +35,8 @@ void ArmatureObject::setBones(std::vector<glm::mat4>& bd)
 	if (id < 0) return;
 
 	glm::mat4 v = getModelMatrix() * _offsetMatrix;
-	if (_globalInverseArm) {
+	if (_globalInverseArm)
+	{
 		v = v * _globalInverseArm.value();
 	}
 
@@ -57,7 +58,8 @@ void ArmatureObject::animate(float time)
 	auto name = _animationName[lessOrEqualIdx];
 
 	auto mm = animations[name].getCurrentMatrix(time - *lessOrEqual);
-	if (mm) {
+	if (mm)
+	{
 		setLocalModelMatrix(mm.value());
 	}
 }
@@ -69,7 +71,9 @@ glm::mat4 ArmatureObject::getLocalModelMatrix()
 
 bool ArmatureObject::setGlobalInverse(glm::mat4 gi)
 {
-	if (_name == "Body") { //idk why this works but i'm not complaining
+	if (_name == "Body")
+	{
+		//idk why this works but i'm not complaining
 		_globalInverseArm = gi;
 		return true;
 	}

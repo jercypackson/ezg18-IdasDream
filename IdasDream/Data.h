@@ -1,12 +1,13 @@
 #pragma once
 
-#include <glm\glm.hpp>
+#include <glm/glm.hpp>
 
 struct VertData {
 	glm::mat4 modelMatix;
 	glm::mat4 normalMatrix;
 	float twistParam = 0;
-	glm::vec3 _padding;
+	float waveParam = -1;
+	glm::vec2 _padding;
 };
 
 const int NUM_BONES_PER_VEREX = 7;

@@ -183,7 +183,7 @@ void IdasDream::init()
 
 
 	// some OpenGL defaults
-	glClearColor(0.33f, 0.4f, 0.5f, 1.0f);
+	glClearColor(0.23f, 0.3f, 0.4f, 1.0f);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 
@@ -307,6 +307,10 @@ void IdasDream::update(float dt)
 				}
 			}
 
+			if (s->getName().find("Flag") != std::string::npos)
+			{
+				data.waveParam = glm::mod(t, glm::two_pi<float>()) * 2;
+			}
 
 			vd.push_back(data);
 		}
@@ -368,8 +372,6 @@ void IdasDream::reload()
 	_speed = static_cast<float>(reader.GetReal("Animation", "speed", 1));
 	_timeOffset = static_cast<float>(reader.GetReal("Animation", "timeOffset", 0));
 	_ticksPerSecond = static_cast<float>(reader.GetReal("Animation", "ticksPerSecond", 24));
-
-	//_animatedCamera = reader.GetBoolean("Camera", "automatic", true);
 
 	auto animationPath = reader.Get("Animation", "animationPath", "animation.json");
 

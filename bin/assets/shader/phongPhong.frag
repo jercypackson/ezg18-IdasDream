@@ -78,5 +78,8 @@ void main() {
     
     //color.rgb = abs(n);
     //color = vec4(vert.debugColor, 1);
+
+    //color.rgb = vert.debugColor;
+    //if (color.b < 0) color.r = abs(color.b);
 }
 
